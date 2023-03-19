@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Accounts | NAR Power System Specialists Corp.</title>
+    <title>Account | NAR Power System Specialists Corp.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
@@ -17,10 +17,9 @@
     <!-- icons -->
     <link href="../dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
-     <!-- Plugins css -->
+    <!-- Plugins css -->
     <link href="../dist/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
     <link href="../dist/assets/libs/dropify/css/dropify.min.css" rel="stylesheet" type="text/css" />
-
 </head>
 
 <!-- body start -->
@@ -272,7 +271,7 @@
                 </li>
 
                 <li>
-                    <h4 class="page-title-main">Accounts</h4>
+                    <h4 class="page-title-main">Profile</h4>
                 </li>
 
             </ul>
@@ -409,298 +408,157 @@
 
         <div class="content-page">
             <div class="content">
-
                 <!-- Start Content-->
                 <div class="container-fluid">
-
-                    <div class="row px-2">
-                        <div class="card">
-                            <div class="card-body">
-
-                                <div class="row">
-                                    <div class="col-xl-4 col-md-12">
-                                        <button class="btn btn-warning text-white rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                            <i class="mdi mdi-plus-circle me-1"></i>Add Account
-                                        </button>
-                                    </div>
-
-                                    <div class="col-xl-8 col-md-12">
-
-                                        <div class="row justify-content-end">
-
-                                            <div class="col-4">
-                                                <select class="form-select" id="example-select">
-                                                    <option selected>Default</option>
-                                                    <option>Brand</option>
-                                                    <option>Position</option>
-                                                    <option>Name</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="col-4">
-                                                <input type="text" id="simpleinput" class="form-control" placeholder="Search...">
-                                            </div>
-
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="card">
+                                <div class="card-body m-2">
+                                    <div class="dropdown float-end">
+                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="mdi mdi-dots-vertical"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-end">
+                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                            <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                            <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                            <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
                                         </div>
-
                                     </div>
+                                    <div class="d-flex mt-2">
+                                        <div class="flex-shrink-0">
+                                            <img src="../../assets/mam_ness.jpg" alt="" class="flex-shrink-0 rounded-circle avatar-xl">
+                                        </div>
+                                        <div class="flex-grow-1 align-items-center ms-3 mt-1">
+                                            <h4 class="mt-0 mb-1">JANET L. DELA CRUZ</h4>
+                                            <p class="text-muted"><small>Administration Head</small></p>
+                                            <p class="text-muted"><small>Supervising the day-to-day operations of the administrative department and staff members. Hiring, training, and evaluating employees and taking corrective action when necessary.</small/></p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row mb-2">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="user-first" class="mb-1">Firstname</label>
+                                                    <input type="text" class="form-control" value="Janet">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="user-first" class="mb-1">Lastname</label>
+                                                    <input type="text" class="form-control" value="Dela Cruz">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="user-first" class="mb-1">Middlename</label>
+                                                    <input type="text" class="form-control" value="Janet">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="user-first" class="mb-1">Contact number</label>
+                                                    <input type="text" class="form-control" value="09xx-xxx-xxxx">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                                            <div class="form-group">
+                                                <label for="user-first" class="mb-1">Address</label>
+                                                <input type="text" class="form-control" value="Antipolo City, Rizal Province">
 
+                                            </div>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="user-first" class="mb-1">Birthdate</label>
+                                                    <input type="text" class="form-control" value="July 1, 19xx">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="user-first" class="mb-1">Email Address</label>
+                                                    <input type="text" class="form-control" value="samplemail@gmail.com">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="user-first" class="mb-1">Position</label>
+                                                    <input type="text" class="form-control" value="Administration Head">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="user-first" class="mb-1">Branch/Site</label>
+                                                    <input type="text" class="form-control" value="Antipolo City">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 d-flex justify-content-end">
+                                            <button class="btn btn-warning text-white rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i class="mdi mdi-pencil me-1"></i>Edit Details
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="mb-4">NAR POWER SYSTEM SPEACIALISTS CORP.</h4>
+                                    <div class="mx-4">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="flex-shrink-0 avatar-md me-3">
+                                                <img src="../../assets/mam_ness.jpg" class="img-fluid rounded-circle" alt="user">
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
+                                                <small class="text-muted"><b>President</b></small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="flex-shrink-0 avatar-md me-3">
+                                                <img src="../../assets/boss_greg.jpg" class="img-fluid rounded-circle" alt="user">
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
+                                                <small class="text-muted"><b>President</b></small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="flex-shrink-0 avatar-md me-3">
+                                                <img src="../../assets/mam_janet.jpg" class="img-fluid rounded-circle" alt="user">
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
+                                                <small class="text-muted"><b>President</b></small>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-center mb-3">
+                                            <div class="flex-shrink-0 avatar-md me-3">
+                                                <img src="../../assets/mam_nath.jpg" class="img-fluid rounded-circle" alt="user">
+                                            </div>
+                                            <div class="flex-grow-1 overflow-hidden">
+                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
+                                                <small class="text-muted"><b>President</b></small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-                    </div>
-                    <!-- end row -->
-
                 </div> <!-- container-fluid -->
-
             </div> <!-- content -->
 
-            <!-- Add New Account MODAL -->
-            <div class="modal fade" id="exampleModal" tabindex="-1">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header py-3 px-4 border-bottom-0 d-block">
-                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <h3 class="modal-title" id="modal-title">Add Profile</h3>
-                        </div>
-                        <div class="modal-body px-4 pb-4 pt-0 mx-4">
-                            <form class="needs-validation" novalidate >
-                                <div class="row mb-3">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Firstname</label>
-                                            <input type="text" class="form-control"  required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group ">
-                                            <label for="user-first" class="mb-1">Middlename</label>
-                                            <input type="text" class="form-control"  required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group ">
-                                            <label for="user-first" class="mb-1">Lastname</label>
-                                            <input type="text" class="form-control"  required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Address</label>
-                                            <textarea type="text" class="form-control" rows="1" required></textarea>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Contact number</label>
-                                            <input type="text" class="form-control"  required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group mb-2">
-                                            <label for="user-first" class="mb-1">Birthdate</label>
-                                            <input type="date" class="form-control" value="" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Position</label>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option selected></option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group mb-2">
-                                            <label for="user-first" class="mb-1">Email Address</label>
-                                            <input type="text" class="form-control"  required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Branch/Site</label>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option selected></option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1 text-center">Profile Picture</label>
-                                            <div class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
-                                                
-                                                <div class="dz-message needsclick">
-                                                    <i class="h1 text-muted dripicons-cloud-upload"></i>
-                                                    <h3>Choose Photo</h3>
-                                                    <span class="text-muted font-13">(This is just a demo dropzone. Selected files are
-                                                        <strong>not</strong> actually uploaded.)</span>
-                                                </div>
-                                                <div class="fallback">
-                                                    <input name="file" class="form-control" type="file" multiple />
-                                                </div>
-                                                <div class="dropzone-previews mt-3" id="file-previews"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-4">
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                        <button type="submit" class="btn btn-success px-5 rounded-pill" id="btn-save-event">Save</button>
-                                        <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div> <!-- end modal-content-->
-                </div> <!-- end modal dialog-->
-            </div>
-
             <!-- Edit profile MODAL -->
-            <div class="modal fade" id="exampleModal2" tabindex="-1">
+            <div class="modal fade" id="exampleModal" tabindex="-1">
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
                         <div class="modal-header py-3 px-4 border-bottom-0 d-block">
@@ -813,7 +671,6 @@
                 </div> <!-- end modal dialog-->
             </div>
 
-
             <!-- Footer Start -->
             <footer class="footer">
                 <div class="container-fluid">
@@ -867,11 +724,12 @@
     <!-- Dashboar init js-->
     <script src="../dist/assets/js/pages/dashboard.init.js"></script>
 
-    <!-- Plugins js -->
-        <script src="../dist/assets/libs/dropzone/min/dropzone.min.js"></script>
-        <script src="../dist/assets/libs/dropify/js/dropify.min.js"></script>
     <!-- App js-->
     <script src="../dist/assets/js/app.min.js"></script>
+
+    <!-- Plugins js -->
+    <script src="../dist/assets/libs/dropzone/min/dropzone.min.js"></script>
+    <script src="../dist/assets/libs/dropify/js/dropify.min.js"></script>
 
 </body>
 
