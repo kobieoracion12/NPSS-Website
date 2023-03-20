@@ -1,3 +1,7 @@
+<?php
+    include_once "../../php/database.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -452,19 +456,26 @@
                     </div>
 
                     <div class="row">
+                        <?php
+                            $sql = mysqli_query($config, "SELECT * FROM employee_info");
+                            while($row = mysqli_fetch_array($sql)) {
+                        ?>
+
                         <div class="col-xl-4 col-md-6">
                             <div class="card">
                                 <div class="card-body text-center">
                                     <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
+                                        <img src="../../assets/default_profile.png" alt="image" class="img-fluid avatar-xl rounded-circle" />
                                     </div>
 
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
+                                    <p class="text-muted mt-3"><?php echo $row['job_desc'] ?></p>
+                                    <h4 class="header-title mb-0"><?php echo $row['first_name'], " ", $row['last_name']; ?></h4>
+                                    <h5 class="mt-0 text-primary"><?php echo $row['position'] ?></h5>
+                                    <p class="mb-0"><?php echo $row['contact_no'] ?></p>
+                                    <p class="mb-0"><?php echo $row['email_add'] ?></p>
+                                    <p class="mb-0"><?php echo $row['branch_site'] ?></p>
+
+                                   
 
                                     <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
                                     <button class="btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit Profile</button>
@@ -473,110 +484,7 @@
                             </div>
                         </div><!-- end col -->
 
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
-
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
-                                <div class="card-body text-center">
-                                    <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-xl rounded-circle" />
-                                    </div>
-
-                                    <p class="text-muted mt-3">The Chief Executive Officer provides leadership for all aspects of the company's operations with an emphasis on long-term goals, growth, profit, and return on investment.</p>
-                                    <h4 class="header-title mb-0">Ness B. Rondilla</h4>
-                                    <h5 class="mt-0 text-primary">President</h5>
-                                    <p class="mb-0">09xx-xxx-xxxx</p>
-                                    <p class="mb-0">sample@gmail.com</p>
-                                    <p class="mb-0">Antipolo</p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2">Edit Profile</button>
-
-                                </div>
-                            </div>
-                        </div><!-- end col -->
+                        <?php } ?>
                     </div>
                     <!-- end row -->
 
@@ -592,109 +500,119 @@
                             <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
                             <h3 class="modal-title" id="modal-title">Add Profile</h3>
                         </div>
+
                         <div class="modal-body px-4 pb-4 pt-0 mx-4">
-                            <form class="needs-validation" novalidate >
+                            <form class="needs-validation" method="post" action="../../php/create_account.php" enctype="multipart/form-data" novalidate>
                                 <div class="row mb-3">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="user-first" class="mb-1">Firstname</label>
-                                            <input type="text" class="form-control"  required>
+                                            <label class="mb-1">First Name</label>
+                                            <input type="text" name="first_name" class="form-control" required>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group ">
-                                            <label for="user-first" class="mb-1">Middlename</label>
-                                            <input type="text" class="form-control"  required>
+                                            <label class="mb-1">Middle Name</label>
+                                            <input type="text" name="middle_name" class="form-control">
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group ">
-                                            <label for="user-first" class="mb-1">Lastname</label>
-                                            <input type="text" class="form-control"  required>
+                                            <label class="mb-1">Last Name</label>
+                                            <input type="text" name="last_name" class="form-control" required>
+                                            <div class="invalid-feedback">Please fill in this field</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group ">
+                                            <label class="mb-1">Suffix</label>
+                                            <input type="text" name="given_suffix" class="form-control">
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
                                         <div class="form-group">
-                                            <label for="user-first" class="mb-1">Address</label>
-                                            <textarea type="text" class="form-control" rows="1" required></textarea>
+                                            <label class="mb-1">Address</label>
+                                            <textarea type="text" name="given_address" class="form-control" rows="1" required></textarea>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="user-first" class="mb-1">Contact number</label>
-                                            <input type="text" class="form-control"  required>
+                                            <label class="mb-1">Contact Number</label>
+                                            <input type="text" name="contact_no" class="form-control">
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+
+                                <div class="row mb-2">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group mb-2">
-                                            <label for="user-first" class="mb-1">Birthdate</label>
-                                            <input type="date" class="form-control" value="" required>
+                                            <label class="mb-1">Birth Date</label>
+                                            <input type="date" name="birth_date" class="form-control" value="" required>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="user-first" class="mb-1">Position</label>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option selected></option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
+                                            <label class="mb-1">Position</label>
+                                            <input type="text" name="position" class="form-control" required>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group mb-2">
-                                            <label for="user-first" class="mb-1">Email Address</label>
-                                            <input type="text" class="form-control"  required>
+                                            <label class="mb-1">Email Address</label>
+                                            <input type="text" name="email_add" class="form-control"  required>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="user-first" class="mb-1">Branch/Site</label>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option selected></option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                            <label class="mb-1">Branch/Site</label>
+                                            <select class="form-select" name="branch_site" aria-label="Default select example" required>
+                                                <option value="Antipolo" selected>Antipolo</option>
                                             </select>
                                             <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1 text-center">Profile Picture</label>
-                                            <div class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
-                                                
-                                                <div class="dz-message needsclick">
-                                                    <i class="h1 text-muted dripicons-cloud-upload"></i>
-                                                    <h3>Choose Photo</h3>
-                                                    <span class="text-muted font-13">(This is just a demo dropzone. Selected files are
-                                                        <strong>not</strong> actually uploaded.)</span>
-                                                </div>
-                                                <div class="fallback">
-                                                    <input name="file" class="form-control" type="file" multiple />
-                                                </div>
-                                                <div class="dropzone-previews mt-3" id="file-previews"></div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row mb-2">
+                                    <div class="form-group">
+                                        <label class="mb-1">Job Description</label>
+                                        <textarea type="text" name="description" class="form-control" rows="4" required></textarea>
+                                        <div class="invalid-feedback">Please fill in this field</div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label class="mb-1 text-center">Profile Picture</label>
+                                            <input name="profile_pic" id="profile_pic" class="form-control" type="file" /> 
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label class="mb-1 text-center">Upload Resume</label>
+                                            <input name="uploaded_cv" id="uploaded_cv" class="form-control" type="file" /> 
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row mt-4">
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                        <button type="submit" class="btn btn-success px-5 rounded-pill" id="btn-save-event">Save</button>
+                                        <button type="submit" name="register_user" class="btn btn-success px-5 rounded-pill" id="btn-save-event">Save</button>
                                         <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        
                     </div> <!-- end modal-content-->
                 </div> <!-- end modal dialog-->
             </div>
@@ -705,110 +623,121 @@
                     <div class="modal-content">
                         <div class="modal-header py-3 px-4 border-bottom-0 d-block">
                             <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <h3 class="modal-title" id="modal-title">Employee Profile</h3>
+                            <h3 class="modal-title" id="modal-title">Edit Profile</h3>
                         </div>
+
                         <div class="modal-body px-4 pb-4 pt-0 mx-4">
-                            <form class="needs-validation" novalidate>
+                            <form class="needs-validation" method="post" action="../../php/create_account.php" enctype="multipart/form-data" novalidate>
                                 <div class="row mb-3">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="user-first" class="mb-1">Firstname</label>
-                                            <input type="text" class="form-control" value="Janet" required>
+                                            <label class="mb-1">First Name</label>
+                                            <input type="text" name="first_name" class="form-control" required>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group ">
-                                            <label for="user-first" class="mb-1">Middlename</label>
-                                            <input type="text" class="form-control" value="Dela Cruz" required>
+                                            <label class="mb-1">Middle Name</label>
+                                            <input type="text" name="middle_name" class="form-control">
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group ">
-                                            <label for="user-first" class="mb-1">Lastname</label>
-                                            <input type="text" class="form-control" value="Dela Cruz" required>
+                                            <label class="mb-1">Last Name</label>
+                                            <input type="text" name="last_name" class="form-control" required>
+                                            <div class="invalid-feedback">Please fill in this field</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group ">
+                                            <label class="mb-1">Suffix</label>
+                                            <input type="text" name="given_suffix" class="form-control">
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
                                         <div class="form-group">
-                                            <label for="user-first" class="mb-1">Address</label>
-                                            <textarea type="text" class="form-control" rows="1" required>Antipolo City, Rizal Province</textarea>
+                                            <label class="mb-1">Address</label>
+                                            <textarea type="text" name="given_address" class="form-control" rows="1" required></textarea>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
                                     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="user-first" class="mb-1">Contact number</label>
-                                            <input type="text" class="form-control" value="09xx-xxx-xxxx" required>
+                                            <label class="mb-1">Contact Number</label>
+                                            <input type="text" name="contact_no" class="form-control">
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+
+                                <div class="row mb-2">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group mb-2">
-                                            <label for="user-first" class="mb-1">Birthdate</label>
-                                            <input type="date" class="form-control" value="" required>
+                                            <label class="mb-1">Birth Date</label>
+                                            <input type="date" name="birth_date" class="form-control" value="" required>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="user-first" class="mb-1">Position</label>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option selected>Administration</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
+                                            <label class="mb-1">Position</label>
+                                            <input type="text" name="position" class="form-control" required>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group mb-2">
-                                            <label for="user-first" class="mb-1">Email Address</label>
-                                            <input type="text" class="form-control" value="samplemail@gmail.com" required>
+                                            <label class="mb-1">Email Address</label>
+                                            <input type="text" name="email_add" class="form-control"  required>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="user-first" class="mb-1">Branch/Site</label>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option selected>Antipolo City</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                            <label class="mb-1">Branch/Site</label>
+                                            <select class="form-select" name="branch_site" aria-label="Default select example" required>
+                                                <option value="Antipolo" selected>Antipolo</option>
                                             </select>
                                             <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1 text-center">Profile Picture</label>
-                                            <div class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
-                                                <div class="fallback">
-                                                    <input name="file" class="form-control" type="file" multiple />
-                                                </div>
-                                                <div class="dz-message needsclick">
-                                                    <i class="h1 text-muted dripicons-cloud-upload"></i>
-                                                    <h3>Choose Photo</h3>
-                                                    <span class="text-muted font-13">(This is just a demo dropzone. Selected files are
-                                                        <strong>not</strong> actually uploaded.)</span>
-                                                </div>
-                                                <div class="dropzone-previews mt-3" id="file-previews"></div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="row mb-2">
+                                    <div class="form-group">
+                                        <label class="mb-1">Job Description</label>
+                                        <textarea type="text" name="description" class="form-control" rows="4" required></textarea>
+                                        <div class="invalid-feedback">Please fill in this field</div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label class="mb-1 text-center">Profile Picture</label>
+                                            <input name="profile_pic" id="profile_pic" class="form-control" type="file" /> 
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label class="mb-1 text-center">Upload Resume</label>
+                                            <input name="uploaded_cv" id="uploaded_cv" class="form-control" type="file" /> 
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="row mt-4">
                                     <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                        <button type="submit" class="btn btn-success px-5 rounded-pill" id="btn-save-event">Save</button>
+                                        <button type="submit" name="register_user" class="btn btn-success px-5 rounded-pill" id="btn-save-event">Save</button>
                                         <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
+                        
                     </div> <!-- end modal-content-->
                 </div> <!-- end modal dialog-->
             </div>
