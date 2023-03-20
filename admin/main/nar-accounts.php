@@ -461,8 +461,8 @@
                             while($row = mysqli_fetch_array($sql)) {
                         ?>
 
-                        <div class="col-xl-4 col-md-6">
-                            <div class="card">
+                        <div class="card-group col-xl-4 col-md-6 mt-3">
+                            <div class="card" >
                                 <div class="card-body text-center">
                                     <div class="col-md-4 mx-auto d-block">
                                         <img src="../../assets/default_profile.png" alt="image" class="img-fluid avatar-xl rounded-circle" />
@@ -475,10 +475,8 @@
                                     <p class="mb-0"><?php echo $row['email_add'] ?></p>
                                     <p class="mb-0"><?php echo $row['branch_site'] ?></p>
 
-                                   
-
                                     <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit Profile</button>
+                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit Profile</button>                             
 
                                 </div>
                             </div>
