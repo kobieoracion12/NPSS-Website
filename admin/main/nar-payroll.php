@@ -332,7 +332,7 @@
                         <li class="menu-title">Navigation</li>
 
                         <li>
-                            <a href="../index.php">
+                            <a href="nar-dashboard.php">
                                 <i class="mdi mdi-view-dashboard-outline"></i>
                                 <span class="badge bg-success rounded-pill float-end">9+</span>
                                 <span> Dashboard </span>

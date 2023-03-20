@@ -7,14 +7,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="../assets/nar-icon.ico">
+        <link rel="shortcut icon" href="../../assets/nar-icon.ico">
 
         <!-- App css -->
 
-        <link href="dist/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+        <link href="../dist/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
         <!-- icons -->
-        <link href="dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="../dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
     </head>
 
@@ -71,7 +71,7 @@
                                             <!-- item-->
                                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                                 <div class="d-flex align-items-start">
-                                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/user-2.jpg" alt="Generic placeholder image" height="32">
+                                                    <img class="d-flex me-2 rounded-circle" src="../assets/images/users/user-2.jpg" alt="Generic placeholder image" height="32">
                                                     <div class="w-100">
                                                         <h5 class="m-0 font-14">Erwin E. Brown</h5>
                                                         <span class="font-12 mb-0">UI Designer</span>
@@ -82,7 +82,7 @@
                                             <!-- item-->
                                             <a href="javascript:void(0);" class="dropdown-item notify-item">
                                                 <div class="d-flex align-items-start">
-                                                    <img class="d-flex me-2 rounded-circle" src="assets/images/users/user-5.jpg" alt="Generic placeholder image" height="32">
+                                                    <img class="d-flex me-2 rounded-circle" src="../assets/images/users/user-5.jpg" alt="Generic placeholder image" height="32">
                                                     <div class="w-100">
                                                         <h5 class="m-0 font-14">Jacob Deo</h5>
                                                         <span class="font-12 mb-0">Developer</span>
@@ -130,7 +130,7 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item active">
                                         <div class="notify-icon">
-                                            <img src="assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                            <img src="../assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" /> </div>
                                         <p class="notify-details">Cristina Pride</p>
                                         <p class="text-muted mb-0 user-msg">
                                             <small>Hi, How are you? What about our next meeting</small>
@@ -150,7 +150,7 @@
                                     <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                                         <div class="notify-icon">
-                                            <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" /> </div>
+                                            <img src="../assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" /> </div>
                                         <p class="notify-details">Karen Robinson</p>
                                         <p class="text-muted mb-0 user-msg">
                                             <small>Wow ! this admin looks good and awesome design</small>
@@ -200,7 +200,7 @@
     
                         <li class="dropdown notification-list topbar-dropdown">
                             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="dist/assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
+                                <img src="../dist/assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
                                 <span class="pro-user-name ms-1">
                                     Nowak <i class="mdi mdi-chevron-down"></i> 
                                 </span>
@@ -240,18 +240,18 @@
                     <div class="logo-box">
                         <a href="index.html" class="logo logo-light text-center">
                             <span class="logo-sm">
-                                <img src="dist/assets/images/logo-sm.png" alt="" height="22">
+                                <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="dist/assets/images/logo-light.png" alt="" height="16">
+                                <img src="../dist/assets/images/logo-light.png" alt="" height="16">
                             </span>
                         </a>
                         <a href="index.html" class="logo logo-dark text-center">
                             <span class="logo-sm">
-                                <img src="dist/assets/images/logo-sm.png" alt="" height="22">
+                                <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
                             </span>
                             <span class="logo-lg">
-                                <img src="dist/assets/images/logo-dark.png" alt="" height="16">
+                                <img src="../dist/assets/images/logo-dark.png" alt="" height="16">
                             </span>
                         </a>
                     </div>
@@ -282,13 +282,13 @@
                      <!-- User box -->
                     <div class="user-box text-center">
 
-                        <img src="dist/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+                        <img src="../dist/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
                             <div class="dropdown">
                                 <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">Nowak Helme</a>
                                 <div class="dropdown-menu user-pro-dropdown">
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <a href="nar-profile.php" class="dropdown-item notify-item">
                                         <i class="fe-user me-1"></i>
                                         <span>My Account</span>
                                     </a>
@@ -325,7 +325,7 @@
                             <li class="menu-title">Navigation</li>
                 
                             <li>
-                                <a href="index.php">
+                                <a href="nar-dashboard.php">
                                     <i class="mdi mdi-view-dashboard-outline"></i>
                                     <span class="badge bg-success rounded-pill float-end">9+</span>
                                     <span> Dashboard </span>
@@ -335,49 +335,49 @@
                             <li class="menu-title mt-2">Apps</li>
 
                             <li>
-                                <a href="main/nar-accounts.php">
+                                <a href="nar-accounts.php">
                                     <i class="mdi mdi-account-outline"></i>
                                     <span> Accounts </span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="main/nar-applicants.php">
+                                <a href="nar-applicants.php">
                                     <i class="mdi mdi-card-account-details-outline"></i>
                                     <span> Applicants </span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="main/nar-clients.php">
+                                <a href="nar-clients.php">
                                     <i class="mdi mdi-briefcase-variant-outline"></i>
                                     <span> Clients </span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="main/nar-documents.php">
+                                <a href="nar-documents.php">
                                     <i class="mdi mdi-file-document-outline"></i>
                                     <span> Documents </span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="main/nar-inquiries.php">
+                                <a href="nar-inquiries.php">
                                     <i class="mdi mdi-chat-alert-outline"></i>
                                      <span> Inquiries </span>
                                 </a>    
                             </li>
 
                             <li>
-                                <a href="main/nar-payroll.php">
+                                <a href="nar-payroll.php">
                                     <i class="mdi mdi-cash-register"></i>
                                     <span> Payroll </span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="main/nar-quotations.php">
+                                <a href="nar-quotations.php">
                                     <i class="mdi mdi-account-cash-outline"></i>
                                     <span> Quotations </span>
                                 </a>
@@ -557,7 +557,7 @@
                                     <div class="card-body widget-user">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0 avatar-lg me-3">
-                                                <img src="../assets/mam_ness.jpg" class="img-fluid rounded-circle" alt="user">
+                                                <img src="../../assets/mam_ness.jpg" class="img-fluid rounded-circle" alt="user">
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden">
                                                 <h5 class="mt-0 mb-1">Ness B. Rondilla</h5>
@@ -574,7 +574,7 @@
                                     <div class="card-body widget-user">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0 avatar-lg me-3">
-                                                <img src="../assets/boss_migs.jpg" class="img-fluid rounded-circle" alt="user">
+                                                <img src="../../assets/boss_migs.jpg" class="img-fluid rounded-circle" alt="user">
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden">
                                                 <h5 class="mt-0 mb-1">Miguel Lyndon B. Rondilla</h5>
@@ -591,7 +591,7 @@
                                     <div class="card-body widget-user">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0 avatar-lg me-3">
-                                                <img src="../assets/boss_greg.jpg" class="img-fluid rounded-circle" alt="user">
+                                                <img src="../../assets/boss_greg.jpg" class="img-fluid rounded-circle" alt="user">
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden">
                                                 <h5 class="mt-0 mb-1">Greg Mark R. Pantas</h5>
@@ -608,7 +608,7 @@
                                     <div class="card-body widget-user">
                                         <div class="d-flex align-items-center">
                                             <div class="flex-shrink-0 avatar-lg me-3">
-                                                <img src="../assets/mam_janet.jpg" class="img-fluid rounded-circle" alt="user">
+                                                <img src="../../assets/mam_janet.jpg" class="img-fluid rounded-circle" alt="user">
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden">
                                                 <h5 class="mt-0 mb-1">Janet L. Dela Cruz</h5>
@@ -659,26 +659,26 @@
         <div class="rightbar-overlay"></div>
 
         <!-- Vendor -->
-        <script src="dist/assets/libs/jquery/jquery.min.js"></script>
-        <script src="dist/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="dist/assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="dist/assets/libs/node-waves/waves.min.js"></script>
-        <script src="dist/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
-        <script src="dist/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
-        <script src="dist/assets/libs/feather-icons/feather.min.js"></script>
+        <script src="../dist/assets/libs/jquery/jquery.min.js"></script>
+        <script src="../dist/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../dist/assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="../dist/assets/libs/node-waves/waves.min.js"></script>
+        <script src="../dist/assets/libs/waypoints/lib/jquery.waypoints.min.js"></script>
+        <script src="../dist/assets/libs/jquery.counterup/jquery.counterup.min.js"></script>
+        <script src="../dist/assets/libs/feather-icons/feather.min.js"></script>
 
         <!-- knob plugin -->
-        <script src="dist/assets/libs/jquery-knob/jquery.knob.min.js"></script>
+        <script src="../dist/assets/libs/jquery-knob/jquery.knob.min.js"></script>
 
         <!--Morris Chart-->
-        <script src="dist/assets/libs/morris.js06/morris.min.js"></script>
-        <script src="dist/assets/libs/raphael/raphael.min.js"></script>
+        <script src="../dist/assets/libs/morris.js06/morris.min.js"></script>
+        <script src="../dist/assets/libs/raphael/raphael.min.js"></script>
   
         <!-- Dashboar init js-->
-        <script src="dist/assets/js/pages/dashboard.init.js"></script>
+        <script src="../dist/assets/js/pages/dashboard.init.js"></script>
 
         <!-- App js-->
-        <script src="dist/assets/js/app.min.js"></script>
+        <script src="../dist/assets/js/app.min.js"></script>
         
     </body>
 </html>

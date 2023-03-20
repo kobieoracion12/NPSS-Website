@@ -288,7 +288,7 @@
                                 <div class="dropdown-menu user-pro-dropdown">
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <a href="nar-accounts.php" class="dropdown-item notify-item">
                                         <i class="fe-user me-1"></i>
                                         <span>My Account</span>
                                     </a>
@@ -325,7 +325,7 @@
                             <li class="menu-title">Navigation</li>
                 
                             <li>
-                                <a href="../index.php">
+                                <a href="nar-dashboard.php">
                                     <i class="mdi mdi-view-dashboard-outline"></i>
                                     <span class="badge bg-success rounded-pill float-end">9+</span>
                                     <span> Dashboard </span>
