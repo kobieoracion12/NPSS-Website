@@ -558,19 +558,49 @@
                                             <input type="date" name="birth_date" class="form-control" value="" required>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="mb-1">Position</label>
-                                            <input type="text" name="position" class="form-control" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
                                     </div>
-
                                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group mb-2">
                                             <label class="mb-1">Email Address</label>
                                             <input type="text" name="email_add" class="form-control"  required>
                                             <div class="invalid-feedback">Please fill in this field</div>
+                                        </div>    
+                                    </div>                                    
+                                </div>
+                                <div class="row">
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group mb-2">
+                                            <label class="mb-1">Position</label>
+                                            <select class="form-select" name="position" aria-label="Default select example" required>
+                                                <?php
+                                                    $sql = mysqli_query($config, "SELECT position_name FROM position ORDER BY position_name");
+                                                    while($row = mysqli_fetch_array($sql)) {
+                                                ?>
+
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[0] ?></option>
+                                                
+                                                <?php } ?>
+                                            </select>
+                                            <div class="invalid-feedback">Please fill in this field</div>
+                                        </div>      
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                        <div class="form-group">
+                                            <label class="mb-1">Status</label>
+                                            <select class="form-select" name="status" aria-label="Default select example" required>
+                                                <?php
+                                                    $sql = mysqli_query($config, "SELECT status FROM employement_stat");
+                                                    while($row = mysqli_fetch_array($sql)) {
+                                                ?>
+
+                                                <option value="<?php echo $row[0] ?>"><?php echo $row[0] ?></option>
+                                                
+                                                <?php } ?>
+                                            </select>
+                                            <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                         <div class="form-group">
                                             <label class="mb-1">Branch/Site</label>
                                             <select class="form-select" name="branch_site" aria-label="Default select example" required>
