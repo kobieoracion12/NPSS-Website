@@ -22,13 +22,14 @@ if(isset($_POST['register_user'])) {
     $bday = $_POST['birth_date'];
     $email = $_POST['email_add'];
     $position = $_POST['position'];
+    $status = $_POST['status'];
     $branch = $_POST['branch_site'];
     $desc = $_POST['description'];
     //$profile = $_POST['profile_pic'];
     //$cv = $_POST['uploaded_cv'];
 
     // Record Employee Information to the employee_id table
-    $sql = mysqli_query($config, "INSERT INTO employee_info (employee_id, first_name, middle_name, last_name, given_suffix, contact_no, given_address, birth_date, email_add, position, branch_site, job_desc) VALUES ('$id', '$first', '$middle', '$last', '$suffix', '$contact', '$address', '$bday', '$email', '$position', '$branch', '$desc')");
+    $sql = mysqli_query($config, "INSERT INTO employee_info (employee_id, first_name, middle_name, last_name, given_suffix, contact_no, given_address, birth_date, email_add, position, emp_stat, branch_site, job_desc) VALUES ('$id', '$first', '$middle', '$last', '$suffix', '$contact', '$address', '$bday', '$email', '$position', '$status', '$branch', '$desc')");
     
     if($sql) {
         $select = mysqli_query($config, "SELECT employee_id FROM employee_info");
@@ -38,7 +39,7 @@ if(isset($_POST['register_user'])) {
 
         $password = rand(1000,9999);
 
-        $create = mysqli_query($config, "INSERT INTO account_info (employee_id, reg_email, reg_password) VALUES ('$last_id', '$email', '$password')");
+        $create = mysqli_query($config, "INSERT INTO account_info (employee_id, reg_email, reg_password, acc_priv) VALUES ('$last_id', '$email', '$password', '$position')");
 
         if($create) {
             header("Location: ../admin/main/nar-accounts.php?success");

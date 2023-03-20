@@ -589,7 +589,7 @@
                                             <label class="mb-1">Status</label>
                                             <select class="form-select" name="status" aria-label="Default select example" required>
                                                 <?php
-                                                    $sql = mysqli_query($config, "SELECT status FROM employement_stat");
+                                                    $sql = mysqli_query($config, "SELECT emp_stat FROM emp_status");
                                                     while($row = mysqli_fetch_array($sql)) {
                                                 ?>
 
