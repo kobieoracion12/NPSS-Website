@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 06:56 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Mar 21, 2023 at 03:49 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,17 +32,19 @@ CREATE TABLE `account_info` (
   `employee_id` bigint(16) NOT NULL,
   `reg_email` varchar(59) NOT NULL,
   `reg_password` varchar(59) NOT NULL,
-  `acc_priv` varchar(59) NOT NULL,
+  `acc_priv` enum('Super Admin','Admin','Administration','Finance','Purchasing') NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `account_info`
 --
 
 INSERT INTO `account_info` (`account_no`, `employee_id`, `reg_email`, `reg_password`, `acc_priv`, `date_registered`) VALUES
-(202300001, 202319863, 'nestorrondilla@gmail.com', '7672', '', '2023-03-20 02:45:19'),
-(202300003, 202319864, 'nessbrondilla@gmail.com', '5781', 'President', '2023-03-20 05:55:42');
+(1, 2023198600, 'sikobieaypros@gmail.com', '8317', 'Admin', '2023-03-21 01:18:12'),
+(2, 2023198601, 'sijirehmaybuko@gmail.com', '6467', 'Admin', '2023-03-21 01:42:50'),
+(4, 2023198602, 'sineilaypogs@gmail.com', '3006', '', '2023-03-21 02:26:00'),
+(5, 2023198603, 'sirichardaynapakabait@gmail.com', '5992', '', '2023-03-21 02:30:06');
 
 -- --------------------------------------------------------
 
@@ -57,7 +59,7 @@ CREATE TABLE `employee_info` (
   `middle_name` varchar(59) DEFAULT NULL,
   `last_name` varchar(59) NOT NULL,
   `given_suffix` varchar(59) DEFAULT NULL,
-  `contact_no` bigint(11) DEFAULT NULL,
+  `contact_no` varchar(11) DEFAULT NULL,
   `given_address` varchar(249) DEFAULT NULL,
   `birth_date` date NOT NULL,
   `email_add` varchar(59) DEFAULT NULL,
@@ -65,22 +67,20 @@ CREATE TABLE `employee_info` (
   `emp_stat` varchar(59) NOT NULL,
   `branch_site` varchar(59) NOT NULL,
   `job_desc` text NOT NULL,
-  `profile_pic` longblob DEFAULT NULL,
-  `uploaded_cv` longblob DEFAULT NULL,
+  `profile_pic` varchar(255) DEFAULT NULL,
+  `uploaded_cv` varchar(255) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee_info`
 --
 
 INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_name`, `last_name`, `given_suffix`, `contact_no`, `given_address`, `birth_date`, `email_add`, `position`, `emp_stat`, `branch_site`, `job_desc`, `profile_pic`, `uploaded_cv`, `date_created`) VALUES
-(3, 202319861, 'Kobie', '', 'Oracion', '', 9760435424, 'Luisiana, Laguna', '2000-07-12', 'kobie.oracion12@gmail.com', 'Intern', '', 'Antipolo', '', NULL, NULL, '2023-03-20 02:16:36'),
-(5, 20231987, 'Neil Arthur', 'Almadin', 'Pornela', 'Jr.', 9158493256, 'Sta.Cruz, Laguna', '2023-03-20', 'akosineilmabait@yahoo.com', 'Intern', '', 'Antipolo', 'kahit ano', NULL, NULL, '2023-03-20 02:18:12'),
-(7, 202319862, 'Richard', 'Almadin', 'Ramos', 'Sr.', 9158762834, 'kahit san', '2023-03-20', 'akosirichardmabait@yahoo.com', 'Intern', '', 'Antipolo', 'taga gawa ng bold', NULL, NULL, '2023-03-20 02:28:53'),
-(8, 20231988, 'Jireh Geleo', 'Almadin', 'Ramos', '', 9760435424, 'kahit san din', '2023-03-20', 'akosijirehmabait@yahoocom', 'Intern', '', 'Antipolo', 'taga bold', NULL, NULL, '2023-03-20 02:29:29'),
-(13, 202319863, 'Nestor', 'Alcala', 'Rondilla', '', 9760435424, 'Antipolo City', '2023-03-20', 'nestorrondilla@gmail.com', 'Hermano Mayor', '', 'Antipolo', 'sample', NULL, NULL, '2023-03-20 02:45:19'),
-(15, 202319864, 'Ness', 'Bitong', 'Rondilla', '', 9760435424, 'Antipolo City', '2023-03-20', 'nessbrondilla@gmail.com', 'President', 'Director', 'Antipolo', 'Basta', NULL, NULL, '2023-03-20 05:55:42');
+(1, 2023198600, 'Kobie', 'Naghuhubad', 'Oracion', 'Jr.', '09123456789', 'Luisiana, Laguna', '2023-03-21', 'sikobieaypros@gmail.com', 'President', 'Director', 'Antipolo', 'Corporate Master', NULL, NULL, '2023-03-21 02:28:05'),
+(2, 2023198601, 'Jireh', 'Dinamankupal', 'Ramos', '', '09987654321', 'Santa Cruz, Laguna', '2023-03-21', 'sijirehmaybuko@gmail.com', 'Vice President', 'Director', 'Antipolo', 'Corporate Slave', 'panda.jpg', NULL, '2023-03-21 02:28:08'),
+(4, 2023198602, 'Neil', 'Wholesome', 'Pornela', 'Ay', '09123456789', 'Santa Cruz, Laguna', '2023-03-21', 'sineilaypogs@gmail.com', 'Messenger', 'Regular', 'Antipolo', 'Corporate Pet', 'girl.jpg', 'Application-Form-2.pdf', '2023-03-21 02:28:11'),
+(5, 2023198603, 'Richard', 'Kupallang', 'Ramos', 'Sr', '09987654321', 'Santa Cruz, Laguna', '2023-03-22', 'sirichardaynapakabait@gmail.com', 'Treasurer', 'Regular', 'Antipolo', 'Corporate Flea', 'koenokatachi_sister.jpeg', 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.pdf', '2023-03-21 02:30:06');
 
 -- --------------------------------------------------------
 
@@ -91,7 +91,7 @@ INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_
 CREATE TABLE `emp_status` (
   `stat_no` int(59) NOT NULL,
   `emp_stat` varchar(59) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `emp_status`
@@ -116,7 +116,7 @@ INSERT INTO `emp_status` (`stat_no`, `emp_stat`) VALUES
 CREATE TABLE `position` (
   `position_no` int(11) NOT NULL,
   `position_name` varchar(249) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `position`
@@ -188,13 +188,13 @@ ALTER TABLE `position`
 -- AUTO_INCREMENT for table `account_info`
 --
 ALTER TABLE `account_info`
-  MODIFY `account_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=202300004;
+  MODIFY `account_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `employee_info`
 --
 ALTER TABLE `employee_info`
-  MODIFY `account_id` bigint(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `account_id` bigint(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `emp_status`
