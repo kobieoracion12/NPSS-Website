@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2023 at 05:59 AM
+-- Generation Time: Mar 21, 2023 at 07:35 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -74,6 +74,29 @@ INSERT INTO `company_profile` (`company_no`, `company_name`, `company_desc`, `br
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `docu_archive`
+--
+
+CREATE TABLE `docu_archive` (
+  `docu_no` bigint(59) NOT NULL,
+  `file_name` varchar(249) NOT NULL,
+  `display_name` varchar(249) NOT NULL,
+  `uploaded_file` varchar(249) NOT NULL,
+  `date_uploaded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `docu_archive`
+--
+
+INSERT INTO `docu_archive` (`docu_no`, `file_name`, `display_name`, `uploaded_file`, `date_uploaded`) VALUES
+(1, '', 'Sample Document', '', '2023-03-21 06:07:24'),
+(2, '', 'Sample Document 2', '', '2023-03-21 06:23:13'),
+(16, '', 'Sample Document 3', '', '2023-03-21 06:25:24');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `employee_info`
 --
 
@@ -135,11 +158,24 @@ INSERT INTO `emp_status` (`stat_no`, `emp_stat`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `file_access`
+--
+
+CREATE TABLE `file_access` (
+  `access_no` int(16) NOT NULL,
+  `docu_no` bigint(59) NOT NULL,
+  `employee_id` bigint(16) NOT NULL,
+  `position_no` bigint(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `position`
 --
 
 CREATE TABLE `position` (
-  `position_no` int(11) NOT NULL,
+  `position_no` bigint(16) NOT NULL,
   `position_name` varchar(249) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -193,6 +229,12 @@ ALTER TABLE `company_profile`
   ADD PRIMARY KEY (`company_no`);
 
 --
+-- Indexes for table `docu_archive`
+--
+ALTER TABLE `docu_archive`
+  ADD PRIMARY KEY (`docu_no`);
+
+--
 -- Indexes for table `employee_info`
 --
 ALTER TABLE `employee_info`
@@ -204,6 +246,15 @@ ALTER TABLE `employee_info`
 --
 ALTER TABLE `emp_status`
   ADD PRIMARY KEY (`stat_no`);
+
+--
+-- Indexes for table `file_access`
+--
+ALTER TABLE `file_access`
+  ADD PRIMARY KEY (`access_no`),
+  ADD KEY `docu_no` (`docu_no`),
+  ADD KEY `employee_id` (`employee_id`),
+  ADD KEY `position_no` (`position_no`);
 
 --
 -- Indexes for table `position`
@@ -228,6 +279,12 @@ ALTER TABLE `company_profile`
   MODIFY `company_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `docu_archive`
+--
+ALTER TABLE `docu_archive`
+  MODIFY `docu_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
 -- AUTO_INCREMENT for table `employee_info`
 --
 ALTER TABLE `employee_info`
@@ -240,10 +297,16 @@ ALTER TABLE `emp_status`
   MODIFY `stat_no` int(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `file_access`
+--
+ALTER TABLE `file_access`
+  MODIFY `access_no` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20233210000;
+
+--
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `position_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `position_no` bigint(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- Constraints for dumped tables
@@ -254,6 +317,14 @@ ALTER TABLE `position`
 --
 ALTER TABLE `account_info`
   ADD CONSTRAINT `account_info_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee_info` (`employee_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `file_access`
+--
+ALTER TABLE `file_access`
+  ADD CONSTRAINT `file_access_ibfk_1` FOREIGN KEY (`docu_no`) REFERENCES `docu_archive` (`docu_no`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `file_access_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `account_info` (`employee_id`),
+  ADD CONSTRAINT `file_access_ibfk_3` FOREIGN KEY (`position_no`) REFERENCES `position` (`position_no`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
