@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2023 at 03:49 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- Generation Time: Mar 21, 2023 at 05:59 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `account_info` (
   `reg_password` varchar(59) NOT NULL,
   `acc_priv` enum('Super Admin','Admin','Administration','Finance','Purchasing') NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `account_info`
@@ -45,6 +45,31 @@ INSERT INTO `account_info` (`account_no`, `employee_id`, `reg_email`, `reg_passw
 (2, 2023198601, 'sijirehmaybuko@gmail.com', '6467', 'Admin', '2023-03-21 01:42:50'),
 (4, 2023198602, 'sineilaypogs@gmail.com', '3006', '', '2023-03-21 02:26:00'),
 (5, 2023198603, 'sirichardaynapakabait@gmail.com', '5992', '', '2023-03-21 02:30:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company_profile`
+--
+
+CREATE TABLE `company_profile` (
+  `company_no` bigint(59) NOT NULL,
+  `company_name` varchar(249) NOT NULL,
+  `company_desc` text NOT NULL,
+  `branch_site` varchar(59) NOT NULL,
+  `contact_person` varchar(249) NOT NULL,
+  `contact_no` varchar(59) NOT NULL,
+  `company_logo` varchar(249) NOT NULL,
+  `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `company_profile`
+--
+
+INSERT INTO `company_profile` (`company_no`, `company_name`, `company_desc`, `branch_site`, `contact_person`, `contact_no`, `company_logo`, `date_registered`) VALUES
+(1, 'Jollibee Corporation', 'Bida bida si saya', 'Makati City', 'Richard Ramos', '09998181811', 'jollibee_logo.png', '2023-03-21 04:44:20'),
+(2, 'Philippine Air Force', 'Hukbong Himpapawid', 'Area 69', 'Neil Major Pornela', '09696969696', 'philippine_airfore_logo.png', '2023-03-21 04:52:06');
 
 -- --------------------------------------------------------
 
@@ -70,14 +95,14 @@ CREATE TABLE `employee_info` (
   `profile_pic` varchar(255) DEFAULT NULL,
   `uploaded_cv` varchar(255) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee_info`
 --
 
 INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_name`, `last_name`, `given_suffix`, `contact_no`, `given_address`, `birth_date`, `email_add`, `position`, `emp_stat`, `branch_site`, `job_desc`, `profile_pic`, `uploaded_cv`, `date_created`) VALUES
-(1, 2023198600, 'Kobie', 'Naghuhubad', 'Oracion', 'Jr.', '09123456789', 'Luisiana, Laguna', '2023-03-21', 'sikobieaypros@gmail.com', 'President', 'Director', 'Antipolo', 'Corporate Master', NULL, NULL, '2023-03-21 02:28:05'),
+(1, 2023198600, 'Kobie', 'Naghuhubad', 'Oracion', 'Jr.', '09123456789', 'Luisiana, Laguna', '2023-03-21', 'sikobieaypros@gmail.com', 'President', 'Director', 'Antipolo', 'Corporate Master', NULL, NULL, '2023-03-21 03:19:06'),
 (2, 2023198601, 'Jireh', 'Dinamankupal', 'Ramos', '', '09987654321', 'Santa Cruz, Laguna', '2023-03-21', 'sijirehmaybuko@gmail.com', 'Vice President', 'Director', 'Antipolo', 'Corporate Slave', 'panda.jpg', NULL, '2023-03-21 02:28:08'),
 (4, 2023198602, 'Neil', 'Wholesome', 'Pornela', 'Ay', '09123456789', 'Santa Cruz, Laguna', '2023-03-21', 'sineilaypogs@gmail.com', 'Messenger', 'Regular', 'Antipolo', 'Corporate Pet', 'girl.jpg', 'Application-Form-2.pdf', '2023-03-21 02:28:11'),
 (5, 2023198603, 'Richard', 'Kupallang', 'Ramos', 'Sr', '09987654321', 'Santa Cruz, Laguna', '2023-03-22', 'sirichardaynapakabait@gmail.com', 'Treasurer', 'Regular', 'Antipolo', 'Corporate Flea', 'koenokatachi_sister.jpeg', 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.pdf', '2023-03-21 02:30:06');
@@ -91,7 +116,7 @@ INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_
 CREATE TABLE `emp_status` (
   `stat_no` int(59) NOT NULL,
   `emp_stat` varchar(59) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `emp_status`
@@ -116,7 +141,7 @@ INSERT INTO `emp_status` (`stat_no`, `emp_stat`) VALUES
 CREATE TABLE `position` (
   `position_no` int(11) NOT NULL,
   `position_name` varchar(249) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `position`
@@ -162,6 +187,12 @@ ALTER TABLE `account_info`
   ADD UNIQUE KEY `employee_id` (`employee_id`);
 
 --
+-- Indexes for table `company_profile`
+--
+ALTER TABLE `company_profile`
+  ADD PRIMARY KEY (`company_no`);
+
+--
 -- Indexes for table `employee_info`
 --
 ALTER TABLE `employee_info`
@@ -189,6 +220,12 @@ ALTER TABLE `position`
 --
 ALTER TABLE `account_info`
   MODIFY `account_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `company_profile`
+--
+ALTER TABLE `company_profile`
+  MODIFY `company_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employee_info`

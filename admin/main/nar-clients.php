@@ -1,7 +1,8 @@
 <?php
-include('../../php/database.php');
-session_start();
+    include('../../php/database.php');
+    session_start();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +15,6 @@ session_start();
         <link rel="shortcut icon" href="../../assets/nar-icon.ico">
 
         <!-- App css -->
-
         <link href="../dist/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
         <!-- icons -->
@@ -451,7 +451,7 @@ session_start();
 
                                     <div class="row">
                                         <div class="col-xl-4 col-md-12">
-                                            <button class="btn btn-warning text-white rounded">
+                                            <button class="btn btn-warning text-white rounded" data-bs-toggle="modal" data-bs-target="#add-client">
                                                 <i class="mdi mdi-plus-circle me-1"></i>Add Client
                                             </button>
                                         </div>
@@ -482,127 +482,163 @@ session_start();
                             </div>
                         </div>
 
+                        <!-- Client Card -->
                         <div class="row">
-                            <div class="col-xl-3 col-md-6">
+                            <?php 
+                                $logo = mysqli_query($config, "SELECT * FROM company_profile");
+                                while($data = mysqli_fetch_array($logo)) { 
+                            ?>
+                            <div class="card-group col-xl-3 col-md-6">
+
                                 <div class="card rounded-lg">
                                     <div class="card-body p-4">
+                                        <div class="dropdown float-end">
+                                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="mdi mdi-dots-vertical"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-end">
+                                                <!-- item-->
+                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-client">Edit</a>
+                                                <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                                <a href="javascript:void(0);" class="dropdown-item">Manage</a>
+                                            </div>
+                                        </div>
+                                        
                                         <div class="col-md-4">
-                                            <img src="../../assets/bpi_logo.png" alt="image" class="img-fluid"/>
+                                            <img src="<?php echo "../../uploads/logo/" . $data['company_logo']; ?>" alt="image" class="img-fluid" />
                                         </div>
 
-                                        <h3 class="mt-3 mb-0">Bank of the Philippine Islands</h3>
-                                        <h6 class="mt-0 mb-0 text-muted font-weight-light mt-1">Branch Name</h6>
+                                        <h3 class="mt-3 mb-0"><?php echo $data['company_name']?></h3>
+                                        <h6 class="mt-0 mb-0 text-muted font-weight-light mt-1"><?php echo $data['branch_site']?></h6>
                                    
                                     </div>
                                 </div>
                             </div><!-- end col -->
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
-                                    <div class="card-body p-4">
-                                        <div class="col-md-4">
-                                            <img src="../../assets/coca_cola_logo.png" alt="image" class="img-fluid"/>
-                                        </div>
-
-                                        <h3 class="mt-3 mb-0">Coca-Cola Corporation</h3>
-                                        <h6 class="mt-0 mb-0 text-muted font-weight-light mt-1">Branch Name</h6>
-                                   
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
-                                    <div class="card-body p-4">
-                                        <div class="col-md-4">
-                                            <img src="../../assets/filinvest_logo.png" alt="image" class="img-fluid"/>
-                                        </div>
-
-                                        <h3 class="mt-3 mb-0">Filinvest</h3>
-                                        <h6 class="mt-0 mb-0 text-muted font-weight-light mt-1">Branch Name</h6>
-                                   
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
-                                    <div class="card-body p-4">
-                                        <div class="col-md-4">
-                                            <img src="../../assets/fujitsu_logo.png" alt="image" class="img-fluid"/>
-                                        </div>
-
-                                        <h3 class="mt-3 mb-0">Fujitsu</h3>
-                                        <h6 class="mt-0 mb-0 text-muted font-weight-light mt-1">Branch Name</h6>
-                                   
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
-
+                            <?php } ?>
                         </div>
                         <!-- end row -->
 
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
-                                    <div class="card-body p-4">
-                                        <div class="col-md-4">
-                                            <img src="../../assets/jollibee_logo.png" alt="image" class="img-fluid"/>
-                                        </div>
-
-                                        <h3 class="mt-3 mb-0">Jollibee Corporation</h3>
-                                        <h6 class="mt-0 mb-0 text-muted font-weight-light mt-1">Branch Name</h6>
-                                   
+                        <!-- Add Client Modal -->
+                        <div class="modal fade" id="add-client" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                                        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h3 class="modal-title" id="modal-title">Client Information</h3>
                                     </div>
-                                </div>
-                            </div><!-- end col -->
 
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
-                                    <div class="card-body p-4">
-                                        <div class="col-md-4">
-                                            <img src="../../assets/manilawater_logo.png" alt="image" class="img-fluid"/>
-                                        </div>
+                                    <div class="modal-body mx-4">
+                                        <form class="needs-validation" method="post" action="../../php/add-client.php" enctype="multipart/form-data" novalidate>
+                                            
+                                            <div class="row">
+                                                <div class="col-lg-6 col-sm-12">
+                                                    <label class="form-label">Company Name</label>
+                                                    <input class="form-control" name="company_name" type="text">
+                                                </div>
 
-                                        <h3 class="mt-3 mb-0">Manila Water</h3>
-                                        <h6 class="mt-0 mb-0 text-muted font-weight-light mt-1">Branch Name</h6>
-                                   
+                                                <div class="col-lg-6 col-sm-12">
+                                                    <label class="form-label">Company Description</label>
+                                                    <input class="form-control" name="company_desc" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <div class="col-lg-4 col-sm-12">
+                                                    <label class="form-label">Branch/Site</label>
+                                                    <input class="form-control" name="branch_site" type="text">
+                                                </div>
+
+                                                <div class="col-lg-4 col-sm-12">
+                                                    <label class="form-label">Contact Person</label>
+                                                    <input class="form-control" name="contact_person" type="text">
+                                                </div>
+
+                                                <div class="col-lg-4 col-sm-12">
+                                                    <label class="form-label">Contact Number</label>
+                                                    <input class="form-control" name="contact_no" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3 mb-4">
+                                                <div>
+                                                    <label class="form-label">Company Logo</label>
+                                                    <input class="form-control" name="company_logo" type="file" multiple />
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-4">
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                    <button type="submit" name="add-client" class="btn btn-primary px-5 rounded-pill" id="btn-save-event">Submit</button>
+                                                    <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
                                     </div>
-                                </div>
-                            </div><!-- end col -->
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
-                                    <div class="card-body p-4">
-                                        <div class="col-md-4">
-                                            <img src="../../assets/maynilad_logo.png" alt="image" class="img-fluid"/>
-                                        </div>
-
-                                        <h3 class="mt-3 mb-0">Maynilad</h3>
-                                        <h6 class="mt-0 mb-0 text-muted font-weight-light mt-1">Branch Name</h6>
-                                   
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
-                                    <div class="card-body p-4">
-                                        <div class="col-md-4">
-                                            <img src="../../assets/meralco_logo.png" alt="image" class="img-fluid"/>
-                                        </div>
-
-                                        <h3 class="mt-3 mb-0">Meralco Corporation</h3>
-                                        <h6 class="mt-0 mb-0 text-muted font-weight-light mt-1">Branch Name</h6>
-                                   
-                                    </div>
-                                </div>
-                            </div><!-- end col -->
-
+                                </div> <!-- end modal-content-->
+                            </div> <!-- end modal dialog-->
                         </div>
-                        <!-- end row -->
 
-                        
+                        <!-- Edit Client Modal -->
+                        <div class="modal fade" id="edit-client" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                                        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h3 class="modal-title" id="modal-title">Edit Information</h3>
+                                    </div>
+
+                                    <div class="modal-body mx-4">
+                                        <form class="needs-validation" method="post" action="../../php/add-client.php" enctype="multipart/form-data" novalidate>
+                                            
+                                            <div class="row">
+                                                <div class="col-lg-6 col-sm-12">
+                                                    <label class="form-label">Company Name</label>
+                                                    <input class="form-control" name="company_name" type="text">
+                                                </div>
+
+                                                <div class="col-lg-6 col-sm-12">
+                                                    <label class="form-label">Company Description</label>
+                                                    <input class="form-control" name="company_desc" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <div class="col-lg-4 col-sm-12">
+                                                    <label class="form-label">Branch/Site</label>
+                                                    <input class="form-control" name="branch_site" type="text">
+                                                </div>
+
+                                                <div class="col-lg-4 col-sm-12">
+                                                    <label class="form-label">Contact Person</label>
+                                                    <input class="form-control" name="contact_person" type="text">
+                                                </div>
+
+                                                <div class="col-lg-4 col-sm-12">
+                                                    <label class="form-label">Contact Number</label>
+                                                    <input class="form-control" name="contact_no" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3 mb-4">
+                                                <div>
+                                                    <label class="form-label">Company Logo</label>
+                                                    <input class="form-control" name="company_logo" type="file" multiple />
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-4">
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                    <button type="submit" name="add-client" class="btn btn-primary px-5 rounded-pill" id="btn-save-event">Submit</button>
+                                                    <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div> <!-- end modal-content-->
+                            </div> <!-- end modal dialog-->
+                        </div>
 
                     </div> <!-- container-fluid -->
 
