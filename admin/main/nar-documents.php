@@ -450,9 +450,15 @@ session_start();
                                 <div class="card-body">
 
                                     <div class="row">
-                                        <div class="col-xl-4 col-md-12">
-                                            <button class="btn btn-warning text-white rounded">
+                                        <div class="col-xl-2 col-md-12">
+                                            <button class="btn btn-warning text-white rounded" data-bs-toggle="modal" data-bs-target="#upload-docu">
                                                 <i class="mdi mdi-upload me-1"></i>Upload Document
+                                            </button>
+                                        </div>
+
+                                        <div class="col-xl-2 col-md-12">
+                                            <button class="btn btn-warning text-white rounded">
+                                                <i class="mdi mdi-folder me-1"></i>New Folder
                                             </button>
                                         </div>
 
@@ -482,8 +488,66 @@ session_start();
                             </div>
                         </div>
 
+                        <!-- Upload Document Modal -->
+                        <div class="modal fade" id="upload-docu" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                                        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h3 class="modal-title" id="modal-title">Upload File</h3>
+                                    </div>
+
+                                    <div class="modal-body mx-4">
+                                        <form class="needs-validation" method="post" action="../../php/upload-document.php" enctype="multipart/form-data" novalidate>
+                                            
+                                            <div class="row">
+                                                <div>
+                                                    <label class="form-label">Upload File</label>
+                                                    <input class="form-control" name="file_upload" type="file" multiple />
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <div class="col-lg-12 col-sm-12">
+                                                    <label class="form-label">Display Name</label>
+                                                    <input class="form-control" name="display_name" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <label class="form-label">User Access</label>
+
+                                                <?php
+                                                    $fetch = mysqli_query($config, "SELECT * FROM position");
+                                                    while($row = mysqli_fetch_array($fetch)) {
+                                                ?>
+                                                <div class="col-lg-4">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="<?php echo $row['0'] ?>" id="<?php echo $row['0'] ?>">
+                                                        <label class="form-check-label" for="<?php echo $row['0'] ?>">
+                                                            <?php echo $row['1'] ?>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <?php } ?>
+                                                
+                                            </div>
+
+                                            <div class="row mt-4">
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                    <button type="submit" name="upload-docu" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Upload File</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div> <!-- end modal-content-->
+                            </div> <!-- end modal dialog-->
+                        </div>
+
                         <div class="row">
-                            <div class="col-xl-3 col-md-6">
+                            <div class="card-group col-xl-3 col-md-6">
                                 <div class="card rounded-lg">
 
                                     <div class="card-body p-4">
@@ -493,69 +557,6 @@ session_start();
                                         </div>
 
                                         <h3 class="mt-3 mb-0">Niel Arthur Corporation</h3>
-                                        <h6 class="mt-0 mb-0 text-muted fw-light mt-1">February 16, 2023</h6>
-
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Ness">
-                                        <img src="../../assets/mam_nath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Nathalie">
-                                        <img src="../../assets/mam_kath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Katherine">
-                                   
-                                    </div>
-
-                                </div>
-                            </div><!-- end col -->
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
-
-                                    <div class="card-body p-4">
-
-                                        <div class="col-md-4">
-                                            <img src="../../assets/pdf_icon.png" alt="image" class="img-fluid"/>
-                                        </div>
-
-                                        <h3 class="mt-3 mb-0">Richard Ramos Application Form</h3>
-                                        <h6 class="mt-0 mb-0 text-muted fw-light mt-1">February 16, 2023</h6>
-
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Ness">
-                                        <img src="../../assets/mam_nath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Nathalie">
-                                        <img src="../../assets/mam_kath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Katherine">
-                                   
-                                    </div>
-
-                                </div>
-                            </div><!-- end col -->
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
-
-                                    <div class="card-body p-4">
-
-                                        <div class="col-md-4">
-                                            <img src="../../assets/word_icon.png" alt="image" class="img-fluid"/>
-                                        </div>
-
-                                        <h3 class="mt-3 mb-0">Unionbank Inspection Report</h3>
-                                        <h6 class="mt-0 mb-0 text-muted fw-light mt-1">February 16, 2023</h6>
-
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Ness">
-                                        <img src="../../assets/mam_nath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Nathalie">
-                                        <img src="../../assets/mam_kath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Katherine">
-                                   
-                                    </div>
-
-                                </div>
-                            </div><!-- end col -->
-
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
-
-                                    <div class="card-body p-4">
-
-                                        <div class="col-md-4">
-                                            <img src="../../assets/ppt_icon.png" alt="image" class="img-fluid"/>
-                                        </div>
-
-                                        <h3 class="mt-3 mb-0">NAR Power System Proposal</h3>
                                         <h6 class="mt-0 mb-0 text-muted fw-light mt-1">February 16, 2023</h6>
 
                                         <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Ness">
