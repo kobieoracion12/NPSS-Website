@@ -1,3 +1,7 @@
+<?php
+include('php/database.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -28,7 +32,7 @@
                         <img src="assets/nar_logo.png" alt="" height="50" class="mx-auto mt-4">
                         <h3 class="text-uppercase mx-auto">Sign In</h3>
                             <div class="card-body p-4">
-                                <form action="#">
+                                <form action="php/auth.php" method="post">
                                     <div class="mb-3">
                                         <label for="emailaddress" class="form-label">Email Address</label>
                                         <input class="form-control" type="email" name="email" required="" placeholder="Enter your email">

@@ -1,45 +1,59 @@
 <?php
-include('database.php');
+include_once('database.php');
 session_start();
 
-if(isset($_POST['login']))
-{
-    $no = $_POST['control_no']; 
-    $pass = $_POST['password-input']; 
+if($_SERVER['REQUEST_METHOD'] == "POST") {
+    $email = mysqli_real_escape_string($config,$_POST["email"]);
+    $password = mysqli_real_escape_string($config,$_POST["password"]);
 
-    $query = "SELECT * FROM account_info WHERE control_no ='$no' AND acc_password='$pass' LIMIT 1";
+    $sql = "SELECT * FROM account_info WHERE reg_email = '$email' AND reg_password = '$password'";
+    $result = mysqli_query($config, $sql);
+    $row = mysqli_fetch_assoc($result);
 
-    $query_run = mysqli_query($config, $query);
+    $count = mysqli_num_rows($result);
 
-    if(mysqli_num_rows($query_run) === 1) {
+    $uid = $row['employee_id'];
+    
+    $_SESSION['uid'] = $uid;
 
-        $_SESSION['control_no'] = $no;
+    if($count == 1) {
 
-        while($row = mysqli_fetch_array($query_run)) {
-            $privilege = $row['acc_priv'];
+        $userdata = mysqli_query($config, "SELECT * FROM account_info,employee_info WHERE (account_info.employee_id = employee_info.employee_id) AND (employee_info.employee_id = '$uid')");
 
-            if($privilege == 'Admin') {
-                header('Location: ../admin/dist/index.php');
+            while($rows = mysqli_fetch_array($userdata)) {
+              $_SESSION['name'] = $rows['first_name']. " " .$rows['last_name'];
+              $_SESSION['first_name'] = $rows['first_name'];
+              $_SESSION['last_name'] = $rows['last_name'];
+              $_SESSION['email'] = $rows['email'];
+              $_SESSION['acc_priv'] = $rows['acc_priv'];
+              $_SESSION["loggedin"] = true;
+              $_SESSION['employee_id'] = $rows['employee_id'];
+           }
+
+        $query = mysqli_query($config, "SELECT acc_priv FROM account_info WHERE employee_id = '$uid'");
+
+        while($rows = mysqli_fetch_array($query)) {
+            $priv = $rows['acc_priv'];
+
+            if ($priv == "Admin") {
+                header("Location: ../admin/main/nar-dashboard.php?loginsuccess");
             }
-            elseif($privilege == 'Registrar') {
-                header('Location: ../registrar/dist/index.php');
-            }
-            elseif($privilege == 'Faculty') {
-                header('Location: ../faculty/dist/index.php');
-            }
-            elseif($privilege == 'Student') {
-                header('Location: ../student/dist/index.php');
-            }
+            // else if ($priv == "member") {
+            //     header("Location: ../member/dashboard.php?loginsuccess");
+            // }
+            // else if ($priv == "user") {
+            //     header("Location: ../user/newsfeed.php?loginsuccess");
+            // }
             else {
-                header("Location: ../index.php?privilege-error");
-                //mysqli_error($config);
+                header("Location: ../index.php?invalid");
             }
+            
+            mysqli_close($config);
         }
-        
-        exit;
+
     }
     else {
-        header("Location: ../index.php?Invalid");
+       header("Location: ../index.php?logininvalid");
     }
 }
 

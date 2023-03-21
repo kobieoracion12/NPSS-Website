@@ -1,3 +1,7 @@
+<?php
+include('../../php/database.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -199,12 +203,28 @@
                         </li>
     
                         <li class="dropdown notification-list topbar-dropdown">
+                            <?php
+                                $emp_id = $_SESSION['employee_id'];
+                                $record = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
+                                while ($data = mysqli_fetch_array($record)) { ?>
                             <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                                <img src="../dist/assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
+                                <?php
+                                if ($data['profile_pic'] != null) { ?>
+                                <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="user-image" class="rounded-circle" />
+                                <?php
+                                }
+                                elseif ($data['profile_pic'] == null) { ?>
+                                    <img src="../../assets/default_profile.png" alt="user-image" class="rounded-circle" />
+                                <?php
+                                }
+                                ?>
                                 <span class="pro-user-name ms-1">
-                                    Nowak <i class="mdi mdi-chevron-down"></i> 
+                                    <?php echo $data['first_name'] ?><i class="mdi mdi-chevron-down"></i> 
                                 </span>
                             </a>
+                            <?php
+                            }
+                            ?> 
                             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                                 <!-- item-->
                                 <div class="dropdown-header noti-title">
@@ -280,15 +300,30 @@
                 <div class="h-100" data-simplebar>
 
                      <!-- User box -->
+                    <?php
+                    $emp_id = $_SESSION['employee_id'];
+                    $record = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
+                    while ($data = mysqli_fetch_array($record)) { ?>
                     <div class="user-box text-center">
 
-                        <img src="../dist/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
+                        <?php
+                        if ($data['profile_pic'] != null) { ?>
+                        <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="image" class="rounded-circle img-thumbnail avatar-md" />
+                        <?php
+                        }
+                        elseif ($data['profile_pic'] == null) { ?>
+                            <img src="../../assets/default_profile.png" alt="image" class="rounded-circle img-thumbnail avatar-md" />
+                        <?php
+                        }
+                        ?>
                             <div class="dropdown">
-                                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">Nowak Helme</a>
+                                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">
+                                    <?php echo $data['first_name']. " " .$data['last_name']; ?>
+                                </a>
                                 <div class="dropdown-menu user-pro-dropdown">
 
                                     <!-- item-->
-                                    <a href="nar-accounts.php" class="dropdown-item notify-item">
+                                    <a href="nar-profile.php" class="dropdown-item notify-item">
                                         <i class="fe-user me-1"></i>
                                         <span>My Account</span>
                                     </a>
@@ -314,8 +349,13 @@
                                 </div>
                             </div>
 
-                        <p class="text-muted left-user-info">Admin Head</p>
+                        <p class="text-muted left-user-info">
+                            <?php echo $data['position']; ?>
+                        </p>
                     </div>
+                    <?php
+                    }
+                    ?>
 
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">

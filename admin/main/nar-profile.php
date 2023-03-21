@@ -1,3 +1,7 @@
+<?php
+include('../../php/database.php');
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -206,12 +210,28 @@
                 </li>
 
                 <li class="dropdown notification-list topbar-dropdown">
+                    <?php
+                        $emp_id = $_SESSION['employee_id'];
+                        $record = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
+                        while ($data = mysqli_fetch_array($record)) { ?>
                     <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="../dist/assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
+                        <?php
+                        if ($data['profile_pic'] != null) { ?>
+                        <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="user-image" class="rounded-circle" />
+                        <?php
+                        }
+                        elseif ($data['profile_pic'] == null) { ?>
+                            <img src="../../assets/default_profile.png" alt="user-image" class="rounded-circle" />
+                        <?php
+                        }
+                        ?>
                         <span class="pro-user-name ms-1">
-                            Nowak <i class="mdi mdi-chevron-down"></i>
+                            <?php echo $data['first_name'] ?><i class="mdi mdi-chevron-down"></i> 
                         </span>
                     </a>
+                    <?php
+                    }
+                    ?> 
                     <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                         <!-- item-->
                         <div class="dropdown-header noti-title">
@@ -287,42 +307,62 @@
             <div class="h-100" data-simplebar>
 
                 <!-- User box -->
-                <div class="user-box text-center">
+                <?php
+                    $emp_id = $_SESSION['employee_id'];
+                    $record = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
+                    while ($data = mysqli_fetch_array($record)) { ?>
+                    <div class="user-box text-center">
 
-                    <img src="../dist/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
-                    <div class="dropdown">
-                        <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">Nowak Helme</a>
-                        <div class="dropdown-menu user-pro-dropdown">
+                        <?php
+                        if ($data['profile_pic'] != null) { ?>
+                        <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="image" class="rounded-circle img-thumbnail avatar-md" />
+                        <?php
+                        }
+                        elseif ($data['profile_pic'] == null) { ?>
+                            <img src="../../assets/default_profile.png" alt="image" class="rounded-circle img-thumbnail avatar-md" />
+                        <?php
+                        }
+                        ?>
+                            <div class="dropdown">
+                                <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown"  aria-expanded="false">
+                                    <?php echo $data['first_name']. " " .$data['last_name']; ?>
+                                </a>
+                                <div class="dropdown-menu user-pro-dropdown">
 
-                            <!-- item-->
-                            <a href="nar-profile.php" class="dropdown-item notify-item">
-                                <i class="fe-user me-1"></i>
-                                <span>My Account</span>
-                            </a>
+                                    <!-- item-->
+                                    <a href="nar-profile.php" class="dropdown-item notify-item">
+                                        <i class="fe-user me-1"></i>
+                                        <span>My Account</span>
+                                    </a>
+        
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="fe-settings me-1"></i>
+                                        <span>Settings</span>
+                                    </a>
+        
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="fe-lock me-1"></i>
+                                        <span>Lock Screen</span>
+                                    </a>
+        
+                                    <!-- item-->
+                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                        <i class="fe-log-out me-1"></i>
+                                        <span>Logout</span>
+                                    </a>
+        
+                                </div>
+                            </div>
 
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-settings me-1"></i>
-                                <span>Settings</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-lock me-1"></i>
-                                <span>Lock Screen</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-log-out me-1"></i>
-                                <span>Logout</span>
-                            </a>
-
-                        </div>
+                        <p class="text-muted left-user-info">
+                            <?php echo $data['position']; ?>
+                        </p>
                     </div>
-
-                    <p class="text-muted left-user-info">Admin Head</p>
-                </div>
+                    <?php
+                    }
+                    ?>
 
                 <!--- Sidemenu -->
                 <div id="sidebar-menu">
@@ -332,7 +372,7 @@
                         <li class="menu-title">Navigation</li>
 
                         <li>
-                            <a href="../index.php">
+                            <a href="nar-dashboard.php">
                                 <i class="mdi mdi-view-dashboard-outline"></i>
                                 <span class="badge bg-success rounded-pill float-end">9+</span>
                                 <span> Dashboard </span>
@@ -425,14 +465,40 @@
                                             <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
                                         </div>
                                     </div>
+
+                                    <?php
+                                        $emp_id = $_SESSION['employee_id'];
+                                        $record = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
+                                        while ($data = mysqli_fetch_array($record)) { ?>
                                     <div class="d-flex mt-2">
                                         <div class="flex-shrink-0">
-                                            <img src="../../assets/mam_ness.jpg" alt="" class="flex-shrink-0 rounded-circle avatar-xl">
+                                            <?php
+                                                if ($data['profile_pic'] != null) { ?>
+                                                <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="user-image" class="flex-shrink-0 rounded-circle avatar-xl" />
+                                                <?php
+                                                }
+                                                elseif ($data['profile_pic'] == null) { ?>
+                                                    <img src="../../assets/default_profile.png" alt="user-image" class="flex-shrink-0 rounded-circle avatar-xl" />
+                                            <?php
+                                                }
+                                            ?> 
                                         </div>
                                         <div class="flex-grow-1 align-items-center ms-3 mt-1">
-                                            <h4 class="mt-0 mb-1">JANET L. DELA CRUZ</h4>
-                                            <p class="text-muted"><small>Administration Head</small></p>
-                                            <p class="text-muted"><small>Supervising the day-to-day operations of the administrative department and staff members. Hiring, training, and evaluating employees and taking corrective action when necessary.</small/></p>
+                                            <h4 class="mt-0 mb-1 text-uppercase">
+                                                <?php 
+                                                    $middle_name = $data['middle_name'];
+                                                    $m_name = $middle_name[0];
+                                                    if (empty($middle_name)) {
+                                                        echo $data['first_name']. " " .$data['last_name'];
+                                                    }
+                                                    else {
+                                                        $m_name = $middle_name[0];
+                                                        echo $data['first_name']. " " . $m_name . ".  " .$data['last_name'];
+                                                    }
+                                                ?>
+                                            </h4>
+                                            <p class="text-muted"><small><?php echo $data['position'] ?></small></p>
+                                            <p class="text-muted"><small><?php echo $data['job_desc'] ?></small/></p>
                                         </div>
                                     </div>
                                     <div class="card-body">
@@ -440,13 +506,13 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="user-first" class="mb-1">Firstname</label>
-                                                    <input type="text" class="form-control" value="Janet">
+                                                    <input type="text" class="form-control" value="<?php echo $data['first_name'] ?>">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="user-first" class="mb-1">Lastname</label>
-                                                    <input type="text" class="form-control" value="Dela Cruz">
+                                                    <input type="text" class="form-control" value="<?php echo $data['last_name'] ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -454,20 +520,20 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="user-first" class="mb-1">Middlename</label>
-                                                    <input type="text" class="form-control" value="Janet">
+                                                    <input type="text" class="form-control" value="<?php echo $data['middle_name'] ?>">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="user-first" class="mb-1">Contact number</label>
-                                                    <input type="text" class="form-control" value="09xx-xxx-xxxx">
+                                                    <input type="text" class="form-control" value="<?php echo $data['contact_no'] ?>">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
                                             <div class="form-group">
                                                 <label for="user-first" class="mb-1">Address</label>
-                                                <input type="text" class="form-control" value="Antipolo City, Rizal Province">
+                                                <input type="text" class="form-control" value="<?php echo $data['given_address'] ?>">
 
                                             </div>
                                         </div>
@@ -475,13 +541,13 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="user-first" class="mb-1">Birthdate</label>
-                                                    <input type="text" class="form-control" value="July 1, 19xx">
+                                                    <input type="text" class="form-control" value="<?php echo $data['birth_date'] ?>">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="user-first" class="mb-1">Email Address</label>
-                                                    <input type="text" class="form-control" value="samplemail@gmail.com">
+                                                    <input type="text" class="form-control" value="<?php echo $data['email_add'] ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -489,13 +555,13 @@
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="user-first" class="mb-1">Position</label>
-                                                    <input type="text" class="form-control" value="Administration Head">
+                                                    <input type="text" class="form-control" value="<?php echo $data['position'] ?>">
                                                 </div>
                                             </div>
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                 <div class="form-group">
                                                     <label for="user-first" class="mb-1">Branch/Site</label>
-                                                    <input type="text" class="form-control" value="Antipolo City">
+                                                    <input type="text" class="form-control" value="<?php echo $data['branch_site'] ?>">
                                                 </div>
                                             </div>
                                         </div>
@@ -505,6 +571,9 @@
                                             </button>
                                         </div>
                                     </div>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -513,42 +582,42 @@
                                 <div class="card-body">
                                     <h4 class="mb-4">NAR POWER SYSTEM SPEACIALISTS CORP.</h4>
                                     <div class="mx-4">
+                                        <?php 
+                                            $records = mysqli_query($config, "SELECT * FROM employee_info");
+                                            while ($data1 = mysqli_fetch_array($records)) { ?>
                                         <div class="d-flex align-items-center mb-3">
                                             <div class="flex-shrink-0 avatar-md me-3">
-                                                <img src="../../assets/mam_ness.jpg" class="img-fluid rounded-circle" alt="user">
+                                                <?php
+                                                    if ($data1['profile_pic'] != null) { ?>
+                                                    <img src="<?php echo "../../uploads/profile/" . $data1['profile_pic']; ?>" alt="user-image" class="img-fluid rounded-circle" />
+                                                    <?php
+                                                    }
+                                                    elseif ($data1['profile_pic'] == null) { ?>
+                                                        <img src="../../assets/default_profile.png" alt="user-image" class="img-fluid rounded-circle" />
+                                                <?php
+                                                    }
+                                                ?>
                                             </div>
                                             <div class="flex-grow-1 overflow-hidden">
-                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
-                                                <small class="text-muted"><b>President</b></small>
+                                                
+                                                <h5 class="mt-0 mb-1">
+                                                    <?php
+                                                        $middle_name1 = $data1['middle_name'];
+                                                        if (empty($middle_name1)) {
+                                                            echo $data1['first_name']. " " .$data1['last_name'];
+                                                        }
+                                                        else {
+                                                            $m_name1 = $middle_name1[0];
+                                                            echo $data1['first_name']. " " . $m_name1 . ".  " .$data1['last_name'];
+                                                        }
+                                                    ?>
+                                                </h5>
+                                                <small class="text-muted"><b><?php echo $data1['position']; ?></b></small>
                                             </div>
                                         </div>
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="flex-shrink-0 avatar-md me-3">
-                                                <img src="../../assets/boss_greg.jpg" class="img-fluid rounded-circle" alt="user">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
-                                                <small class="text-muted"><b>President</b></small>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="flex-shrink-0 avatar-md me-3">
-                                                <img src="../../assets/mam_janet.jpg" class="img-fluid rounded-circle" alt="user">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
-                                                <small class="text-muted"><b>President</b></small>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="flex-shrink-0 avatar-md me-3">
-                                                <img src="../../assets/mam_nath.jpg" class="img-fluid rounded-circle" alt="user">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
-                                                <small class="text-muted"><b>President</b></small>
-                                            </div>
-                                        </div>
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
