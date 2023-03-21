@@ -498,7 +498,7 @@
                                             </a>
                                             <div class="dropdown-menu dropdown-menu-end">
                                                 <!-- item-->
-                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-client">Edit</a>
+                                                <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-client<?php echo $data['company_no'] ?>">Edit</a>
                                                 <a href="javascript:void(0);" class="dropdown-item">Delete</a>
                                                 <a href="javascript:void(0);" class="dropdown-item">Manage</a>
                                             </div>
@@ -513,7 +513,67 @@
                                    
                                     </div>
                                 </div>
-                            </div><!-- end col -->
+                            </div>
+                            <!-- end col -->
+                            <div class="modal fade" id="edit-client<?php echo $data['company_no'] ?>" tabindex="-1">
+                                <div class="modal-dialog modal-dialog-centered modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h3 class="modal-title" id="modal-title">Client Information</h3>
+                                        </div>
+
+                                        <div class="modal-body mx-4">
+                                            <form class="needs-validation" method="post" action="../../php/add-client.php" enctype="multipart/form-data" novalidate>
+                                                
+                                                <div class="row">
+                                                    <div class="col-lg-6 col-sm-12">
+                                                        <label class="form-label">Company Name</label>
+                                                        <input class="form-control" name="company_name" type="text" value="<?php echo $data['company_name'] ?>">
+                                                    </div>
+
+                                                    <div class="col-lg-6 col-sm-12">
+                                                        <label class="form-label">Company Description</label>
+                                                        <input class="form-control" name="company_desc" type="text" value="<?php echo $data['company_desc'] ?>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-3">
+                                                    <div class="col-lg-4 col-sm-12">
+                                                        <label class="form-label">Branch/Site</label>
+                                                        <input class="form-control" name="branch_site" type="text" value="<?php echo $data['branch_site'] ?>">
+                                                    </div>
+
+                                                    <div class="col-lg-4 col-sm-12">
+                                                        <label class="form-label">Contact Person</label>
+                                                        <input class="form-control" name="contact_person" type="text" value="<?php echo $data['contact_person'] ?>">
+                                                    </div>
+
+                                                    <div class="col-lg-4 col-sm-12">
+                                                        <label class="form-label">Contact Number</label>
+                                                        <input class="form-control" name="contact_no" type="text" value="<?php echo $data['contact_no'] ?>">
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-3 mb-4">
+                                                    <div>
+                                                        <label class="form-label">Company Logo</label>
+                                                        <input class="form-control" name="company_logo" type="file" multiple />
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-4">
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                        <button type="submit" name="add-client" class="btn btn-primary px-5 rounded-pill" id="btn-save-event">Submit</button>
+                                                        <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div> <!-- end modal-content-->
+                                </div> <!-- end modal dialog-->
+                            </div>
                             <?php } ?>
                         </div>
                         <!-- end row -->

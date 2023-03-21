@@ -522,12 +522,135 @@
                                     <p class="mb-0"><?php echo $row['branch_site'] ?></p>
 
                                     <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit Profile</button>                             
+                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['employee_id'] ?>">Edit Profile</button>                             
 
                                 </div>
                             </div>
-                        </div><!-- end col -->
+                        </div>
+                        <!-- Edit profile MODAL -->
+                        <div class="modal fade" id="edit<?php echo $row['employee_id'] ?>" tabindex="-1">
+                            <div class="modal-dialog modal-xl">
+                                <div class="modal-content">
+                                    <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                                        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h3 class="modal-title" id="modal-title">Edit Profile</h3>
+                                    </div>
 
+                                    <div class="modal-body px-4 pb-4 pt-0 mx-4">
+                                        <form class="needs-validation" method="post" action="../../php/create_account.php" enctype="multipart/form-data" novalidate>
+                                            <div class="row mb-3">
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">First Name</label>
+                                                        <input type="text" name="first_name" class="form-control" value="<?php echo $row['first_name'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group ">
+                                                        <label class="mb-1">Middle Name</label>
+                                                        <input type="text" name="middle_name" class="form-control" value="<?php echo $row['middle_name'] ?>">
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group ">
+                                                        <label class="mb-1">Last Name</label>
+                                                        <input type="text" name="last_name" class="form-control" value="<?php echo $row['last_name'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group ">
+                                                        <label class="mb-1">Suffix</label>
+                                                        <input type="text" name="given_suffix" class="form-control" value="<?php echo $row['given_suffix'] ?>">
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Address</label>
+                                                        <textarea type="text" name="given_address" class="form-control" rows="1" required><?php echo $row['given_address'] ?></textarea>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Contact Number</label>
+                                                        <input type="text" name="contact_no" class="form-control" value="<?php echo $row['contact_no'] ?>">
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-2">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group mb-2">
+                                                        <label class="mb-1">Birth Date</label>
+                                                        <input type="date" name="birth_date" class="form-control" value="" value="<?php echo $row['birth_date'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Position</label>
+                                                        <input type="text" name="position" class="form-control" value="<?php echo $row['position'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group mb-2">
+                                                        <label class="mb-1">Email Address</label>
+                                                        <input type="text" name="email_add" class="form-control" value="<?php echo $row['email_add'] ?>"  required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Branch/Site</label>
+                                                        <select class="form-select" name="branch_site" aria-label="Default select example" required>
+                                                            <option value="Antipolo" selected>Antipolo</option>
+                                                        </select>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-2">
+                                                <div class="form-group">
+                                                    <label class="mb-1">Job Description</label>
+                                                    <textarea type="text" name="description" class="form-control" rows="4" required><?php echo $row['job_desc'] ?></textarea>
+                                                    <div class="invalid-feedback">Please fill in this field</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-2">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1 text-center">Profile Picture</label>
+                                                        <input name="profile_pic" id="profile_pic" class="form-control" type="file" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1 text-center">Upload Resume</label>
+                                                        <input name="uploaded_cv" id="uploaded_cv" class="form-control" type="file" /> 
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-4">
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                    <button type="submit" name="register_user" class="btn btn-success px-5 rounded-pill" id="btn-save-event">Save</button>
+                                                    <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    
+                                </div> <!-- end modal-content-->
+                            </div> <!-- end modal dialog-->
+                        </div>
                         <?php } ?>
                     </div>
                     <!-- end row -->
@@ -690,132 +813,6 @@
                     </div> <!-- end modal-content-->
                 </div> <!-- end modal dialog-->
             </div>
-
-            <!-- Edit profile MODAL -->
-            <div class="modal fade" id="exampleModal2" tabindex="-1">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header py-3 px-4 border-bottom-0 d-block">
-                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <h3 class="modal-title" id="modal-title">Edit Profile</h3>
-                        </div>
-
-                        <div class="modal-body px-4 pb-4 pt-0 mx-4">
-                            <form class="needs-validation" method="post" action="../../php/create_account.php" enctype="multipart/form-data" novalidate>
-                                <div class="row mb-3">
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label class="mb-1">First Name</label>
-                                            <input type="text" name="first_name" class="form-control" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group ">
-                                            <label class="mb-1">Middle Name</label>
-                                            <input type="text" name="middle_name" class="form-control">
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group ">
-                                            <label class="mb-1">Last Name</label>
-                                            <input type="text" name="last_name" class="form-control" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group ">
-                                            <label class="mb-1">Suffix</label>
-                                            <input type="text" name="given_suffix" class="form-control">
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
-                                        <div class="form-group">
-                                            <label class="mb-1">Address</label>
-                                            <textarea type="text" name="given_address" class="form-control" rows="1" required></textarea>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label class="mb-1">Contact Number</label>
-                                            <input type="text" name="contact_no" class="form-control">
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group mb-2">
-                                            <label class="mb-1">Birth Date</label>
-                                            <input type="date" name="birth_date" class="form-control" value="" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="mb-1">Position</label>
-                                            <input type="text" name="position" class="form-control" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group mb-2">
-                                            <label class="mb-1">Email Address</label>
-                                            <input type="text" name="email_add" class="form-control"  required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="mb-1">Branch/Site</label>
-                                            <select class="form-select" name="branch_site" aria-label="Default select example" required>
-                                                <option value="Antipolo" selected>Antipolo</option>
-                                            </select>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="form-group">
-                                        <label class="mb-1">Job Description</label>
-                                        <textarea type="text" name="description" class="form-control" rows="4" required></textarea>
-                                        <div class="invalid-feedback">Please fill in this field</div>
-                                    </div>
-                                </div>
-
-                                <div class="row mb-2">
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label class="mb-1 text-center">Profile Picture</label>
-                                            <input name="profile_pic" id="profile_pic" class="form-control" type="file" /> 
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label class="mb-1 text-center">Upload Resume</label>
-                                            <input name="uploaded_cv" id="uploaded_cv" class="form-control" type="file" /> 
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row mt-4">
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                        <button type="submit" name="register_user" class="btn btn-success px-5 rounded-pill" id="btn-save-event">Save</button>
-                                        <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        
-                    </div> <!-- end modal-content-->
-                </div> <!-- end modal dialog-->
-            </div>
-
 
             <!-- Footer Start -->
             <footer class="footer">
