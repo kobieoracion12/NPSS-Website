@@ -457,7 +457,7 @@ session_start();
                                         </div>
 
                                         <div class="col-xl-2 col-md-12">
-                                            <button class="btn btn-warning text-white rounded">
+                                            <button class="btn btn-warning text-white rounded" data-bs-toggle="modal" data-bs-target="#add-folder">
                                                 <i class="mdi mdi-folder me-1"></i>New Folder
                                             </button>
                                         </div>
@@ -546,27 +546,115 @@ session_start();
                             </div> <!-- end modal dialog-->
                         </div>
 
+                        <!-- Add Folder Modal -->
+                        <div class="modal fade" id="add-folder" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-lg">
+                                <div class="modal-content">
+
+                                    <div class="modal-body mx-4 my-3">
+                                        <form class="needs-validation" method="post" action="../../php/add-folder.php" enctype="multipart/form-data" novalidate>
+
+                                            <div class="row">
+                                                <div>
+                                                    <label class="form-label">Folder Name</label>
+                                                    <input class="form-control" name="folder-name" type="text" required />
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <label class="form-label">User Access</label>
+
+                                                <?php
+                                                    $fetch = mysqli_query($config, "SELECT * FROM position");
+                                                    while($row = mysqli_fetch_array($fetch)) {
+                                                ?>
+                                                <div class="col-lg-4">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" value="<?php echo $row['0'] ?>" id="<?php echo $row['0'] ?>">
+                                                        <label class="form-check-label" for="<?php echo $row['0'] ?>">
+                                                            <?php echo $row['1'] ?>
+                                                        </label>
+                                                    </div>
+                                                </div>
+
+                                                <?php } ?>
+                                                
+                                            </div>
+
+                                            <div class="row mt-3">
+                                                <div class="d-grid gap-2 w-100">
+                                                    <button type="submit" name="add-folder" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Add Folder</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div> <!-- end modal-content-->
+                            </div> <!-- end modal dialog-->
+                        </div>
+
+                        <!-- Cards -->
                         <div class="row">
-                            <div class="card-group col-xl-3 col-md-6">
-                                <div class="card rounded-lg">
+                            <?php
+                                $sql = mysqli_query($config, "SELECT * FROM docu_archive");
+                                while($row = mysqli_fetch_array($sql)) {
 
-                                    <div class="card-body p-4">
+                                    $date = date_create($row['date_uploaded']);
+                            ?>
+                                <div class="card-group col-xl-3 col-md-6">
+                                    <div class="card rounded-lg mb-3">
 
-                                        <div class="col-md-4">
-                                            <img src="../../assets/folder_icon.png" alt="image" class="img-fluid"/>
+                                        <div class="card-body p-4">
+
+                                            <div class="dropdown float-end">
+                                                <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                                    <i class="mdi mdi-dots-vertical"></i>
+                                                </a>
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <!-- item-->
+                                                    <a class="dropdown-item">Edit</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
+                                                    <a href="javascript:void(0);" class="dropdown-item">Open</a>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <?php
+                                                    if($row['display_icon'] != "") {
+                                                ?>
+                                                    <img src="<?php echo "../../assets/icon/" . $row['display_icon']; ?>" alt="image" class="img-fluid mb-0" />
+
+                                                <?php } elseif($row['display_icon'] == "excel_icon.png") { ?>
+                                                    <img src="../../assets/icon/excel_icon.png" alt="image" class="img-fluid mb-0" />
+
+                                                <?php } elseif($row['display_icon'] == "pdf_icon.png") { ?>
+                                                    <img src="../../assets/icon/pdf_icon.png" alt="image" class="img-fluid mb-0" />
+
+                                                <?php } elseif($row['display_icon'] == "ppt_icon.png") { ?>
+                                                    <img src="../../assets/icon/ppt_icon.png" alt="image" class="img-fluid mb-0" />
+
+                                                <?php } elseif($row['display_icon'] == "word_icon.png") { ?>
+                                                    <img src="../../assets/icon/word_icon.png" alt="image" class="img-fluid mb-0" />
+
+                                                <?php } else { ?>
+                                                    <img src="../../assets/icon/unknown_icon.png" alt="image" class="img-fluid mb-0" />
+                                                <?php } ?>
+
+                                            </div>
+
+                                            <h3 class="mt-2 mb-0"><?php echo $row['display_name'] ?></h3>
+                                            <h6 class="mt-0 mb-0 text-muted fw-light mt-1"><?php echo date_format($date, "M d, Y") ?><br><?php echo date_format($date, "h:i A") ?></h6>
+
+                                            <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Ness">
+                                            <img src="../../assets/mam_nath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Nathalie">
+                                            <img src="../../assets/mam_kath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Katherine">
+                                    
                                         </div>
 
-                                        <h3 class="mt-3 mb-0">Niel Arthur Corporation</h3>
-                                        <h6 class="mt-0 mb-0 text-muted fw-light mt-1">February 16, 2023</h6>
-
-                                        <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Ness">
-                                        <img src="../../assets/mam_nath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Nathalie">
-                                        <img src="../../assets/mam_kath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Katherine">
-                                   
                                     </div>
+                                </div><!-- end col -->
 
-                                </div>
-                            </div><!-- end col -->
+                            <?php } ?>
 
                         </div>
                         <!-- end row -->
