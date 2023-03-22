@@ -19,9 +19,11 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     } else {
 	    $insert = mysqli_query($config, "INSERT INTO docu_archive (file_name, display_name) VALUES ('$filename','$display')");
 	    if($insert) {
+
+	    	$id[] = array(mysqli_insert_id($config));
 	    	move_uploaded_file($file, $destination);
-	    	foreach ($access as $key) {
-	    		$query= mysqli_query($config, "INSERT INTO sample (sample_name) VALUES ('" . $key . "')");
+	    	foreach ($access as $key => $value) {
+	    		$query= mysqli_query($config, "INSERT INTO sample (docu_no, sample_name) VALUES ('".$id[$key]."', '" . $value . "')");
 	    	}
 			    if ($query) {
 			    	header("Location: ../admin/main/nar-documents.php?success");

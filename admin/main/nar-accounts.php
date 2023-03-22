@@ -120,10 +120,9 @@
                                     <p class="mb-0"><?php echo $row['contact_no'] ?></p>
                                     <p class="mb-0"><?php echo $row['email_add'] ?></p>
                                     <p class="mb-0"><?php echo $row['branch_site'] ?></p>
-
-                                    <button class="btn btn-primary rounded-pill mt-3 mb-2">Send Message</button>
-                                    <button class="btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['employee_id'] ?>">Edit Profile</button>                             
-
+                                    <div class="col-12">
+                                        <button class="w-100 btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['employee_id'] ?>">Edit Profile</button>    
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,18 @@
 <?php
 include('php/database.php');
 session_start();
+
+if (isset($_SESSION["acc_priv"]) && $_SESSION["acc_priv"] == 'Admin') {
+    header("location: admin/main/nar-dashboard.php");
+    exit;
+}
+// } elseif (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == 'member') {
+//     header("location: member/dashboard.php");
+//     exit;
+// } elseif (isset($_SESSION["user_type"]) && $_SESSION["user_type"] == 'user') {
+//     header("location: user/newsfeed.php");
+//     exit;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
