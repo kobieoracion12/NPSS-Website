@@ -2,7 +2,7 @@
 
     <div class="h-100" data-simplebar>
 
-            <!-- User box -->
+        <!-- User box -->
         <?php
         $emp_id = $_SESSION['employee_id'];
         $record = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
@@ -33,18 +33,6 @@
 
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-settings me-1"></i>
-                            <span>Settings</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
-                            <i class="fe-lock me-1"></i>
-                            <span>Lock Screen</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item notify-item">
                             <i class="fe-log-out me-1"></i>
                             <span>Logout</span>
                         </a>
@@ -70,7 +58,6 @@
                 <li>
                     <a href="nar-dashboard.php">
                         <i class="mdi mdi-view-dashboard-outline"></i>
-                        <span class="badge bg-success rounded-pill float-end">9+</span>
                         <span> Dashboard </span>
                     </a>
                 </li>
@@ -87,6 +74,7 @@
                 <li>
                     <a href="nar-applicants.php">
                         <i class="mdi mdi-card-account-details-outline"></i>
+                        <span class="badge bg-success rounded-pill float-end">9+</span>
                         <span> Applicants </span>
                     </a>
                 </li>
