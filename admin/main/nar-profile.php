@@ -53,40 +53,31 @@ include('../../php/access.php');
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-body m-2">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                            <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                            <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                                        </div>
-                                    </div>
-
                                     <?php
                                         $emp_id = $_SESSION['employee_id'];
                                         $record = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
                                         while ($data = mysqli_fetch_array($record)) { ?>
-                                    <div class="d-flex mt-2">
-                                        <div class="flex-shrink-0">
+
+                                    <!-- Profile Introductions -->
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="flex-shrink-0 avatar-lg me-3">
                                             <?php
                                                 if ($data['profile_pic'] != null) { ?>
-                                                <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="user-image" class="flex-shrink-0 rounded-circle avatar-xl" />
+                                                <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="user-image" class="img-fluid rounded-circle" />
                                                 <?php
                                                 }
                                                 elseif ($data['profile_pic'] == null) { ?>
-                                                    <img src="../../assets/default_profile.png" alt="user-image" class="flex-shrink-0 rounded-circle avatar-xl" />
+                                                    <img src="../../assets/default_profile.png" alt="user-image" class="img-fluid rounded-circle" />
                                             <?php
                                                 }
-                                            ?> 
+                                            ?>
                                         </div>
-                                        <div class="flex-grow-1 align-items-center ms-3 mt-1">
-                                            <h4 class="mt-0 mb-1 text-uppercase">
-                                                <?php 
+
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            
+                                            <h4 class="mt-0 mb-0">
+                                                <?php
                                                     $middle_name = $data['middle_name'];
-                                                    $m_name = $middle_name[0];
                                                     if (empty($middle_name)) {
                                                         echo $data['first_name']. " " .$data['last_name'];
                                                     }
@@ -96,95 +87,183 @@ include('../../php/access.php');
                                                     }
                                                 ?>
                                             </h4>
-                                            <p class="text-muted"><small><?php echo $data['position'] ?></small></p>
-                                            <p class="text-muted"><small><?php echo $data['job_desc'] ?></small/></p>
+                                            <small class="text-muted"><b><?php echo $data['position']; ?></b></small>
                                         </div>
                                     </div>
+                                    
+                                    <!-- Personal Information -->
                                     <div class="card-body">
-                                        <div class="row mb-2">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Firstname</label>
-                                                    <input type="text" class="form-control" value="<?php echo $data['first_name'] ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Lastname</label>
-                                                    <input type="text" class="form-control" value="<?php echo $data['last_name'] ?>">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Middlename</label>
-                                                    <input type="text" class="form-control" value="<?php echo $data['middle_name'] ?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Contact number</label>
-                                                    <input type="text" class="form-control" value="<?php echo $data['contact_no'] ?>">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
-                                            <div class="form-group">
-                                                <label for="user-first" class="mb-1">Address</label>
-                                                <input type="text" class="form-control" value="<?php echo $data['given_address'] ?>">
+                                        <form class="needs-validation" method="post" action="../../php/edit-profile.php" enctype="multipart/form-data" novalidate>
 
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Birthdate</label>
-                                                    <input type="text" class="form-control" value="<?php echo $data['birth_date'] ?>">
+                                            <div class="row mb-3">
+                                                <input type="text" name="employee_id" class="form-control" value="<?php echo $data['employee_id'] ?>" hidden required>
+
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">First Name</label>
+                                                        <input type="text" name="first_name" class="form-control" value="<?php echo $data['first_name'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group ">
+                                                        <label class="mb-1">Middle Name</label>
+                                                        <input type="text" name="middle_name" class="form-control" value="<?php echo $data['middle_name'] ?>">
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group ">
+                                                        <label class="mb-1">Last Name</label>
+                                                        <input type="text" name="last_name" class="form-control" value="<?php echo $data['last_name'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group ">
+                                                        <label class="mb-1">Suffix</label>
+                                                        <input type="text" name="given_suffix" class="form-control" value="<?php echo $data['given_suffix'] ?>">
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Email Address</label>
-                                                    <input type="text" class="form-control" value="<?php echo $data['email_add'] ?>">
+
+                                            <div class="row">
+                                                <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Address</label>
+                                                        <input type="text" name="given_address" class="form-control" value="<?php echo $data['given_address'] ?>" required></input>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Contact Number</label>
+                                                        <input type="text" name="contact_no" class="form-control" value="<?php echo $data['contact_no'] ?>">
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Position</label>
-                                                    <input type="text" class="form-control" value="<?php echo $data['position'] ?>">
+
+                                            <div class="row mb-2">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group mb-2">
+                                                        <label class="mb-1">Birth Date</label>
+                                                        <input type="date" name="birth_date" class="form-control" value="<?php echo $data['birth_date'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group mb-2">
+                                                        <label class="mb-1">Email Address</label>
+                                                        <input type="text" name="email_add" class="form-control" value="<?php echo $data['email_add'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>    
+                                                </div>                                    
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group mb-2">
+                                                        <label class="mb-1">Position</label>
+                                                        <select class="form-select" name="position" aria-label="Default select example" required>
+                                                            <?php
+                                                                $sql = mysqli_query($config, "SELECT position_name FROM position ORDER BY position_name");
+                                                                while($row = mysqli_fetch_array($sql)) {
+                                                            ?>
+                                                            
+                                                            <option value="<?php echo $data['position']?>" selected><?php echo $data['position'] ?></option>
+
+                                                            <option value="<?php echo $row[0] ?>"><?php echo $row[0] ?></option>
+                                                            
+                                                            <?php } ?>
+                                                        </select>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>      
+                                                </div>
+
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Status</label>
+                                                        <select class="form-select" name="emp_stat" aria-label="Default select example" required>
+                                                            <?php
+                                                                $sql = mysqli_query($config, "SELECT emp_stat FROM emp_status");
+                                                                while($row = mysqli_fetch_array($sql)) {
+                                                            ?>
+
+                                                            <option value="<?php echo $data['emp_stat']?>" selected><?php echo $data['emp_stat'] ?></option>
+
+                                                            <option value="<?php echo $row[0] ?>"><?php echo $row[0] ?></option>
+                                                            
+                                                            <?php } ?>
+                                                        </select>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Branch/Site</label>
+                                                        <select class="form-select" name="branch_site" aria-label="Default select example" required>
+
+                                                            <option value="<?php echo $data['branch_site']?>" selected><?php echo $data['branch_site'] ?></option>
+                                                            <option value="Antipolo" selected>Antipolo</option>
+
+                                                        </select>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+
+                                            <div class="row mb-2">
                                                 <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Branch/Site</label>
-                                                    <input type="text" class="form-control" value="<?php echo $data['branch_site'] ?>">
+                                                    <label class="mb-1">Job Description</label>
+                                                    <textarea type="text" name="description" class="form-control" rows="4" required><?php echo $data['job_desc'] ?></textarea>
+                                                    <div class="invalid-feedback">Please fill in this field</div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-xl-12 d-flex justify-content-end">
-                                            <button class="btn btn-warning text-white rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                <i class="mdi mdi-pencil me-1"></i>Edit Details
-                                            </button>
-                                        </div>
+
+                                            <div class="row mb-2">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1 text-center">Profile Picture</label>
+                                                        <input name="image" id="image" class="form-control" type="file" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1 text-center">Upload Resume</label>
+                                                        <input name="myfile" id="myfile" class="form-control" type="file" /> 
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-12 d-flex justify-content-end mt-3">
+                                                <button class="btn btn-warning text-white rounded" name="edit-profile" type="submit">
+                                                    <i class="mdi mdi-pencil me-1"></i>Edit Details
+                                                </button>
+                                            </div>
+
+                                        </form>
                                     </div>
+
                                     <?php
                                     }
                                     ?>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Right Side -->
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="mb-4">NAR POWER SYSTEM SPEACIALISTS CORP.</h4>
-                                    <div class="mx-4">
+                                    <div class="ms-2">
                                         <?php 
                                             $records = mysqli_query($config, "SELECT * FROM employee_info");
                                             while ($data1 = mysqli_fetch_array($records)) { ?>
-                                        <div class="d-flex align-items-center mb-3">
+
+                                        <div class="d-flex align-items-center mb-2">
                                             <div class="flex-shrink-0 avatar-md me-3">
                                                 <?php
                                                     if ($data1['profile_pic'] != null) { ?>
@@ -197,9 +276,10 @@ include('../../php/access.php');
                                                     }
                                                 ?>
                                             </div>
+
                                             <div class="flex-grow-1 overflow-hidden">
                                                 
-                                                <h5 class="mt-0 mb-1">
+                                                <h5 class="mt-0 mb-0">
                                                     <?php
                                                         $middle_name1 = $data1['middle_name'];
                                                         if (empty($middle_name1)) {
@@ -214,6 +294,7 @@ include('../../php/access.php');
                                                 <small class="text-muted"><b><?php echo $data1['position']; ?></b></small>
                                             </div>
                                         </div>
+
                                         <?php
                                         }
                                         ?>
@@ -224,120 +305,6 @@ include('../../php/access.php');
                     </div>
                 </div> <!-- container-fluid -->
             </div> <!-- content -->
-
-            <!-- Edit profile MODAL -->
-            <div class="modal fade" id="exampleModal" tabindex="-1">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header py-3 px-4 border-bottom-0 d-block">
-                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <h3 class="modal-title" id="modal-title">Employee Profile</h3>
-                        </div>
-                        <div class="modal-body px-4 pb-4 pt-0 mx-4">
-                            <form class="needs-validation" novalidate>
-                                <div class="row mb-3">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Firstname</label>
-                                            <input type="text" class="form-control" value="Janet" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group ">
-                                            <label for="user-first" class="mb-1">Middlename</label>
-                                            <input type="text" class="form-control" value="Dela Cruz" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group ">
-                                            <label for="user-first" class="mb-1">Lastname</label>
-                                            <input type="text" class="form-control" value="Dela Cruz" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Address</label>
-                                            <textarea type="text" class="form-control" rows="1" required>Antipolo City, Rizal Province</textarea>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Contact number</label>
-                                            <input type="text" class="form-control" value="09xx-xxx-xxxx" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group mb-2">
-                                            <label for="user-first" class="mb-1">Birthdate</label>
-                                            <input type="date" class="form-control" value="" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Position</label>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option selected>Administration</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group mb-2">
-                                            <label for="user-first" class="mb-1">Email Address</label>
-                                            <input type="text" class="form-control" value="samplemail@gmail.com" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Branch/Site</label>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option selected>Antipolo City</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1 text-center">Profile Picture</label>
-                                            <div class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
-                                                <div class="fallback">
-                                                    <input name="file" class="form-control" type="file" multiple />
-                                                </div>
-                                                <div class="dz-message needsclick">
-                                                    <i class="h1 text-muted dripicons-cloud-upload"></i>
-                                                    <h3>Choose Photo</h3>
-                                                    <span class="text-muted font-13">(This is just a demo dropzone. Selected files are
-                                                        <strong>not</strong> actually uploaded.)</span>
-                                                </div>
-                                                <div class="dropzone-previews mt-3" id="file-previews"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-4">
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                        <button type="submit" class="btn btn-success px-5 rounded-pill" id="btn-save-event">Save</button>
-                                        <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div> <!-- end modal-content-->
-                </div> <!-- end modal dialog-->
-            </div>
 
             <!-- Footer Start -->
             <footer class="footer">
