@@ -16,15 +16,10 @@
     <link rel="shortcut icon" href="../../assets/nar-icon.ico">
 
     <!-- App css -->
-
     <link href="../dist/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
     <!-- icons -->
     <link href="../dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-
-     <!-- Plugins css -->
-    <link href="../dist/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
-    <link href="../dist/assets/libs/dropify/css/dropify.min.css" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -54,6 +49,7 @@
                 <!-- Start Content-->
                 <div class="container-fluid">
 
+                    <!-- Header -->
                     <div class="row px-2">
                         <div class="card">
                             <div class="card-body">
@@ -70,16 +66,17 @@
                                         <div class="row justify-content-end">
 
                                             <div class="col-4">
+                                                <input type="text" id="simpleinput" class="form-control" placeholder="Search...">
+                                            </div>
+
+                                            <div class="col-3">
                                                 <select class="form-select" id="example-select">
                                                     <option selected>Default</option>
                                                     <option>Brand</option>
                                                     <option>Position</option>
                                                     <option>Name</option>
+                                                    <option>Time Added (Last)</option>
                                                 </select>
-                                            </div>
-
-                                            <div class="col-4">
-                                                <input type="text" id="simpleinput" class="form-control" placeholder="Search...">
                                             </div>
 
                                         </div>
@@ -92,6 +89,7 @@
                         </div>
                     </div>
 
+                    <!-- Profile Card -->
                     <div class="row">
                         <?php
                             $sql = mysqli_query($config, "SELECT * FROM employee_info");
@@ -467,9 +465,9 @@
     <!-- Dashboar init js-->
     <script src="../dist/assets/js/pages/dashboard.init.js"></script>
 
-    <!-- Plugins js -->
-        <script src="../dist/assets/libs/dropzone/min/dropzone.min.js"></script>
-        <script src="../dist/assets/libs/dropify/js/dropify.min.js"></script>
+    <!-- Sweet Alerts js -->
+    <script src="../dist/assets/libs/sweetalert2/sweetalert2.all.min.js"></script>
+
     <!-- App js-->
     <script src="../dist/assets/js/app.min.js"></script>
 

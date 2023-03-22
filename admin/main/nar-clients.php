@@ -185,9 +185,9 @@
                                 </div> <!-- end modal dialog-->
                             </div>
                             <div class="modal fade" id="delete-client<?php echo $data['company_no'] ?>" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-centered modal-sm">
+                            <div class="modal-dialog modal-dialog-centered modal-md">
                                 <div class="modal-content">
-                                    <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                                    <div class="modal-header  px-4 border-bottom-0 d-block">
                                         <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
                                         <h4 class="modal-title" id="modal-title">Delete Client</h4>
                                     </div>
@@ -202,7 +202,7 @@
 
                                             <div class="row mt-4">
                                                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                                    <button type="submit" name="add-client" class="btn btn-primary px-5 rounded-pill" id="btn-save-event">Continue</button>
+                                                    <button type="submit" class="btn btn-danger px-5 rounded-pill" id="btn-save-event">Continue</button>
                                                 </div>
                                             </div>
 

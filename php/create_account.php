@@ -59,10 +59,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
                 $create = mysqli_query($config, "INSERT INTO account_info (employee_id, reg_email, reg_password, acc_priv) VALUES ('$last_id', '$email', '$password', '$position')");
 
                 if($create) {
-                    header("Location: ../admin/main/nar-accounts.php?success");
+                    header("Location: ../admin/main/nar-accounts.php?account-success");
                 }
                 else {
-                    header("Location: ../admin/main/nar-accounts.php?failed");
+                    header("Location: ../admin/main/nar-accounts.php?account-failed");
                 }
             }
             else {
@@ -71,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             }
         }
         else {
-            header("Location: ../admin/main/nar-accounts.php?emailexists");
+            header("Location: ../admin/main/nar-accounts.php?email-exists");
         }
     }
 }
