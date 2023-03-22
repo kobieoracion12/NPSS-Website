@@ -461,11 +461,11 @@
                             while($row = mysqli_fetch_array($sql)) {
                         ?>
 
-                        <div class="card-group col-xl-4 col-md-6 mt-3">
+                        <div class="card-group col-xl-4 col-md-6 mt-2 ">
                             <div class="card" >
                                 <div class="card-body text-center">
                                     <div class="col-md-4 mx-auto d-block">
-                                        <img src="../../assets/default_profile.png" alt="image" class="img-fluid avatar-xl rounded-circle" />
+                                        <img src="../../assets/default_profile.png" alt="image" class="avatar-xl rounded-circle" />
                                     </div>
 
                                     <p class="text-muted mt-3"><?php echo $row['job_desc'] ?></p>
