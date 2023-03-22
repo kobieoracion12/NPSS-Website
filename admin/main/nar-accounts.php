@@ -94,7 +94,8 @@
 
                     <div class="row">
                         <?php
-                            $sql = mysqli_query($config, "SELECT * FROM employee_info");
+                            $emp_id = $_SESSION['employee_id'];
+                            $sql = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id != '$emp_id'");
                             while($row = mysqli_fetch_array($sql)) {
                         ?>
 

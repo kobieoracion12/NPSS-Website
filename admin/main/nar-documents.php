@@ -225,16 +225,16 @@ include('../../php/access.php');
                                                 ?>
                                                     <img src="<?php echo "../../assets/icon/" . $row['display_icon']; ?>" alt="image" class="img-fluid mb-0" />
 
-                                                <?php } elseif($row['display_icon'] == "excel_icon.png") { ?>
+                                                <?php } elseif($row['display_type'] == "xls") { ?>
                                                     <img src="../../assets/icon/excel_icon.png" alt="image" class="img-fluid mb-0" />
 
-                                                <?php } elseif($row['display_icon'] == "pdf_icon.png") { ?>
+                                                <?php } elseif($row['display_type'] == "pdf") { ?>
                                                     <img src="../../assets/icon/pdf_icon.png" alt="image" class="img-fluid mb-0" />
 
-                                                <?php } elseif($row['display_icon'] == "ppt_icon.png") { ?>
+                                                <?php } elseif($row['display_type'] == "pptx" || $row['display_type'] == "ppt" || $row['display_type'] == "pptm") { ?>
                                                     <img src="../../assets/icon/ppt_icon.png" alt="image" class="img-fluid mb-0" />
 
-                                                <?php } elseif($row['display_icon'] == "word_icon.png") { ?>
+                                                <?php } elseif($row['display_type'] == "docx" || $row['display_type'] == "doc") { ?>
                                                     <img src="../../assets/icon/word_icon.png" alt="image" class="img-fluid mb-0" />
 
                                                 <?php } else { ?>
