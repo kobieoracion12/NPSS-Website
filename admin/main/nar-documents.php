@@ -1,6 +1,6 @@
 <?php
 include('../../php/database.php');
-session_start();
+include('../../php/access.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -503,7 +503,7 @@ session_start();
                                             <div class="row">
                                                 <div>
                                                     <label class="form-label">Upload File</label>
-                                                    <input class="form-control" name="file_upload" type="file" multiple />
+                                                    <input class="form-control" name="myfile" type="file" multiple />
                                                 </div>
                                             </div>
 
@@ -523,9 +523,9 @@ session_start();
                                                 ?>
                                                 <div class="col-lg-4">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="<?php echo $row['0'] ?>" id="<?php echo $row['0'] ?>">
-                                                        <label class="form-check-label" for="<?php echo $row['0'] ?>">
-                                                            <?php echo $row['1'] ?>
+                                                        <input class="form-check-input" type="checkbox" value="<?php echo $row['position_no'] ?>" name="access[]">
+                                                        <label class="form-check-label">
+                                                            <?php echo $row['position_name'] ?>
                                                         </label>
                                                     </div>
                                                 </div>

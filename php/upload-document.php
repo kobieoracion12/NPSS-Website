@@ -3,17 +3,36 @@
 include_once "database.php";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
-
+	$access = $_POST['access'];
     $display = $_POST['display_name'];
+    $filename = $_FILES['myfile']['name'];
+    $destination = '../uploads/documents/' . $filename;
+    $extension = pathinfo($filename, PATHINFO_EXTENSION);
 
-    $insert = mysqli_query($config, "INSERT INTO docu_archive (display_name) VALUES ('$display')");
+    $file = $_FILES['myfile']['tmp_name'];
+    $size = $_FILES['myfile']['size'];
 
-    if($insert) {
-        header("Location: ../admin/main/nar-documents.php?success");
-    }
-    else {
-        header("Location: ../admin/main/nar-documents.php?archive-failed");
-    }
+    if (!in_array($extension, ['pdf'])) {
+        echo "You file extension must be .pdf";
+    } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
+        echo "File too large!";
+    } else {
+	    $insert = mysqli_query($config, "INSERT INTO docu_archive (file_name, display_name) VALUES ('$filename','$display')");
+	    if($insert) {
+	    	move_uploaded_file($file, $destination);
+	    	foreach ($access as $key) {
+	    		$query= mysqli_query($config, "INSERT INTO sample (sample_name) VALUES ('" . $key . "')");
+	    	}
+			    if ($query) {
+			    	header("Location: ../admin/main/nar-documents.php?success");
+			    }
+	    }
+	    else {
+	        header("Location: ../admin/main/nar-documents.php?archive-failed");
+	    }
+	}
+
+    
 }
 
 ?>
