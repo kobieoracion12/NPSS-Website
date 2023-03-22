@@ -101,9 +101,6 @@
                             <div class="card" >
                                 <div class="card-body text-center">
                                     <div class="col-md-4 mx-auto d-block">
-<<<<<<< HEAD
-                                        <img src="../../assets/default_profile.png" alt="image" class="avatar-xl rounded-circle" />
-=======
                                         <?php
                                         if ($row['profile_pic'] != null) { ?>
                                         <img src="<?php echo "../../uploads/profile/" . $row['profile_pic']; ?>" alt="image" class="rounded-circle avatar-xl" />
@@ -114,7 +111,6 @@
                                         <?php
                                         }
                                         ?>
->>>>>>> 1331bda0243bb25dbc7e207f2471d1010b8d0583
                                     </div>
 
                                     <p class="text-muted mt-3"><?php echo $row['job_desc'] ?></p>
