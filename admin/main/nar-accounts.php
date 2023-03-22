@@ -97,7 +97,7 @@
                             while($row = mysqli_fetch_array($sql)) {
                         ?>
 
-                        <div class="card-group col-xl-4 col-md-6 mt-3">
+                        <div class="card-group col-xl-4 col-md-6 mt-2 ">
                             <div class="card" >
                                 <div class="card-body text-center">
                                     <div class="col-md-4 mx-auto d-block">
