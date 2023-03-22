@@ -1,22 +1,19 @@
 <?php
 
-require_once("database.php");
+include "database.php";
 
-if(isset($_POST['delete-ffs'])) {
+$company_no = $_POST['company_no'];
 
-  $id = $_POST['delete_ffs'];
-  
-  $archive_account = mysqli_query($config, "UPDATE account_info SET acc_status = 'Disabled' WHERE control_no = '$id'");
+$del = mysqli_query($config,"DELETE FROM company_profile WHERE company_no = '$company_no'");
 
-  if($archive_account) {
-    header("Location: ../faculty/dist/faculty-students.php?account-deleted");
-    //echo mysqli_error($config);
-  }
-  else {
-    header("Location: ../faculty/dist/faculty-students.php?delete-failed");
-    //echo mysqli_error($config);
-  }
-
+if($del)
+{
+    mysqli_close($config);
+    header("location: ../admin/main/nar-clients.php");
+    exit; 
 }
-
+else
+{
+    echo "Error deleting record";
+}
 ?>
