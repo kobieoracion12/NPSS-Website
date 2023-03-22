@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2023 at 02:45 AM
+-- Generation Time: Mar 22, 2023 at 03:39 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -131,7 +131,7 @@ CREATE TABLE `employee_info` (
 --
 
 INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_name`, `last_name`, `given_suffix`, `contact_no`, `given_address`, `birth_date`, `email_add`, `position`, `emp_stat`, `branch_site`, `job_desc`, `profile_pic`, `uploaded_cv`, `date_created`) VALUES
-(1, 2023198600, 'Kobie', 'Naghuhubad', 'Oracion', 'Jr.', '09123456789', 'Luisiana, Laguna', '2023-03-21', 'sikobieaypros@gmail.com', 'President', 'Director', 'Antipolo', 'Corporate Master', NULL, NULL, '2023-03-21 03:19:06'),
+(1, 2023198600, 'Kobie', '', 'Oracion', '', '09123456789', 'Luisiana, Laguna', '2023-03-21', 'sikobieaypros@gmail.com', 'Intern', 'Intern', 'Antipolo', 'Corporate Slave', 'kobs.jpg', NULL, '2023-03-22 02:25:16'),
 (2, 2023198601, 'Jireh', 'Dinamankupal', 'Ramos', '', '09987654321', 'Santa Cruz, Laguna', '2023-03-21', 'sijirehmaybuko@gmail.com', 'Vice President', 'Director', 'Antipolo', 'Corporate Slave', 'panda.jpg', NULL, '2023-03-21 02:28:08'),
 (4, 2023198602, 'Neil', 'Wholesome', 'Pornela', 'Ay', '09123456789', 'Santa Cruz, Laguna', '2023-03-21', 'sineilaypogs@gmail.com', 'Messenger', 'Regular', 'Antipolo', 'Corporate Pet', 'girl.jpg', 'Application-Form-2.pdf', '2023-03-21 02:28:11'),
 (5, 2023198603, 'Richard', 'Kupallang', 'Ramos', 'Sr', '09987654321', 'Santa Cruz, Laguna', '2023-03-22', 'sirichardaynapakabait@gmail.com', 'Treasurer', 'Regular', 'Antipolo', 'Corporate Flea', 'koenokatachi_sister.jpeg', 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.pdf', '2023-03-21 02:30:06');
@@ -215,7 +215,8 @@ INSERT INTO `position` (`position_no`, `position_name`) VALUES
 (23, 'Utility'),
 (24, 'Messenger'),
 (25, 'Vice President'),
-(26, 'Warehouseman');
+(26, 'Warehouseman'),
+(27, 'Intern');
 
 --
 -- Indexes for dumped tables
@@ -312,7 +313,7 @@ ALTER TABLE `file_access`
 -- AUTO_INCREMENT for table `position`
 --
 ALTER TABLE `position`
-  MODIFY `position_no` bigint(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `position_no` bigint(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Constraints for dumped tables
