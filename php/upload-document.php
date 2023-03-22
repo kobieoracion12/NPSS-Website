@@ -12,7 +12,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
 
-    if (!in_array($extension, ['pdf','docx','doc','pptx' ,'ppt' ,'pptm' ,'xls' ,'cvs'])) {
+    if (!in_array($extension, ['pdf','docx','doc','pptx' ,'ppt' ,'pptm' ,'xlsx' ,'cvs'])) {
         echo "File format is not supported";
     } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
         echo "File too large!";
