@@ -200,15 +200,9 @@
                 </div>
 
                 <!-- item-->
-                <a href="contacts-profile.html" class="dropdown-item notify-item">
+                <a href="../main/nar-profile.php" class="dropdown-item notify-item">
                     <i class="fe-user"></i>
                     <span>My Account</span>
-                </a>
-
-                <!-- item-->
-                <a href="auth-lock-screen.html" class="dropdown-item notify-item">
-                    <i class="fe-lock"></i>
-                    <span>Lock Screen</span>
                 </a>
 
                 <div class="dropdown-divider"></div>
