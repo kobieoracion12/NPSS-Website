@@ -537,11 +537,12 @@
                                     </div>
 
                                     <div class="modal-body px-4 pb-4 pt-0 mx-4">
-                                        <form class="needs-validation" method="post" action="../../php/create_account.php" enctype="multipart/form-data" novalidate>
+                                        <form class="needs-validation" method="post" action="../../php/edit-account.php" enctype="multipart/form-data" novalidate>
                                             <div class="row mb-3">
                                                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group">
                                                         <label class="mb-1">First Name</label>
+                                                        <input type="hidden" name="employee_id" value="<?php echo $row['employee_id'] ?>">
                                                         <input type="text" name="first_name" class="form-control" value="<?php echo $row['first_name'] ?>" required>
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>
@@ -590,7 +591,7 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group mb-2">
                                                         <label class="mb-1">Birth Date</label>
-                                                        <input type="date" name="birth_date" class="form-control" value="" value="<?php echo $row['birth_date'] ?>" required>
+                                                        <input type="date" name="birth_date" class="form-control" value="<?php echo date('Y-m-d',strtotime($row["birth_date"])) ?>" required>
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>
                                                     <div class="form-group">
@@ -619,7 +620,7 @@
                                             <div class="row mb-2">
                                                 <div class="form-group">
                                                     <label class="mb-1">Job Description</label>
-                                                    <textarea type="text" name="description" class="form-control" rows="4" required><?php echo $row['job_desc'] ?></textarea>
+                                                    <textarea type="text" name="job_desc" class="form-control" rows="4" required><?php echo $row['job_desc'] ?></textarea>
                                                     <div class="invalid-feedback">Please fill in this field</div>
                                                 </div>
                                             </div>
