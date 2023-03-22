@@ -46,6 +46,7 @@ include('../../php/access.php');
                     <!-- Start Content-->
                     <div class="container-fluid">
 
+                        <!-- Header -->
                         <div class="row px-2">
                             <div class="card">
                                 <div class="card-body">
@@ -200,8 +201,10 @@ include('../../php/access.php');
                                 $sql = mysqli_query($config, "SELECT * FROM docu_archive");
                                 while($row = mysqli_fetch_array($sql)) {
 
+                                    $id = $row['docu_no'];
                                     $date = date_create($row['date_uploaded']);
-                            ?>
+                                ?>	
+                                
                                 <div class="card-group col-xl-3 col-md-6">
                                     <div class="card rounded-lg mb-3">
 
@@ -246,9 +249,33 @@ include('../../php/access.php');
                                             <h3 class="mt-2 mb-0"><?php echo $row['display_name'] ?></h3>
                                             <h6 class="mt-0 mb-0 text-muted fw-light mt-1"><?php echo date_format($date, "M d, Y") ?><br><?php echo date_format($date, "h:i A") ?></h6>
 
-                                            <img src="../../assets/mam_ness.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Ness">
-                                            <img src="../../assets/mam_nath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Nathalie">
-                                            <img src="../../assets/mam_kath.jpg" alt="image" class="img-fluid avatar-sm rounded-circle mt-2" title="Katherine">
+                                            <?php
+                                                $get = mysqli_query($config, "SELECT * FROM file_access, position WHERE file_access.position_no = position.position_no AND docu_no = '$id'");
+                                                while($access = mysqli_fetch_array($get)) { 
+
+                                                    $position = $access['position_name'];
+                                                
+                                                    $get2 = mysqli_query($config, "SELECT first_name, profile_pic FROM employee_info WHERE position = '$position'");
+                                                    
+                                                    while($access2 = mysqli_fetch_array($get2)) { 
+                                                        
+                                                        $name = $access2['first_name'];
+                                                        $profile = $access2['profile_pic'];
+                                                        
+                                                ?>
+
+                                                <?php if(!empty($profile)) { ?>
+
+                                                    <img src="<?php echo "../../uploads/profile/" . $profile ?>" class="img-fluid avatar-sm rounded-circle mt-2" title="<?php echo $name ?>">
+
+                                                <?php } else { ?>
+
+                                                    <img src="../../assets/default_profile.png" class="img-fluid avatar-sm rounded-circle mt-2" title="<?php echo $name ?>">
+
+                                                <?php } ?>
+
+                                            
+                                            <?php } } ?>
                                     
                                         </div>
 

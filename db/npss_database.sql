@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 22, 2023 at 07:09 AM
+-- Generation Time: Mar 22, 2023 at 07:59 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -119,7 +119,7 @@ CREATE TABLE `docu_archive` (
 --
 
 INSERT INTO `docu_archive` (`docu_no`, `file_name`, `display_name`, `uploaded_file`, `display_icon`, `display_type`, `date_uploaded`) VALUES
-(1, 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.docx', 'Sample', '', NULL, 'docx', '2023-03-22 03:33:57'),
+(1, 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.docx', 'Ramos Claim', '', NULL, 'docx', '2023-03-22 06:30:42'),
 (2, 'Application-Form-2.pdf', 'Sample2', '', NULL, 'pdf', '2023-03-22 03:34:30'),
 (3, 'ADNILAG Tourism Video Ad Competition 2023 Mechanics and Entry form.pdf', 'ADnilag Mechanics', '', NULL, 'pdf', '2023-03-22 03:44:29'),
 (5, 'KUYA RODEL ID.docx', 'Manong Driver ID', '', NULL, 'docx', '2023-03-22 04:34:03'),
