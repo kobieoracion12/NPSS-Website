@@ -53,40 +53,30 @@ include('../../php/access.php');
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-body m-2">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                            <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                            <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                                        </div>
-                                    </div>
-
                                     <?php
                                         $emp_id = $_SESSION['employee_id'];
                                         $record = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
                                         while ($data = mysqli_fetch_array($record)) { ?>
-                                    <div class="d-flex mt-2">
-                                        <div class="flex-shrink-0">
+
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="flex-shrink-0 avatar-lg me-3">
                                             <?php
                                                 if ($data['profile_pic'] != null) { ?>
-                                                <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="user-image" class="flex-shrink-0 rounded-circle avatar-xl" />
+                                                <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="user-image" class="img-fluid rounded-circle" />
                                                 <?php
                                                 }
                                                 elseif ($data['profile_pic'] == null) { ?>
-                                                    <img src="../../assets/default_profile.png" alt="user-image" class="flex-shrink-0 rounded-circle avatar-xl" />
+                                                    <img src="../../assets/default_profile.png" alt="user-image" class="img-fluid rounded-circle" />
                                             <?php
                                                 }
-                                            ?> 
+                                            ?>
                                         </div>
-                                        <div class="flex-grow-1 align-items-center ms-3 mt-1">
-                                            <h4 class="mt-0 mb-1 text-uppercase">
-                                                <?php 
+
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            
+                                            <h5 class="mt-0 mb-0">
+                                                <?php
                                                     $middle_name = $data['middle_name'];
-                                                    $m_name = $middle_name[0];
                                                     if (empty($middle_name)) {
                                                         echo $data['first_name']. " " .$data['last_name'];
                                                     }
@@ -95,11 +85,11 @@ include('../../php/access.php');
                                                         echo $data['first_name']. " " . $m_name . ".  " .$data['last_name'];
                                                     }
                                                 ?>
-                                            </h4>
-                                            <p class="text-muted"><small><?php echo $data['position'] ?></small></p>
-                                            <p class="text-muted"><small><?php echo $data['job_desc'] ?></small/></p>
+                                            </h5>
+                                            <small class="text-muted"><b><?php echo $data['position']; ?></b></small>
                                         </div>
                                     </div>
+                                    
                                     <div class="card-body">
                                         <div class="row mb-2">
                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -176,15 +166,18 @@ include('../../php/access.php');
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Right Side -->
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="mb-4">NAR POWER SYSTEM SPEACIALISTS CORP.</h4>
-                                    <div class="mx-4">
+                                    <div class="ms-2">
                                         <?php 
                                             $records = mysqli_query($config, "SELECT * FROM employee_info");
                                             while ($data1 = mysqli_fetch_array($records)) { ?>
-                                        <div class="d-flex align-items-center mb-3">
+
+                                        <div class="d-flex align-items-center mb-2">
                                             <div class="flex-shrink-0 avatar-md me-3">
                                                 <?php
                                                     if ($data1['profile_pic'] != null) { ?>
@@ -197,9 +190,10 @@ include('../../php/access.php');
                                                     }
                                                 ?>
                                             </div>
+
                                             <div class="flex-grow-1 overflow-hidden">
                                                 
-                                                <h5 class="mt-0 mb-1">
+                                                <h5 class="mt-0 mb-0">
                                                     <?php
                                                         $middle_name1 = $data1['middle_name'];
                                                         if (empty($middle_name1)) {
@@ -214,6 +208,7 @@ include('../../php/access.php');
                                                 <small class="text-muted"><b><?php echo $data1['position']; ?></b></small>
                                             </div>
                                         </div>
+
                                         <?php
                                         }
                                         ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2023 at 07:35 AM
+-- Generation Time: Mar 22, 2023 at 02:45 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -69,7 +69,8 @@ CREATE TABLE `company_profile` (
 
 INSERT INTO `company_profile` (`company_no`, `company_name`, `company_desc`, `branch_site`, `contact_person`, `contact_no`, `company_logo`, `date_registered`) VALUES
 (1, 'Jollibee Corporation', 'Bida bida si saya', 'Makati City', 'Richard Ramos', '09998181811', 'jollibee_logo.png', '2023-03-21 04:44:20'),
-(2, 'Philippine Air Force', 'Hukbong Himpapawid', 'Area 69', 'Neil Major Pornela', '09696969696', 'philippine_airfore_logo.png', '2023-03-21 04:52:06');
+(2, 'Philippine Air Force', 'Hukbong Himpapawid', 'Pasay City', 'Neil Major Pornela', '09696969696', 'philippine_airfore_logo.png', '2023-03-22 00:26:59'),
+(6, 'Coca-Cola Corporation', 'Beverage Manufacturer', 'Sta.Rosa, Laguna', 'Kobie Oracion', '0915221994', 'coca_cola_logo.png', '2023-03-22 01:05:05');
 
 -- --------------------------------------------------------
 
@@ -82,6 +83,8 @@ CREATE TABLE `docu_archive` (
   `file_name` varchar(249) NOT NULL,
   `display_name` varchar(249) NOT NULL,
   `uploaded_file` varchar(249) NOT NULL,
+  `display_icon` varchar(249) DEFAULT NULL,
+  `display_type` varchar(249) NOT NULL,
   `date_uploaded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -89,10 +92,13 @@ CREATE TABLE `docu_archive` (
 -- Dumping data for table `docu_archive`
 --
 
-INSERT INTO `docu_archive` (`docu_no`, `file_name`, `display_name`, `uploaded_file`, `date_uploaded`) VALUES
-(1, '', 'Sample Document', '', '2023-03-21 06:07:24'),
-(2, '', 'Sample Document 2', '', '2023-03-21 06:23:13'),
-(16, '', 'Sample Document 3', '', '2023-03-21 06:25:24');
+INSERT INTO `docu_archive` (`docu_no`, `file_name`, `display_name`, `uploaded_file`, `display_icon`, `display_type`, `date_uploaded`) VALUES
+(1, '', 'Sample Document', '', 'excel_icon.png', '', '2023-03-21 07:51:55'),
+(2, '', 'Sample Document 2', '', 'word_icon.png', '', '2023-03-21 07:53:23'),
+(16, '', 'Sample Document 3', '', NULL, '', '2023-03-21 07:55:55'),
+(17, '', 'Richard Sex Club Corporation', '', 'folder_icon.png', '', '2023-03-21 07:08:12'),
+(18, '', 'Jireh Loli Fanatic Incorporated', '', 'folder_icon.png', '', '2023-03-21 07:25:51'),
+(22, '', 'Neil Gap Girl Corporation', '', 'folder_icon.png', 'png', '2023-03-21 07:46:58');
 
 -- --------------------------------------------------------
 
@@ -276,13 +282,13 @@ ALTER TABLE `account_info`
 -- AUTO_INCREMENT for table `company_profile`
 --
 ALTER TABLE `company_profile`
-  MODIFY `company_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `company_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `docu_archive`
 --
 ALTER TABLE `docu_archive`
-  MODIFY `docu_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `docu_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `employee_info`
@@ -300,7 +306,7 @@ ALTER TABLE `emp_status`
 -- AUTO_INCREMENT for table `file_access`
 --
 ALTER TABLE `file_access`
-  MODIFY `access_no` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20233210000;
+  MODIFY `access_no` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9223372036854775807;
 
 --
 -- AUTO_INCREMENT for table `position`
