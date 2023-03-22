@@ -106,13 +106,6 @@
                 </li>
 
                 <li>
-                    <a href="nar-inquiries.php">
-                        <i class="mdi mdi-chat-alert-outline"></i>
-                            <span> Inquiries </span>
-                    </a>    
-                </li>
-
-                <li>
                     <a href="nar-payroll.php">
                         <i class="mdi mdi-cash-register"></i>
                         <span> Payroll </span>
