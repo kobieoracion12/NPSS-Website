@@ -1,3 +1,7 @@
+<?php
+include('../../php/database.php');
+include('../../php/access.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,377 +33,12 @@
     <!-- Begin page -->
     <div id="wrapper">
 
-
         <!-- Topbar Start -->
-        <div class="navbar-custom">
-            <ul class="list-unstyled topnav-menu float-end mb-0">
-
-                <li class="d-none d-lg-block">
-                    <form class="app-search">
-                        <div class="app-search-box">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search..." id="top-search">
-                                <button class="btn input-group-text" type="submit">
-                                    <i class="fe-search"></i>
-                                </button>
-                            </div>
-                            <div class="dropdown-menu dropdown-lg" id="search-dropdown">
-                                <!-- item-->
-                                <div class="dropdown-header noti-title">
-                                    <h5 class="text-overflow mb-2">Found 22 results</h5>
-                                </div>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fe-home me-1"></i>
-                                    <span>Analytics Report</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fe-aperture me-1"></i>
-                                    <span>How can I help you?</span>
-                                </a>
-
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <i class="fe-settings me-1"></i>
-                                    <span>User profile settings</span>
-                                </a>
-
-                                <!-- item-->
-                                <div class="dropdown-header noti-title">
-                                    <h6 class="text-overflow mb-2 text-uppercase">Users</h6>
-                                </div>
-
-                                <div class="notification-list">
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="d-flex align-items-start">
-                                            <img class="d-flex me-2 rounded-circle" src="../assets/images/users/user-2.jpg" alt="Generic placeholder image" height="32">
-                                            <div class="w-100">
-                                                <h5 class="m-0 font-14">Erwin E. Brown</h5>
-                                                <span class="font-12 mb-0">UI Designer</span>
-                                            </div>
-                                        </div>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <div class="d-flex align-items-start">
-                                            <img class="d-flex me-2 rounded-circle" src="../assets/images/users/user-5.jpg" alt="Generic placeholder image" height="32">
-                                            <div class="w-100">
-                                                <h5 class="m-0 font-14">Jacob Deo</h5>
-                                                <span class="font-12 mb-0">Developer</span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            </div>
-                        </div>
-                    </form>
-                </li>
-
-                <li class="dropdown d-inline-block d-lg-none">
-                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-search noti-icon"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-lg dropdown-menu-end p-0">
-                        <form class="p-3">
-                            <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                        </form>
-                    </div>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-bell noti-icon"></i>
-                        <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-
-                        <!-- item-->
-                        <div class="dropdown-item noti-title">
-                            <h5 class="m-0">
-                                <span class="float-end">
-                                    <a href="" class="text-dark">
-                                        <small>Clear All</small>
-                                    </a>
-                                </span>Notification
-                            </h5>
-                        </div>
-
-                        <div class="noti-scroll" data-simplebar>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                <div class="notify-icon">
-                                    <img src="../assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Cristina Pride</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Hi, How are you? What about our next meeting</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-primary">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">1 min ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon">
-                                    <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Karen Robinson</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Wow ! this admin looks good and awesome design</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-warning">
-                                    <i class="mdi mdi-account-plus"></i>
-                                </div>
-                                <p class="notify-details">New user registered.
-                                    <small class="text-muted">5 hours ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-info">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">4 days ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-secondary">
-                                    <i class="mdi mdi-heart"></i>
-                                </div>
-                                <p class="notify-details">Carlos Crouch liked
-                                    <b>Admin</b>
-                                    <small class="text-muted">13 days ago</small>
-                                </p>
-                            </a>
-                        </div>
-
-                        <!-- All-->
-                        <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                            View all
-                            <i class="fe-arrow-right"></i>
-                        </a>
-
-                    </div>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-                    <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <img src="../dist/assets/images/users/user-1.jpg" alt="user-image" class="rounded-circle">
-                        <span class="pro-user-name ms-1">
-                            Nowak <i class="mdi mdi-chevron-down"></i>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome !</h6>
-                        </div>
-
-                        <!-- item-->
-                        <a href="contacts-profile.html" class="dropdown-item notify-item">
-                            <i class="fe-user"></i>
-                            <span>My Account</span>
-                        </a>
-
-                        <!-- item-->
-                        <a href="auth-lock-screen.html" class="dropdown-item notify-item">
-                            <i class="fe-lock"></i>
-                            <span>Lock Screen</span>
-                        </a>
-
-                        <div class="dropdown-divider"></div>
-
-                        <!-- item-->
-                        <a href="auth-logout.html" class="dropdown-item notify-item">
-                            <i class="fe-log-out"></i>
-                            <span>Logout</span>
-                        </a>
-
-                    </div>
-                </li>
-
-            </ul>
-
-            <!-- LOGO -->
-            <div class="logo-box">
-                <a href="index.html" class="logo logo-light text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-light.png" alt="" height="16">
-                    </span>
-                </a>
-                <a href="index.html" class="logo logo-dark text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-dark.png" alt="" height="16">
-                    </span>
-                </a>
-            </div>
-
-            <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-                <li>
-                    <button class="button-menu-mobile disable-btn waves-effect">
-                        <i class="fe-menu"></i>
-                    </button>
-                </li>
-
-                <li>
-                    <h4 class="page-title-main">Profile</h4>
-                </li>
-
-            </ul>
-
-            <div class="clearfix"></div>
-
-        </div>
+        <?php include "../design/top-menu.php" ?>
         <!-- end Topbar -->
 
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="left-side-menu">
-
-            <div class="h-100" data-simplebar>
-
-                <!-- User box -->
-                <div class="user-box text-center">
-
-                    <img src="../dist/assets/images/users/user-1.jpg" alt="user-img" title="Mat Helme" class="rounded-circle img-thumbnail avatar-md">
-                    <div class="dropdown">
-                        <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">Nowak Helme</a>
-                        <div class="dropdown-menu user-pro-dropdown">
-
-                            <!-- item-->
-                            <a href="nar-profile.php" class="dropdown-item notify-item">
-                                <i class="fe-user me-1"></i>
-                                <span>My Account</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-settings me-1"></i>
-                                <span>Settings</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-lock me-1"></i>
-                                <span>Lock Screen</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-log-out me-1"></i>
-                                <span>Logout</span>
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <p class="text-muted left-user-info">Admin Head</p>
-                </div>
-
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-
-                    <ul id="side-menu">
-
-                        <li class="menu-title">Navigation</li>
-
-                        <li>
-                            <a href="../index.php">
-                                <i class="mdi mdi-view-dashboard-outline"></i>
-                                <span class="badge bg-success rounded-pill float-end">9+</span>
-                                <span> Dashboard </span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Apps</li>
-
-                        <li>
-                            <a href="nar-accounts.php">
-                                <i class="mdi mdi-account-outline"></i>
-                                <span> Accounts </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="nar-applicants.php">
-                                <i class="mdi mdi-card-account-details-outline"></i>
-                                <span> Applicants </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="nar-clients.php">
-                                <i class="mdi mdi-briefcase-variant-outline"></i>
-                                <span> Clients </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="nar-documents.php">
-                                <i class="mdi mdi-file-document-outline"></i>
-                                <span> Documents </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="nar-inquiries.php">
-                                <i class="mdi mdi-chat-alert-outline"></i>
-                                <span> Inquiries </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="nar-payroll.php">
-                                <i class="mdi mdi-cash-register"></i>
-                                <span> Payroll </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="nar-quotations.php">
-                                <i class="mdi mdi-account-cash-outline"></i>
-                                <span> Quotations </span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- End Sidebar -->
-
-                <div class="clearfix"></div>
-
-            </div>
-            <!-- Sidebar -left -->
-
-        </div>
+        <!-- Side Bar -->
+        <?php include "../design/side-menu.php" ?>
         <!-- Left Sidebar End -->
 
         <!-- ============================================================== -->
@@ -414,141 +53,251 @@
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-body m-2">
-                                    <div class="dropdown float-end">
-                                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <i class="mdi mdi-dots-vertical"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
-                                            <a href="javascript:void(0);" class="dropdown-item">Another action</a>
-                                            <a href="javascript:void(0);" class="dropdown-item">Something else</a>
-                                            <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex mt-2">
-                                        <div class="flex-shrink-0">
-                                            <img src="../../assets/mam_ness.jpg" alt="" class="flex-shrink-0 rounded-circle avatar-xl">
-                                        </div>
-                                        <div class="flex-grow-1 align-items-center ms-3 mt-1">
-                                            <h4 class="mt-0 mb-1">JANET L. DELA CRUZ</h4>
-                                            <p class="text-muted"><small>Administration Head</small></p>
-                                            <p class="text-muted"><small>Supervising the day-to-day operations of the administrative department and staff members. Hiring, training, and evaluating employees and taking corrective action when necessary.</small/></p>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row mb-2">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Firstname</label>
-                                                    <input type="text" class="form-control" value="Janet">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Lastname</label>
-                                                    <input type="text" class="form-control" value="Dela Cruz">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Middlename</label>
-                                                    <input type="text" class="form-control" value="Janet">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Contact number</label>
-                                                    <input type="text" class="form-control" value="09xx-xxx-xxxx">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-12 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
-                                            <div class="form-group">
-                                                <label for="user-first" class="mb-1">Address</label>
-                                                <input type="text" class="form-control" value="Antipolo City, Rizal Province">
+                                    <?php
+                                        $emp_id = $_SESSION['employee_id'];
+                                        $record = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
+                                        while ($data = mysqli_fetch_array($record)) { ?>
 
-                                            </div>
+                                    <!-- Profile Introductions -->
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="flex-shrink-0 avatar-lg me-3">
+                                            <?php
+                                                if ($data['profile_pic'] != null) { ?>
+                                                <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="user-image" class="img-fluid rounded-circle" />
+                                                <?php
+                                                }
+                                                elseif ($data['profile_pic'] == null) { ?>
+                                                    <img src="../../assets/default_profile.png" alt="user-image" class="img-fluid rounded-circle" />
+                                            <?php
+                                                }
+                                            ?>
                                         </div>
-                                        <div class="row mb-2">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Birthdate</label>
-                                                    <input type="text" class="form-control" value="July 1, 19xx">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Email Address</label>
-                                                    <input type="text" class="form-control" value="samplemail@gmail.com">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Position</label>
-                                                    <input type="text" class="form-control" value="Administration Head">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="user-first" class="mb-1">Branch/Site</label>
-                                                    <input type="text" class="form-control" value="Antipolo City">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-12 d-flex justify-content-end">
-                                            <button class="btn btn-warning text-white rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                <i class="mdi mdi-pencil me-1"></i>Edit Details
-                                            </button>
+
+                                        <div class="flex-grow-1 overflow-hidden">
+                                            
+                                            <h4 class="mt-0 mb-0">
+                                                <?php
+                                                    $middle_name = $data['middle_name'];
+                                                    if (empty($middle_name)) {
+                                                        echo $data['first_name']. " " .$data['last_name'];
+                                                    }
+                                                    else {
+                                                        $m_name = $middle_name[0];
+                                                        echo $data['first_name']. " " . $m_name . ".  " .$data['last_name'];
+                                                    }
+                                                ?>
+                                            </h4>
+                                            <small class="text-muted"><b><?php echo $data['position']; ?></b></small>
                                         </div>
                                     </div>
+                                    
+                                    <!-- Personal Information -->
+                                    <div class="card-body">
+                                        <form class="needs-validation" method="post" action="../../php/edit-profile.php" enctype="multipart/form-data" novalidate>
+
+                                            <div class="row mb-3">
+                                                <input type="text" name="employee_id" class="form-control" value="<?php echo $data['employee_id'] ?>" hidden required>
+
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">First Name</label>
+                                                        <input type="text" name="first_name" class="form-control" value="<?php echo $data['first_name'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group ">
+                                                        <label class="mb-1">Middle Name</label>
+                                                        <input type="text" name="middle_name" class="form-control" value="<?php echo $data['middle_name'] ?>">
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group ">
+                                                        <label class="mb-1">Last Name</label>
+                                                        <input type="text" name="last_name" class="form-control" value="<?php echo $data['last_name'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group ">
+                                                        <label class="mb-1">Suffix</label>
+                                                        <input type="text" name="given_suffix" class="form-control" value="<?php echo $data['given_suffix'] ?>">
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Address</label>
+                                                        <input type="text" name="given_address" class="form-control" value="<?php echo $data['given_address'] ?>" required></input>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Contact Number</label>
+                                                        <input type="text" name="contact_no" class="form-control" value="<?php echo $data['contact_no'] ?>">
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-2">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group mb-2">
+                                                        <label class="mb-1">Birth Date</label>
+                                                        <input type="date" name="birth_date" class="form-control" value="<?php echo $data['birth_date'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group mb-2">
+                                                        <label class="mb-1">Email Address</label>
+                                                        <input type="text" name="email_add" class="form-control" value="<?php echo $data['email_add'] ?>" required>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>    
+                                                </div>                                    
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group mb-2">
+                                                        <label class="mb-1">Position</label>
+                                                        <select class="form-select" name="position" aria-label="Default select example" required>
+                                                            <?php
+                                                                $sql = mysqli_query($config, "SELECT position_name FROM position ORDER BY position_name");
+                                                                while($row = mysqli_fetch_array($sql)) {
+                                                            ?>
+                                                            
+                                                            <option value="<?php echo $data['position']?>" selected><?php echo $data['position'] ?></option>
+
+                                                            <option value="<?php echo $row[0] ?>"><?php echo $row[0] ?></option>
+                                                            
+                                                            <?php } ?>
+                                                        </select>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>      
+                                                </div>
+
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Status</label>
+                                                        <select class="form-select" name="emp_stat" aria-label="Default select example" required>
+                                                            <?php
+                                                                $sql = mysqli_query($config, "SELECT emp_stat FROM emp_status");
+                                                                while($row = mysqli_fetch_array($sql)) {
+                                                            ?>
+
+                                                            <option value="<?php echo $data['emp_stat']?>" selected><?php echo $data['emp_stat'] ?></option>
+
+                                                            <option value="<?php echo $row[0] ?>"><?php echo $row[0] ?></option>
+                                                            
+                                                            <?php } ?>
+                                                        </select>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1">Branch/Site</label>
+                                                        <select class="form-select" name="branch_site" aria-label="Default select example" required>
+
+                                                            <option value="<?php echo $data['branch_site']?>" selected><?php echo $data['branch_site'] ?></option>
+                                                            <option value="Antipolo" selected>Antipolo</option>
+
+                                                        </select>
+                                                        <div class="invalid-feedback">Please fill in this field</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-2">
+                                                <div class="form-group">
+                                                    <label class="mb-1">Job Description</label>
+                                                    <textarea type="text" name="description" class="form-control" rows="4" required><?php echo $data['job_desc'] ?></textarea>
+                                                    <div class="invalid-feedback">Please fill in this field</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-2">
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1 text-center">Profile Picture</label>
+                                                        <input name="image" id="image" class="form-control" type="file" /> 
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <div class="form-group">
+                                                        <label class="mb-1 text-center">Upload Resume</label>
+                                                        <input name="myfile" id="myfile" class="form-control" type="file" /> 
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xl-12 d-flex justify-content-end mt-3">
+                                                <button class="btn btn-warning text-white rounded" name="edit-profile" type="submit">
+                                                    <i class="mdi mdi-pencil me-1"></i>Edit Details
+                                                </button>
+                                            </div>
+
+                                        </form>
+                                    </div>
+
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Right Side -->
                         <div class="col-lg-4">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="mb-4">NAR POWER SYSTEM SPEACIALISTS CORP.</h4>
-                                    <div class="mx-4">
-                                        <div class="d-flex align-items-center mb-3">
+                                    <div class="ms-2">
+                                        <?php 
+                                            $records = mysqli_query($config, "SELECT * FROM employee_info");
+                                            while ($data1 = mysqli_fetch_array($records)) { ?>
+
+                                        <div class="d-flex align-items-center mb-2">
                                             <div class="flex-shrink-0 avatar-md me-3">
-                                                <img src="../../assets/mam_ness.jpg" class="img-fluid rounded-circle" alt="user">
+                                                <?php
+                                                    if ($data1['profile_pic'] != null) { ?>
+                                                    <img src="<?php echo "../../uploads/profile/" . $data1['profile_pic']; ?>" alt="user-image" class="img-fluid rounded-circle" />
+                                                    <?php
+                                                    }
+                                                    elseif ($data1['profile_pic'] == null) { ?>
+                                                        <img src="../../assets/default_profile.png" alt="user-image" class="img-fluid rounded-circle" />
+                                                <?php
+                                                    }
+                                                ?>
                                             </div>
+
                                             <div class="flex-grow-1 overflow-hidden">
-                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
-                                                <small class="text-muted"><b>President</b></small>
+                                                
+                                                <h5 class="mt-0 mb-0">
+                                                    <?php
+                                                        $middle_name1 = $data1['middle_name'];
+                                                        if (empty($middle_name1)) {
+                                                            echo $data1['first_name']. " " .$data1['last_name'];
+                                                        }
+                                                        else {
+                                                            $m_name1 = $middle_name1[0];
+                                                            echo $data1['first_name']. " " . $m_name1 . ".  " .$data1['last_name'];
+                                                        }
+                                                    ?>
+                                                </h5>
+                                                <small class="text-muted"><b><?php echo $data1['position']; ?></b></small>
                                             </div>
                                         </div>
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="flex-shrink-0 avatar-md me-3">
-                                                <img src="../../assets/boss_greg.jpg" class="img-fluid rounded-circle" alt="user">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
-                                                <small class="text-muted"><b>President</b></small>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="flex-shrink-0 avatar-md me-3">
-                                                <img src="../../assets/mam_janet.jpg" class="img-fluid rounded-circle" alt="user">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
-                                                <small class="text-muted"><b>President</b></small>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex align-items-center mb-3">
-                                            <div class="flex-shrink-0 avatar-md me-3">
-                                                <img src="../../assets/mam_nath.jpg" class="img-fluid rounded-circle" alt="user">
-                                            </div>
-                                            <div class="flex-grow-1 overflow-hidden">
-                                                <h5 class="mt-0 mb-1">NESS B. RONDILLA</h5>
-                                                <small class="text-muted"><b>President</b></small>
-                                            </div>
-                                        </div>
+
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -556,120 +305,6 @@
                     </div>
                 </div> <!-- container-fluid -->
             </div> <!-- content -->
-
-            <!-- Edit profile MODAL -->
-            <div class="modal fade" id="exampleModal" tabindex="-1">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header py-3 px-4 border-bottom-0 d-block">
-                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                            <h3 class="modal-title" id="modal-title">Employee Profile</h3>
-                        </div>
-                        <div class="modal-body px-4 pb-4 pt-0 mx-4">
-                            <form class="needs-validation" novalidate>
-                                <div class="row mb-3">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Firstname</label>
-                                            <input type="text" class="form-control" value="Janet" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group ">
-                                            <label for="user-first" class="mb-1">Middlename</label>
-                                            <input type="text" class="form-control" value="Dela Cruz" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group ">
-                                            <label for="user-first" class="mb-1">Lastname</label>
-                                            <input type="text" class="form-control" value="Dela Cruz" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Address</label>
-                                            <textarea type="text" class="form-control" rows="1" required>Antipolo City, Rizal Province</textarea>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Contact number</label>
-                                            <input type="text" class="form-control" value="09xx-xxx-xxxx" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group mb-2">
-                                            <label for="user-first" class="mb-1">Birthdate</label>
-                                            <input type="date" class="form-control" value="" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Position</label>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option selected>Administration</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group mb-2">
-                                            <label for="user-first" class="mb-1">Email Address</label>
-                                            <input type="text" class="form-control" value="samplemail@gmail.com" required>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1">Branch/Site</label>
-                                            <select class="form-select" aria-label="Default select example" required>
-                                                <option selected>Antipolo City</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
-                                            </select>
-                                            <div class="invalid-feedback">Please fill in this field</div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <div class="form-group">
-                                            <label for="user-first" class="mb-1 text-center">Profile Picture</label>
-                                            <div class="dropzone" id="myAwesomeDropzone" data-plugin="dropzone" data-previews-container="#file-previews" data-upload-preview-template="#uploadPreviewTemplate">
-                                                <div class="fallback">
-                                                    <input name="file" class="form-control" type="file" multiple />
-                                                </div>
-                                                <div class="dz-message needsclick">
-                                                    <i class="h1 text-muted dripicons-cloud-upload"></i>
-                                                    <h3>Choose Photo</h3>
-                                                    <span class="text-muted font-13">(This is just a demo dropzone. Selected files are
-                                                        <strong>not</strong> actually uploaded.)</span>
-                                                </div>
-                                                <div class="dropzone-previews mt-3" id="file-previews"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row mt-4">
-                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                        <button type="submit" class="btn btn-success px-5 rounded-pill" id="btn-save-event">Save</button>
-                                        <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div> <!-- end modal-content-->
-                </div> <!-- end modal dialog-->
-            </div>
 
             <!-- Footer Start -->
             <footer class="footer">
