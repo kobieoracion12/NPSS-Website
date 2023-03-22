@@ -12,18 +12,18 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $file = $_FILES['myfile']['tmp_name'];
     $size = $_FILES['myfile']['size'];
 
-    if (!in_array($extension, ['pdf'])) {
-        echo "You file extension must be .pdf";
+    if (!in_array($extension, ['pdf','docx','doc','pptx' ,'ppt' ,'pptm' ,'xls' ,'cvs'])) {
+        echo "File format is not supported";
     } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
         echo "File too large!";
     } else {
-	    $insert = mysqli_query($config, "INSERT INTO docu_archive (file_name, display_name) VALUES ('$filename','$display')");
+	    $insert = mysqli_query($config, "INSERT INTO docu_archive (file_name, display_name, display_type) VALUES ('$filename','$display', '$extension')");
 	    if($insert) {
 
-	    	$id[] = array(mysqli_insert_id($config));
+	    	$id = mysqli_insert_id($config);
 	    	move_uploaded_file($file, $destination);
-	    	foreach ($access as $key => $value) {
-	    		$query= mysqli_query($config, "INSERT INTO sample (docu_no, sample_name) VALUES ('".$id[$key]."', '" . $value . "')");
+	    	foreach ($access as $key) {
+	    		$query= mysqli_query($config, "INSERT INTO file_access (docu_no, position_no) VALUES ('$id', '".$key."')");
 	    	}
 			    if ($query) {
 			    	header("Location: ../admin/main/nar-documents.php?success");
