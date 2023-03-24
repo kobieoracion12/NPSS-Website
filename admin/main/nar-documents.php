@@ -152,8 +152,12 @@ include('../../php/access.php');
                         <div class="modal fade" id="add-folder" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
+                                    <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                                        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h3 class="modal-title" id="modal-title">New Folder</h3>
+                                    </div>
 
-                                    <div class="modal-body mx-4 my-3">
+                                    <div class="modal-body mx-4">
                                         <form class="needs-validation" method="post" action="../../php/add-folder.php" enctype="multipart/form-data" novalidate>
 
                                             <div class="row">
@@ -214,12 +218,27 @@ include('../../php/access.php');
                                                 <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
                                                     <i class="mdi mdi-dots-vertical"></i>
                                                 </a>
+
+                                                <?php if(empty($row['file_name'])) { ?>
+
                                                 <div class="dropdown-menu dropdown-menu-end">
                                                     <!-- item-->
-                                                    <a class="dropdown-item">Edit</a>
-                                                    <a href="javascript:void(0);" class="dropdown-item">Delete</a>
-                                                    <a href="javascript:void(0);" class="dropdown-item">Open</a>
+                                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-docu<?php echo $row['docu_no'] ?>">Edit</a>
+                                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-docu<?php echo $row['docu_no'] ?>">Delete</a>
+                                                    <a class="dropdown-item">Open</a>
                                                 </div>
+
+                                                <?php } else { ?>
+
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <!-- item-->
+                                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-docu<?php echo $row['docu_no'] ?>">Edit</a>
+                                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-docu<?php echo $row['docu_no'] ?>">Delete</a>
+                                                    <a class="dropdown-item" href="../../uploads/documents/<?php echo $row['file_name']?>">Download</a>
+                                                </div>
+
+                                                <?php } ?>
+
                                             </div>
 
                                             <div class="col-md-4">
@@ -281,6 +300,95 @@ include('../../php/access.php');
 
                                     </div>
                                 </div><!-- end col -->
+
+                                <!-- Edit Modal -->
+                                <div class="modal fade" id="edit-docu<?php echo $row['docu_no'] ?>" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                                                <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <h3 class="modal-title" id="modal-title">Edit Document</h3>
+                                            </div>
+
+                                            <div class="modal-body mx-4">
+                                                <form class="needs-validation" method="post" action="../../php/edit-docu.php" enctype="multipart/form-data" novalidate>
+
+                                                <input class="form-control" name="docu_no" type="text" value="<?php echo $row['docu_no'] ?>" hidden />
+
+                                                    <div class="row">
+                                                        <div>
+                                                            <label class="form-label">File Name</label>
+                                                            <input class="form-control bg-light" type="text" value="<?php echo $row['file_name'] ?>" readonly disabled />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-2">
+                                                        <div>
+                                                            <label class="form-label">Display Name</label>
+                                                            <input class="form-control" name="display_name" type="text" value="<?php echo $row['display_name'] ?>" required />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-3">
+                                                        <label class="form-label">User Access</label>
+
+                                                        <?php
+                                                            $fetch = mysqli_query($config, "SELECT * FROM position");
+                                                            while($row = mysqli_fetch_array($fetch)) {
+                                                        ?>
+                                                        <div class="col-lg-4">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" value="<?php echo $row['0'] ?>" id="<?php echo $row['0'] ?>">
+                                                                <label class="form-check-label" for="<?php echo $row['0'] ?>">
+                                                                    <?php echo $row['1'] ?>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+
+                                                        <?php } ?>
+                                                        
+                                                    </div>
+
+                                                    <div class="row mt-4">
+                                                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                            <button type="submit" name="edit-docu" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Edit File</button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div> <!-- end modal-content-->
+                                    </div> <!-- end modal dialog-->
+                                </div>
+
+                                <!-- Delete Modal -->
+                                <div class="modal fade" id="delete-docu<?php echo $row['docu_no'] ?>" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered modal-md">
+                                        <div class="modal-content">
+                                            <div class="modal-header px-4 border-bottom-0 d-block">
+                                                <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <h4 class="modal-title" id="modal-title">Delete File</h4>
+                                            </div>
+
+                                            <div class="modal-body mx-4">
+                                                <form class="needs-validation" method="post" action="../../php/delete-docu.php" enctype="multipart/form-data" novalidate>
+                                                    
+                                                    <input type="text" name="docu_no" value="<?php echo $row['docu_no'] ?>">
+                                                    <div>
+                                                        <h5>Do you want to delete this client?</h5>
+                                                    </div>
+
+                                                    <div class="row mt-4">
+                                                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                            <button type="submit" class="btn btn-danger px-5 rounded-pill" id="btn-save-event">Continue</button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div> <!-- end modal-content-->
+                                    </div> <!-- end modal dialog-->
+                                </div>
 
                             <?php } ?>
 

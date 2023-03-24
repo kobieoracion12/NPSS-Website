@@ -3,19 +3,19 @@
 include "database.php";
 
 if (isset($_POST['register_user'])) {
-  $employee_id          = $_POST['employee_id'];
-  $first_name          = mysqli_real_escape_string($config,$_POST['first_name']);
-  $last_name          = mysqli_real_escape_string($config,$_POST['last_name']);
-  $middle_name          = mysqli_real_escape_string($config,$_POST['middle_name']);
-  $last_name          = mysqli_real_escape_string($config,$_POST['last_name']);
-  $given_suffix          = mysqli_real_escape_string($config,$_POST['given_suffix']);
-  $given_address          = mysqli_real_escape_string($config,$_POST['given_address']);
-  $contact_no          = mysqli_real_escape_string($config,$_POST['contact_no']);
-  $birth_date          = $_POST['birth_date'];
-  $position          = mysqli_real_escape_string($config,$_POST['position']);
-  $email_add          = mysqli_real_escape_string($config,$_POST['email_add']);
-  $branch_site          = mysqli_real_escape_string($config,$_POST['branch_site']);
-  $job_desc             = mysqli_real_escape_string($config,$_POST['job_desc']);
+  $employee_id = $_POST['employee_id'];
+  $first_name = mysqli_real_escape_string($config,$_POST['first_name']);
+  $last_name = mysqli_real_escape_string($config,$_POST['last_name']);
+  $middle_name = mysqli_real_escape_string($config,$_POST['middle_name']);
+  $last_name = mysqli_real_escape_string($config,$_POST['last_name']);
+  $given_suffix = mysqli_real_escape_string($config,$_POST['given_suffix']);
+  $given_address = mysqli_real_escape_string($config,$_POST['given_address']);
+  $contact_no = mysqli_real_escape_string($config,$_POST['contact_no']);
+  $birth_date = $_POST['birth_date'];
+  $position = mysqli_real_escape_string($config,$_POST['position']);
+  $email_add = mysqli_real_escape_string($config,$_POST['email_add']);
+  $branch_site = mysqli_real_escape_string($config,$_POST['branch_site']);
+  $job_desc = mysqli_real_escape_string($config,$_POST['job_desc']);
 
   $uploaded_cv         = $_FILES['uploaded_cv']['name'];
   $destination = '../uploads/resume/' . $uploaded_cv;
