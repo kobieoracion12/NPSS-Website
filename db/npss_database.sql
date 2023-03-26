@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2023 at 09:30 AM
+-- Generation Time: Mar 26, 2023 at 08:20 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -119,12 +119,13 @@ CREATE TABLE `docu_archive` (
 --
 
 INSERT INTO `docu_archive` (`docu_no`, `file_name`, `display_name`, `uploaded_file`, `display_icon`, `display_type`, `date_uploaded`) VALUES
-(1, 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.docx', 'Ramos Claim', '', NULL, 'docx', '2023-03-22 06:30:42'),
-(2, 'Application-Form-2.pdf', 'Application Form', '', NULL, 'pdf', '2023-03-24 06:50:50'),
-(3, 'ADNILAG Tourism Video Ad Competition 2023 Mechanics and Entry form.pdf', 'ADnilag Mechanics', '', NULL, 'pdf', '2023-03-22 03:44:29'),
-(5, 'KUYA RODEL ID.docx', 'Manong Driver ID', '', NULL, 'docx', '2023-03-22 04:34:03'),
-(6, '', 'Untitled Folder', '', 'folder_icon.png', 'png', '2023-03-24 06:51:16'),
-(7, 'JAK_invoice.xlsx', 'JAK Invoice', '', NULL, 'xlsx', '2023-03-22 04:36:34');
+(1, 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.docx', 'Ramos Claim', '', NULL, 'docx', '2023-03-26 02:05:14'),
+(2, 'Application-Form-2.pdf', 'Application Form', '', NULL, 'pdf', '2023-03-26 02:05:18'),
+(3, 'ADNILAG Tourism Video Ad Competition 2023 Mechanics and Entry form.pdf', 'ADnilag Mechanics', '', NULL, 'pdf', '2023-03-26 02:05:20'),
+(5, 'KUYA RODEL ID.docx', 'Manong Driver ID', '', NULL, 'docx', '2023-03-26 02:05:22'),
+(6, '', 'Untitled Folder', '', 'folder_icon.png', 'png', '2023-03-26 02:28:56'),
+(7, 'JAK_invoice.xlsx', 'JAK Invoice', '', NULL, 'xlsx', '2023-03-26 02:30:35'),
+(9, '', 'Jollibee Corporation', '', 'folder_icon.png', 'png', '2023-03-26 02:33:08');
 
 -- --------------------------------------------------------
 
@@ -251,6 +252,54 @@ INSERT INTO `file_access` (`access_no`, `docu_no`, `position_no`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `payroll`
+--
+
+CREATE TABLE `payroll` (
+  `payroll_no` bigint(59) NOT NULL,
+  `employee_id` bigint(59) NOT NULL,
+  `basic_pay` double DEFAULT NULL,
+  `salary_adj` double DEFAULT NULL,
+  `tax_refund` double DEFAULT NULL,
+  `reg_ot1` double DEFAULT NULL,
+  `nd_ot1` double DEFAULT NULL,
+  `spcl_ot1` double DEFAULT NULL,
+  `spcl_ot2` double DEFAULT NULL,
+  `nd_ot2` double DEFAULT NULL,
+  `nd_ot3` double DEFAULT NULL,
+  `lh_ot1` double DEFAULT NULL,
+  `lh_ot2` double DEFAULT NULL,
+  `lh_ot3` double DEFAULT NULL,
+  `lh_ot4` double DEFAULT NULL,
+  `allowance` double DEFAULT NULL,
+  `gross_pay` double DEFAULT NULL,
+  `tardiness` double DEFAULT NULL,
+  `lwop` double DEFAULT NULL,
+  `absences` double DEFAULT NULL,
+  `sss_contri` double DEFAULT NULL,
+  `ph_contri` double DEFAULT NULL,
+  `hdmf_contri` double DEFAULT NULL,
+  `sss_loan` double DEFAULT NULL,
+  `hdmf_loan` double DEFAULT NULL,
+  `advances` double DEFAULT NULL,
+  `wh_tax` double DEFAULT NULL,
+  `total_deduc` double DEFAULT NULL,
+  `take_home` double DEFAULT NULL,
+  `payroll_period` date NOT NULL,
+  `payroll_date` date NOT NULL,
+  `date_encoded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `payroll`
+--
+
+INSERT INTO `payroll` (`payroll_no`, `employee_id`, `basic_pay`, `salary_adj`, `tax_refund`, `reg_ot1`, `nd_ot1`, `spcl_ot1`, `spcl_ot2`, `nd_ot2`, `nd_ot3`, `lh_ot1`, `lh_ot2`, `lh_ot3`, `lh_ot4`, `allowance`, `gross_pay`, `tardiness`, `lwop`, `absences`, `sss_contri`, `ph_contri`, `hdmf_contri`, `sss_loan`, `hdmf_loan`, `advances`, `wh_tax`, `total_deduc`, `take_home`, `payroll_period`, `payroll_date`, `date_encoded`) VALUES
+(20231160000, 2023198616, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2023-03-01', '2023-03-31', '2023-03-26 05:46:12');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `position`
 --
 
@@ -338,6 +387,13 @@ ALTER TABLE `file_access`
   ADD KEY `docu_no` (`docu_no`);
 
 --
+-- Indexes for table `payroll`
+--
+ALTER TABLE `payroll`
+  ADD PRIMARY KEY (`payroll_no`),
+  ADD KEY `payroll_ibfk_1` (`employee_id`);
+
+--
 -- Indexes for table `position`
 --
 ALTER TABLE `position`
@@ -363,7 +419,7 @@ ALTER TABLE `company_profile`
 -- AUTO_INCREMENT for table `docu_archive`
 --
 ALTER TABLE `docu_archive`
-  MODIFY `docu_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `docu_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `employee_info`
@@ -382,6 +438,12 @@ ALTER TABLE `emp_status`
 --
 ALTER TABLE `file_access`
   MODIFY `access_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `payroll`
+--
+ALTER TABLE `payroll`
+  MODIFY `payroll_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20231160001;
 
 --
 -- AUTO_INCREMENT for table `position`
@@ -405,6 +467,12 @@ ALTER TABLE `account_info`
 ALTER TABLE `file_access`
   ADD CONSTRAINT `file_access_ibfk_1` FOREIGN KEY (`position_no`) REFERENCES `position` (`position_no`),
   ADD CONSTRAINT `file_access_ibfk_2` FOREIGN KEY (`docu_no`) REFERENCES `docu_archive` (`docu_no`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `payroll`
+--
+ALTER TABLE `payroll`
+  ADD CONSTRAINT `payroll_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee_info` (`employee_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

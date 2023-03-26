@@ -109,10 +109,27 @@ include('../../php/access.php');
                                                 </div>
                                             </div>
 
-                                            <div class="row mt-3">
+                                            <div class="row mt-2">
                                                 <div class="col-lg-12 col-sm-12">
                                                     <label class="form-label">Display Name</label>
                                                     <input class="form-control" name="display_name" type="text">
+                                                </div>
+                                            </div>
+
+                                            <div class="row mt-2">
+                                                <div class="col-lg-12 col-sm-12">
+                                                    <label class="form-label">Folder<small class="fst-italic fw-light text-danger ms-1">*optional</small></label>
+                                                    <select class="form-select" name="folder-loc">
+                                                        <?php
+                                                            $sql = mysqli_query($config, "SELECT docu_no, display_name FROM docu_archive WHERE file_name = ''");
+                                                            while($row = mysqli_fetch_array($sql)) {
+                                                        ?>
+
+                                                        <option selected></option>
+                                                        <option value="<?php echo $row[0] ?>"><?php echo $row[1] ?></option>
+                                                        
+                                                        <?php } ?>
+                                                    </select>
                                                 </div>
                                             </div>
 
@@ -225,7 +242,7 @@ include('../../php/access.php');
                                                     <!-- item-->
                                                     <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-docu<?php echo $row['docu_no'] ?>">Edit</a>
                                                     <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-docu<?php echo $row['docu_no'] ?>">Delete</a>
-                                                    <a class="dropdown-item">Open</a>
+                                                    <a class="dropdown-item" href="nar-folder.php?folder=<?php echo $row['docu_no'] ?>">Open</a>
                                                 </div>
 
                                                 <?php } else { ?>

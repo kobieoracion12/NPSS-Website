@@ -17,6 +17,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     } elseif ($_FILES['myfile']['size'] > 1000000) { // file shouldn't be larger than 1Megabyte
         echo "File too large!";
     } else {
+
 	    $insert = mysqli_query($config, "INSERT INTO docu_archive (file_name, display_name, display_type) VALUES ('$filename','$display', '$extension')");
 	    if($insert) {
 
