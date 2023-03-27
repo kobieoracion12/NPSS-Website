@@ -166,7 +166,7 @@
                                                         <img src="<?php echo "../../uploads/logo/" . $data['company_logo'] ?>" class="img-fluid" required/>
                                                     </div>
 
-                                                    <div class="col-lg-8 col-sm-12">
+                                                    <div class="col-lg-8 col-sm-12 my-auto">
                                                         <label class="form-label">Company Logo</label>
                                                         <input class="form-control" name="company_logo" type="file" />
                                                     </div>
@@ -184,33 +184,35 @@
                                     </div> <!-- end modal-content-->
                                 </div> <!-- end modal dialog-->
                             </div>
+
+                            <!-- Delete Modal -->
                             <div class="modal fade" id="delete-client<?php echo $data['company_no'] ?>" tabindex="-1">
-                            <div class="modal-dialog modal-dialog-centered modal-md">
-                                <div class="modal-content">
-                                    <div class="modal-header  px-4 border-bottom-0 d-block">
-                                        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        <h4 class="modal-title" id="modal-title">Delete Client</h4>
-                                    </div>
+                                <div class="modal-dialog modal-dialog-centered modal-md">
+                                    <div class="modal-content">
+                                        <div class="modal-header  px-4 border-bottom-0 d-block">
+                                            <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            <h4 class="modal-title" id="modal-title">Delete Client</h4>
+                                        </div>
 
-                                    <div class="modal-body mx-4">
-                                        <form class="needs-validation" method="post" action="../../php/delete-client.php" enctype="multipart/form-data" novalidate>
-                                            
-                                            <input type="hidden" name="company_no" value="<?php echo $data['company_no'] ?>">
-                                            <div>
-                                                <h5>Do you want to delete this client?</h5>
-                                            </div>
-
-                                            <div class="row mt-4">
-                                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                                    <button type="submit" class="btn btn-danger px-5 rounded-pill" id="btn-save-event">Continue</button>
+                                        <div class="modal-body mx-4">
+                                            <form class="needs-validation" method="post" action="../../php/delete-client.php" enctype="multipart/form-data" novalidate>
+                                                
+                                                <input type="hidden" name="company_no" value="<?php echo $data['company_no'] ?>">
+                                                <div>
+                                                    <h5>Do you want to delete this client?</h5>
                                                 </div>
-                                            </div>
 
-                                        </form>
-                                    </div>
-                                </div> <!-- end modal-content-->
-                            </div> <!-- end modal dialog-->
-                        </div>
+                                                <div class="row mt-4">
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                        <button type="submit" class="btn btn-danger px-5 rounded-pill" id="btn-save-event">Continue</button>
+                                                    </div>
+                                                </div>
+
+                                            </form>
+                                        </div>
+                                    </div> <!-- end modal-content-->
+                                </div> <!-- end modal dialog-->
+                            </div>
 
                             <?php } ?>
                         </div>
@@ -284,22 +286,7 @@
 
 
                 <!-- Footer Start -->
-                <footer class="footer">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <script>document.write(new Date().getFullYear())</script> &copy; NAR Power System Specialists Corporation</a> 
-                            </div>
-                            <div class="col-md-6">
-                                <div class="text-md-end footer-links d-none d-sm-block">
-                                    <a href="javascript:void(0);">About Us</a>
-                                    <a href="javascript:void(0);">Help</a>
-                                    <a href="javascript:void(0);">Contact Us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+                <?php include "../design/web-footer.php" ?>
                 <!-- end Footer -->
 
             </div>

@@ -26,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $position = $_POST['position'];
     $status = $_POST['status'];
     $branch = $_POST['branch_site'];
-    $desc = $_POST['description'];
+    $desc = mysqli_real_escape_string($config, $_POST['description']);
     $folder = "../uploads/profile/".$pic;
     $destination = '../uploads/resume/' . $filename;
     $extension = pathinfo($filename, PATHINFO_EXTENSION);

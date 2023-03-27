@@ -47,6 +47,7 @@ include('../../php/access.php');
 
         <div class="content-page">
             <div class="content">
+
                 <!-- Start Content-->
                 <div class="container-fluid">
                     <div class="row">
@@ -260,7 +261,7 @@ include('../../php/access.php');
                                     <h4 class="mb-4">NAR POWER SYSTEM SPEACIALISTS CORP.</h4>
                                     <div class="ms-2">
                                         <?php 
-                                            $records = mysqli_query($config, "SELECT * FROM employee_info");
+                                            $records = mysqli_query($config, "SELECT * FROM employee_info WHERE emp_stat = 'Director'");
                                             while ($data1 = mysqli_fetch_array($records)) { ?>
 
                                         <div class="d-flex align-items-center mb-2">
@@ -307,25 +308,7 @@ include('../../php/access.php');
             </div> <!-- content -->
 
             <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-
-                            </script> &copy; NAR Power System Specialists Corporation</a>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-md-end footer-links d-none d-sm-block">
-                                <a href="javascript:void(0);">About Us</a>
-                                <a href="javascript:void(0);">Help</a>
-                                <a href="javascript:void(0);">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <?php include "../design/web-footer.php" ?>
             <!-- end Footer -->
 
         </div>

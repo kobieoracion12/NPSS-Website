@@ -93,7 +93,7 @@
                     <div class="row">
                         <?php
                             $emp_id = $_SESSION['employee_id'];
-                            $sql = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id != '$emp_id'");
+                            $sql = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id != '$emp_id' ORDER BY account_id DESC");
                             while($row = mysqli_fetch_array($sql)) {
                         ?>
 
@@ -101,9 +101,6 @@
                             <div class="card" >
                                 <div class="card-body text-center">
                                     <div class="col-md-4 mx-auto d-block">
-<<<<<<< HEAD
-                                        <img src="../../assets/default_profile.png" alt="image" class="avatar-xl rounded-circle" />
-=======
                                         <?php
                                         if ($row['profile_pic'] != null) { ?>
                                         <img src="<?php echo "../../uploads/profile/" . $row['profile_pic']; ?>" alt="image" class="rounded-circle avatar-xl" />
@@ -114,7 +111,6 @@
                                         <?php
                                         }
                                         ?>
->>>>>>> 1331bda0243bb25dbc7e207f2471d1010b8d0583
                                     </div>
 
                                     <p class="text-muted mt-3"><?php echo $row['job_desc'] ?></p>
@@ -123,13 +119,21 @@
                                     <p class="mb-0"><?php echo $row['contact_no'] ?></p>
                                     <p class="mb-0"><?php echo $row['email_add'] ?></p>
                                     <p class="mb-0"><?php echo $row['branch_site'] ?></p>
-                                    <div class="col-12">
-                                        <button class="w-100 btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['employee_id'] ?>">Edit Profile</button>    
+                                    
+                                    <div class="row g-2">
+                                        <div class="col-xl-6 col-md-12">
+                                            <button class="w-100 btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['employee_id'] ?>">Edit Profile</button>    
+                                        </div>
+                                        <div class="col-xl-6 col-md-12">
+                                            <button class="w-100 btn btn-danger text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['employee_id'] ?>">Delete Account</button>    
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-                        <!-- Edit profile MODAL -->
+
+                        <!-- Edit Modal -->
                         <div class="modal fade" id="edit<?php echo $row['employee_id'] ?>" tabindex="-1">
                             <div class="modal-dialog modal-xl">
                                 <div class="modal-content">
@@ -254,6 +258,37 @@
                                 </div> <!-- end modal-content-->
                             </div> <!-- end modal dialog-->
                         </div>
+
+                        <!-- Delete Modal -->
+                        <div class="modal fade" id="delete<?php echo $row['employee_id'] ?>" tabindex="-1">
+                            <div class="modal-dialog modal-dialog-centered modal-md">
+                                <div class="modal-content">
+                                    <div class="modal-header px-4 border-bottom-0 d-block">
+                                        <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h4 class="modal-title" id="modal-title">Delete Client</h4>
+                                    </div>
+
+                                    <div class="modal-body mx-4">
+                                        <form class="needs-validation" method="post" action="../../php/delete-account.php" enctype="multipart/form-data" novalidate>
+                                            
+                                            <input type="hidden" name="employee_id" value="<?php echo $row['employee_id'] ?>">
+                                            <div>
+                                                <h5>Do you want to delete this client?</h5>
+                                            </div>
+
+                                            <div class="row mt-4">
+                                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                    <button type="submit" class="btn btn-danger px-5 rounded-pill" id="delete-account">Delete</button>
+                                                </div>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div> <!-- end modal-content-->
+                            </div> <!-- end modal dialog-->
+                        </div>
+
+
                         <?php } ?>
                     </div>
                     <!-- end row -->
@@ -308,7 +343,7 @@
                                     <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
                                         <div class="form-group">
                                             <label class="mb-1">Address</label>
-                                            <textarea type="text" name="given_address" class="form-control" rows="1" required></textarea>
+                                            <input type="text" name="given_address" class="form-control" rows="1" required>
                                             <div class="invalid-feedback">Please fill in this field</div>
                                         </div>
                                     </div>
@@ -418,25 +453,7 @@
             </div>
 
             <!-- Footer Start -->
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <script>
-                                document.write(new Date().getFullYear())
-
-                            </script> &copy; NAR Power System Specialists Corporation</a>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="text-md-end footer-links d-none d-sm-block">
-                                <a href="javascript:void(0);">About Us</a>
-                                <a href="javascript:void(0);">Help</a>
-                                <a href="javascript:void(0);">Contact Us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            <?php include "../design/web-footer.php" ?>
             <!-- end Footer -->
 
         </div>
