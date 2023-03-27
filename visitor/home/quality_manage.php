@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>About Us</title>
+	<title>Quality Management</title>
 	<!-- App favicon -->
 	<link rel="shortcut icon" href="../../assets/nar-icon.ico">
 
@@ -16,7 +16,7 @@
     <link href="../dist/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
     <link href="../dist/assets/libs/dropify/css/dropify.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-    	.vr{
+      .vr{
         border-left: 2px solid;
         height: 30px;
         margin-top: 10px;
@@ -83,19 +83,42 @@
 
     <!--  Main Content -->
     <div class="container-fluid">
-    	<div class="bg-image" style="background-image: url('../dist/assets/images/nar_meet.jpg');height: 60vh; width: 100%; background-position: center;">
+    	<div class="bg-image" style="background-image: url('../dist/assets/images/electric_eng.jpg');height: 450px; width: 100%; background-size: 100% 100%;">
 	    </div>
-      <h3 class="mt-3 ms-5" style="color: #146dac;">About Us</h3>
+      <h3 class="mt-3 ms-5" style="color: #146dac;">Quality Management</h3>
         <hr class="border border-1">
         <div class="col-xl-11 mx-auto">
-          <h3 class="mt-3 ms-5 card-title text-center" style="color: #146dac;">NAR Power System Specialists Corporation</h3>
-          <div class="card" style="height: 20rem;">
+          <div class="card overflow-auto" style="height: 30rem;">
             <div class="card-body p-4">
-                <h5 class="card-title text-lg-start">Description and Brief History</h5>
-                  <p class="card-text fs-5" align="justify">NAR Power System Specialists Corporation was established (1986) to provide engineering  design, construction and electrical services to both private and public industry. Through its COO & General Manager, Nestor A. Rondilla and other former Meralco employees has established NAR.<br><br>
-
-                  Power to promote proper engineering practice, efficient maintenance applications, and effective handling of energy conservation program. Its key professional brought to the company many years of varied experience in the technical and management field. Its experience and expertise is supplemented by an extensive utilization of computer for power system analysis, calculation and computer-aided design, and drafting (CADD) technology using Auto Cad and Intergraph System. NAR’s genuine concern for its clients, dedication to hard work, distinguished technical credentials, and  impressive track record have earned the respect and confidence of its client.
-                  NAR Power’s excellent track record is evidenced by numerous projects our experienced engineering and technical staff has successfully completed. It is our policy to attract the best technical and management minds in order to achieve excellence in every job we perform. Our entire organization is dedicated and committed to one goal – CUSTOMER SATISFACTION.</p>
+                  <p class="card-text fs-5" align="justify">In order to maintain good quality of work, NAR Power adopted an internal quality assurance program which serves as a quality control for every project being undertaken by our staff. The items and procedures implemented by NAR Power is as follows.</p>
+                  <h5 class="card-title text-lg-start">QUALITY OF WORK</h5>
+                  <ol>
+                    <li>Understanding of Work Scope
+                    Before starting any project, it is extremely important to know the work scope. Each job is check thoroughly if the engineering, design, and testing services is in accordance with the requirement of the project.</li>
+                    <li>Quality of Workmanship</li>
+                  <ol type="a">
+                    <li> Engineering and Design is checked if it is accordance with the technical requirements of the scope of work described in the design documents.</li>
+                    <li>Look for Cost Saving Ideas. Recommends original and workable technical requirements of the scope of work which reduce the cost of the project while maintaining high level of quality.</li>
+                    <li>Provide Error Free Engineering and Design Documents in accordance with the purchase order requirements and agreements with the clients designated representative.</li>
+                    <li>Assign the most experienced and qualified engineer or technician in every project.</li>
+                  </ol>
+                    <li>Check if all issues related to engineering, design, and testing activities has been effectively and clearly communicated in a timely fashion, which includes accurate feedback to the client designated representative.</li>
+                  </ol>
+                  <h5 class="card-title text-lg-start">SCHEDULE</h5>
+                  <ol>
+                    <li>Adherence to Schedule
+                    Check for completeness the engineering, design, and test result documents in accordance with  the due dates specified in the purchase order. Make all necessary adjustments to meet the due 
+                    dates specified.</li>
+                    <li>Timely and Accurate Communication 
+                    Check if adhering to the schedule detailed in the purchase order, or as modified by 
+                    subsequent change orders or as directed by the client designated representative.</li>
+                  </ol>
+                  <h5 class="card-title text-lg-start" >OFFICE SUPPORT</h5>
+                  <p align="justify">Check if the home office is providing, on an on-going basis, the necessary resources and responses in a timely and accurate manner to ensure that all contractual obligation such as 
+                  adherence to purchase order, support of field activities to client site rules, change orders / scope  changes and involve / billing are satisfactorily met.
+                  We have completed local and international capabilities to provide a wide range of Electrical, Mechanical HVAC, Instrumentation and Control, Architectural Civil and Structural services in the 
+                  following categories: Engineering and Design Services, Field Engineering Services, Power System Evaluation Services, and Trading Services.
+                  The company provides these services to architects, engineers, owners/developers, investors, attorneys, manufacturers of the building products, public utilities and insurance companies</p>
             </div>
           </div>
         </div>

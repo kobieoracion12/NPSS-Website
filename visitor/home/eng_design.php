@@ -87,34 +87,69 @@
 	    </div>
       <h3 class="mt-3 ms-5" style="color: #146dac;">Engineering and Design Services</h3>
         <hr class="border border-1">
-        <div class="col-xl-10 mx-auto">
-          <div class="row mb-2">
-             <div class="card-group">
-                <div class="card me-2 border border-2">
-                  <div class="card-body">
-                    <h4 class="card-title" style="color: #146dac;">Electrical Field Supervisor</h4>
-                    <h6 class="text-warning">Antipolo</h6>
-                    <p class="card-text text-dark">On a daily basis, you’ll carry out various engineering tasks, such as performing calculations to ensure our systems meet the global safety standards and collaborating with technicians and computer programmers to solve emerging issues.</p>
-                    <p class="card-text fw-bold">Qualifications<small class="text-muted"> With Experience in Electrical Maintenance and Constructions</small></p>
-                  </div>
-                </div>
-                <div class="card me-2 border border-2">
-                  <div class="card-body">
-                    <h4 class="card-title" style="color: #146dac;">Electrical Engineer</h4>
-                    <h6 class="text-warning">Antipolo</h6>
-                    <p class="card-text">We are looking for an experienced electrical supervisor to oversee our team of electricians. In this role, you will be responsible for training and mentoring staff, creating work schedules, providing technical assistance, and troubleshooting system issues. You may also be required to maintain and repair the electrical equipment used on-site.</p>
-                    <p class="card-text fw-bold">Qualifications <small class="text-muted">With Experience in Electrical Maintenance and Constructions</small></p>
-                  </div>
-                </div>
-                <div class="card me-2 border border-2">
-                  <div class="card-body">
-                    <h4 class="card-title" style="color: #146dac;">Purchasing Assistant</h4>
-                    <h6 class="text-warning">Antipolo</h6>
-                    <p class="card-text">We are searching for a well-organized, energetic purchasing assistant to help the purchaser carry out day-to-day tasks. The purchasing assistant's responsibilities include researching market trends, maintaining relationships with both vendors and clients, making travel arrangements, inspecting inventory, and updating relevant spreadsheets and documents.</p>
-                    <p class="card-text fw-bold"> Qualifications <small class="text-muted">With Experience in Purchasing or other Related Field</small></p>
-                  </div>
-                </div>
-              </div>
+        <div class="col-xl-11 mx-auto">
+          <div class="card overflow-auto" style="height: 30rem;">
+            <div class="card-body p-4">
+                <h5 class="card-title text-lg-start">NAR Power offers an array of specialized Engineering and Design Services. Our engineering  and design expertise are the following</h5>
+                  <p class="card-text fs-5" align="justify">1. Complete Engineering and Design capability in the field of Electrical, Mechanical, Instrumentation and Controls, Civil, Utility, and Structural engineering for the following facilities.</p>
+                  <ul>
+                    <li>Nuclear, Thermal and Hydroelectric Power Plants</li>
+                    <li>Cogeneration and Combined Cycle Power Plants</li>
+                    <li>Substations  </li>
+                    <li>Transmission and Distribution</li>
+                    <li>Commercial / Industrial / Institutional Facilities</li>
+                    <li>Infrastructure Projects</li>
+                    <li>Water System Projects</li>
+                  </ul>
+                  <p class="card-text fs-5" align="justify">2. Computer Aided Design and Drafting Services (CADD) using Auto Cad Intergraph</p>
+                  <p class="card-text fs-5" align="justify">3. Electrical Transient Analyzer Program (ETAP)</p>
+                  <p class="card-text fs-5" align="justify">4. Projects Management</p>
+                  <p class="card-text fs-5" align="justify">5. Staff Augmentation</p>
+                  <p class="card-text fs-5" align="justify">6. Operator Services</p>
+                <h5 class="card-title text-lg-start">FIELD ENGINEERING SERVICES</h5>
+                  <p class="card-text fs-5" align="justify">1. Construction Management</p>
+                  <p class="card-text fs-5" align="justify">2. Preventive maintenance of low, medium and high voltage equipment, including UPS Systems</p>
+                  <p class="card-text fs-5" align="justify">3. Low and medium voltage switchgear retrofit with solid-state and vacuum technology</p>
+                  <p class="card-text fs-5" align="justify">4. Installation and commissioning including, but not limited to:</p>
+                  <ul>
+                    <li>UPS System</li>
+                    <li>Protective Relay Testing</li>
+                    <li>Control Verification</li>
+                    <li>Automatic Transfer Switches</li>
+                    <li>Low and Medium voltage Switchgear Testing</li>
+                    <li>Power Transformer and Auxiliary Cooling System Testing</li>
+                    <li>Power Transformer and Auxiliary Cooling System Testing</li>
+                    <li>Standby Emergency System Testing</li>
+                    <li>PLC Base Controls</li>
+                    <li>Distributed Control System (DCS)</li>
+                    <li>Lighting System</li>
+                  </ul>
+                  <p class="card-text fs-5" align="justify">5. Emergency response and services on electrical equipment failures</p>
+                  <p class="card-text fs-5" align="justify">6. Turkey Projects</p>
+                  <p class="card-text fs-5" align="justify">7. Design revisions and field implementations</p>
+                  <p class="card-text fs-5" align="justify">8. Large AC and DC rotating apparatus</p>
+                <h5 class="card-title text-lg-start">POWER SYSTEM EVALUATION SERVICES</h5>
+                  <p class="card-text fs-5" align="justify">Power System Studies</p>
+                  <ul>
+                    <li>Thermographic Inspection and Testing</li>
+                    <li>Short Circuit Study</li>
+                    <li>Protective Device Coordination</li>
+                    <li>Load Flow Study</li>
+                    <li>Power Quality Analysis</li>
+                    <li>Harmonic Analysis</li>
+                    <li>Grounding System Study</li>
+                    <li>Economic Dispatch Study</li>
+                    <li>Energy Management System Study</li>
+                    <li>Apparatus Failure investigation</li>
+                    <li>Ultrasonic Detection Testing</li>
+                    <li>Partial Discharge Testing</li>
+                  </ul>
+                <h5 class="card-title text-lg-start">TRADING SERVICES</h5>
+                <ul>
+                    <li>Distributor of wood poles and lumber products</li>
+                    <li>Equipment Distributor</li>
+                  </ul>
+            </div>
           </div>
         </div>
     </div>
