@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 26, 2023 at 08:20 AM
+-- Generation Time: Mar 27, 2023 at 03:27 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -158,14 +158,14 @@ CREATE TABLE `employee_info` (
 --
 
 INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_name`, `last_name`, `given_suffix`, `contact_no`, `given_address`, `birth_date`, `email_add`, `position`, `emp_stat`, `branch_site`, `job_desc`, `profile_pic`, `uploaded_cv`, `date_created`) VALUES
-(1, 2023198600, 'Kobies', 'Naghuhubad', 'Oracion', 'Jr.', '09123456789', 'Luisiana, Laguna', '2023-03-21', 'sikobieaypros@gmail.com', 'President', 'Director', 'Antipolo', 'Corporate Master', 'girl_heart.jpg', NULL, '2023-03-22 03:37:31'),
-(2, 2023198601, 'Jireh', 'Dinamankupal', 'Ramos', '', '09987654321', 'Santa Cruz, Laguna', '2023-03-21', 'sijirehmaybuko@gmail.com', 'Vice President', 'Director', 'Antipolo', 'Corporate Slave', 'panda.jpg', NULL, '2023-03-21 02:28:08'),
-(4, 2023198602, 'Neil', 'Wholesome', 'Pornela', 'Ay', '09123456789', 'Santa Cruz, Laguna', '2023-03-21', 'sineilaypogs@gmail.com', 'Messenger', 'Regular', 'Antipolo', 'Corporate Pet', 'girl.jpg', 'Application-Form-2.pdf', '2023-03-21 02:28:11'),
-(5, 2023198603, 'Richard', 'Kupallang', 'Ramos', 'Sr', '09987654321', 'Santa Cruz, Laguna', '2023-03-22', 'sirichardaynapakabait@gmail.com', 'Treasurer', 'Regular', 'Antipolo', 'Corporate Flea', 'koenokatachi_sister.jpeg', 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.pdf', '2023-03-21 02:30:06'),
+(1, 2023198600, 'Kobie', '', 'Oracion', '', '09760435424', 'Luisiana, Laguna', '2023-03-21', 'sikobieaypros@gmail.com', 'Intern', 'Intern', 'Antipolo', 'Corporate Master', 'girl_heart.jpg', NULL, '2023-03-27 01:20:35'),
+(2, 2023198601, 'Jireh Geleo', '', 'Ramos', '', '09987654321', 'Santa Cruz, Laguna', '2023-03-21', 'sijirehmaybuko@gmail.com', 'Intern', 'Intern', 'Antipolo', 'Corporate Slave', 'panda.jpg', NULL, '2023-03-27 01:20:52'),
+(4, 2023198602, 'Neil Arthur', '', 'Pornela', '', '09123456789', 'Santa Cruz, Laguna', '2023-03-21', 'sineilaypogs@gmail.com', 'Intern', 'Intern', 'Antipolo', 'Corporate Pet', 'girl.jpg', 'Application-Form-2.pdf', '2023-03-27 01:20:56'),
+(5, 2023198603, 'Richard', '', 'Ramos', '', '09987654321', 'Santa Cruz, Laguna', '2023-03-22', 'sirichardaynapakabait@gmail.com', 'Intern', 'Intern', 'Antipolo', 'Corporate Flea', 'koenokatachi_sister.jpeg', 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.pdf', '2023-03-27 01:21:03'),
 (7, 2023198605, 'Ness', 'Bitong', 'Rondilla', '', '09123456789', 'Luisiana, Laguna', '2023-03-22', 'nessbrondilla@gmail.com', 'President', 'Director', 'Antipolo', 'Overseeing budgets, staff, and executives and evaluating the success of the company', 'mam_ness.jpg', 'GRADUATION PORTRAIT BUDGET PROPOSAL.pdf', '2023-03-22 05:17:32'),
-(8, 2023198606, 'Centaine Dyan', '', 'Rondilla', '', '09760435424', 'Antipolo City', '2023-03-22', 'samplemail@sample.com', 'Auditor', 'Director', 'Antipolo', 'Auditors review the accounting records, operational data, and financial records of the company', 'Centaine Dyan Rondilla.jpg', 'CE_CREATIVE_SHOT_ORACION.pdf', '2023-03-24 08:27:12'),
-(9, 2023198607, 'Nadel', '', 'De Leon', '', '09760435424', 'Antipolo City', '2023-03-22', 'nadeldeleon@gmail.com', 'Corporate Secretary', 'Director', 'Antipolo', 'Implementing the decisions of the board of directors. Acting as adviser to the company directors', 'Nadel De Leon.jpg', 'CE_CREATIVE_SHOT_ORACION.pdf', '2023-03-24 08:22:54'),
-(10, 2023198608, 'Miguel Lyndon', '', 'Rondilla', '', '09760435424', 'Antipolo City', '2023-03-22', 'miguelyndon@nar.ph', 'Vice President', 'Director', 'Antipolo', 'Plan, direct, coordinate, and oversee operations activities in the organization, ensuring development and implementation of efficient operations', 'boss_migs.jpg', 'CE_CREATIVE_SHOT_ORACION.pdf', '2023-03-22 05:25:35'),
+(8, 2023198606, 'Centaine Dyan', 'Bitong', 'Rondilla', '', '09760435424', 'Antipolo City', '2023-03-22', 'samplemail@sample.com', 'Auditor', 'Director', 'Antipolo', 'Auditors review the accounting records, operational data, and financial records of the company', 'Centaine Dyan Rondilla.jpg', 'CE_CREATIVE_SHOT_ORACION.pdf', '2023-03-27 01:13:46'),
+(9, 2023198607, 'Nadel', 'Bitong', 'De Leon', '', '09760435424', 'Antipolo City', '2023-03-22', 'nadeldeleon@gmail.com', 'Corporate Secretary', 'Director', 'Antipolo', 'Implementing the decisions of the board of directors. Acting as adviser to the company directors', 'Nadel De Leon.jpg', 'CE_CREATIVE_SHOT_ORACION.pdf', '2023-03-27 01:13:48'),
+(10, 2023198608, 'Miguel Lyndon', 'Bitong', 'Rondilla', '', '09760435424', 'Antipolo City', '2023-03-22', 'miguelyndon@nar.ph', 'Vice President', 'Director', 'Antipolo', 'Plan, direct, coordinate, and oversee operations activities in the organization, ensuring development and implementation of efficient operations', 'boss_migs.jpg', 'CE_CREATIVE_SHOT_ORACION.pdf', '2023-03-27 01:13:50'),
 (11, 2023198609, 'Greg Mark', 'Rondilla', 'Pantas', '', '09760435424', 'Luisiana', '2023-03-22', 'gregmark@nar.ph', 'Purchasing Head', 'Director', 'Antipolo', 'Responsible for sourcing equipment, goods and services and managing vendors', 'boss_greg.jpg', 'CE_CREATIVE_SHOT_ORACION.pdf', '2023-03-22 05:29:27'),
 (12, 2023198610, 'Susana', 'Bitong', 'Rondilla', '', '09760435424', 'Antipolo City', '2023-03-22', 'susanarondilla@nar.ph', 'Vice President', 'Director', 'Antipolo', 'Supports the President by overseeing internal operations and stepping in when the president is unavailable', 'Susana Rondilla.jpg', 'CE_CREATIVE_SHOT_ORACION.pdf', '2023-03-24 08:21:54'),
 (13, 2023198611, 'Jayson', 'Talavera', 'Ascaño', '', '09760435424', 'Antipolo City', '2023-03-22', 'jaysontalavera@nar.ph', 'Family Driver', 'Household', 'Antipolo', 'A professional who drives clients around in an efficient, safe and timely manner', 'Jayson Ascaño.jpg', 'CE_CREATIVE_SHOT_ORACION.pdf', '2023-03-24 08:20:56'),

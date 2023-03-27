@@ -47,6 +47,7 @@ include('../../php/access.php');
 
         <div class="content-page">
             <div class="content">
+
                 <!-- Start Content-->
                 <div class="container-fluid">
                     <div class="row">
@@ -260,7 +261,7 @@ include('../../php/access.php');
                                     <h4 class="mb-4">NAR POWER SYSTEM SPEACIALISTS CORP.</h4>
                                     <div class="ms-2">
                                         <?php 
-                                            $records = mysqli_query($config, "SELECT * FROM employee_info");
+                                            $records = mysqli_query($config, "SELECT * FROM employee_info WHERE emp_stat = 'Director'");
                                             while ($data1 = mysqli_fetch_array($records)) { ?>
 
                                         <div class="d-flex align-items-center mb-2">
