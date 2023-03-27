@@ -83,8 +83,8 @@
 
     <!--  Main Content -->
     <div class="container-fluid">
-    	<div class="bg-image" style="background-image: url('../dist/assets/images/power-plant.jpg');height: 60vh; width: 100%;">
-	    </div>
+    	<div class="bg-image" style="background-image: url('../dist/assets/images/power-plant.jpg');height: 60vh; width: 100%; background-repeat: no-repeat; background-position: center; background-size: cover;">
+      </div>
       <h3 class="mt-3 ms-5" style="color: #146dac;">List of Clients</h3>
         <hr class="border border-1">
         <div class="col-xl-12">
