@@ -106,6 +106,15 @@
                         <span> Quotations </span>
                     </a>
                 </li>
+
+                <li class="menu-title mt-2">Management</li>
+
+                <li>
+                    <a href="nar-settings.php">
+                        <i class="mdi mdi-cog-outline"></i>
+                        <span> Settings </span>
+                    </a>
+                </li>
             </ul>
 
         </div>

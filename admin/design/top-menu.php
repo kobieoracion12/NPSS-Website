@@ -5,11 +5,6 @@
             <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <i class="fe-search noti-icon"></i>
             </a>
-            <div class="dropdown-menu dropdown-lg dropdown-menu-end p-0">
-                <form class="p-3">
-                    <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
-                </form>
-            </div>
         </li>
 
         <li class="dropdown notification-list topbar-dropdown">
@@ -153,7 +148,7 @@
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="index.html" class="logo logo-light text-center">
+        <a href="../main/nar-dashboard.php" class="logo logo-light text-center">
             <span class="logo-sm">
                 <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
             </span>
@@ -161,7 +156,7 @@
                 <img src="../dist/assets/images/logo-light.png" alt="" height="16">
             </span>
         </a>
-        <a href="index.html" class="logo logo-dark text-center">
+        <a href="../main/nar-dashboard.php" class="logo logo-dark text-center">
             <span class="logo-sm">
                 <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
             </span>
