@@ -163,9 +163,9 @@
                                                 <div class="col-8">
                                                     <select class="form-select">
 
-                                                    <?php $sql = mysqli_query($config, "SELECT * FROM emp_status ORDER BY emp_stat ASC");
+                                                    <?php $sql = mysqli_query($config, "SELECT * FROM position ORDER BY position_name ASC");
                                                     while($stat = mysqli_fetch_array($sql)) { ?>
-                                                        <option value="<?php echo $stat['stat_no'] ?>"><?php echo $stat['emp_stat'] ?></option>
+                                                        <option value="<?php echo $stat['position_no'] ?>"><?php echo $stat['position_name'] ?></option>
                                                     <?php } ?>
 
                                                     </select>
