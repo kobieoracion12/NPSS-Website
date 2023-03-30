@@ -72,6 +72,11 @@ while($fetch = mysqli_fetch_array($sql)) {
                                     <div class="col-xl-8 col-md-12">
 
                                         <div class="row justify-content-end">
+                                            <div class="col-4">
+                                                <button class="btn btn-warning text-white rounded" data-bs-toggle="modal" data-bs-target="#upload-docu">
+                                                    <i class="mdi mdi-upload me-1"></i>Upload Document
+                                                </button>
+                                            </div>
                                             
                                             <div class="col-4">
                                                 <select class="form-select" id="example-select">
@@ -93,6 +98,76 @@ while($fetch = mysqli_fetch_array($sql)) {
 
                             </div>
                         </div>
+                    </div>
+
+                    <div class="modal fade" id="upload-docu" tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header py-3 px-4 border-bottom-0 d-block">
+                                    <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <h3 class="modal-title" id="modal-title">Upload File</h3>
+                                </div>
+
+                                <div class="modal-body mx-4">
+                                    <form class="needs-validation" method="post" action="../../php/upload-document.php" enctype="multipart/form-data" novalidate>
+                                        <?php
+                                        $folder = $_GET['folder'];
+                                            $fetch_pos = mysqli_query($config, "SELECT * FROM file_access WHERE docu_no = '$folder'");
+                                                $fetch = mysqli_query($config, "SELECT * FROM position");
+                                                while($row = mysqli_fetch_array($fetch)) {
+                                            ?>
+                                        <div class="row">
+                                            <div>
+                                                <label class="form-label">Upload File</label>
+                                                <input class="form-control" name="myfile" type="file" multiple />
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-lg-12 col-sm-12">
+                                                <label class="form-label">Display Name</label>
+                                                <input class="form-control" name="display_name" type="text">
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-3">
+                                            <label class="form-label">User Access</label>
+
+                                            <?php
+                                                $fetch = mysqli_query($config, "SELECT * FROM position");
+                                                while($row = mysqli_fetch_array($fetch)) {
+                                            ?>
+                                            <div class="col-lg-4">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="<?php echo $row['position_no'] ?>" name="access[]"
+                                                    <?php 
+                                                        foreach($fetch_pos as $positionno){
+                                                            if ($positionno['position_no'] === $row['position_no']) {
+                                                                 echo "checked='checked'";
+                                                            }
+                                                        }
+                                                        ?>
+                                                    >
+                                                    <label class="form-check-label">
+                                                        <?php echo $row['position_name'] ?>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <?php } } ?>
+                                            
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                <button type="submit" name="upload-docu" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Upload File</button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div> <!-- end modal-content-->
+                        </div> <!-- end modal dialog-->
                     </div>
 
                     <!-- Body -->
