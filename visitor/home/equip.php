@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>About Us</title>
+	<title>Equipments</title>
 	<!-- App favicon -->
 	<link rel="shortcut icon" href="../../assets/nar-icon.ico">
 
@@ -16,7 +16,7 @@
     <link href="../dist/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
     <link href="../dist/assets/libs/dropify/css/dropify.min.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
-    	.vr{
+      .vr{
         border-left: 2px solid;
         height: 30px;
         margin-top: 10px;
@@ -83,24 +83,94 @@
 
     <!--  Main Content -->
     <div class="container-fluid">
-    	<div class="bg-image" style="background-image: url('../dist/assets/images/nar_meet.jpg');height: 60vh; width: 100%; background-position: center;">
+    	<div class="bg-image" style="background-image: url('../dist/assets/images/electric_eng.jpg');height: 450px; width: 100%; background-size: 100% 100%;">
 	    </div>
-      <h3 class="mt-3 ms-5" style="color: #146dac;">About Us</h3>
+      <h3 class="mt-3 ms-5" style="color: #146dac;">Equipments</h3>
         <hr class="border border-1">
-        <div class="col-xl-11 mx-auto">
-          <h3 class="mt-3 ms-5 card-title text-center" style="color: #146dac;">NAR Power System Specialists Corporation</h3>
-          <div class="card" style="height: 20rem;">
-            <div class="card-body p-4">
-                <h5 class="card-title text-lg-start">Description and Brief History</h5>
-                  <p class="card-text fs-5" align="justify">NAR Power System Specialists Corporation was established (1986) to provide engineering  design, construction and electrical services to both private and public industry. Through its COO & General Manager, Nestor A. Rondilla and other former Meralco employees has established NAR.<br><br>
-
-                  Power to promote proper engineering practice, efficient maintenance applications, and effective handling of energy conservation program. Its key professional brought to the company many years of varied experience in the technical and management field. Its experience and expertise is supplemented by an extensive utilization of computer for power system analysis, calculation and computer-aided design, and drafting (CADD) technology using Auto Cad and Intergraph System. NAR’s genuine concern for its clients, dedication to hard work, distinguished technical credentials, and  impressive track record have earned the respect and confidence of its client.
-                  NAR Power’s excellent track record is evidenced by numerous projects our experienced engineering and technical staff has successfully completed. It is our policy to attract the best technical and management minds in order to achieve excellence in every job we perform. Our entire organization is dedicated and committed to one goal – CUSTOMER SATISFACTION.</p>
-            </div>
+        <div class="col-xl-10 mx-auto">
+          <div class="row mb-2">
+             <div class="card-group">
+                <div class="card me-2 border border-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                  <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
+                  <div class="card-body">
+                    <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
+                    <p class="card-text text-dark text-center">digital low resistance ohmmeter contact resistant tester / winding resistance tester</p>
+                  </div>
+                </div>
+                <div class="card me-2 border border-2">
+                  <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
+                  <div class="card-body">
+                    <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
+                    <p class="card-text text-dark text-center">digital low resistance ohmmeter contact resistant tester / winding resistance tester</p>
+                  </div>
+                </div>
+                <div class="card me-2 border border-2">
+                  <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
+                  <div class="card-body">
+                    <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
+                    <p class="card-text text-dark text-center">digital low resistance ohmmeter contact resistant tester / winding resistance tester</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row mb-2">
+             <div class="card-group">
+                <div class="card me-2 border border-2" >
+                  <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
+                  <div class="card-body">
+                    <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
+                    <p class="card-text text-dark text-center">digital low resistance ohmmeter contact resistant tester / winding resistance tester</p>
+                  </div>
+                </div>
+                <div class="card me-2 border border-2">
+                  <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
+                  <div class="card-body">
+                    <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
+                    <p class="card-text text-dark text-center">digital low resistance ohmmeter contact resistant tester / winding resistance tester</p>
+                  </div>
+                </div>
+                <div class="card me-2 border border-2">
+                  <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
+                  <div class="card-body">
+                    <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
+                    <p class="card-text text-dark text-center">digital low resistance ohmmeter contact resistant tester / winding resistance tester</p>
+                  </div>
+                </div>
+              </div>
           </div>
         </div>
     </div>
-    
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-lg-5 mt-4">
+                <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
+              </div>
+              <div class="col-lg-7">
+                <h4>DIgital low resistance ohmmeter contact resistance tester / winding resistance tester</h4>
+                <p>Electrical Testing Instrument</p>
+                <hr class="border border-2 text-primary" >
+                <p><small class="fw-bold fs-5">Serial Number: </small>62840</p>
+                <p><small class="fw-bold fs-5">Brand: </small> Cropico Ltd.</p>
+                <p><small class="fw-bold fs-5">Model: </small>D07e</p>
+                <p><small class="fw-bold fs-5">Range </small>1µΏ to 600Ώ</p>
+                <p>For the measurement of resistance in the range of 1µΩ to 600Ω. To measure transformer winding resistance and breaker contact resistance.</p>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer border-0">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="text-center text-lg-start text-white "style="background-color: #146dac; position: absolute; width: 100%; "> 
     <!-- Grid container -->
