@@ -116,23 +116,6 @@ include('../../php/access.php');
                                                 </div>
                                             </div>
 
-                                            <div class="row mt-2">
-                                                <div class="col-lg-12 col-sm-12">
-                                                    <label class="form-label">Folder<small class="fst-italic fw-light text-danger ms-1">*optional</small></label>
-                                                    <select class="form-select" name="folder-loc">
-                                                        <?php
-                                                            $sql = mysqli_query($config, "SELECT docu_no, display_name FROM docu_archive WHERE file_name = ''");
-                                                            while($row = mysqli_fetch_array($sql)) {
-                                                        ?>
-
-                                                        <option selected></option>
-                                                        <option value="<?php echo $row[0] ?>"><?php echo $row[1] ?></option>
-                                                        
-                                                        <?php } ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-
                                             <div class="row mt-3">
                                                 <label class="form-label">User Access</label>
 
@@ -193,7 +176,7 @@ include('../../php/access.php');
                                                 ?>
                                                 <div class="col-lg-4">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="<?php echo $row['0'] ?>" id="<?php echo $row['0'] ?>">
+                                                        <input class="form-check-input" type="checkbox" value="<?php echo $row['0'] ?>" id="<?php echo $row['0'] ?>" name="access[]">
                                                         <label class="form-check-label" for="<?php echo $row['0'] ?>">
                                                             <?php echo $row['1'] ?>
                                                         </label>
@@ -242,7 +225,6 @@ include('../../php/access.php');
                                                     <!-- item-->
                                                     <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-docu<?php echo $row['docu_no'] ?>">Edit</a>
                                                     <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-docu<?php echo $row['docu_no'] ?>">Delete</a>
-                                                    <a class="dropdown-item" href="nar-folder.php?folder=<?php echo $row['docu_no'] ?>">Open</a>
                                                 </div>
 
                                                 <?php } else { ?>
@@ -282,7 +264,11 @@ include('../../php/access.php');
 
                                             </div>
 
+                                            <?php if(empty($row['file_name'])) { ?>
+                                            <a href="nar-folder.php?folder=<?php echo $row['docu_no'] ?>" class="mt-2 mb-0"><h3><?php echo $row['display_name'] ?></h3></a>
+                                            <?php } else { ?>
                                             <h3 class="mt-2 mb-0"><?php echo $row['display_name'] ?></h3>
+                                            <?php } ?>
                                             <h6 class="mt-0 mb-0 text-muted fw-light mt-1"><?php echo date_format($date, "M d, Y") ?><br><?php echo date_format($date, "h:i A") ?></h6>
 
                                             <?php
@@ -299,18 +285,11 @@ include('../../php/access.php');
                                                         $profile = $access2['profile_pic'];
                                                         
                                                 ?>
-
-                                                <?php if(!empty($profile)) { ?>
-
-                                                    <img src="<?php echo "../../uploads/profile/" . $profile ?>" class="img-fluid avatar-sm rounded-circle mt-2" title="<?php echo $name ?>">
-
-                                                <?php } else { ?>
-
-                                                    <img src="../../assets/default_profile.png" class="img-fluid avatar-sm rounded-circle mt-2" title="<?php echo $name ?>">
-
-                                                <?php } ?>
-
-                                            
+                                                    <?php if(!empty($profile)) { ?>
+                                                        <img src="<?php echo "../../uploads/profile/" . $profile ?>" class="img-fluid avatar-xs rounded-circle mt-2" title="<?php echo $name ?>">
+                                                    <?php } else { ?>
+                                                           <img src="../../assets/default_profile.png" class="img-fluid avatar-xs rounded-circle mt-2" title="<?php echo $name ?>"> 
+                                                    <?php } ?>
                                             <?php } } ?>
                                     
                                         </div>
@@ -331,37 +310,48 @@ include('../../php/access.php');
                                                 <form class="needs-validation" method="post" action="../../php/edit-docu.php" enctype="multipart/form-data" novalidate>
 
                                                 <input class="form-control" name="docu_no" type="text" value="<?php echo $row['docu_no'] ?>" hidden />
-
+                                                <?php
+                                                    if (!empty($row['file_name'])) { ?>
                                                     <div class="row">
                                                         <div>
                                                             <label class="form-label">File Name</label>
                                                             <input class="form-control bg-light" type="text" value="<?php echo $row['file_name'] ?>" readonly disabled />
                                                         </div>
                                                     </div>
-
+                                                <?php
+                                                }
+                                                ?>
                                                     <div class="row mt-2">
                                                         <div>
                                                             <label class="form-label">Display Name</label>
                                                             <input class="form-control" name="display_name" type="text" value="<?php echo $row['display_name'] ?>" required />
                                                         </div>
                                                     </div>
-
                                                     <div class="row mt-3">
                                                         <label class="form-label">User Access</label>
 
                                                         <?php
-                                                            $fetch = mysqli_query($config, "SELECT * FROM position");
-                                                            while($row = mysqli_fetch_array($fetch)) {
-                                                        ?>
+                                                        $docu = $row['docu_no'];
+                                                            $fetch_pos = mysqli_query($config, "SELECT * FROM file_access WHERE docu_no = '$docu'");
+                                                                $fetch = mysqli_query($config, "SELECT * FROM position");
+                                                                while($row = mysqli_fetch_array($fetch)) {
+                                                            ?>
                                                         <div class="col-lg-4">
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" value="<?php echo $row['0'] ?>" id="<?php echo $row['0'] ?>">
-                                                                <label class="form-check-label" for="<?php echo $row['0'] ?>">
-                                                                    <?php echo $row['1'] ?>
+                                                                <input class="form-check-input" type="checkbox" name="access[]" value="<?php echo $row['position_no'] ?>"
+                                                                <?php 
+                                                                foreach($fetch_pos as $positionno){
+                                                                    if ($positionno['position_no'] === $row['position_no']) {
+                                                                         echo "checked='checked'";
+                                                                    }
+                                                                }
+                                                                ?>>
+                                                                <label class="form-check-label" for="<?php echo $row['position_no'] ?>">
+                                                                    <?php echo $row['position_name'] ?>
                                                                 </label>
+                                                                
                                                             </div>
                                                         </div>
-
                                                         <?php } ?>
                                                         
                                                     </div>

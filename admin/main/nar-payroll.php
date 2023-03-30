@@ -50,209 +50,122 @@ include('../../php/access.php');
             <div class="content">
                 <!-- Start Content-->
                 <div class="container-fluid">
-                    <form method="post" action="../../php/record-payroll.php">
-                        <?php
-                            $sql = mysqli_query($config, "SELECT * FROM payroll WHERE employee_id = 2023198616");
-                            while($salary = mysqli_fetch_array($sql)) { 
-                                $period = date("F d, Y", strtotime($salary['payroll_period']));
-                                $date = date("F d, Y", strtotime($salary['payroll_date']));
-                            ?>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="inbox-app-main">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <aside id="sidebar">
+                                            <div class="h-100" data-simplebar>                                                
+                                                <menu class="menu-segment">
+                                                    <ul class="list-unstyled">
+                                                        <li class="active"><a href="javascript:void(0);">All<span> (43)</span></a>
+                                                        </li>
+                                                        <li><a href="javascript:void(0);">Active</a></li>
+                                                        <li><a href="javascript:void(0);">Directors</a></li>
+                                                        <li><a href="javascript:void(0);">Household</a></li>
+                                                        <li><a href="javascript:void(0);">Inacive</a></li>
+                                                    </ul>
+                                                </menu>
 
-                        <!-- Body -->
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card border-2">
+                                                <div class="separator"></div>
 
-                                    <div class="card-body">
-                                        <h4 class="card-title">Payroll Overview</h4>
-
-                                        <?php
-                                            $sql = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = 2023198616");
-                                            while($employee = mysqli_fetch_array($sql)) { ?>
-
-                                        <div class="row mb-1 mx-2">
-                                            <!-- CHANGE THIS -->
-                                            <input type="hidden" class="form-control" name="employee_id" value="2023198616">
-                                            <input type="hidden" class="form-control" name="payroll_no" value="20231160000">
-
-                                            <label class="col-sm-3 col-form-label">Employee Name</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" value="<?php echo strtoupper($employee['last_name']); echo ", "; echo strtoupper($employee['first_name']); ?>">
+                                                <div class="menu-segment">
+                                                    <ul class="labels list-unstyled">
+                                                        <li class="title">Positions <span class="icon">+</span></li>
+                                                        <li><a href="#">Legend<span class="ball grey"></span></a>
+                                                        </li>
+                                                        <li><a href="#">Active<span
+                                                                class="ball green"></span></a></li>
+                                                        <li><a href="#">Directors<span class="ball blue"></span></a>
+                                                        </li>
+                                                        <li><a href="#">Household<span class="ball blue"></span></a>
+                                                        </li>
+                                                        <li><a href="#">Inactive<span class="ball red"></span></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="bottom-padding"></div>
                                             </div>
-                                        </div>
+                                        </aside>
+                                    </div> <!-- end col -->
 
-                                        <div class="row mb-1 mx-2">
-                                            <label f class="col-sm-3 col-form-label">Position</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" value="<?php echo strtoupper($employee['position']); ?>">
+                                    <div class="col-md-9">
+                                        <main id="main">
+                                            <div class="overlay"></div>
+                                            <header class="header">
+
+                                                <h1 class="page-title">
+                                                    <a class="sidebar-toggle-btn trigger-toggle-sidebar">
+                                                        <span class="line"></span>
+                                                        <span class="line"></span>
+                                                        <span class="line"></span>
+                                                        <span class="line line-angle1"></span>
+                                                        <span class="line line-angle2"></span>
+                                                    </a>
+                                                </h1>
+                                                <div class="action-bar float-start">
+                                                    <ul class="list-inline mb-0">
+                                                        <li class="list-inline-item">
+                                                            <a class="icon circle-icon"><i class="mdi mdi-refresh text-muted"></i></a>
+                                                        </li>
+                                                        <li class="list-inline-item">
+                                                            <a class="icon circle-icon red"><i class="mdi mdi-close text-danger"></i></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="search-box float-end">
+                                                    <input placeholder="Search..."><span
+                                                        class="icon fa fa-search"></span>
+                                                </div>
+
+                                                <div class="clearfix"></div>
+
+                                            </header>
+                                            <div class="table-responsive mx-4 mt-1">
+                                                    <table class="table table-hover table-borderless mb-0">
+                                                        <tbody>
+                                                            <tr class="text-muted" >
+                                                                
+                                                                    <th class="px-3" scope="row">1</th>
+                                                                    <td class="px-3">Oracion</td>
+                                                                    <td class="px-3">Kobie</td>
+                                                                     <td class="px-3">O.</td>
+                                                                    <td class="px-3">Antipolo City</td>
+                                                            </tr>
+                                                            <tr class="text-muted">
+                                                                   <th class="px-3" scope="row">1</th>
+                                                                    <td class="px-3">Oracion</td>
+                                                                    <td class="px-3">Kobie</td>
+                                                                     <td class="px-3">O.</td>
+                                                                    <td class="px-3">Antipolo City</td>
+                                                                
+                                                            </tr>
+                                                            <tr class="text-muted">
+                                                              
+                                                                    <th class="px-3" scope="row">1</th>
+                                                                    <td class="px-3">Oracion</td>
+                                                                    <td class="px-3">Kobie</td>
+                                                                     <td class="px-3">O.</td>
+                                                                    <td class="px-3">Antipolo City</td>
+                                                           
+                                                            </tr>
+                                                            <tr class="text-muted">
+                                                                    <th class="px-3" scope="row">1</th>
+                                                                    <td class="px-3">Oracion</td>
+                                                                    <td class="px-3">Kobie</td>
+                                                                    <td class="px-3">O.</td>
+                                                                    <td class="px-3">Antipolo City</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <?php } ?>
-
-                                        <div class="row mb-1 mx-2">
-                                            <label f class="col-sm-3 col-form-label">Payroll Period</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" value="<?php echo strtoupper($period) ?>">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-1 mx-2">
-                                            <label f class="col-sm-3 col-form-label">Payroll Date</label>
-                                            <div class="col-sm-8">
-                                                <input type="text" class="form-control" value="<?php echo strtoupper($date) ?>">
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <h4>INCOME</h4>
-                                        
-                                        <!-- Table -->
-                                        <table class="table table-responsive-lg bg-light" id="inline-editable">
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Basic Pay</th>
-                                                    <td><?php echo $salary['basic_pay'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Salary Adjustment</th>
-                                                    <td><?php echo $salary['salary_adj'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Tax Refund</th>
-                                                    <td><?php echo $salary['tax_refund'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">REG OT</th>
-                                                    <td><?php echo $salary['reg_ot1'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">ND on REG OT</th>
-                                                    <td><?php echo $salary['nd_ot1'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Sat./Sun/Spcl OT</th>
-                                                    <td><?php echo $salary['spcl_ot1'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Sat./Sun/Spcl OT > 8 Hrs.</th>
-                                                    <td><?php echo $salary['spcl_ot2'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">ND on RD/SH OT</th>
-                                                    <td><?php echo $salary['nd_ot2'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">ND on RD/SH OT in > 8</th>
-                                                    <td><?php echo $salary['nd_ot3'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">LH OT</th>
-                                                    <td><?php echo $salary['lh_ot1'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">LH OT in > 8</th>
-                                                    <td><?php echo $salary['lh_ot2'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">ND LH OT</th>
-                                                    <td><?php echo $salary['lh_ot3'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">ND LH OT in > 8</th>
-                                                    <td><?php echo $salary['lh_ot4'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Allowance</th>
-                                                    <td><?php echo $salary['allowance'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Gross Pay</th>
-                                                    <td><?php echo $salary['gross_pay'] ?></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                            <div class="col-xl-6">
-                                <div class="card border-2">
-                                    <div class="card-body">
-                                        <img src="../../assets/nar_logo.png" class="avatar-md mx-auto d-block mt-2">
-                                        <h3 class="text-center">Payroll System</h3>
-                                        <p class="text-muted text-center fs-6">NAR Power System Specialists Corporation <br>
-                                        Ciannat Complex, Marcos Highway, Antipolo City, Rizal Province</p>
-                                        <h4 class="mt-4">DEDUCTIONS</h4>
-                                         <table class="table table-responsive-lg bg-light" id="inline-editable2">
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Tardiness/Undertime</th>
-                                                    <td><?php echo $salary['tardiness'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">LWOP</th>
-                                                    <td><?php echo $salary['lwop'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Absences</th>
-                                                    <td><?php echo $salary['absences'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">SSS Contri</th>
-                                                    <td><?php echo $salary['sss_contri'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Philhealth Contri</th>
-                                                    <td><?php echo $salary['ph_contri'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">HDMF Contri</th>
-                                                    <td><?php echo $salary['hdmf_contri'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">SSS Loan</th>
-                                                    <td><?php echo $salary['sss_loan'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">HDMF Loan</th>
-                                                    <td><?php echo $salary['hdmf_loan'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Advances</th>
-                                                    <td><?php echo $salary['advances'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">WhTax</th>
-                                                    <td><?php echo $salary['wh_tax'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">Total Deductions</th>
-                                                    <td><?php echo $salary['total_deduc'] ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row" colspan="2">TAKE HOME PAY</th>
-                                                    <td><?php echo $salary['take_home'] ?></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <div class="d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-warning text-white"><span class="d-none d-sm-inline-block"><i class="fas fa-save me-2"></i>Submit</span></button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <?php } ?>
-
-                    </form>
+                                        </main>
+                                    </div> <!-- end col -->
+                                </div><!-- end row -->
                 </div> <!-- container-fluid -->
             </div> <!-- content -->
-
-            <!-- Footer Start -->
-            <?php include "../design/web-footer.php" ?>
-            <!-- end Footer -->
-            
         </div>
         <!-- ============================================================== -->
         <!-- End Page content -->
@@ -298,7 +211,9 @@ include('../../php/access.php');
 
 </body>
 <script type="text/javascript">
-    "use strict";!function(t){function o(){}o.prototype.init=function(){t("#inline-editable2").Tabledit({inputClass:"form-control form-control",editButton:!1,deleteButton:!1,columns:{identifier:[0,"id"],editable:[[1,"col1"],[2,"col2"],[3,"col3"],[4,"col4"],[6,"col6"]]}}),t("#btn-editable").Tabledit({buttons:{edit:{class:"btn btn-success",html:'<span class="mdi mdi-pencil"></span>',action:"edit"}},inputClass:"form-control form-control-sm",deleteButton:!1,saveButton:!1,autoFocus:!1,columns:{identifier:[0,"id"],editable:[[1,"col1"],[2,"col2"],[3,"col3"],[4,"col4"],[6,"col6"]]}})},t.EditableTable=new o,t.EditableTable.Constructor=o}(window.jQuery),window.jQuery.EditableTable.init();
+   $('table tr').click(function() {
+    window.location = 'nar-payroll-system.php';
+});
 </script>
 
 </html>
