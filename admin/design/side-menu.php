@@ -94,7 +94,7 @@
                 </li>
 
                 <li>
-                    <a href="nar-payroll.php">
+                    <a href="nar-payroll.php?sort=active">
                         <i class="mdi mdi-cash-register"></i>
                         <span> Payroll </span>
                     </a>

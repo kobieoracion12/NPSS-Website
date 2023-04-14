@@ -15,7 +15,7 @@ include('../../php/access.php');
     <link rel="shortcut icon" href="../../assets/nar-icon.ico">
 
     <!-- App css -->
-
+    <link href="../dist/assets/css/remove-arrow.css" rel="stylesheet" type="text/css" />
     <link href="../dist/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
     <!-- icons -->
@@ -24,6 +24,8 @@ include('../../php/access.php');
     <!-- Plugins css -->
     <link href="../dist/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
     <link href="../dist/assets/libs/dropify/css/dropify.min.css" rel="stylesheet" type="text/css" />
+
+    
 </head>
 
 <!-- body start -->
@@ -51,12 +53,6 @@ include('../../php/access.php');
                 <!-- Start Content-->
                 <div class="container-fluid">
                     <form method="post" action="../../php/record-payroll.php">
-                        <?php
-                            $sql = mysqli_query($config, "SELECT * FROM payroll WHERE employee_id = 2023198616");
-                            while($salary = mysqli_fetch_array($sql)) { 
-                                $period = date("F d, Y", strtotime($salary['payroll_period']));
-                                $date = date("F d, Y", strtotime($salary['payroll_date']));
-                            ?>
 
                         <!-- Body -->
                         <div class="row">
@@ -66,18 +62,19 @@ include('../../php/access.php');
                                     <div class="card-body">
                                         <h4 class="card-title">Payroll Overview</h4>
 
+                                        <?php $uid = $_GET['uid'] ?>
+
                                         <?php
-                                            $sql = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = 2023198616");
-                                            while($employee = mysqli_fetch_array($sql)) { ?>
+                                            if(isset($_GET['uid'])) {
+                                                $sql = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = $uid");
+                                                while($employee = mysqli_fetch_array($sql)) { ?>
 
                                         <div class="row mb-1 mx-2">
-                                            <!-- CHANGE THIS -->
-                                            <input type="hidden" class="form-control" name="employee_id" value="2023198616">
-                                            <input type="hidden" class="form-control" name="payroll_no" value="20231160000">
+                                            <input type="hidden" class="form-control" name="employee_id" value="<?php echo $employee['employee_id'] ?>">
 
-                                            <label class="col-sm-3 col-form-label">Employee Name</label>
+                                            <label class="col-sm-3 col-form-label">Name</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" value="<?php echo strtoupper($employee['last_name']); echo ", "; echo strtoupper($employee['first_name']); ?>">
+                                                <input type="text" class="form-control" value="<?php echo strtoupper($employee['last_name']); echo ", "; echo strtoupper($employee['first_name']); ?>" readonly>
                                             </div>
                                         </div>
 
@@ -91,18 +88,20 @@ include('../../php/access.php');
                                         <?php } ?>
 
                                         <div class="row mb-1 mx-2">
-                                            <label f class="col-sm-3 col-form-label">Payroll Period</label>
+                                            <label class="col-sm-3 col-form-label">Payroll Period</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" value="<?php echo strtoupper($period) ?>">
+                                                <input type="text" class="form-control" placeholder="--">
                                             </div>
                                         </div>
+
                                         <div class="row mb-1 mx-2">
-                                            <label f class="col-sm-3 col-form-label">Payroll Date</label>
+                                            <label class="col-sm-3 col-form-label">Payroll Date</label>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" value="<?php echo strtoupper($date) ?>">
+                                                <input type="text" class="form-control" placeholder="--">
                                             </div>
                                         </div>
                                         <hr>
+
                                         <h4>INCOME</h4>
                                         
                                         <!-- Table -->
@@ -110,127 +109,217 @@ include('../../php/access.php');
                                             <tbody>
                                                 <tr>
                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold pe-5 border border-0">Basic Pay</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['basic_pay'] ?>">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold pe-5 border border-0">Basic Pay</span>                                                            
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="basic" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
-                                                <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0">Salary Adjustment</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['salary_adj'] ?>">
-                                                        </div>  
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold border border-0" style="padding-right: 60px;">Tax Refund</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['tax_refund'] ?>">
-                                                        </div>  
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold border border-0" style="padding-right: 82px;">REG OT</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['reg_ot1'] ?>">
-                                                        </div>  
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold pe-4  border border-0">ND on REG OT</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['nd_ot1'] ?>">
-                                                        </div>  
-                                                    </td>
-                                                </tr>
+                                                
                                                 <tr>
                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0">Sat./Sun/Spcl OT</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['spcl_ot1'] ?>">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold  border border-0">Salary Adjustment</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="saladj" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                      <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0">Sat./Sun/Spcl OT > 8 Hrs.</span>
-                                                            <input type="text" name="" class="form-control text-center border border-0"  value="<?php echo $salary['spcl_ot2'] ?>">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 60px;">Tax Refund</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="taxref" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0">ND on RD/SH OT</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['nd_ot2'] ?>">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 82px;">REG OT</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="regot" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0">ND on RD/SH OT in > 8</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['nd_ot3'] ?>">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold pe-4  border border-0">ND on REG OT</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="ndreg" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
+                                                        </div>      
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold  border border-0">Sat./Sun/Spcl OT</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="spclot" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold pe-5 border border-0">LH OT</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['lh_ot1'] ?>">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold  border border-0">Sat/Sun/Spcl OT > 8 Hrs</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="spcl8ot" class="form-control txt text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold pe-4  border border-0">LH OT in > 8</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['lh_ot2'] ?>">
-                                                        </div>  
-                                                    </td>
-                                                    <th scope="row" colspan="2"></th>
-                                                    <td></td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0" style="padding-right: 55px;">ND LH OT</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['lh_ot3'] ?>">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold  border border-0">ND on RD/SH OT</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="ndot" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0">ND LH OT in > 8</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['lh_ot4'] ?>">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold  border border-0">ND on RD/SH OT in > 8</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="nd8ot" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0"  style="padding-right: 50px;">Allowance</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['allowance'] ?>">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold pe-5 border border-0">LH OT</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="lhot" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0"  style="padding-right: 50px;">Gross Pay</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['gross_pay'] ?>">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold pe-4  border border-0">LH OT in > 8</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="lt8ot" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
+                                                        </div>  
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold  border border-0" style="padding-right: 55px;">ND LH OT</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="ndlhot" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
+                                                        </div>  
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold  border border-0">ND LH OT in > 8</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="ndlh8ot" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
+                                                        </div>  
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 50px;">Allowance</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="allowance" class="form-control txt mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
+                                                        </div>  
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 50px;">Gross Pay</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+
+                                                                <span id="sum" class="pe-3 pt-1 text-center fw-bold">0</span>
+                                                                <input id="sum2" name="gross" type="hidden">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
                                             </tbody>
+
                                         </table>
                                     </div>
 
@@ -245,109 +334,184 @@ include('../../php/access.php');
                                         <p class="text-muted text-center fs-6">NAR Power System Specialists Corporation <br>
                                         Ciannat Complex, Marcos Highway, Antipolo City, Rizal Province</p>
                                         <h4 class="mt-4">DEDUCTIONS</h4>
-                                         <table class="table table-responsive-lg bg-light" >
+
+                                        <table class="table table-responsive-lg bg-light" >
                                             <tbody>
                                                 <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0">Tardiness/Undertime</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['tardiness'] ?>">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text minus fw-bold pe-5 border border-0">Tardiness/Undertime</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="tard" class="form-control minus mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+                                                
                                                 <tr>
                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0" style="padding-right: 110px;">LWOP</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['lwop'] ?>">
-                                                        </div>  
-                                                    </td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 110px;">LWOP</span>
+                                                            </div>
 
-                                                </tr>
-                                                <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0" style="padding-right: 85px;">Absences</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['absences'] ?>">
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="lwop" class="form-control minus mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0" style="padding-right: 80px;">SSS Contri</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['sss_contri'] ?>">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 85px;">Absences</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="absent" class="form-control minus mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0 pe-4">Philhealth Contri</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['ph_contri'] ?>">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 80px;">SSS Contri</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="ssscon" class="form-control minus mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0" style="padding-right: 63px;">HDMF Contri</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['hdmf_contri'] ?>">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0 pe-4">Philhealth Contri</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="phcon" class="form-control minus mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
+                                                        </div>      
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 63px;">HDMF Contri</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="hdmfcon" class="form-control minus mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0" style="padding-right: 83px;">SSS Loan</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['sss_loan'] ?>">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 83px;">SSS Loan</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="sssloan" class="form-control minus mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0 pe-5">HDMF Loan</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['hdmf_loan'] ?>">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0 pe-5">HDMF Loan</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="hdmfloan" class="form-control minus mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0" style="padding-right: 80px;">Advances</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['advances'] ?>">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 80px;">Advances</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="advances" class="form-control minus mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0" style="padding-right: 100px;">WhTax</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['wh_tax'] ?>">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0" style="padding-right: 100px;">WhTax</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <input type="number" name="whtax" class="form-control minus mx-3 text-center border border-0 w-50" placeholder="--">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0 pe-4">Total Deductions</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['total_deduc'] ?>">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0 pe-4">Total Deductions</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <span id="difft" class="pe-3 pt-1 subtrt text-center fw-bold text-danger">0</span>
+                                                                <input id="difft2" name="deduct" type="hidden">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
+
                                                 <tr>
-                                                     <td>
-                                                       <div class="input-group ">
-                                                            <span class="input-group-text fw-bold  border border-0 pe-4">TAKE HOME PAY</span>
-                                                            <input type="text" name="" class="form-control mx-3 text-center border border-0"  value="<?php echo $salary['take_home'] ?>">
+                                                    <td>
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <span class="input-group-text fw-bold border border-0 pe-4">TAKE HOME PAY</span>
+                                                            </div>
+
+                                                            <div class="col-6 d-flex justify-content-end">
+                                                                <span id="takehome" class="pe-3 pt-1 text-center fw-bold text-success">0</span>
+                                                                <input id="takehome2" name="take" type="hidden">
+                                                            </div>
                                                         </div>  
                                                     </td>
                                                 </tr>
                                             </tbody>
+
                                         </table>
+
                                         <div class="d-flex justify-content-end">
-                                            <button type="submit" class="btn btn-warning text-white"><span class="d-none d-sm-inline-block"><i class="fas fa-save me-2"></i>Submit</span></button>
+                                            <button type="submit" class="btn btn-warning text-white" name="record"><span class="d-none d-sm-inline-block"><i class="fas fa-save me-2"></i>Submit</span></button>
                                         </div>
                                     </div>
                                 </div>
@@ -406,6 +570,85 @@ include('../../php/access.php');
     <!-- Plugins js -->
     <script src="../dist/assets/libs/dropzone/min/dropzone.min.js"></script>
     <script src="../dist/assets/libs/dropify/js/dropify.min.js"></script>
+
+    <!-- Income / Gross Pay -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.txt').each(function() {
+                $(this).keyup(function() {
+                    calculateSum();
+                });
+            });
+        });
+
+
+        function calculateSum() {
+            let sum = 0;
+            $('.txt').each(function() {
+                if(!isNaN(this.value) && this.value.length != 0) {
+                    sum += parseFloat(this.value);
+                }
+            });
+
+            $("#sum").html(sum.toFixed(2));
+            $("#sum2").val(sum.toFixed(2));
+        }
+    </script>
+
+    <!-- Deductions -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.minus').each(function() {
+                $(this).keyup(function() {
+                    calculateDeduct();
+                });
+            });
+        });
+
+        function calculateDeduct() {
+
+            var getsum = $('#sum').text();
+
+            var diff = 0;
+
+            $('.minus').each(function() {
+                if(!isNaN(this.value) && this.value.length != 0) {
+                    diff += parseFloat(this.value);
+                }
+            });
+
+            $("#difft").html(diff.toFixed(2));
+            $("#difft2").val(diff.toFixed(2));
+        }
+    </script>
+
+    <!-- Take Home Pay -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.minus').each(function() {
+                $(this).keyup(function() {
+                    calculateTake();
+                });
+            });
+        });
+
+        function calculateTake() {
+
+            var getsum = $('#sum').text();
+            var diff = $('#difft').text();
+            
+            var result = 0;
+
+            $('.minus').each(function() {
+                if(!isNaN(this.value) && this.value.length != 0) {
+                    result = getsum - diff;
+                }
+            });
+
+            $("#takehome").html(result.toFixed(2));
+            $("#takehome2").val(result.toFixed(2));
+        }
+    </script>
 
 </body>
 <script type="text/javascript">
