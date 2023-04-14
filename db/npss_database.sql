@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2023 at 03:27 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: Apr 14, 2023 at 06:28 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `account_info` (
   `reg_password` varchar(59) NOT NULL,
   `acc_priv` enum('Super Admin','Admin','Administration','Finance','Purchasing') NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `account_info`
@@ -87,14 +87,14 @@ CREATE TABLE `company_profile` (
   `contact_no` varchar(59) NOT NULL,
   `company_logo` varchar(249) NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `company_profile`
 --
 
 INSERT INTO `company_profile` (`company_no`, `company_name`, `company_desc`, `branch_site`, `contact_person`, `contact_no`, `company_logo`, `date_registered`) VALUES
-(1, 'Jollibee Corporation', 'Bida bida si saya', 'Makati City', 'Richard Ramos', '09998181811', 'jollibee_logo.png', '2023-03-21 04:44:20'),
+(1, 'Jollibee Corporation', 'Bida bida si saya', 'Makati City', 'Richard Ramos', '09998181811', 'jollibee_logo.png', '2023-04-14 01:47:01'),
 (2, 'Philippine Air Force', 'Hukbong Himpapawid', 'Pasay City', 'Neil Major Pornela', '09696969696', 'philippine_airfore_logo.png', '2023-03-22 00:26:59'),
 (6, 'Coca-Cola Corporation', 'Beverage Manufacturer', 'Sta.Rosa, Laguna', 'Kobie Oracion', '0915221994', 'coca_cola_logo.png', '2023-03-22 01:49:16');
 
@@ -112,20 +112,15 @@ CREATE TABLE `docu_archive` (
   `display_icon` varchar(249) DEFAULT NULL,
   `display_type` varchar(249) NOT NULL,
   `date_uploaded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `docu_archive`
 --
 
 INSERT INTO `docu_archive` (`docu_no`, `file_name`, `display_name`, `uploaded_file`, `display_icon`, `display_type`, `date_uploaded`) VALUES
-(1, 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.docx', 'Ramos Claim', '', NULL, 'docx', '2023-03-26 02:05:14'),
-(2, 'Application-Form-2.pdf', 'Application Form', '', NULL, 'pdf', '2023-03-26 02:05:18'),
-(3, 'ADNILAG Tourism Video Ad Competition 2023 Mechanics and Entry form.pdf', 'ADnilag Mechanics', '', NULL, 'pdf', '2023-03-26 02:05:20'),
-(5, 'KUYA RODEL ID.docx', 'Manong Driver ID', '', NULL, 'docx', '2023-03-26 02:05:22'),
-(6, '', 'Untitled Folder', '', 'folder_icon.png', 'png', '2023-03-26 02:28:56'),
-(7, 'JAK_invoice.xlsx', 'JAK Invoice', '', NULL, 'xlsx', '2023-03-26 02:30:35'),
-(9, '', 'Jollibee Corporation', '', 'folder_icon.png', 'png', '2023-03-26 02:33:08');
+(1, 'CS02-Summary-of-Recommendations.docx', 'SOR', '', NULL, 'docx', '2023-04-14 02:33:03'),
+(2, '', 'hahaha', '', 'folder_icon.png', 'png', '2023-04-14 02:33:16');
 
 -- --------------------------------------------------------
 
@@ -151,7 +146,7 @@ CREATE TABLE `employee_info` (
   `profile_pic` varchar(255) DEFAULT NULL,
   `uploaded_cv` varchar(255) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee_info`
@@ -198,7 +193,7 @@ INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_
 CREATE TABLE `emp_status` (
   `stat_no` int(59) NOT NULL,
   `emp_stat` varchar(59) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `emp_status`
@@ -222,32 +217,64 @@ INSERT INTO `emp_status` (`stat_no`, `emp_stat`) VALUES
 
 CREATE TABLE `file_access` (
   `access_no` int(11) NOT NULL,
-  `docu_no` bigint(16) NOT NULL,
+  `docu_no` bigint(16) DEFAULT NULL,
+  `folder_docu_no` bigint(59) DEFAULT NULL,
   `position_no` bigint(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `file_access`
 --
 
-INSERT INTO `file_access` (`access_no`, `docu_no`, `position_no`) VALUES
-(1, 1, 1),
-(2, 1, 4),
-(3, 1, 7),
-(4, 1, 10),
-(5, 2, 1),
-(6, 2, 2),
-(7, 2, 3),
-(8, 2, 4),
-(9, 2, 5),
-(10, 2, 6),
-(11, 3, 24),
-(12, 5, 1),
-(13, 5, 4),
-(14, 5, 6),
-(15, 5, 9),
-(16, 5, 14),
-(17, 7, 2);
+INSERT INTO `file_access` (`access_no`, `docu_no`, `folder_docu_no`, `position_no`) VALUES
+(18, 1, NULL, 1),
+(19, 1, NULL, 4),
+(20, 1, NULL, 7),
+(21, 1, NULL, 10),
+(22, 1, NULL, 13),
+(23, 1, NULL, 16),
+(24, 1, NULL, 19),
+(25, 1, NULL, 22),
+(26, 1, NULL, 25),
+(32, 2, NULL, 1),
+(33, 2, NULL, 4),
+(34, 2, NULL, 7),
+(35, 2, NULL, 11),
+(36, 2, NULL, 26),
+(37, 2, NULL, 27),
+(41, NULL, 2, 25),
+(42, NULL, 2, 26),
+(43, NULL, 2, 27),
+(55, NULL, 1, 1),
+(56, NULL, 1, 4),
+(57, NULL, 1, 7),
+(58, NULL, 1, 25),
+(59, NULL, 1, 26);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `folder_docu_archive`
+--
+
+CREATE TABLE `folder_docu_archive` (
+  `docu_id` bigint(59) NOT NULL,
+  `folder_docu_no` bigint(59) NOT NULL,
+  `file_name` varchar(255) NOT NULL,
+  `display_name` varchar(255) NOT NULL,
+  `uploaded_file` varchar(255) NOT NULL,
+  `display_icon` varchar(255) NOT NULL,
+  `display_type` varchar(255) NOT NULL,
+  `date_uploaded` timestamp NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `folder_docu_archive`
+--
+
+INSERT INTO `folder_docu_archive` (`docu_id`, `folder_docu_no`, `file_name`, `display_name`, `uploaded_file`, `display_icon`, `display_type`, `date_uploaded`) VALUES
+(1, 2, 'USE CASE.docx', 'use case', '', '', 'docx', '2023-04-14 02:35:26'),
+(2, 2, 'FLOW CHART.docx', 'flow chart', '', '', 'docx', '2023-04-14 02:48:23');
 
 -- --------------------------------------------------------
 
@@ -288,7 +315,7 @@ CREATE TABLE `payroll` (
   `payroll_period` date NOT NULL,
   `payroll_date` date NOT NULL,
   `date_encoded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `payroll`
@@ -307,7 +334,7 @@ CREATE TABLE `position` (
   `position_no` bigint(16) NOT NULL,
   `position_name` varchar(249) NOT NULL,
   `job_desc` varchar(249) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `position`
@@ -384,7 +411,15 @@ ALTER TABLE `emp_status`
 ALTER TABLE `file_access`
   ADD PRIMARY KEY (`access_no`),
   ADD KEY `position_no` (`position_no`),
-  ADD KEY `docu_no` (`docu_no`);
+  ADD KEY `docu_no` (`docu_no`),
+  ADD KEY `folder_docu_no` (`folder_docu_no`);
+
+--
+-- Indexes for table `folder_docu_archive`
+--
+ALTER TABLE `folder_docu_archive`
+  ADD PRIMARY KEY (`docu_id`),
+  ADD KEY `folder_docu_no` (`folder_docu_no`);
 
 --
 -- Indexes for table `payroll`
@@ -419,7 +454,7 @@ ALTER TABLE `company_profile`
 -- AUTO_INCREMENT for table `docu_archive`
 --
 ALTER TABLE `docu_archive`
-  MODIFY `docu_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `docu_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `employee_info`
@@ -437,7 +472,13 @@ ALTER TABLE `emp_status`
 -- AUTO_INCREMENT for table `file_access`
 --
 ALTER TABLE `file_access`
-  MODIFY `access_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `access_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+
+--
+-- AUTO_INCREMENT for table `folder_docu_archive`
+--
+ALTER TABLE `folder_docu_archive`
+  MODIFY `docu_id` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `payroll`
@@ -466,7 +507,14 @@ ALTER TABLE `account_info`
 --
 ALTER TABLE `file_access`
   ADD CONSTRAINT `file_access_ibfk_1` FOREIGN KEY (`position_no`) REFERENCES `position` (`position_no`),
-  ADD CONSTRAINT `file_access_ibfk_2` FOREIGN KEY (`docu_no`) REFERENCES `docu_archive` (`docu_no`) ON DELETE CASCADE;
+  ADD CONSTRAINT `file_access_ibfk_2` FOREIGN KEY (`docu_no`) REFERENCES `docu_archive` (`docu_no`) ON DELETE CASCADE,
+  ADD CONSTRAINT `file_access_ibfk_3` FOREIGN KEY (`folder_docu_no`) REFERENCES `folder_docu_archive` (`docu_id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `folder_docu_archive`
+--
+ALTER TABLE `folder_docu_archive`
+  ADD CONSTRAINT `folder_docu_archive_ibfk_1` FOREIGN KEY (`folder_docu_no`) REFERENCES `docu_archive` (`docu_no`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `payroll`
