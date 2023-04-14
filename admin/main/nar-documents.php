@@ -297,6 +297,35 @@ include('../../php/access.php');
                                     </div>
                                 </div><!-- end col -->
 
+                                <!-- Delete Modal -->
+                                <div class="modal fade" id="delete-docu<?php echo $row['docu_no'] ?>" tabindex="-1">
+                                    <div class="modal-dialog modal-dialog-centered modal-md">
+                                        <div class="modal-content">
+                                            <div class="modal-header px-4 border-bottom-0 d-block">
+                                                <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                <h4 class="modal-title" id="modal-title">Delete File</h4>
+                                            </div>
+
+                                            <div class="modal-body mx-4">
+                                                <form class="needs-validation" method="post" action="../../php/delete-docu.php" enctype="multipart/form-data" novalidate>
+                                                    
+                                                    <input type="text" name="docu_no" value="<?php echo $row['docu_no'] ?>">
+                                                    <div>
+                                                        <h5>Do you want to delete this client?</h5>
+                                                    </div>
+
+                                                    <div class="row mt-4">
+                                                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                            <button name="del_one" type="submit" class="btn btn-danger px-5 rounded-pill" id="btn-save-event">Continue</button>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div> <!-- end modal-content-->
+                                    </div> <!-- end modal dialog-->
+                                </div>
+
                                 <!-- Edit Modal -->
                                 <div class="modal fade" id="edit-docu<?php echo $row['docu_no'] ?>" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -359,35 +388,6 @@ include('../../php/access.php');
                                                     <div class="row mt-4">
                                                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                                             <button type="submit" name="edit-docu" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Edit File</button>
-                                                        </div>
-                                                    </div>
-
-                                                </form>
-                                            </div>
-                                        </div> <!-- end modal-content-->
-                                    </div> <!-- end modal dialog-->
-                                </div>
-
-                                <!-- Delete Modal -->
-                                <div class="modal fade" id="delete-docu<?php echo $row['docu_no'] ?>" tabindex="-1">
-                                    <div class="modal-dialog modal-dialog-centered modal-md">
-                                        <div class="modal-content">
-                                            <div class="modal-header px-4 border-bottom-0 d-block">
-                                                <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <h4 class="modal-title" id="modal-title">Delete File</h4>
-                                            </div>
-
-                                            <div class="modal-body mx-4">
-                                                <form class="needs-validation" method="post" action="../../php/delete-docu.php" enctype="multipart/form-data" novalidate>
-                                                    
-                                                    <input type="text" name="docu_no" value="<?php echo $row['docu_no'] ?>">
-                                                    <div>
-                                                        <h5>Do you want to delete this client?</h5>
-                                                    </div>
-
-                                                    <div class="row mt-4">
-                                                        <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                                            <button type="submit" class="btn btn-danger px-5 rounded-pill" id="btn-save-event">Continue</button>
                                                         </div>
                                                     </div>
 

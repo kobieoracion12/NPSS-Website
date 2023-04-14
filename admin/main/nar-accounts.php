@@ -125,7 +125,7 @@
                                             <button class="w-100 btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['employee_id'] ?>">Edit Profile</button>    
                                         </div>
                                         <div class="col-xl-6 col-md-12">
-                                            <button class="w-100 btn btn-danger text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['employee_id'] ?>">Delete Account</button>    
+                                            <button class="w-100 btn btn-danger text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['employee_id'] ?>">Delete</button>    
                                         </div>
                                     </div>
 
