@@ -27,6 +27,11 @@
         .dropdown a:hover {
             color: #42A5F5;
         }
+        .card:hover{
+          z-index: 1;
+          box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+          transform: scale(1.05);
+        }
 
     </style>
 
@@ -91,51 +96,57 @@
         <hr class="border border-1">
         <div class="container">
             <div class="row mb-3">
-                <div class="card-group">
-                    <div class="card me-2 border border-2">
-                        <img src="../dist/assets/images/gallery/1.jpg" class="card-img-top" alt="...">
+                <div class="card-group" >
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
+                        <img src="../dist/assets/images/gallery/1.jpg" class="card-img-top" alt="..."  style=" border-top-left-radius: 25px; border-top-right-radius: 25px;">
                         <div class="card-body">
                             <p class="card-text fs-3 fw-bold">Technical Work Schedule in Aklan, Philippines</p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text fw-bold" style="color: #146dac;">READ MORE <i class="fas fa-angle-double-right ms-1"></i></p>
                         </div>
                     </div>
-                    <div class="card me-2 border border-2">
-                        <img src="../dist/assets/images/gallery/2.jpg" class="card-img-top" alt="...">
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
+                        <img src="../dist/assets/images/gallery/2.jpg" class="card-img-top" alt="..." style=" border-top-left-radius: 25px; border-top-right-radius: 25px;">
                         <div class="card-body">
                             <p class="card-text fs-3 fw-bold">NAR Power is Looking for an Electrical Engineer</p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text fw-bold" style="color: #146dac;">READ MORE <i class="fas fa-angle-double-right ms-1"></i></p>
                         </div>
                     </div>
-                    <div class="card me-2 border border-2">
-                        <img src="../dist/assets/images/gallery/3.jpg" class="card-img-top" alt="...">
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
+                        <img src="../dist/assets/images/gallery/3.jpg" class="card-img-top" alt="..." style=" border-top-left-radius: 25px; border-top-right-radius: 25px;">
                         <div class="card-body">
                             <p class="card-text fs-3 fw-bold">Preventive Maintenance at MWC - Siruna PS</p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text fw-bold" style="color: #146dac;">READ MORE <i class="fas fa-angle-double-right ms-1"></i></p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="card-group">
-                    <div class="card me-2 border border-2">
-                        <img src="../dist/assets/images/gallery/1.jpg" class="card-img-top" alt="...">
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
+                        <img src="../dist/assets/images/gallery/1.jpg" class="card-img-top" alt="..." style=" border-top-left-radius: 25px; border-top-right-radius: 25px;">
                         <div class="card-body">
                             <p class="card-text fs-3 fw-bold">Technical Work Schedule in Aklan, Philippines</p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text fw-bold" style="color: #146dac;">READ MORE <i class="fas fa-angle-double-right ms-1"></i></p>
                         </div>
                     </div>
-                    <div class="card me-2 border border-2">
-                        <img src="../dist/assets/images/gallery/2.jpg" class="card-img-top" alt="...">
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
+                        <img src="../dist/assets/images/gallery/2.jpg" class="card-img-top" alt="..." style=" border-top-left-radius: 25px; border-top-right-radius: 25px;">
                         <div class="card-body">
                             <p class="card-text fs-3 fw-bold">NAR Power is Looking for an Electrical Engineer</p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text fw-bold" style="color: #146dac;">READ MORE <i class="fas fa-angle-double-right ms-1"></i></p>
                         </div>
                     </div>
-                    <div class="card me-2 border border-2">
-                        <img src="../dist/assets/images/gallery/3.jpg" class="card-img-top" alt="...">
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
+                        <img src="../dist/assets/images/gallery/3.jpg" class="card-img-top" alt="..." style=" border-top-left-radius: 25px; border-top-right-radius: 25px;">
                         <div class="card-body">
                             <p class="card-text fs-3 fw-bold">Preventive Maintenance at MWC - Siruna PS</p>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <p class="card-text fw-bold" style="color: #146dac;">READ MORE <i class="fas fa-angle-double-right ms-1"></i></p>
                         </div>
                     </div>
                 </div>

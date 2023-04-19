@@ -97,31 +97,32 @@
         <div class="col-xl-10 mx-auto">
             <div class="row mb-2">
                 <div class="card-group">
-                    <div class="card me-4 border border-2">
-                      <a href="data_privacy.php" target="_blank">
+                    <div class="card me-4 border border-2 pb-2" style=" border-radius: 25px;">
                         <div class="card-body">
                             <h4 class="card-title" style="color: #146dac;">Electrical Field Supervisor</h4>
                             <h6 class="text-warning">Antipolo</h6>
                             <p class="card-text text-dark">On a daily basis, you’ll carry out various engineering tasks, such as performing calculations to ensure our systems meet the global safety standards and collaborating with technicians and computer programmers to solve emerging issues.</p>
-                            <p class="card-text fw-bold">Qualifications<small class="text-muted"> With Experience in Electrical Maintenance and Constructions</small></p>
+                            <p class="card-text fw-bold">Qualifications<small class="text-muted"> With Experience in Electrical Maintenance and Constructions</small></p> 
                         </div>
-                      </a>
+                        <a href="data_privacy.php" target="_blank" class="btn btn btn-md py-2 mx-5 mb-2 text-white rounded-pill fw-bold" style="background-color:#146dac;">APPLY <i class="fas fa-caret-right fa-lg ms-2"></i></a>
                     </div>
-                    <div class="card me-4 border border-2">
+                    <div class="card me-4 border border-2 pb-2" style=" border-radius: 25px;">
                         <div class="card-body">
                             <h4 class="card-title" style="color: #146dac;">Electrical Engineer</h4>
                             <h6 class="text-warning">Antipolo</h6>
                             <p class="card-text">We are looking for an experienced electrical supervisor to oversee our team of electricians. In this role, you will be responsible for training and mentoring staff, creating work schedules, providing technical assistance, and troubleshooting system issues. You may also be required to maintain and repair the electrical equipment used on-site.</p>
                             <p class="card-text fw-bold">Qualifications <small class="text-muted">With Experience in Electrical Maintenance and Constructions</small></p>
                         </div>
+                        <a href="data_privacy.php" target="_blank" class="btn btn btn-md py-2 mx-5 mb-2 text-white rounded-pill fw-bold" style="background-color:#146dac;">APPLY  <i class="fas fa-caret-right fa-lg ms-2"></i></a>
                     </div>
-                    <div class="card me-4 border border-2">
+                    <div class="card me-4 border border-2 pb-2" style=" border-radius: 25px;">
                         <div class="card-body">
                             <h4 class="card-title" style="color: #146dac;">Purchasing Assistant</h4>
                             <h6 class="text-warning">Antipolo</h6>
                             <p class="card-text">We are searching for a well-organized, energetic purchasing assistant to help the purchaser carry out day-to-day tasks. The purchasing assistant's responsibilities include researching market trends, maintaining relationships with both vendors and clients, making travel arrangements, inspecting inventory, and updating relevant spreadsheets and documents.</p>
                             <p class="card-text fw-bold"> Qualifications <small class="text-muted">With Experience in Purchasing or other Related Field</small></p>
                         </div>
+                        <a href="data_privacy.php" target="_blank" class="btn btn btn-md py-2 mx-5 mb-2 text-white rounded-pill fw-bold" style="background-color:#146dac;">APPLY  <i class="fas fa-caret-right fa-lg ms-2"></i></a>
                     </div>
                 </div>
             </div>

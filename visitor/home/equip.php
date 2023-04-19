@@ -27,6 +27,11 @@
         .dropdown a:hover {
             color: #42A5F5;
         }
+        .card:hover{
+          z-index: 1;
+          box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+          transform: scale(1.05);
+        }
 
     </style>
 
@@ -90,23 +95,23 @@
         <h3 class="mt-3 ms-5" style="color: #146dac;">Equipments</h3>
         <hr class="border border-1">
         <div class="col-xl-10 mx-auto">
-            <div class="row mb-2">
+            <div class="row mb-3">
                 <div class="card-group">
-                    <div class="card me-2 border border-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <div class="card me-4 border border-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style=" border-radius: 25px;">
                         <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
                         <div class="card-body">
                             <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
                             <p class="card-text text-dark text-center">digital low resistance ohmmeter contact resistant tester / winding resistance tester</p>
                         </div>
                     </div>
-                    <div class="card me-2 border border-2">
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
                         <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
                         <div class="card-body">
                             <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
                             <p class="card-text text-dark text-center">digital low resistance ohmmeter contact resistant tester / winding resistance tester</p>
                         </div>
                     </div>
-                    <div class="card me-2 border border-2">
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
                         <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
                         <div class="card-body">
                             <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
@@ -115,23 +120,23 @@
                     </div>
                 </div>
             </div>
-            <div class="row mb-2">
+            <div class="row mb-3">
                 <div class="card-group">
-                    <div class="card me-2 border border-2">
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
                         <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
                         <div class="card-body">
                             <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
                             <p class="card-text text-dark text-center">digital low resistance ohmmeter contact resistant tester / winding resistance tester</p>
                         </div>
                     </div>
-                    <div class="card me-2 border border-2">
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
                         <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
                         <div class="card-body">
                             <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
                             <p class="card-text text-dark text-center">digital low resistance ohmmeter contact resistant tester / winding resistance tester</p>
                         </div>
                     </div>
-                    <div class="card me-2 border border-2">
+                    <div class="card me-4 border border-2" style=" border-radius: 25px;">
                         <img src="../dist/assets/images/Megger_insulation_tester.png" class="card-img-top rounded mx-auto d-block" alt="..." style="height: 250px; width: 250px;">
                         <div class="card-body">
                             <h4 class="card-title text-center" style="color: #146dac;">Electrical Testing Instrument</h4>
@@ -144,9 +149,9 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-lg" >
+            <div class="modal-content" style=" border-radius: 25px;">
                 <div class="modal-header border-0">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>

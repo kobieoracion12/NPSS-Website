@@ -27,7 +27,6 @@
         .dropdown a:hover {
             color: #42A5F5;
         }
-
     </style>
 
 </head>
@@ -151,7 +150,11 @@
                         <li>Distributor of wood poles and lumber products</li>
                         <li>Equipment Distributor</li>
                     </ul>
+                    <div class="d-grid gap-2 col-4 mx-auto mt-3 mb-2">
+                            <button type="button" class="btn btn btn-md py-2 rounded-pill fw-bold fs-5" style="border-color: #146dac; color:#146dac; ">Download the Engineering And Design Services <i class="fas fa-download ms-2 fa-lg"></i></button>
+                        </div>
                 </div>
+
             </div>
         </div>
     </div>

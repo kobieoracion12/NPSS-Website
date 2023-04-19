@@ -99,11 +99,9 @@
                             <li> A degree in Electrical Engineering; MSc is a plus</li>
                         </ul>
                         <div class="d-grid gap-2 col-4 mx-auto mt-4">
-                            <button type="button" class="btn btn btn-md py-2 text-white rounded-pill" style="background-color:#146dac;" data-bs-toggle="modal" data-bs-target="#exampleModal">Apply Now</button>
+                            <button type="button" class="btn btn btn-md py-2 text-white rounded-pill fw-bold" style="background-color:#146dac;" data-bs-toggle="modal" data-bs-target="#exampleModal">APPLY NOW</button>
                         </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
@@ -154,11 +152,30 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label class="form-label fw-bold">Suffix</label>
-                                            <input type="text" class="form-control mb-2">
+                                            <select class="form-select form-select mb-2">
+                                                <option selected></option>
+                                                <option value="1">Jr.</option>
+                                                <option value="2">Sr.</option>
+                                                <option value="3">III</option>
+                                                <option>IV</option>
+                                                <option>PhD</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <label class="form-label fw-bold">Birthdate</label>
-                                    <input type="date" class="form-control mb-2">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Birthdate</label>
+                                            <input type="date" class="form-control mb-2">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-bold">Gender</label>
+                                            <select  class="form-select form-select mb-2">
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label class="form-label fw-bold">Province</label>
@@ -181,12 +198,13 @@
                                     </div>
                                     <label class="form-label fw-bold">Upload CV/Resume</label>
                                     <input type="file" class="form-control mb-1" name="import_file">
-                                    <small class="ms-3">Upload your resume in a PDF format, and using the file name form at [LASTNAME_FIRSTNAME]</small>
+                                    <p class="ms-3">Upload your resume in a PDF format, and using the file name form at <small class="text-danger"> [LASTNAME_FIRSTNAME]</small></p>
+
                                 </div>
                             </div>
                             <div class="modal-footer border  border-0">
-                                <div class="d-grid col-4 mx-auto">
-                                    <button class="btn btn-primary rounded-pill text-white" type="button" style="background-color:#146dac;">SEND APPLICATION</button>
+                                <div class="d-grid col-5 mx-auto">
+                                    <button class="btn btn-primary rounded-pill text-white py-2 fw-bold" type="button" style="background-color:#146dac;">SEND APPLICATION</button>
                                 </div>
                             </div>
                         </div>
