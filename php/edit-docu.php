@@ -45,16 +45,29 @@ elseif(isset($_POST['edit-doc'])) {
                 $query= mysqli_query($config, "INSERT INTO file_access (folder_docu_no, position_no) VALUES ('$id', '".$key."')");
             }
             if ($query) {
-                header("Location: ../admin/main/nar-folder.php?folder=$folder_no&edit-success");
+                header("Location: ../admin/main/nar-folder.php?ompany=$id");
             }
         }
     }
     else {
+        header("Location: ../admin/main/nar-folder.php?company=$id");
+    }
+}
+
+
+elseif(isset($_POST['edit-doc2'])) {
+
+    $id = $_POST['docu_id'];
+    $name = $_POST['display_name'];
+    
+    $update = mysqli_query($config, "UPDATE docu_archive SET display_name = '$name' WHERE docu_id = '$id'");
+
+    if($update) {
+        header("Location: ../admin/main/nar-folder.php?folder=$folder_no&edit-success");
+    }
+    else {
         header("Location: ../admin/main/nar-folder.php?folder=$folder_no&edit-failed");
     }
-
-
-    
 }
 
 ?>

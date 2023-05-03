@@ -102,7 +102,7 @@
                                                 <!-- item-->
                                                 <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-client<?php echo $data['company_no'] ?>">Edit</a>
                                                 <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-client<?php echo $data['company_no'] ?>">Delete</a>
-                                                <a href="javascript:void(0);" class="dropdown-item">Manage</a>
+                                                <a href="nar-manage.php?company=<?php echo $data['company_no'] ?>" target="_blank" class="dropdown-item">Manage</a>
                                             </div>
                                         </div>
                                         

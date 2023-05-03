@@ -3,15 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Apr 14, 2023 at 12:50 PM
+-- Generation Time: May 03, 2023 at 11:36 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
-=======
--- Generation Time: Apr 14, 2023 at 06:28 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
->>>>>>> 48befba31e5eee18653ae3c49071728bdf1d40c2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -40,7 +34,7 @@ CREATE TABLE `account_info` (
   `reg_password` varchar(59) NOT NULL,
   `acc_priv` enum('Super Admin','Admin','Administration','Finance','Purchasing') NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `account_info`
@@ -93,7 +87,7 @@ CREATE TABLE `company_profile` (
   `contact_no` varchar(59) NOT NULL,
   `company_logo` varchar(249) NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `company_profile`
@@ -117,16 +111,18 @@ CREATE TABLE `docu_archive` (
   `uploaded_file` varchar(249) NOT NULL,
   `display_icon` varchar(249) DEFAULT NULL,
   `display_type` varchar(249) NOT NULL,
+  `company_no` char(59) DEFAULT NULL,
   `date_uploaded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `docu_archive`
 --
 
-INSERT INTO `docu_archive` (`docu_no`, `file_name`, `display_name`, `uploaded_file`, `display_icon`, `display_type`, `date_uploaded`) VALUES
-(1, 'CS02-Summary-of-Recommendations.docx', 'SOR', '', NULL, 'docx', '2023-04-14 02:33:03'),
-(2, '', 'hahaha', '', 'folder_icon.png', 'png', '2023-04-14 02:33:16');
+INSERT INTO `docu_archive` (`docu_no`, `file_name`, `display_name`, `uploaded_file`, `display_icon`, `display_type`, `company_no`, `date_uploaded`) VALUES
+(1, 'CS02-Summary-of-Recommendations.docx', 'SOR', '', NULL, 'docx', '1', '2023-05-03 09:09:15'),
+(2, '', 'hahaha', '', 'folder_icon.png', 'png', NULL, '2023-04-14 02:33:16'),
+(4, 'CSO5-FORM2.docx', 'Form 2', '', NULL, 'docx', '1', '2023-05-03 09:19:07');
 
 -- --------------------------------------------------------
 
@@ -153,7 +149,7 @@ CREATE TABLE `employee_info` (
   `profile_pic` varchar(255) DEFAULT NULL,
   `uploaded_cv` varchar(255) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee_info`
@@ -200,7 +196,7 @@ INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_
 CREATE TABLE `emp_status` (
   `stat_no` int(59) NOT NULL,
   `emp_stat` varchar(59) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `emp_status`
@@ -227,7 +223,7 @@ CREATE TABLE `file_access` (
   `docu_no` bigint(16) DEFAULT NULL,
   `folder_docu_no` bigint(59) DEFAULT NULL,
   `position_no` bigint(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `file_access`
@@ -273,7 +269,7 @@ CREATE TABLE `folder_docu_archive` (
   `display_icon` varchar(255) NOT NULL,
   `display_type` varchar(255) NOT NULL,
   `date_uploaded` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `folder_docu_archive`
@@ -322,7 +318,7 @@ CREATE TABLE `payroll` (
   `payroll_period` date NOT NULL,
   `payroll_date` date NOT NULL,
   `date_encoded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payroll`
@@ -342,7 +338,7 @@ CREATE TABLE `position` (
   `position_no` bigint(16) NOT NULL,
   `position_name` varchar(249) NOT NULL,
   `job_desc` varchar(249) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `position`
@@ -462,7 +458,7 @@ ALTER TABLE `company_profile`
 -- AUTO_INCREMENT for table `docu_archive`
 --
 ALTER TABLE `docu_archive`
-  MODIFY `docu_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `docu_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `employee_info`
