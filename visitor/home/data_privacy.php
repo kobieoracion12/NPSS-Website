@@ -138,21 +138,21 @@
                             </ul>
                         </div>
                     </div>
-                    <form action="" id="regForm">
+                    <form action="../../php/submit-application.php" id="regForm" method="post" enctype="multipart/form-data" onsubmit="return nextPrev()">
                         <div class="tab">
                             <h4 class="text-center" style="color: #146dac;" id="register">Online Job Application</h4>
                             <div class="col-xl-12 mx-auto">
                                 <div class="card border border-1">
                                     <div class="card-body">
                                         <label class="form-label fw-bold">Job Interest</label>
-                                        <select class="form-select form-select mb-2" aria-label=".form-select-lg example">
+                                        <select name="interest" class="form-select form-select mb-2" aria-label=".form-select-lg example">
                                             <option selected>Electrical Engineer</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
                                             <option value="3">Three</option>
                                         </select>
                                         <label class="form-label fw-bold">Branch/Office Site</label>
-                                        <select class="form-select form-select mb-2" aria-label=".form-select-lg example">
+                                        <select name="site" class="form-select form-select mb-2" aria-label=".form-select-lg example">
                                             <option selected>Antipolo city</option>
                                             <option value="1">One</option>
                                             <option value="2">Two</option>
@@ -161,21 +161,21 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">Last Name</label>
-                                                <input type="text" class="form-control mb-2" required>
+                                                <input name="last_name" type="text" class="form-control mb-2" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">First Name</label>
-                                                <input type="text" class="form-control mb-2" required="">
+                                                <input name="first_name" type="text" class="form-control mb-2" required="">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">Middle Name</label>
-                                                <input type="text" class="form-control mb-2" required="">
+                                                <input name="middle_name" type="text" class="form-control mb-2" required="">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">Suffix</label>
-                                                <select class="form-select form-select mb-2" required="">
+                                                <select name="suffix" class="form-select form-select mb-2">
                                                     <option selected></option>
                                                     <option value="1">Jr.</option>
                                                     <option value="2">Sr.</option>
@@ -188,11 +188,11 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">Birthdate</label>
-                                                <input type="date" class="form-control mb-2" required="">
+                                                <input name="birth_date" type="date" class="form-control mb-2" required="">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">Gender</label>
-                                                <select class="form-select form-select mb-2" required="">
+                                                <select name="gender" class="form-select form-select mb-2" required="">
                                                     <option>Male</option>
                                                     <option>Female</option>
                                                 </select>
@@ -202,26 +202,26 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">Province</label>
-                                                <input type="text" class="form-control mb-2" required="">
+                                                <input name="province" type="text" class="form-control mb-2" required="">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">City/Municipality</label>
-                                                <input type="text" class="form-control mb-2" required="">
+                                                <input name="city" type="text" class="form-control mb-2" required="">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">Mobile Number</label>
-                                                <input type="text" class="form-control mb-2" required="">
+                                                <input name="mobile_no" type="text" class="form-control mb-2" required="">
                                             </div>
                                             <div class="col-md-6">
                                                 <label class="form-label fw-bold">Email Address</label>
-                                                <input type="text" class="form-control mb-2" required="">
+                                                <input name="email_address" type="text" class="form-control mb-2" required="">
                                             </div>
                                         </div>
                                         <label class="form-label fw-bold">Upload CV/Resume</label>
-                                        <!--<input type="file" class="form-control mb-1" name="import_file" required="">
-                                        <p class="ms-3">Upload your resume in a PDF format, and using the file name form at <small class="text-danger"> [LASTNAME_FIRSTNAME]</small></p> -->
+                                        <input type="file" class="form-control mb-1" name="resume_cv" required="">
+                                        <p class="ms-3">Upload your resume in a PDF format, and using the file name form at <small class="text-danger"> [LASTNAME_FIRSTNAME]</small></p> 
 
                                     </div>
                                 </div>
@@ -236,6 +236,7 @@
                         <div style="overflow:auto;" id="nextprevious" class="d-flex justify-content-end">
                             <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-secondary  btn-md py-2 px-4 text-white fw-bold rounded me-3">Back</button>
                             <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-md py-2 px-4 text-white fw-bold rounded" style="background-color:#146dac;">Next</button>
+                            <button type="submit" id="submit" class="btn btn-md py-2 px-4 text-white fw-bold rounded" style="background-color:#146dac;">Submits</button>
                         </div>
                     </form>
                 </div>
@@ -301,11 +302,13 @@
         x[n].style.display = "block";
         if (n == 0) {
             document.getElementById("prevBtn").style.display = "none";
+            document.getElementById("submit").style.display = "none";
         } else {
             document.getElementById("prevBtn").style.display = "inline";
         }
         if (n == (x.length - 1)) {
-            document.getElementById("nextBtn").innerHTML = "Submit";
+            document.getElementById("nextBtn").style.display = "none";
+            document.getElementById("submit").style.display = "block";
         } else {
             document.getElementById("nextBtn").innerHTML = "Next";
         }
@@ -325,6 +328,9 @@
             document.getElementById("all-steps").style.display = "none";
             document.getElementById("register").style.display = "none";
             document.getElementById("text-message").style.display = "block";
+            document.getElementById("prevBtn").style.display = "none";
+            document.getElementById("nextBtn").style.display = "none";
+            document.getElementById("submit").style.display = "none";
 
         }
         showTab(currentTab);

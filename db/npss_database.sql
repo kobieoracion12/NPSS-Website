@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 03, 2023 at 11:36 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Generation Time: May 04, 2023 at 04:40 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `account_info` (
   `reg_password` varchar(59) NOT NULL,
   `acc_priv` enum('Super Admin','Admin','Administration','Finance','Purchasing') NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `account_info`
@@ -75,6 +75,39 @@ INSERT INTO `account_info` (`account_no`, `employee_id`, `reg_email`, `reg_passw
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `application`
+--
+
+CREATE TABLE `application` (
+  `application_id` int(11) NOT NULL,
+  `job_interest` varchar(255) NOT NULL,
+  `site` varchar(255) NOT NULL,
+  `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) DEFAULT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `suffix` varchar(255) DEFAULT NULL,
+  `birth_date` date NOT NULL,
+  `gender` varchar(255) NOT NULL,
+  `province` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `mobile_no` varchar(255) NOT NULL,
+  `email_address` varchar(255) NOT NULL,
+  `resume_cv` varchar(255) NOT NULL,
+  `date_submitted` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `application`
+--
+
+INSERT INTO `application` (`application_id`, `job_interest`, `site`, `first_name`, `middle_name`, `last_name`, `suffix`, `birth_date`, `gender`, `province`, `city`, `mobile_no`, `email_address`, `resume_cv`, `date_submitted`) VALUES
+(1, 'Electrical Engineer', 'Antipolo city', 'Richards', 'Wholesome', 'Ramos', '3', '2023-05-10', 'Male', 'Laguna', 'Santa Cruz', '09123456789', 'samplename@gmail.com', '', '2023-05-04 10:00:19'),
+(2, 'Electrical Engineer', 'Antipolo city', 'Neil', 'Okay', 'Pornela', '2', '2023-05-09', 'Female', 'Laguna', 'Santa Cruz', '09123456789', 'neilpornela@gmail.com', 'Application-Form-2.pdf', '2023-05-04 10:06:42'),
+(3, 'Electrical Engineer', 'Antipolo city', 'Kobie', 'Alien', 'Oracion', '2', '2023-05-15', 'Male', 'Laguna', 'Luisiana', '09123456789', 'kobieoracion@gmail.com', 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.pdf', '2023-05-04 10:15:27');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `company_profile`
 --
 
@@ -87,7 +120,7 @@ CREATE TABLE `company_profile` (
   `contact_no` varchar(59) NOT NULL,
   `company_logo` varchar(249) NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `company_profile`
@@ -113,7 +146,7 @@ CREATE TABLE `docu_archive` (
   `display_type` varchar(249) NOT NULL,
   `company_no` char(59) DEFAULT NULL,
   `date_uploaded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `docu_archive`
@@ -149,7 +182,7 @@ CREATE TABLE `employee_info` (
   `profile_pic` varchar(255) DEFAULT NULL,
   `uploaded_cv` varchar(255) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `employee_info`
@@ -196,7 +229,7 @@ INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_
 CREATE TABLE `emp_status` (
   `stat_no` int(59) NOT NULL,
   `emp_stat` varchar(59) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `emp_status`
@@ -223,7 +256,7 @@ CREATE TABLE `file_access` (
   `docu_no` bigint(16) DEFAULT NULL,
   `folder_docu_no` bigint(59) DEFAULT NULL,
   `position_no` bigint(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `file_access`
@@ -269,7 +302,7 @@ CREATE TABLE `folder_docu_archive` (
   `display_icon` varchar(255) NOT NULL,
   `display_type` varchar(255) NOT NULL,
   `date_uploaded` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `folder_docu_archive`
@@ -318,7 +351,7 @@ CREATE TABLE `payroll` (
   `payroll_period` date NOT NULL,
   `payroll_date` date NOT NULL,
   `date_encoded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `payroll`
@@ -338,7 +371,7 @@ CREATE TABLE `position` (
   `position_no` bigint(16) NOT NULL,
   `position_name` varchar(249) NOT NULL,
   `job_desc` varchar(249) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `position`
@@ -383,6 +416,12 @@ INSERT INTO `position` (`position_no`, `position_name`, `job_desc`) VALUES
 ALTER TABLE `account_info`
   ADD PRIMARY KEY (`account_no`),
   ADD UNIQUE KEY `employee_id` (`employee_id`);
+
+--
+-- Indexes for table `application`
+--
+ALTER TABLE `application`
+  ADD PRIMARY KEY (`application_id`);
 
 --
 -- Indexes for table `company_profile`
@@ -447,6 +486,12 @@ ALTER TABLE `position`
 --
 ALTER TABLE `account_info`
   MODIFY `account_no` bigint(59) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
+-- AUTO_INCREMENT for table `application`
+--
+ALTER TABLE `application`
+  MODIFY `application_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `company_profile`

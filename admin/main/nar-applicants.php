@@ -118,17 +118,20 @@ include('../../php/access.php');
                                                 </header>
 
                                                 <div class="table-responsive mx-4 mt-1">
+                                                    <?php
+                                                    $records = mysqli_query($config, "SELECT * FROM application");
+                                                    while ($data = mysqli_fetch_array($records)) { ?>
                                                     <table class="table table-hover table-borderless mb-0">
                                                         <tbody>
                                                             <tr class="text-success fw-bold">
                                                                 <th class="p-3" scope="row">1</th>
-                                                                <td class="p-3">Kobie Oracion</td>
-                                                                <td class="p-3">IT Specialist</td>
-                                                                <td class="p-3">Antipolo City</td>
-                                                                <td class="p-3">March 14, 2023</td>
+                                                                <td class="p-3"><?php echo $data['first_name']. " " .$data['last_name'] ?></td>
+                                                                <td class="p-3"><?php echo $data['job_interest'] ?></td>
+                                                                <td class="p-3"><?php echo $data['site'] ?></td>
+                                                                <td class="p-3"><?php echo $data['date_submitted'] ?></td>
                                                                 <td class="p-3 text-center">Pending</td>
                                                             </tr>
-                                                            <tr class="fw-bold">
+                                                            <!-- <tr class="fw-bold">
                                                                 <th class="p-3" scope="row">2</th>
                                                                 <td class="p-3">Jireh Geleo Ramos</td>
                                                                 <td class="p-3">IT Specialist</td>
@@ -151,9 +154,12 @@ include('../../php/access.php');
                                                                 <td class="p-3">Antipolo City</td>
                                                                 <td class="p-3">April 6, 2019</td>
                                                                 <td class="p-3 text-center">Approved</td>
-                                                            </tr>
+                                                            </tr> -->
                                                         </tbody>
                                                     </table>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </div>
                                             </main>
                                         </div> <!-- end col -->
