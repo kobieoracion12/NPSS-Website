@@ -72,7 +72,7 @@
                 </li>
 
                 <li>
-                    <a href="nar-applicants.php">
+                    <a href="nar-applicants.php?sort=unread">
                         <i class="mdi mdi-card-account-details-outline"></i>
                         <span class="badge bg-success rounded-pill float-end">9+</span>
                         <span> Applicants </span>

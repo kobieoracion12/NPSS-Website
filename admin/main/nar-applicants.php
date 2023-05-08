@@ -60,11 +60,10 @@ include('../../php/access.php');
 
                                                 <menu class="menu-segment">
                                                     <ul class="list-unstyled">
-                                                        <li class="active"><a href="javascript:void(0);">Inbox<span> (43)</span></a>
+                                                        <li class="active"><a href="nar-applicants.php?sort=all">Inbox<span> (43)</span></a>
                                                         </li>
-                                                        <li><a href="javascript:void(0);">Unread</a></li>
-                                                        <li><a href="javascript:void(0);">Pending</a></li>
-                                                        <li><a href="javascript:void(0);">Outgoing</a></li>
+                                                        <li><a href="nar-applicants.php?sort=unread">Unread</a></li>
+                                                        <li><a href="nar-applicants.php?sort=outgoing">Outgoing</a></li>
                                                     </ul>
                                                 </menu>
 
@@ -76,7 +75,7 @@ include('../../php/access.php');
                                                         <li><a href="#">Important <span class="ball green"></span></a>
                                                         </li>
                                                         <li><a href="#">Denied <span class="ball red"></span></a></li>
-                                                        </li>
+                                                        
                                                     </ul>
                                                 </div>
 
@@ -116,51 +115,142 @@ include('../../php/access.php');
                                                 <div class="clearfix"></div>
 
                                             </header>
+                                            <div id="main-nano-wrapper" class="nano">
+                                                <div class="nano-content h-100" data-simplebar>
+                                                    <ul class="message-list">
+                                                        <li>
+                                                            <div class="mail-col mail-col-1"><span class="dot"></span>
+                                                                <b>ID</b>
+                                                                <p class="title">
+                                                                    <b>Job Interest</b>
+                                                                </p>
+                                                            </div>
+                                                            <div class="mail-col mail-col-2">
+                                                                <div class="subject">
+                                                                    <b>Name</b>
+                                                                </div>
+                                                                <div class="date">
+                                                                    <b>Site</b>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                <?php if(isset($_GET['sort'])) { ?>
+                                                    <div>
+                                                        <?php
+                                                            if($_GET['sort'] == "unread") {
+                                                                $sql = mysqli_query($config, "SELECT * FROM application WHERE status = 'unread'");
+                                                                while($data = mysqli_fetch_array($sql)) {
+                                                        ?>
 
-                                            <div class="table-responsive mx-4 mt-1">
-                                                <?php
-                                                    $records = mysqli_query($config, "SELECT * FROM application");
-                                                    while ($data = mysqli_fetch_array($records)) { ?>
-                                                <table class="table table-hover table-borderless mb-0">
-                                                    <tbody>
-                                                        <tr class="text-success fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                                            <th class="p-3" scope="row">1</th>
-                                                            <td class="p-3"><?php echo $data['first_name']. " " .$data['last_name'] ?></td>
-                                                            <td class="p-3"><?php echo $data['job_interest'] ?></td>
-                                                            <td class="p-3"><?php echo $data['site'] ?></td>
-                                                            <td class="p-3"><?php echo $data['date_submitted'] ?></td>
-                                                            <td class="p-3 text-center">Pending</td>
-                                                        </tr>
-                                                        <!-- <tr class="fw-bold">
-                                                                <th class="p-3" scope="row">2</th>
-                                                                <td class="p-3">Jireh Geleo Ramos</td>
-                                                                <td class="p-3">IT Specialist</td>
-                                                                <td class="p-3">Antipolo City</td>
-                                                                <td class="p-3">February 23, 2023</td>
-                                                                <td class="p-3 text-center">Pending</td>
-                                                            </tr>
-                                                            <tr class="text-danger">
-                                                                <th class="p-3" scope="row">3</th>
-                                                                <td class="p-3">Richard Ramos</td>
-                                                                <td class="p-3">Macho Dancer</td>
-                                                                <td class="p-3">Antipolo City</td>
-                                                                <td class="p-3">January 1, 2022</td>
-                                                                <td class="p-3 text-center">Denied</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th class="p-3" scope="row">4</th>
-                                                                <td class="p-3">Neil Arthur Pornela</td>
-                                                                <td class="p-3">Sex Worker</td>
-                                                                <td class="p-3">Antipolo City</td>
-                                                                <td class="p-3">April 6, 2019</td>
-                                                                <td class="p-3 text-center">Approved</td>
-                                                            </tr> -->
-                                                    </tbody>
-                                                </table>
-                                                <?php
-                                                    }
-                                                    ?>
+                                                        <!-- Active -->
+                                                        <ul class="message-list">
+                                                            <a href="" class="setbtn" data-bs-toggle="modal" data-id='<?php echo $data['application_id'] ?>'>
+                                                                <li>
+                                                                    <div class="mail-col mail-col-1"><span class="dot"></span>
+                                                                        <?php echo $data['application_id'] ?>
+                                                                        <p class="title">
+                                                                            <?php echo $data['job_interest'] ?>
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="mail-col mail-col-2">
+                                                                        
+                                                                        <div class="subject">
+                                                                            <?php 
+                                                                                echo $data['last_name'];
+                                                                                echo ", ";
+                                                                                echo $data['first_name'];
+                                                                                echo " ";
+                                                                                echo $data['middle_name'];
+                                                                            ?>
+                                                                        </div>
+                                                                        <div class="date">
+                                                                            <?php echo $data['site'] ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </a>
+                                                        </ul>
+                                                            <?php } ?>
+                                                        <?php }
+                                                         elseif($_GET['sort'] == "all") { 
+                                                                $sql3 = mysqli_query($config, "SELECT * FROM application");
+                                                                while($data3 = mysqli_fetch_array($sql3)) {
+                                                        ?>
+
+                                                        <!-- Director -->
+                                                        <ul class="message-list">
+                                                            <a href="">
+                                                                <li>
+                                                                    <div class="mail-col mail-col-1"><span class="dot"></span>
+                                                                        <?php echo $data3['application_id'] ?>
+                                                                        <p class="title">
+                                                                            <?php echo $data3['job_interest'] ?>
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="mail-col mail-col-2">
+                                                                        <div class="subject">
+                                                                            <?php 
+                                                                                echo $data3['last_name'];
+                                                                                echo ", ";
+                                                                                echo $data3['first_name'];
+                                                                                echo " ";
+                                                                                echo $data3['middle_name'];
+                                                                            ?>
+                                                                        </div>
+                                                                        
+                                                                        <div class="date">
+                                                                            <?php echo $data3['site'] ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </a>     
+                                                        </ul>
+                                                            <?php } ?>
+                                                        <?php }
+                                                            elseif($_GET['sort'] == "outgoing") { 
+                                                                $sql3 = mysqli_query($config, "SELECT * FROM application WHERE status = 'outgoing'");
+                                                                while($data2 = mysqli_fetch_array($sql3)) {
+                                                        ?>
+
+                                                        <!-- Household -->
+                                                        <ul class="message-list">
+                                                            <a href="">
+                                                                <li>
+                                                                    <div class="mail-col mail-col-1"><span class="dot"></span>
+                                                                        <?php echo $data2['application_id'] ?>
+                                                                        <p class="title">
+                                                                            <?php echo $data2['job_interest'] ?>
+                                                                        </p>
+                                                                    </div>
+
+                                                                    <div class="mail-col mail-col-2">
+                                                                        <div class="subject">
+                                                                            <?php 
+                                                                                echo $data2['last_name'];
+                                                                                echo ", ";
+                                                                                echo $data2['first_name'];
+                                                                                echo " ";
+                                                                                echo $data2['middle_name'];
+                                                                            ?>
+                                                                        </div>
+                                                                        
+                                                                        <div class="date">
+                                                                            <?php echo $data2['site'] ?>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                            </a>
+                                                        </ul>
+                                                            <?php } ?>
+                                                        <?php } ?> 
+                                                    </div>
+
+                                                <?php } ?>
                                             </div>
+                                        </div>
                                         </main>
                                     </div> <!-- end col -->
                                 </div><!-- end row -->
@@ -173,94 +263,35 @@ include('../../php/access.php');
 
 
                     <!--Schedule  Modal -->
-                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-xl">
-                            <div class="modal-content">
-                                <div class="modal-header border-0">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <img src="../../assets/nar_logo.png" class="avatar-sm mx-auto d-block">
-                                                <h4 class="text-center">Job Application</h4>
-                                                <p class="text-muted text-center fs-6">NAR Power System Specialists Corporation <br>
-                                                    Ciannat Complex, Marcos Highway, Antipolo City, Rizal Province <br>Telephone number: (02) 551-5594 <br>email: narpowersystem@pldtdsl.net</p>
-
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">Job Interest:</span>
-                                                    <input type="text" class="form-control" value="Electrical Engineer">
-                                                </div>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">Branch/Office:</span>
-                                                    <input type="text" class="form-control" value="Antipolo">
-                                                </div>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">Last Name:</span>
-                                                    <input type="text" class="form-control" value="Oracion">
-                                                </div>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">First Name:</span>
-                                                    <input type="text" class="form-control" value="Kobie">
-                                                </div>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">Middke Name:</span>
-                                                    <input type="text" class="form-control" value="Malibog">
-                                                </div>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">Suffix:</span>
-                                                    <input type="text" class="form-control" value="">
-                                                </div>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">Birt Date:</span>
-                                                    <input type="text" class="form-control" value="February 28, 2000">
-                                                </div>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">Province:</span>
-                                                    <input type="text" class="form-control" value="Laguna">
-                                                </div>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">City/Municipality::</span>
-                                                    <input type="text" class="form-control" value="LiLiw">
-                                                </div>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">Mobile Number:</span>
-                                                    <input type="text" class="form-control" value="09xx-xxx-xxxx">
-                                                </div>
-                                                <div class="input-group mb-1">
-                                                    <span class="input-group-text col-sm-5 bg-white fw-bold border border-0 ps-5" style="color: #146dac;">Email Address::</span>
-                                                    <input type="text" class="form-control" value="kobiemalibog@gmail.com">
-                                                </div>
-                                                <div class="d-grid ps-5 mt-4 mb-2">
-                                                    <button type="button" class="btn btn fw-bold border border-1">Preview CV/Resume</button>
-                                                </div>
-
-                                            </div>
-                                            <div class="col-lg-6 border-start border-1">
-                                                <h4 class="text-center">Set Interview Schedule</h4>
-                                                <div class="form-group mx-3 mb-2">
-                                                    <label class="ps-1">Date</label>
-                                                    <input type="date" name="" class="form-control">
-                                                </div>
-                                                <div class="form-group mx-3 mb-2">
-                                                     <label class="ps-1">Time</label>
-                                                     <input type="time" name="" class="form-control">
-                                                 </div>
-                                                <div class="form-group mx-3 mb-2">
-                                                    <label class="ps-1">Other Instructions (Optional)</label>
-                                                    <textarea type="text" name="job_desc" class="form-control" rows="4" required></textarea>
-                                                 </div>
-                                                 <div class="d-grid mt-4 mx-3">
-                                                    <button type="button" class="btn btn fw-bold border border-1 text-white" style="background:  #146dac;">Set Schedule</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
+                    <div class="modal fade" id="modal_update">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content rounded-0">
+                            <div class="modal-header bg-light p-1">
+                                <label class="f4 p-2"><b>Member Info</b></label>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modssss">
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="modal fade" id="set" tabindex="-1">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header border-0">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="setmodal">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
 
                 </div> <!-- content -->
 
@@ -297,6 +328,25 @@ include('../../php/access.php');
 
         <!-- App js-->
         <script src="../dist/assets/js/app.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.setbtn').click(function() {
+                    var applicationid = $(this).data('id');
+
+                    $.ajax({
+                        url: '../modal/set-schedule.php',
+                        type: 'post',
+                        data: {
+                            applicationid: applicationid
+                        },
+                        success: function(response) {
+                            $('.setmodal').html(response);
+                            $('#set').modal('show');
+                        }
+                    });
+                });
+            });
+        </script>
 
 
 </body>
