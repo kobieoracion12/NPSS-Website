@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 04, 2023 at 04:40 AM
+-- Generation Time: May 08, 2023 at 07:11 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -93,6 +93,7 @@ CREATE TABLE `application` (
   `mobile_no` varchar(255) NOT NULL,
   `email_address` varchar(255) NOT NULL,
   `resume_cv` varchar(255) NOT NULL,
+  `status` enum('unread','pending','outgoing','important','denied') NOT NULL,
   `date_submitted` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -100,10 +101,10 @@ CREATE TABLE `application` (
 -- Dumping data for table `application`
 --
 
-INSERT INTO `application` (`application_id`, `job_interest`, `site`, `first_name`, `middle_name`, `last_name`, `suffix`, `birth_date`, `gender`, `province`, `city`, `mobile_no`, `email_address`, `resume_cv`, `date_submitted`) VALUES
-(1, 'Electrical Engineer', 'Antipolo city', 'Richards', 'Wholesome', 'Ramos', '3', '2023-05-10', 'Male', 'Laguna', 'Santa Cruz', '09123456789', 'samplename@gmail.com', '', '2023-05-04 10:00:19'),
-(2, 'Electrical Engineer', 'Antipolo city', 'Neil', 'Okay', 'Pornela', '2', '2023-05-09', 'Female', 'Laguna', 'Santa Cruz', '09123456789', 'neilpornela@gmail.com', 'Application-Form-2.pdf', '2023-05-04 10:06:42'),
-(3, 'Electrical Engineer', 'Antipolo city', 'Kobie', 'Alien', 'Oracion', '2', '2023-05-15', 'Male', 'Laguna', 'Luisiana', '09123456789', 'kobieoracion@gmail.com', 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.pdf', '2023-05-04 10:15:27');
+INSERT INTO `application` (`application_id`, `job_interest`, `site`, `first_name`, `middle_name`, `last_name`, `suffix`, `birth_date`, `gender`, `province`, `city`, `mobile_no`, `email_address`, `resume_cv`, `status`, `date_submitted`) VALUES
+(1, 'Electrical Engineer', 'Antipolo city', 'Richards', 'Wholesome', 'Ramos', '3', '2023-05-10', 'Male', 'Laguna', 'Santa Cruz', '09123456789', 'amorakevin08@gmail.com', '', 'outgoing', '2023-05-04 10:00:19'),
+(2, 'Electrical Engineer', 'Antipolo city', 'Neil', 'Okay', 'Pornela', '2', '2023-05-09', 'Female', 'Laguna', 'Santa Cruz', '09123456789', 'neilpornela@gmail.com', 'Application-Form-2.pdf', 'outgoing', '2023-05-04 10:06:42'),
+(3, 'Electrical Engineer', 'Antipolo city', 'Kobie', 'Alien', 'Oracion', '2', '2023-05-15', 'Male', 'Laguna', 'Luisiana', '09123456789', 'kobieoracion@gmail.com', 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.pdf', 'unread', '2023-05-04 10:15:27');
 
 -- --------------------------------------------------------
 
@@ -406,6 +407,28 @@ INSERT INTO `position` (`position_no`, `position_name`, `job_desc`) VALUES
 (26, 'Warehouseman', 'Prepares and receives orders as well as moves, stocks, scans and records product inventory'),
 (27, 'Intern', 'Assist the company with tasks, such working closely with different team members to learn more about the company');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `schedule`
+--
+
+CREATE TABLE `schedule` (
+  `application_id` int(11) NOT NULL,
+  `date_sched` date NOT NULL,
+  `time_sched` time NOT NULL,
+  `message` text DEFAULT NULL,
+  `date_scheduled` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`application_id`, `date_sched`, `time_sched`, `message`, `date_scheduled`) VALUES
+(2, '2023-05-26', '01:30:00', 'hahahaha', '2023-05-08 12:35:07'),
+(1, '2023-05-31', '04:30:00', 'hasssssss', '2023-05-08 13:03:30');
+
 --
 -- Indexes for dumped tables
 --
@@ -476,6 +499,12 @@ ALTER TABLE `payroll`
 --
 ALTER TABLE `position`
   ADD PRIMARY KEY (`position_no`);
+
+--
+-- Indexes for table `schedule`
+--
+ALTER TABLE `schedule`
+  ADD KEY `application_id` (`application_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -570,6 +599,12 @@ ALTER TABLE `folder_docu_archive`
 --
 ALTER TABLE `payroll`
   ADD CONSTRAINT `payroll_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee_info` (`employee_id`);
+
+--
+-- Constraints for table `schedule`
+--
+ALTER TABLE `schedule`
+  ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`application_id`) REFERENCES `application` (`application_id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
