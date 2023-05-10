@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2023 at 07:11 AM
+-- Generation Time: May 10, 2023 at 09:46 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -93,7 +93,7 @@ CREATE TABLE `application` (
   `mobile_no` varchar(255) NOT NULL,
   `email_address` varchar(255) NOT NULL,
   `resume_cv` varchar(255) NOT NULL,
-  `status` enum('unread','pending','outgoing','important','denied') NOT NULL,
+  `status` enum('unread','important','denied','read') NOT NULL,
   `date_submitted` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -102,9 +102,9 @@ CREATE TABLE `application` (
 --
 
 INSERT INTO `application` (`application_id`, `job_interest`, `site`, `first_name`, `middle_name`, `last_name`, `suffix`, `birth_date`, `gender`, `province`, `city`, `mobile_no`, `email_address`, `resume_cv`, `status`, `date_submitted`) VALUES
-(1, 'Electrical Engineer', 'Antipolo city', 'Richards', 'Wholesome', 'Ramos', '3', '2023-05-10', 'Male', 'Laguna', 'Santa Cruz', '09123456789', 'amorakevin08@gmail.com', '', 'outgoing', '2023-05-04 10:00:19'),
-(2, 'Electrical Engineer', 'Antipolo city', 'Neil', 'Okay', 'Pornela', '2', '2023-05-09', 'Female', 'Laguna', 'Santa Cruz', '09123456789', 'neilpornela@gmail.com', 'Application-Form-2.pdf', 'outgoing', '2023-05-04 10:06:42'),
-(3, 'Electrical Engineer', 'Antipolo city', 'Kobie', 'Alien', 'Oracion', '2', '2023-05-15', 'Male', 'Laguna', 'Luisiana', '09123456789', 'kobieoracion@gmail.com', 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.pdf', 'unread', '2023-05-04 10:15:27');
+(1, 'Electrical Engineer', 'Antipolo city', 'Richards', 'Wholesome', 'Ramos', '3', '2023-05-10', 'Male', 'Laguna', 'Santa Cruz', '09123456789', 'amorakevin08@gmail.com', '', 'read', '2023-05-04 10:00:19'),
+(2, 'Electrical Engineer', 'Antipolo city', 'Neil', 'Okay', 'Pornela', '2', '2023-05-09', 'Female', 'Laguna', 'Santa Cruz', '09123456789', 'neilpornela@gmail.com', 'Application-Form-2.pdf', 'important', '2023-05-04 10:06:42'),
+(3, 'Electrical Engineer', 'Antipolo city', 'Kobie', 'Alien', 'Oracion', '2', '2023-05-15', 'Male', 'Laguna', 'Luisiana', '09123456789', 'kobieoracion@gmail.com', 'CLAIM-RAMOS, RICHARD DE LEON_2021-1.pdf', 'denied', '2023-05-04 10:15:27');
 
 -- --------------------------------------------------------
 
@@ -217,7 +217,7 @@ INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_
 (27, 2023198625, 'Peter', 'Labrador', 'Gaylan', '', '09760435424', 'Antipolo City', '2023-03-22', 'petergaylan@nar.ph', 'Technician', 'Probationary', 'Active', 'Antipolo', 'Installs all of the wiring, circuits, and outlets needed to power lights, appliances, and equipment within a building', 'Peter Gaylan.jpg', 'sample_resume.pdf', '2023-04-13 02:20:52'),
 (28, 2023198626, 'Jefferson Lester', 'Calicdan', 'Maranan', '', '09760435424', 'Antipolo City', '2023-03-22', 'jeffersonmaranan@nar.ph', 'Thermographer', 'Probationary', 'Active', 'Antipolo', 'Taking infrared images of buildings, the ground, or other subjects, such as the inspection of electrical systems or machinery', 'Jefferson Lester Maranan.jpg', 'sample_resume.pdf', '2023-04-13 02:20:54'),
 (29, 2023198627, 'Ernesto', 'Melicor', 'Palma', '', '09760435424', 'Antipolo City', '2023-03-22', 'ernestopalma@nar.ph', 'Encoder', 'Probationary', 'Active', 'Antipolo', 'Installs all of the wiring, circuits, and outlets needed to power lights, appliances, and equipment within a building', 'Ernesto Palma.jpg', 'sample_resume.pdf', '2023-04-13 02:20:55'),
-(30, 2023198628, 'Ramel', 'Yanson', 'Ramirez', '', '0915221994', 'Antipolo City', '2023-03-22', 'ramelramirez@nar.ph', 'Company Driver', 'Probationary', 'Active', 'Antipolo', 'Safely transporting company staff as well as various products and materials to and from specified locations in a timely manner', 'Ramel Ramirez.jpg', 'sample_resume.pdf', '2023-04-13 02:20:57'),
+(30, 2023198628, 'Ramel', 'Yanson', 'Ramirez', '', '0915221994', 'Antipolo City', '2023-03-22', 'ramelramirez@nar.ph', 'Company Driver', 'Probationary', 'Active', 'Antipolo', 'Safely transporting company staff as well as various products and materials to and from specified locations in a timely manner', 'Ramel Ramirez.jpg', 'sample_resume.pdf', '2023-05-08 11:27:29'),
 (31, 2023198629, 'Marilyn', 'Peradilla', 'Rondilla', '', '09760435424', 'Luisiana', '2023-03-22', 'marilynrondilla@nar.ph', 'Office Staff', 'Probationary', 'Active', 'Antipolo', 'Taking calls from customers and delivering messages while also using basic office equipment like faxes or scanners', 'Marilyn Rondilla.jpg', 'sample_resume.pdf', '2023-04-13 02:20:58'),
 (32, 2023198630, 'Mark', 'Gurar', 'Rondilla', '', '09760435424', 'Antipolo City', '2023-03-22', 'markrondilla@nar.ph', 'Technician', 'Probationary', 'Active', 'Antipolo', 'Installs all of the wiring, circuits, and outlets needed to power lights, appliances, and equipment within a building', 'mark rondilla.jpg', 'sample_resume.pdf', '2023-04-13 02:21:00');
 
@@ -410,6 +410,66 @@ INSERT INTO `position` (`position_no`, `position_name`, `job_desc`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `quotation`
+--
+
+CREATE TABLE `quotation` (
+  `quotation_no` int(11) NOT NULL,
+  `company_no` bigint(59) NOT NULL,
+  `display_name` varchar(255) NOT NULL,
+  `quotation_file` varchar(255) NOT NULL,
+  `date_added` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `quotation`
+--
+
+INSERT INTO `quotation` (`quotation_no`, `company_no`, `display_name`, `quotation_file`, `date_added`) VALUES
+(2, 2, 'Bruh', 'Functionalities.xlsx', '2023-05-09 12:22:06'),
+(3, 6, 'edi wow', 'Pages and Functionalities.xlsx', '2023-05-09 12:51:54');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quotation_comment`
+--
+
+CREATE TABLE `quotation_comment` (
+  `comment_id` int(11) NOT NULL,
+  `quotation_no` int(11) NOT NULL,
+  `employee_id` bigint(16) NOT NULL,
+  `comment` text NOT NULL,
+  `date_commented` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `quotation_comment`
+--
+
+INSERT INTO `quotation_comment` (`comment_id`, `quotation_no`, `employee_id`, `comment`, `date_commented`) VALUES
+(1, 2, 2023198600, 'aaa', '2023-05-09 19:43:25'),
+(2, 2, 2023198600, 'hmm', '2023-05-09 19:44:51'),
+(3, 2, 2023198600, 'bruh', '2023-05-09 19:46:53'),
+(4, 2, 2023198600, 'aaa', '2023-05-09 21:07:17'),
+(5, 2, 2023198600, 'sss', '2023-05-09 21:19:58'),
+(6, 2, 2023198600, 'ssdsdsd', '2023-05-09 21:23:59'),
+(7, 2, 2023198600, '', '2023-05-09 21:23:59'),
+(8, 2, 2023198600, 'aaaaa', '2023-05-09 21:25:30'),
+(9, 2, 2023198600, 'asdf', '2023-05-09 22:02:46'),
+(14, 2, 2023198601, 'aaaa', '2023-05-10 15:23:27'),
+(15, 2, 2023198601, 'bruh\n', '2023-05-10 15:28:49'),
+(16, 3, 2023198601, 'hahah\n', '2023-05-10 15:30:23'),
+(17, 2, 2023198601, 'asdasdasdasdasd', '2023-05-10 15:31:56'),
+(18, 2, 2023198601, 'ssss', '2023-05-10 15:33:16'),
+(19, 2, 2023198601, 'nice\n', '2023-05-10 15:33:21'),
+(20, 2, 2023198600, 'yeah\n', '2023-05-10 15:33:50'),
+(21, 3, 2023198600, 'what', '2023-05-10 15:34:06'),
+(22, 2, 2023198600, 'hahahaha', '2023-05-10 15:41:28');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `schedule`
 --
 
@@ -426,8 +486,8 @@ CREATE TABLE `schedule` (
 --
 
 INSERT INTO `schedule` (`application_id`, `date_sched`, `time_sched`, `message`, `date_scheduled`) VALUES
-(2, '2023-05-26', '01:30:00', 'hahahaha', '2023-05-08 12:35:07'),
-(1, '2023-05-31', '04:30:00', 'hasssssss', '2023-05-08 13:03:30');
+(1, '2023-05-01', '10:00:00', 'rdr', '2023-05-09 11:53:24'),
+(2, '2023-05-25', '10:30:00', 'nap\r\n', '2023-05-09 11:54:03');
 
 --
 -- Indexes for dumped tables
@@ -501,6 +561,21 @@ ALTER TABLE `position`
   ADD PRIMARY KEY (`position_no`);
 
 --
+-- Indexes for table `quotation`
+--
+ALTER TABLE `quotation`
+  ADD PRIMARY KEY (`quotation_no`),
+  ADD KEY `company_no` (`company_no`);
+
+--
+-- Indexes for table `quotation_comment`
+--
+ALTER TABLE `quotation_comment`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `quotation_no` (`quotation_no`),
+  ADD KEY `employee_id` (`employee_id`);
+
+--
 -- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
@@ -571,6 +646,18 @@ ALTER TABLE `position`
   MODIFY `position_no` bigint(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
+-- AUTO_INCREMENT for table `quotation`
+--
+ALTER TABLE `quotation`
+  MODIFY `quotation_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `quotation_comment`
+--
+ALTER TABLE `quotation_comment`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
 -- Constraints for dumped tables
 --
 
@@ -599,6 +686,19 @@ ALTER TABLE `folder_docu_archive`
 --
 ALTER TABLE `payroll`
   ADD CONSTRAINT `payroll_ibfk_1` FOREIGN KEY (`employee_id`) REFERENCES `employee_info` (`employee_id`);
+
+--
+-- Constraints for table `quotation`
+--
+ALTER TABLE `quotation`
+  ADD CONSTRAINT `quotation_ibfk_1` FOREIGN KEY (`company_no`) REFERENCES `company_profile` (`company_no`);
+
+--
+-- Constraints for table `quotation_comment`
+--
+ALTER TABLE `quotation_comment`
+  ADD CONSTRAINT `quotation_comment_ibfk_1` FOREIGN KEY (`quotation_no`) REFERENCES `quotation` (`quotation_no`),
+  ADD CONSTRAINT `quotation_comment_ibfk_2` FOREIGN KEY (`employee_id`) REFERENCES `employee_info` (`employee_id`);
 
 --
 -- Constraints for table `schedule`

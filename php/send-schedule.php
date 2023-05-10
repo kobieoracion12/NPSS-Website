@@ -4,19 +4,26 @@ require("../PHPMailer-master/src/Exception.php");
 require("../PHPMailer-master/src/PHPMailer.php");
 require("../PHPMailer-master/src/SMTP.php");
 
-if($_SERVER['REQUEST_METHOD'] == "POST") {
+if(isset($_POST['set'])) {
 
     $application_id = $_POST['application_id'];
     $schedule_date = $_POST['schedule_date'];
     $schedule_time = $_POST['schedule_time'];
     $message = $_POST['message'];
     $email = $_POST['email'];
+
+    if (isset($_POST['important'])) {
+        $important = 'important';
+    }
+    else {
+        $important = 'read';
+    }
     
 
     $insert = mysqli_query($config, "INSERT INTO schedule (application_id, date_sched, time_sched, message) VALUES ('$application_id', '$schedule_date', '$schedule_time', '$message')");
 
     if($insert) {
-        $update = mysqli_query($config, "UPDATE application SET status = 'outgoing' WHERE application_id = '$application_id'");
+        $update = mysqli_query($config, "UPDATE application SET status = '$important' WHERE application_id = '$application_id'");
         $mail = new PHPMailer\PHPMailer\PHPMailer();
 
         //Tell PHPMailer to use SMTP
@@ -80,12 +87,19 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
         } 
         else {
             if ($update) {
-                header("Location: ../admin/main/nar-applicants.php?sort=unread&success");
+                header("Location: ../admin/main/nar-applicants.php?sort=all&success");
             }
         }
     }
     else {
-        header("Location: ../admin/main/nar-applicants.php?sort=unread&failed");
+        header("Location: ../admin/main/nar-applicants.php?sort=all&failed");
+    }
+}
+elseif (isset($_POST['decline'])) {
+    $application_id = $_POST['application_id'];
+    $update = mysqli_query($config, "UPDATE application SET status = 'denied' WHERE application_id = '$application_id'");
+    if ($update) {
+        header("Location: ../admin/main/nar-applicants.php?sort=all&success");
     }
 }
 

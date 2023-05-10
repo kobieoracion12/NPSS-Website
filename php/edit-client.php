@@ -37,9 +37,6 @@ if(isset($_POST['edit-client'])) {
             header("Location: ../admin/main/nar-clients.php?edit-failed");
         }
     }
-
-
-    
 }
 
 ?>

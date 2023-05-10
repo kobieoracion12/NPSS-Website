@@ -58,7 +58,7 @@ $records = mysqli_query($config, "SELECT * FROM application WHERE application_id
                 <input type="text" class="form-control" value="<?php echo $data['email_address'] ?>" readonly>
             </div>
             <div class="d-grid ps-5 mt-4 mb-2">
-                <button type="button" class="btn btn fw-bold border border-1">Preview CV/Resume</button>
+                <a class="btn btn fw-bold border border-1" href="../../uploads/resume/<?php echo $data['resume_cv']?>" target="_blank">Preview CV/Resume</a>
             </div>
 
         </div>
@@ -148,15 +148,15 @@ $records = mysqli_query($config, "SELECT * FROM application WHERE application_id
 
             <div class="form-group mx-3 mb-2">
                 <label class="ps-1">Other Instructions (Optional)</label>
-                <textarea type="text" name="message" class="form-control mb-2" rows="4" required></textarea>
+                <textarea type="text" name="message" class="form-control mb-2" rows="4"></textarea>
                 <div class="mb-2">
-                <input type="checkbox" class="form-check-input" />
+                <input type="checkbox" class="form-check-input" name="important">
                 <label for="important" class="form-label ms-1">Important</label>
               </div>
              </div>
              <div class="d-grid mt-4 mx-3">
                 <button type="submit" name="set" class="btn btn fw-bold border border-1 text-white" style="background:  #146dac;">Set Schedule</button>
-                <button class="btn btn-danger fw-bold border border-1 text-white mt-2">Decline</button>
+                <button type="submit" name="decline" class="btn btn-danger fw-bold border border-1 text-white mt-2">Decline</button>
             </div>
         </div>
         

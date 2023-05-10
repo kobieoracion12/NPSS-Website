@@ -94,7 +94,7 @@
                     <!-- Client Card -->
                     <div class="row">
                         <?php 
-                                $logo = mysqli_query($config, "SELECT * FROM company_profile");
+                                $logo = mysqli_query($config, "SELECT * FROM quotation, company_profile WHERE (quotation.company_no = company_profile.company_no)");
                                 while($data = mysqli_fetch_array($logo)) { 
                             ?>
                         <div class="card-group col-xl-3 col-md-6">
@@ -106,9 +106,9 @@
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-end">
                                             <!-- item-->
-                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-client<?php echo $data['company_no'] ?>">Edit</a>
-                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-client<?php echo $data['company_no'] ?>">Delete</a>
-                                            <a href="javascript:void(0);" class="dropdown-item">Manage</a>
+                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-quotation<?php echo $data['quotation_no'] ?>">Manage</a>
+                                            <a class="dropdown-item" href="../../uploads/quotations/<?php echo $data['quotation_file']?>">Download</a>
+                                            <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-client<?php echo $data['quotation_no'] ?>">Delete</a>
                                         </div>
                                     </div>
 
@@ -116,123 +116,15 @@
                                         <img src="../../assets/icon/excel_icon.png" alt="image" class="img-fluid ms-3" />
                                     </div>
 
-                                    <h4 class="mt-3 mb-0"><?php echo $data['company_name']?> Quotation</h4>
+                                    <h4 class="mt-3 mb-0"><a href="nar-comments.php?id=<?php echo $data['quotation_no'] ?>" class="text-decoration-none text-dark"><?php echo $data['display_name']?></a></h4>
 
 
-                                </div>
-
-                                <div class="card-footer text-body-white bg-white border border-1 d-flex justify-content-center">
-                                    <a href="" class="text-dark com" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        <i class="far fa-comment-alt"></i>
-                                        <span class="badge bg-success rounded-pill float-end ms-3">9+</span>
-                                        <span class="ms-2 fw-bold">Comment</span>
-                                    </a>
                                 </div>
                             </div>
                         </div>
                         <!-- end col -->
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal"  data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content ">
-                                    <div class="modal-header border-0">
-                                        <h3 class="modal-title w-100 text-center">Jollibee Quotation</h3>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body m-1 overflow-auto "style="height: 20rem;">
-                                        <div class="card mb-1 border border-1" style=" border-radius: 30px;">
-                                            <div class="card-body">
-                                                <div class="d-flex flex-start">
-                                                    <img class="rounded-circle avatar-md  me-3" src="../../assets/mam_ness.jpg" alt="avatar"  />
-                                                    <div class="w-100">
-                                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                                            <h6 class="text-primary fw-bold mb-0">
-                                                                Ma'am Ness   
-                                                            </h6>
-                                                            <p class="mb-0 h6">2 days ago</p>
-                                                        </div>
-                                                        <p class="text-dark h6">Hmm, This poster looks cool</p>
-                                                        
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <div class="d-flex flex-row">
-                                                                <i class="fas fa-star text-warning me-2"></i>
-                                                                <i class="far fa-check-circle" style="color: #aaa;"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-1 border border-1" style=" border-radius: 30px;">
-                                            <div class="card-body">
-                                                <div class="d-flex flex-start">
-                                                    <img class="rounded-circle avatar-md  me-3" src="../../assets/boss_greg.jpg" alt="avatar" />
-                                                    <div class="w-100">
-                                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                                            <h6 class="text-primary fw-bold mb-0">
-                                                                Sir Greg  
-                                                            </h6>
-                                                            <p class="mb-0 h6">2 days ago</p>
-                                                        </div>
-                                                        <p class="text-dark h6">Hmm, This poster looks cool</p>
-                                                        
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <div class="d-flex flex-row">
-                                                                <i class="fas fa-star text-warning me-2"></i>
-                                                                <i class="far fa-check-circle" style="color: #aaa;"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-1 border border-1" style=" border-radius: 30px;">
-                                            <div class="card-body">
-                                                <div class="d-flex flex-start">
-                                                    <img class="rounded-circle avatar-md  me-3" src="../../assets/boss_greg.jpg" alt="avatar" />
-                                                    <div class="w-100">
-                                                        <div class="d-flex justify-content-between align-items-center mb-2">
-                                                            <h6 class="text-primary fw-bold mb-0">
-                                                                Sir Greg  
-                                                            </h6>
-                                                            <p class="mb-0 h6">2 days ago</p>
-                                                        </div>
-                                                        <p class="text-dark h6">Hmm, This poster looks cool</p>
-                                                        
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                            <div class="d-flex flex-row">
-                                                                <i class="fas fa-star text-warning me-2"></i>
-                                                                <i class="far fa-check-circle" style="color: #aaa;"></i>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="border-1 border">
-                                        <div class="d-flex flex-start mx-4 my-4">
-                                            <img class="rounded-circle avatar-md ms-2 me-3" src="../../assets/boss_greg.jpg" alt="avatar" />
-                                            <div class="w-100">
-                                                <div class="d-flex justify-content-between align-items-center mb-2">
-                                                    <h6 class="text-primary fw-bold mb-0 ps-1">
-                                                        Sir Greg  
-                                                    </h6>
-                                                </div>
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <textarea class="form-control bg-light" placeholder="Write a comment" rows="2"></textarea>
-                                                    <button class="btn btn-warning text-white fw-bold ms-3">Send</button>
-                                                </div> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Edit Client Modal -->
-                        <div class="modal fade" id="edit-client<?php echo $data['company_no'] ?>" tabindex="-1">
+                        <!-- Edit Quotation Modal -->
+                        <div class="modal fade" id="edit-quotation<?php echo $data['quotation_no'] ?>" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
                                     <div class="modal-header py-3 px-4 border-bottom-0 d-block">
@@ -241,65 +133,72 @@
                                     </div>
 
                                     <div class="modal-body mx-4">
-                                        <form method="post" action="../../php/edit-client.php" enctype="multipart/form-data">
+                                        
 
                                             <input class="form-control" name="company_id" type="text" value="<?php echo $data['company_no'] ?>" hidden>
 
                                             <div class="row">
                                                 <div class="col-lg-6 col-sm-12">
                                                     <label class="form-label">Company Name</label>
-                                                    <input class="form-control" name="company_name" type="text" value="<?php echo $data['company_name'] ?>" required>
+                                                    <input class="form-control bg-light" name="company_name" type="text" value="<?php echo $data['company_name'] ?>" disabled>
                                                 </div>
 
                                                 <div class="col-lg-6 col-sm-12">
                                                     <label class="form-label">Company Description</label>
-                                                    <input class="form-control" name="company_desc" type="text" value="<?php echo $data['company_desc'] ?>" required>
+                                                    <input class="form-control bg-light" name="company_desc" type="text" value="<?php echo $data['company_desc'] ?>" disabled>
                                                 </div>
                                             </div>
 
                                             <div class="row mt-3">
                                                 <div class="col-lg-4 col-sm-12">
                                                     <label class="form-label">Branch/Site</label>
-                                                    <input class="form-control" name="branch_site" type="text" value="<?php echo $data['branch_site'] ?>" required>
+                                                    <input class="form-control bg-light" name="branch_site" type="text" value="<?php echo $data['branch_site'] ?>" disabled>
                                                 </div>
 
                                                 <div class="col-lg-4 col-sm-12">
                                                     <label class="form-label">Contact Person</label>
-                                                    <input class="form-control" name="contact_person" type="text" value="<?php echo $data['contact_person'] ?>" required>
+                                                    <input class="form-control bg-light" name="contact_person" type="text" value="<?php echo $data['contact_person'] ?>" disabled>
                                                 </div>
 
                                                 <div class="col-lg-4 col-sm-12">
                                                     <label class="form-label">Contact Number</label>
-                                                    <input class="form-control" name="contact_no" type="text" value="<?php echo $data['contact_no'] ?>" required>
+                                                    <input class="form-control bg-light" name="contact_no" type="text" value="<?php echo $data['contact_no'] ?>" disabled>
                                                 </div>
                                             </div>
-
-                                            <div class="row mt-3 mb-4">
-                                                <div class="col-lg-4 col-sm-12 d-flex justify-content-center my-auto">
-                                                    <img src="<?php echo "../../uploads/logo/" . $data['company_logo'] ?>" class="img-fluid" required />
+                                            <form method="post" action="../../php/edit-quotation.php" enctype="multipart/form-data">
+                                                <div class="row mt-3 mb-4">
+                                                    <?php
+                                                    $quo_no = $data['quotation_no'];
+                                                    $dname = mysqli_query($config, "SELECT * FROM quotation WHERE quotation_no = '$quo_no'");
+                                                    while ($datas = mysqli_fetch_array($dname)) { ?>
+                                                        <div class="col-lg-12 col-sm-12">
+                                                            <label class="form-label">Display Name</label>
+                                                            <input class="form-control" name="display_name" type="text" value="<?php echo $datas['display_name'] ?>" />
+                                                            <input class="form-control" name="quotation" type="hidden" value="<?php echo $datas['quotation_no'] ?>" />
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                    <div class="col-lg-12 col-sm-12">
+                                                        <label class="form-label">Update Quotation</label>
+                                                        <input class="form-control" name="quotation_file" type="file" />
+                                                    </div>
                                                 </div>
 
-                                                <div class="col-lg-8 col-sm-12">
-                                                    <label class="form-label">Company Logo</label>
-                                                    <input class="form-control" name="company_logo" type="file" />
+                                                <div class="row mt-4">
+                                                    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                                        <button type="submit" name="update" class="btn btn-primary px-5 rounded-pill" id="btn-save-event">Update</button>
+                                                        <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
+                                                    </div>
                                                 </div>
-                                            </div>
-
-                                            <div class="row mt-4">
-                                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                                    <button type="submit" name="edit-client" class="btn btn-primary px-5 rounded-pill" id="btn-save-event">Edit</button>
-                                                    <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
-                                                </div>
-                                            </div>
-
-                                        </form>
-                                    </div>
-                                </div> <!-- end modal-content-->
-                            </div> <!-- end modal dialog-->
-                        </div>
+                                            </form>
+                                        </div>
+                                    </div> <!-- end modal-content-->
+                                </div> <!-- end modal dialog-->
+                            </div>
 
                          <!-- Delete Modal -->
-                        <div class="modal fade" id="delete-client<?php echo $data['company_no'] ?>" tabindex="-1">
+                        <div class="modal fade" id="delete-client<?php echo $data['quotation_no'] ?>" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered modal-md">
                                 <div class="modal-content">
                                     <div class="modal-header  flex-column border-bottom-0">
@@ -311,9 +210,9 @@
                                     <div class="modal-body mx-4">
                                         <h3 class="text-center mb-1">Are you sure?</h3>
                                         <p class="text-muted h4 text-center">Do you really want to delete these client? This process cannot be undone.</p>
-                                        <form class="needs-validation" method="post" action="../../php/delete-client.php" enctype="multipart/form-data" novalidate>
+                                        <form class="needs-validation" method="post" action="../../php/delete-quotation.php" enctype="multipart/form-data" novalidate>
 
-                                            <input type="hidden" name="company_no" value="<?php echo $data['company_no'] ?>">
+                                            <input type="hidden" name="quotation_no" value="<?php echo $data['quotation_no'] ?>">
                                            
                                             <div class="row mt-4">
                                                 <div class="d-grid gap-2 d-md-flex justify-content-md-center">
@@ -332,7 +231,7 @@
                     </div>
                     <!-- end row -->
 
-                    <!-- Add Client Modal -->
+                    <!-- Add Quotation Modal -->
                     <div class="modal fade" id="add-client" tabindex="-1">
                         <div class="modal-dialog modal-dialog-centered modal-lg">
                             <div class="modal-content">
@@ -342,51 +241,40 @@
                                 </div>
 
                                 <div class="modal-body mx-4">
-                                    <form class="needs-validation" method="post" action="../../php/add-client.php" enctype="multipart/form-data" novalidate>
+                                    <form class="needs-validation" method="post" action="../../php/add-quotation.php" enctype="multipart/form-data" novalidate>
+                                        
+                                        <div class="">
+                                            <label class="form-label">Company Name</label>
+                                            
+                                            <select name="company_no" class="form-select">
+                                                <?php 
+                                                    $logo = mysqli_query($config, "SELECT * FROM company_profile");
+                                                    while($data = mysqli_fetch_array($logo)) { 
+                                                ?>
+                                                <option value="<?php echo $data['company_no'] ?>"><?php echo $data['company_name'] ?></option>
+                                                <?php } ?>
+                                            </select>
 
-                                        <div class="row">
-                                            <div class="col-lg-6 col-sm-12">
-                                                <label class="form-label">Company Name</label>
-                                                <input class="form-control" name="company_name" type="text" required>
-                                            </div>
-
-                                            <div class="col-lg-6 col-sm-12">
-                                                <label class="form-label">Company Description</label>
-                                                <input class="form-control" name="company_desc" type="text" required>
-                                            </div>
                                         </div>
-
-                                        <div class="row mt-3">
-                                            <div class="col-lg-4 col-sm-12">
-                                                <label class="form-label">Branch/Site</label>
-                                                <input class="form-control" name="branch_site" type="text" required>
-                                            </div>
-
-                                            <div class="col-lg-4 col-sm-12">
-                                                <label class="form-label">Contact Person</label>
-                                                <input class="form-control" name="contact_person" type="text" required>
-                                            </div>
-
-                                            <div class="col-lg-4 col-sm-12">
-                                                <label class="form-label">Contact Number</label>
-                                                <input class="form-control" name="contact_no" type="text" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mt-3 mb-4">
+                                        <div class="row mt-4 border-top border-1 pt-3">
                                             <div>
-                                                <label class="form-label">Company Logo</label>
-                                                <input class="form-control" name="company_logo" type="file" multiple required />
+                                                <label class="form-label">Display Name</label>
+                                                <input class="form-control" name="display_name" type="text" required />
                                             </div>
                                         </div>
-
+                                        <div class="row mt-1 mb-4">
+                                            <div>
+                                                <label class="form-label">Upload Quotation</label>
+                                                <input class="form-control" name="quotation" type="file" required />
+                                            </div>
+                                        </div>
                                         <div class="row mt-4">
                                             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                                                 <button type="submit" name="add-client" class="btn btn-primary px-5 rounded-pill" id="btn-save-event">Submit</button>
                                                 <button type="button" class="btn btn-danger px-5 rounded-pill" data-bs-dismiss="modal">Cancel</button>
                                             </div>
                                         </div>
-
+                                    
                                     </form>
                                 </div>
                             </div> <!-- end modal-content-->
@@ -434,7 +322,7 @@
 
     <!-- App js-->
     <script src="../dist/assets/js/app.min.js"></script>
-
+    
 </body>
 
 </html>
