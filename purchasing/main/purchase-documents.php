@@ -1,3 +1,8 @@
+<?php
+include('../../php/database.php');
+include('../../php/access.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,283 +29,16 @@
         <!-- Begin page -->
         <div id="wrapper">
 
-        <!-- Topbar Start -->
-        <div class="navbar-custom">
-            <ul class="list-unstyled topnav-menu float-end mb-0">
+           <!-- Topbar Start -->
+           <?php include "../design/top-menu.php" ?>
+            <!-- end Topbar -->
 
-                <li class="dropdown d-inline-block d-lg-none">
-                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-search noti-icon"></i>
-                    </a>
-                </li>
+            <!-- Side Bar -->
+            <?php include "../design/side-menu.php" ?>
+            <!-- Left Sidebar End -->
 
-                <li class="dropdown notification-list topbar-dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-bell noti-icon"></i>
-                        <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-
-                        <!-- item-->
-                        <div class="dropdown-item noti-title">
-                            <h5 class="m-0">
-                                <span class="float-end">
-                                    <a href="" class="text-dark">
-                                        <small>Clear All</small>
-                                    </a>
-                                </span>Notification
-                            </h5>
-                        </div>
-
-                        <div class="noti-scroll" data-simplebar>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                <div class="notify-icon">
-                                    <img src="../assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Cristina Pride</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Hi, How are you? What about our next meeting</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-primary">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">1 min ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon">
-                                    <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Karen Robinson</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Wow ! this admin looks good and awesome design</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-warning">
-                                    <i class="mdi mdi-account-plus"></i>
-                                </div>
-                                <p class="notify-details">New user registered.
-                                    <small class="text-muted">5 hours ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-info">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">4 days ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-secondary">
-                                    <i class="mdi mdi-heart"></i>
-                                </div>
-                                <p class="notify-details">Carlos Crouch liked
-                                    <b>Admin</b>
-                                    <small class="text-muted">13 days ago</small>
-                                </p>
-                            </a>
-                        </div>
-
-                        <!-- All-->
-                        <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                            View all
-                            <i class="fe-arrow-right"></i>
-                        </a>
-
-                    </div>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-
-                    <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-
-
-                        <img src="../../assets/default_profile.png" alt="user-image" class="rounded-circle" />
-                        <span class="pro-user-name ms-1">Kobie
-                            <i class="mdi mdi-chevron-down"></i>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome !</h6>
-                        </div>
-
-                        <!-- item-->
-                        <a href="../main/purchase-profile.php" class="dropdown-item notify-item">
-                            <i class="fe-user"></i>
-                            <span>My Account</span>
-                        </a>
-
-                        <div class="dropdown-divider"></div>
-
-                        <!-- item-->
-                        <a href="../../php/auth-logout.php" class="dropdown-item notify-item">
-                            <i class="fe-log-out"></i>
-                            <span>Logout</span>
-                        </a>
-
-                    </div>
-                </li>
-
-            </ul>
-
-            <!-- LOGO -->
-            <div class="logo-box">
-                <a href="../main/nar-dashboard.php" class="logo logo-light text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-light.png" alt="" height="16">
-                    </span>
-                </a>
-                <a href="../main/nar-dashboard.php" class="logo logo-dark text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-dark.png" alt="" height="16">
-                    </span>
-                </a>
-            </div>
-
-            <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-                <li>
-                    <button class="button-menu-mobile disable-btn waves-effect">
-                        <i class="fe-menu"></i>
-                    </button>
-                </li>
-
-            </ul>
-
-            <div class="clearfix"></div>
-
-        </div>
-        <!-- end Topbar -->
-
-        <!-- Side Bar -->
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="left-side-menu">
-
-            <div class="h-100" data-simplebar>
-
-                <!-- User box -->
-
-                <div class="user-box text-center">
-
-                    <img src="../../assets/default_profile.png" alt="image" class="rounded-circle img-thumbnail avatar-md" />
-
-                    <div class="dropdown">
-                        <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">
-                            Kobie Malibog
-                        </a>
-                        <div class="dropdown-menu user-pro-dropdown">
-
-                            <!-- item-->
-                            <a href="purchase-profile.php" class="dropdown-item notify-item">
-                                <i class="fe-user me-1"></i>
-                                <span>My Account</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-log-out me-1"></i>
-                                <span>Logout</span>
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <p class="text-muted left-user-info">
-                       Purchaser
-                    </p>
-                </div>
-
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-
-                    <ul id="side-menu">
-
-                        <li class="menu-title">Navigation</li>
-
-                        <li>
-                            <a href="purchase-dashboard.php">
-                                <i class="mdi mdi-view-dashboard-outline"></i>
-                                <span> Dashboard </span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Apps</li>
-
-                       
-                        <li>
-                            <a href="purchase-applicants.php">
-                                <i class="mdi mdi-card-account-details-outline"></i>
-                                <span class="badge bg-success rounded-pill float-end">9+</span>
-                                <span> Applicants </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="purchase-clients.php">
-                                <i class="mdi mdi-briefcase-variant-outline"></i>
-                                <span> Clients </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="purchase-documents.php">
-                                <i class="mdi mdi-file-document-outline"></i>
-                                <span> Documents </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="purchase-quotations.php">
-                                <i class="mdi mdi-account-cash-outline"></i>
-                                <span> Quotations </span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Management</li>
-
-                        <li>
-                            <a href="purchase-settings.php">
-                                <i class="mdi mdi-cog-outline"></i>
-                                <span> Settings </span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- End Sidebar -->
-
-                <div class="clearfix"></div>
-
-            </div>
-            <!-- Sidebar -left -->
-
-        </div>
-        <!-- Left Sidebar End -->
-         <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
             <!-- ============================================================== -->
          
             <div class="content-page">
@@ -357,7 +95,7 @@
                         <div class="modal fade" id="upload-docu" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
-                                    <div class="modal-header px-4 border-bottom-0 d-block">
+                                    <div class="modal-header py-3 px-4 border-bottom-0 d-block">
                                         <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
                                         <h3 class="modal-title" id="modal-title">Upload File</h3>
                                     </div>
@@ -367,7 +105,7 @@
                                             
                                             <div class="row">
                                                 <div>
-                                                    <label class="form-label">Select File</label>
+                                                    <label class="form-label">Upload File</label>
                                                     <input class="form-control" name="myfile" type="file" multiple />
                                                 </div>
                                             </div>
@@ -382,23 +120,26 @@
                                             <div class="row mt-3">
                                                 <label class="form-label">User Access</label>
 
-                                                
+                                                <?php
+                                                    $fetch = mysqli_query($config, "SELECT * FROM position");
+                                                    while($row = mysqli_fetch_array($fetch)) {
+                                                ?>
                                                 <div class="col-lg-4">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="">
+                                                        <input class="form-check-input" type="checkbox" value="<?php echo $row['position_no'] ?>" name="access[]">
                                                         <label class="form-check-label">
-                                                            
+                                                            <?php echo $row['position_name'] ?>
                                                         </label>
                                                     </div>
                                                 </div>
 
-                                              
+                                                <?php } ?>
+                                                
                                             </div>
 
-                                            <div class="row mt-4 mb-2">
+                                            <div class="row mt-4">
                                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                    <button type="submit" name="upload-docu" class="btn btn-primary px-4 rounded rounded-3" id="btn-save-event">Upload File</button>
-                                                    <button type="button" class="btn btn-white rounded  rounded-3 fw-bold px-4 py-1" data-bs-dismiss="modal">Cancel</button>
+                                                    <button type="submit" name="upload-docu" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Upload File</button>
                                                 </div>
                                             </div>
 
@@ -412,7 +153,7 @@
                         <div class="modal fade" id="add-folder" tabindex="-1">
                             <div class="modal-dialog modal-dialog-centered modal-lg">
                                 <div class="modal-content">
-                                    <div class="modal-header px-4 border-bottom-0 d-block">
+                                    <div class="modal-header py-3 px-4 border-bottom-0 d-block">
                                         <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
                                         <h3 class="modal-title" id="modal-title">New Folder</h3>
                                     </div>
@@ -420,34 +161,36 @@
                                     <div class="modal-body mx-4">
                                         <form class="needs-validation" method="post" action="../../php/add-folder.php" enctype="multipart/form-data" novalidate>
 
-                                           
                                             <div class="row">
-                                                <label class="form-label">Folder Name</label>
-                                                <input class="form-control ms-2" name="folder-name" type="text" required />
+                                                <div>
+                                                    <label class="form-label">Folder Name</label>
+                                                    <input class="form-control" name="folder-name" type="text" required />
+                                                </div>
                                             </div>
-                                            
 
                                             <div class="row mt-3">
                                                 <label class="form-label">User Access</label>
 
-                                              
+                                                <?php
+                                                    $fetch = mysqli_query($config, "SELECT * FROM position");
+                                                    while($row = mysqli_fetch_array($fetch)) {
+                                                ?>
                                                 <div class="col-lg-4">
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="<?php echo $row['0'] ?>" id="" name="access[]">
-                                                        <label class="form-check-label" for="">
-                                                           
+                                                        <input class="form-check-input" type="checkbox" value="<?php echo $row['0'] ?>" id="<?php echo $row['0'] ?>" name="access[]">
+                                                        <label class="form-check-label" for="<?php echo $row['0'] ?>">
+                                                            <?php echo $row['1'] ?>
                                                         </label>
                                                     </div>
                                                 </div>
 
-                                                
+                                                <?php } ?>
                                                 
                                             </div>
 
-                                            <div class="row mt-4 mb-2">
-                                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                    <button type="submit" name="add-folder" class="btn btn-primary px-4 rounded rounded-3" id="btn-save-event">Add Folder</button>
-                                                     <button type="button" class="btn btn-white rounded  rounded-3 fw-bold px-4 py-1" data-bs-dismiss="modal">Cancel</button>
+                                            <div class="row mt-3">
+                                                <div class="d-grid gap-2 w-100">
+                                                    <button type="submit" name="add-folder" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Add Folder</button>
                                                 </div>
                                             </div>
 
@@ -459,7 +202,13 @@
 
                         <!-- Cards -->
                         <div class="row">
-                           
+                            <?php
+                                $sql = mysqli_query($config, "SELECT * FROM docu_archive");
+                                while($row = mysqli_fetch_array($sql)) {
+
+                                    $id = $row['docu_no'];
+                                    $date = date_create($row['date_uploaded']);
+                                ?>	
                                 
                                 <div class="card-group col-xl-3 col-md-6">
                                     <div class="card rounded-lg mb-3">
@@ -471,58 +220,78 @@
                                                     <i class="mdi mdi-dots-vertical"></i>
                                                 </a>
 
-                                               
-
-                                                <div class="dropdown-menu dropdown-menu-end">
-                                                    <!-- item-->
-                                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-docu">Edit</a>
-                                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-docu">Delete</a>
-                                                </div>
-
-                                               
+                                                <?php if(empty($row['file_name'])) { ?>
 
                                                 <div class="dropdown-menu dropdown-menu-end">
                                                     <!-- item-->
                                                     <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-docu<?php echo $row['docu_no'] ?>">Edit</a>
-                                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-docuz">Delete</a>
-                                                    <a class="dropdown-item" href="../../uploads/documents/">Download</a>
+                                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-docu<?php echo $row['docu_no'] ?>">Delete</a>
                                                 </div>
 
-                                                
+                                                <?php } else { ?>
+
+                                                <div class="dropdown-menu dropdown-menu-end">
+                                                    <!-- item-->
+                                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit-docu<?php echo $row['docu_no'] ?>">Edit</a>
+                                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#delete-docu<?php echo $row['docu_no'] ?>">Delete</a>
+                                                    <a class="dropdown-item" href="../../uploads/documents/<?php echo $row['file_name']?>">Download</a>
+                                                </div>
+
+                                                <?php } ?>
 
                                             </div>
 
                                             <div class="col-md-4">
-                                                <img src="" alt="image" class="img-fluid mb-0" />
+                                                <?php
+                                                    if($row['display_icon'] != "") {
+                                                ?>
+                                                    <img src="<?php echo "../../assets/icon/" . $row['display_icon']; ?>" alt="image" class="img-fluid mb-0" />
 
-                                               
+                                                <?php } elseif($row['display_type'] == "xlsx" || $row['display_type'] == "cvs") { ?>
                                                     <img src="../../assets/icon/excel_icon.png" alt="image" class="img-fluid mb-0" />
 
-                                               
+                                                <?php } elseif($row['display_type'] == "pdf") { ?>
                                                     <img src="../../assets/icon/pdf_icon.png" alt="image" class="img-fluid mb-0" />
 
+                                                <?php } elseif($row['display_type'] == "pptx" || $row['display_type'] == "ppt" || $row['display_type'] == "pptm") { ?>
                                                     <img src="../../assets/icon/ppt_icon.png" alt="image" class="img-fluid mb-0" />
 
-                                             
+                                                <?php } elseif($row['display_type'] == "docx" || $row['display_type'] == "doc") { ?>
                                                     <img src="../../assets/icon/word_icon.png" alt="image" class="img-fluid mb-0" />
 
-                                                
+                                                <?php } else { ?>
                                                     <img src="../../assets/icon/unknown_icon.png" alt="image" class="img-fluid mb-0" />
-                                               
+                                                <?php } ?>
 
                                             </div>
 
-                                            
-                                            <a href="" class="mt-2 mb-0"><h3></h3></a>
-                                            
-                                            <h3 class="mt-2 mb-0"></h3>
-                                          
-                                            <h6 class="mt-0 mb-0 text-muted fw-light mt-1"></h6>
+                                            <?php if(empty($row['file_name'])) { ?>
+                                            <a href="nar-folder.php?folder=<?php echo $row['docu_no'] ?>" class="mt-2 mb-0"><h3><?php echo $row['display_name'] ?></h3></a>
+                                            <?php } else { ?>
+                                            <h3 class="mt-2 mb-0"><?php echo $row['display_name'] ?></h3>
+                                            <?php } ?>
+                                            <h6 class="mt-0 mb-0 text-muted fw-light mt-1"><?php echo date_format($date, "M d, Y") ?><br><?php echo date_format($date, "h:i A") ?></h6>
 
-                                                        <img src="" class="img-fluid avatar-xs rounded-circle mt-2" title="">
+                                            <?php
+                                                $get = mysqli_query($config, "SELECT * FROM file_access, position WHERE file_access.position_no = position.position_no AND docu_no = '$id'");
+                                                while($access = mysqli_fetch_array($get)) { 
+
+                                                    $position = $access['position_name'];
+                                                
+                                                    $get2 = mysqli_query($config, "SELECT first_name, profile_pic FROM employee_info WHERE position = '$position'");
                                                     
-                                                           <img src="../../assets/default_profile.png" class="img-fluid avatar-xs rounded-circle mt-2" title=""> 
-                                         
+                                                    while($access2 = mysqli_fetch_array($get2)) { 
+                                                        
+                                                        $name = $access2['first_name'];
+                                                        $profile = $access2['profile_pic'];
+                                                        
+                                                ?>
+                                                    <?php if(!empty($profile)) { ?>
+                                                        <img src="<?php echo "../../uploads/profile/" . $profile ?>" class="img-fluid avatar-xs rounded-circle mt-2" title="<?php echo $name ?>">
+                                                    <?php } else { ?>
+                                                           <img src="../../assets/default_profile.png" class="img-fluid avatar-xs rounded-circle mt-2" title="<?php echo $name ?>"> 
+                                                    <?php } ?>
+                                            <?php } } ?>
                                     
                                         </div>
 
@@ -530,28 +299,28 @@
                                 </div><!-- end col -->
 
                                 <!-- Delete Modal -->
-                                <div class="modal fade" id="delete-docu" tabindex="-1">
+                                <div class="modal fade" id="delete-docu<?php echo $row['docu_no'] ?>" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered modal-md">
-                                        <div class="modal-content ">
-                                            <div class="modal-header  flex-column border-bottom-0">
+                                        <div class="modal-content">
+                                            <div class="modal-header px-4 border-bottom-0 d-block">
                                                 <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                <div class="icon-box mt-2">
-                                                    <i class="fas fa-trash-alt text-center text-danger fa-3x"></i>
-                                                </div>
+                                                <h4 class="modal-title" id="modal-title">Delete File</h4>
                                             </div>
 
                                             <div class="modal-body mx-4">
-                                                <h3 class="text-center mb-1">Are you sure?</h3>
-                                                <p class="text-muted h4 text-center">Do you really want to delete these? This process cannot be undone.</p>
-                                                
                                                 <form class="needs-validation" method="post" action="../../php/delete-docu.php" enctype="multipart/form-data" novalidate>
-                                                    <input type="hidden" name="docu_no" value="">
-                                                    <div class="row mt-4 mb-1">
+                                                    
+                                                    <input type="text" name="docu_no" value="<?php echo $row['docu_no'] ?>">
+                                                    <div>
+                                                        <h5>Do you want to delete this client?</h5>
+                                                    </div>
+
+                                                    <div class="row mt-4">
                                                         <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                                            <button name="del_one" type="submit" class="btn btn-danger rounded-pill px-4 py-1" id="btn-save-event" style="">Delete</button>
-                                                            <button type="button" class="btn btn-white rounded-pill fw-bold px-4 py-1" data-bs-dismiss="modal">Cancel</button>
+                                                            <button name="del_one" type="submit" class="btn btn-danger px-5 rounded-pill" id="btn-save-event">Continue</button>
                                                         </div>
                                                     </div>
+
                                                 </form>
                                             </div>
                                         </div> <!-- end modal-content-->
@@ -559,7 +328,7 @@
                                 </div>
 
                                 <!-- Edit Modal -->
-                                <div class="modal fade" id="edit-docu" tabindex="-1">
+                                <div class="modal fade" id="edit-docu<?php echo $row['docu_no'] ?>" tabindex="-1">
                                     <div class="modal-dialog modal-dialog-centered modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header py-3 px-4 border-bottom-0 d-block">
@@ -570,43 +339,56 @@
                                             <div class="modal-body mx-4">
                                                 <form class="needs-validation" method="post" action="../../php/edit-docu.php" enctype="multipart/form-data" novalidate>
 
-                                                <input class="form-control" name="docu_no" type="text" value="" hidden />
-                                               
+                                                <input class="form-control" name="docu_no" type="text" value="<?php echo $row['docu_no'] ?>" hidden />
+                                                <?php
+                                                    if (!empty($row['file_name'])) { ?>
                                                     <div class="row">
                                                         <div>
                                                             <label class="form-label">File Name</label>
-                                                            <input class="form-control bg-light" type="text" value="" readonly disabled />
+                                                            <input class="form-control bg-light" type="text" value="<?php echo $row['file_name'] ?>" readonly disabled />
                                                         </div>
                                                     </div>
-                                                
+                                                <?php
+                                                }
+                                                ?>
                                                     <div class="row mt-2">
                                                         <div>
                                                             <label class="form-label">Display Name</label>
-                                                            <input class="form-control" name="display_name" type="text" value="" required />
+                                                            <input class="form-control" name="display_name" type="text" value="<?php echo $row['display_name'] ?>" required />
                                                         </div>
                                                     </div>
                                                     <div class="row mt-3">
                                                         <label class="form-label">User Access</label>
 
-                                                       
+                                                        <?php
+                                                        $docu = $row['docu_no'];
+                                                            $fetch_pos = mysqli_query($config, "SELECT * FROM file_access WHERE docu_no = '$docu'");
+                                                                $fetch = mysqli_query($config, "SELECT * FROM position");
+                                                                while($row = mysqli_fetch_array($fetch)) {
+                                                            ?>
                                                         <div class="col-lg-4">
                                                             <div class="form-check">
-                                                                <input class="form-check-input" type="checkbox" name="access[]" value=""
-                                                                >
-                                                                <label class="form-check-label" for="">
-                                                                    
+                                                                <input class="form-check-input" type="checkbox" name="access[]" value="<?php echo $row['position_no'] ?>"
+                                                                <?php 
+                                                                foreach($fetch_pos as $positionno){
+                                                                    if ($positionno['position_no'] === $row['position_no']) {
+                                                                         echo "checked='checked'";
+                                                                    }
+                                                                }
+                                                                ?>>
+                                                                <label class="form-check-label" for="<?php echo $row['position_no'] ?>">
+                                                                    <?php echo $row['position_name'] ?>
                                                                 </label>
                                                                 
                                                             </div>
                                                         </div>
-                                                        
+                                                        <?php } ?>
                                                         
                                                     </div>
 
                                                     <div class="row mt-4">
                                                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                            <button type="submit" name="edit-docu" class="btn btn-primary px-4 rounded rounded-3" id="btn-save-event">Edit File</button>
-                                                            <button type="button" class="btn btn-white rounded  rounded-3 fw-bold px-4 py-1" data-bs-dismiss="modal">Cancel</button>
+                                                            <button type="submit" name="edit-docu" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Edit File</button>
                                                         </div>
                                                     </div>
 
@@ -616,7 +398,7 @@
                                     </div> <!-- end modal dialog-->
                                 </div>
 
-                            
+                            <?php } ?>
 
                         </div>
                         <!-- end row -->
@@ -632,6 +414,8 @@
             </div>
             <!-- ============================================================== -->
             <!-- End Page content -->
+            <!-- ============================================================== -->
+
 
         </div>
         <!-- END wrapper -->

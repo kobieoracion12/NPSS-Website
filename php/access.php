@@ -6,7 +6,7 @@ if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] != true) {
   header("location: ../../index.php");
   exit;
 }
-if (!isset($_SESSION["acc_priv"]) || $_SESSION["acc_priv"] != 'Admin') {
+if (!isset($_SESSION["acc_priv"])) {
   header("location: ../../index.php?notvalid");
   exit;
 }

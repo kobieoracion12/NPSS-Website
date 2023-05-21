@@ -1,6 +1,6 @@
 <?php
-include('../../php/database.php');
-include('../../php/access.php');
+    include('../../php/database.php');
+    include('../../php/access.php');
 ?>
 
 <!DOCTYPE html>
@@ -9,19 +9,24 @@ include('../../php/access.php');
 <head>
 
     <meta charset="utf-8" />
-    <title>Clients | NAR Power System Specialists Corp.</title>
+    <title>Quotations | NAR Power System Specialists Corp.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="../../assets/nar-icon.ico">
 
     <!-- App css -->
-
     <link href="../dist/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
     <!-- icons -->
     <link href="../dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
+    <style type="text/css">
+        .com:hover {
+            background-color: rgb(242, 242, 242);
+        }
+
+    </style>
 </head>
 
 <!-- body start -->
@@ -317,7 +322,7 @@ include('../../php/access.php');
 
     <!-- App js-->
     <script src="../dist/assets/js/app.min.js"></script>
-
+    
 </body>
 
 </html>

@@ -56,7 +56,20 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 $password = rand(1000,9999);
 
-                $create = mysqli_query($config, "INSERT INTO account_info (employee_id, reg_email, reg_password, acc_priv) VALUES ('$last_id', '$email', '$password', '$position')");
+                if($position == "President" || $position == "Vice President" || $position == "Administration Head") {
+                    $priv = "Administration";
+                }
+                elseif($position == "Assistant Finance" || $position == "Treasurer" || $position == "Sales Executive" || $position == "Corporate Secretary") {
+                    $priv = "Finance";
+                }
+                elseif($position == "Purchasing Head") {
+                    $priv = "Purchasing";
+                }
+                else {
+                    $priv = "Staff";
+                }
+
+                $create = mysqli_query($config, "INSERT INTO account_info (employee_id, reg_email, reg_password, acc_priv) VALUES ('$last_id', '$email', '$password', '$priv')");
 
                 if($create) {
                     header("Location: ../admin/main/nar-accounts.php?account-success");

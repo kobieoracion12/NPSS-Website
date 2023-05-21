@@ -26,7 +26,7 @@
                     <div class="dropdown-menu user-pro-dropdown">
 
                         <!-- item-->
-                        <a href="nar-profile.php" class="dropdown-item notify-item">
+                        <a href="purchase-profile.php" class="dropdown-item notify-item">
                             <i class="fe-user me-1"></i>
                             <span>My Account</span>
                         </a>
@@ -56,7 +56,7 @@
                 <li class="menu-title">Navigation</li>
     
                 <li>
-                    <a href="nar-dashboard.php">
+                    <a href="purchase-dashboard.php">
                         <i class="mdi mdi-view-dashboard-outline"></i>
                         <span> Dashboard </span>
                     </a>
@@ -65,14 +65,7 @@
                 <li class="menu-title mt-2">Apps</li>
 
                 <li>
-                    <a href="nar-accounts.php">
-                        <i class="mdi mdi-account-outline"></i>
-                        <span> Accounts </span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="nar-applicants.php">
+                    <a href="purchase-applicants.php">
                         <i class="mdi mdi-card-account-details-outline"></i>
                         <span class="badge bg-success rounded-pill float-end">9+</span>
                         <span> Applicants </span>
@@ -80,28 +73,21 @@
                 </li>
 
                 <li>
-                    <a href="nar-clients.php">
+                    <a href="purchase-clients.php">
                         <i class="mdi mdi-briefcase-variant-outline"></i>
                         <span> Clients </span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="nar-documents.php">
+                    <a href="purchase-documents.php">
                         <i class="mdi mdi-file-document-outline"></i>
                         <span> Documents </span>
                     </a>
                 </li>
 
                 <li>
-                    <a href="nar-payroll.php?sort=active">
-                        <i class="mdi mdi-cash-register"></i>
-                        <span> Payroll </span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="nar-quotations.php">
+                    <a href="purchase-quotations.php">
                         <i class="mdi mdi-account-cash-outline"></i>
                         <span> Quotations </span>
                     </a>
@@ -110,7 +96,7 @@
                 <li class="menu-title mt-2">Management</li>
 
                 <li>
-                    <a href="nar-settings.php">
+                    <a href="purchase-settings.php">
                         <i class="mdi mdi-cog-outline"></i>
                         <span> Settings </span>
                     </a>

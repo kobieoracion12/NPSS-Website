@@ -1,10 +1,14 @@
+<?php
+include('../../php/database.php');
+include('../../php/access.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
     <meta charset="utf-8" />
-    <title>Payroll | NAR Power System Specialists Corp.</title>
+    <title>Account | NAR Power System Specialists Corp.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
@@ -17,6 +21,9 @@
     <!-- icons -->
     <link href="../dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
 
+    <!-- Plugins css -->
+    <link href="../dist/assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
+    <link href="../dist/assets/libs/dropify/css/dropify.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <!-- body start -->
@@ -27,269 +34,18 @@
     <div id="wrapper">
 
         <!-- Topbar Start -->
-        <div class="navbar-custom">
-            <ul class="list-unstyled topnav-menu float-end mb-0">
-
-                <li class="dropdown d-inline-block d-lg-none">
-                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-search noti-icon"></i>
-                    </a>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-bell noti-icon"></i>
-                        <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-
-                        <!-- item-->
-                        <div class="dropdown-item noti-title">
-                            <h5 class="m-0">
-                                <span class="float-end">
-                                    <a href="" class="text-dark">
-                                        <small>Clear All</small>
-                                    </a>
-                                </span>Notification
-                            </h5>
-                        </div>
-
-                        <div class="noti-scroll" data-simplebar>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                <div class="notify-icon">
-                                    <img src="../assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Cristina Pride</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Hi, How are you? What about our next meeting</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-primary">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">1 min ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon">
-                                    <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Karen Robinson</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Wow ! this admin looks good and awesome design</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-warning">
-                                    <i class="mdi mdi-account-plus"></i>
-                                </div>
-                                <p class="notify-details">New user registered.
-                                    <small class="text-muted">5 hours ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-info">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">4 days ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-secondary">
-                                    <i class="mdi mdi-heart"></i>
-                                </div>
-                                <p class="notify-details">Carlos Crouch liked
-                                    <b>Admin</b>
-                                    <small class="text-muted">13 days ago</small>
-                                </p>
-                            </a>
-                        </div>
-
-                        <!-- All-->
-                        <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                            View all
-                            <i class="fe-arrow-right"></i>
-                        </a>
-
-                    </div>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-
-                    <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-
-
-                        <img src="../../assets/default_profile.png" alt="user-image" class="rounded-circle" />
-                        <span class="pro-user-name ms-1">Kobie
-                            <i class="mdi mdi-chevron-down"></i>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome !</h6>
-                        </div>
-
-                        <!-- item-->
-                        <a href="../main/finance-profile.php" class="dropdown-item notify-item">
-                            <i class="fe-user"></i>
-                            <span>My Account</span>
-                        </a>
-
-                        <div class="dropdown-divider"></div>
-
-                        <!-- item-->
-                        <a href="../../php/auth-logout.php" class="dropdown-item notify-item">
-                            <i class="fe-log-out"></i>
-                            <span>Logout</span>
-                        </a>
-
-                    </div>
-                </li>
-
-            </ul>
-
-            <!-- LOGO -->
-            <div class="logo-box">
-                <a href="../main/finance-dashboard.php" class="logo logo-light text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-light.png" alt="" height="16">
-                    </span>
-                </a>
-                <a href="../main/finance-dashboard.php" class="logo logo-dark text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-dark.png" alt="" height="16">
-                    </span>
-                </a>
-            </div>
-
-            <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-                <li>
-                    <button class="button-menu-mobile disable-btn waves-effect">
-                        <i class="fe-menu"></i>
-                    </button>
-                </li>
-
-            </ul>
-
-            <div class="clearfix"></div>
-
-        </div>
+        <?php include "../design/top-menu.php" ?>
         <!-- end Topbar -->
 
         <!-- Side Bar -->
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="left-side-menu">
-
-            <div class="h-100" data-simplebar>
-
-                <!-- User box -->
-
-                <div class="user-box text-center">
-
-                    <img src="../../assets/default_profile.png" alt="image" class="rounded-circle img-thumbnail avatar-md" />
-
-                    <div class="dropdown">
-                        <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">
-                            Kobie Malibog
-                        </a>
-                        <div class="dropdown-menu user-pro-dropdown">
-
-                            <!-- item-->
-                            <a href="finance-profile.php" class="dropdown-item notify-item">
-                                <i class="fe-user me-1"></i>
-                                <span>My Account</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-log-out me-1"></i>
-                                <span>Logout</span>
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <p class="text-muted left-user-info">
-                        Finance
-                    </p>
-                </div>
-
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-
-                    <ul id="side-menu">
-
-                        <li class="menu-title">Navigation</li>
-
-                        <li>
-                            <a href="finance-dashboard.php">
-                                <i class="mdi mdi-view-dashboard-outline"></i>
-                                <span> Dashboard </span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Apps</li>
-
-                     
-
-                        <li>
-                            <a href="finance-documents.php">
-                                <i class="mdi mdi-file-document-outline"></i>
-                                <span> Documents </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="finance-payroll.php">
-                                <i class="mdi mdi-cash-register"></i>
-                                <span>Payroll</span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Management</li>
-
-                        <li>
-                            <a href="finance-settings.php">
-                                <i class="mdi mdi-cog-outline"></i>
-                                <span> Settings </span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- End Sidebar -->
-
-                <div class="clearfix"></div>
-
-            </div>
-            <!-- Sidebar -left -->
-
-        </div>
+        <?php include "../design/side-menu.php" ?>
         <!-- Left Sidebar End -->
 
-          <div class="content-page">
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
             <div class="content">
 
                 <!-- Start Content-->
@@ -300,18 +56,25 @@
                                 <div class="row">
                                     <div class="col-md-3">
                                         <aside id="sidebar">
-                                            <div class="h-100" data-simplebar>
+                                            <div class="h-100" data-simplebar>                                                
                                                 <menu class="menu-segment">
                                                     <ul class="list-unstyled">
-                                                        <li class="active"><a href="nar-payroll.php?sort=active">All
-                                                                <span>
-                                                                  
-                                                                </span></a>
+                                                        <li class="active"><a href="finance-payroll.php?sort=active">All
+                                                            <span>
+                                                                <?php
+                                                                    $sql = mysqli_query($config, "SELECT COUNT(account_id) FROM employee_info");
+                                                                    while($row = mysqli_fetch_array($sql)) {
+                                                                ?>
+
+                                                                (<?php echo $row[0] ?>)
+
+                                                                <?php } ?>
+                                                            </span></a>
                                                         </li>
-                                                        <li><a href="nar-payroll.php?sort=active">Active</a></li>
-                                                        <li><a href="nar-payroll.php?sort=directors">Directors</a></li>
-                                                        <li><a href="nar-payroll.php?sort=household">Household</a></li>
-                                                        <li><a href="nar-payroll.php?sort=inactive">Inactive</a></li>
+                                                        <li><a href="finance-payroll.php?sort=active">Active</a></li>
+                                                        <li><a href="finance-payroll.php?sort=directors">Directors</a></li>
+                                                        <li><a href="finance-payroll.php?sort=household">Household</a></li>
+                                                        <li><a href="finance-payroll.php?sort=inactive">Inactive</a></li>
                                                     </ul>
                                                 </menu>
 
@@ -331,7 +94,7 @@
                                     <div class="col-md-9">
                                         <main id="main">
                                             <div class="overlay"></div>
-
+                                            
                                             <header class="header">
 
                                                 <h1 class="page-title">
@@ -360,7 +123,8 @@
                                                     </ul>
                                                 </div>
                                                 <div class="search-box float-end">
-                                                    <input placeholder="Search..."><span class="icon fa fa-search"></span>
+                                                    <input placeholder="Search..."><span
+                                                        class="icon fa fa-search"></span>
                                                 </div>
 
                                                 <div class="clearfix"></div>
@@ -370,129 +134,169 @@
                                             <div id="main-nano-wrapper" class="nano">
                                                 <div class="nano-content h-100" data-simplebar>
 
-                                                    
+                                                <?php if(isset($_GET['sort'])) { ?>
 
                                                     <div>
-                                                       
+                                                        <?php
+                                                            if($_GET['sort'] == "active") {
+                                                                $sql = mysqli_query($config, "SELECT * FROM employee_info WHERE status = 'Active' ORDER BY position ASC");
+                                                                while($row = mysqli_fetch_array($sql)) {
+                                                        ?>
+
                                                         <!-- Active -->
                                                         <ul class="message-list">
-                                                            <a href="finance-payroll-system.php">
+                                                            <a href="finance-payroll-system.php?uid=<?php echo $row['employee_id'] ?>">
                                                                 <li>
                                                                     <div class="mail-col mail-col-1"><span class="dot"></span>
+                                                                        <?php echo $row['account_id'] ?>
                                                                         
-
                                                                         <p class="title">
-                                                                          afafsfsfds
+                                                                            <?php echo $row['position'] ?>
                                                                         </p>
                                                                     </div>
 
                                                                     <div class="mail-col mail-col-2">
                                                                         <div class="subject">
-                                                                            
+                                                                            <?php 
+                                                                                echo $row['last_name'];
+                                                                                echo ", ";
+                                                                                echo $row['first_name'];
+                                                                                echo " ";
+                                                                                echo $row['middle_name'];
+                                                                            ?>
                                                                         </div>
-
-                                                                        <div class="date">12333</div>
+                                                                        
+                                                                        <div class="date"><?php echo $row['branch_site'] ?></div>
                                                                     </div>
                                                                 </li>
                                                             </a>
-                                                          
+                                                            <?php } ?>
                                                         </ul>
 
-                                                       
+                                                        <?php } 
+                                                            elseif($_GET['sort'] == "directors") { 
+                                                                $sql2 = mysqli_query($config, "SELECT * FROM employee_info WHERE emp_stat = 'Director' ORDER BY last_name ASC");
+                                                                while($row2 = mysqli_fetch_array($sql2)) {
+                                                        ?>
+
                                                         <!-- Director -->
                                                         <ul class="message-list">
                                                             <a href="finance-payroll-system.php?uid=<?php echo $row2['employee_id'] ?>">
                                                                 <li>
                                                                     <div class="mail-col mail-col-1"><span class="dot"></span>
-                                                                       
-
+                                                                        <?php echo $row2['account_id'] ?>
+                                                                        
                                                                         <p class="title">
-                                                                            
+                                                                            <?php echo $row2['position'] ?>
                                                                         </p>
                                                                     </div>
 
                                                                     <div class="mail-col mail-col-2">
                                                                         <div class="subject">
-                                                                          
+                                                                            <?php 
+                                                                                echo $row2['last_name'];
+                                                                                echo ", ";
+                                                                                echo $row2['first_name'];
+                                                                                echo " ";
+                                                                                echo $row2['middle_name'];
+                                                                            ?>
                                                                         </div>
-
-                                                                        <div class="date"></div>
+                                                                        
+                                                                        <div class="date"><?php echo $row2['branch_site'] ?></div>
                                                                     </div>
                                                                 </li>
-                                                            </a>
-                                                          
+                                                            </a>        
+                                                            <?php } ?>
                                                         </ul>
 
-                                                      
+                                                        <?php } 
+                                                            elseif($_GET['sort'] == "household") { 
+                                                                $sql3 = mysqli_query($config, "SELECT * FROM employee_info WHERE emp_stat = 'Household' ORDER BY last_name ASC");
+                                                                while($row3 = mysqli_fetch_array($sql3)) {
+                                                        ?>
+
                                                         <!-- Household -->
                                                         <ul class="message-list">
                                                             <a href="finance-payroll-system.php?uid=<?php echo $row3['employee_id'] ?>">
                                                                 <li>
                                                                     <div class="mail-col mail-col-1"><span class="dot"></span>
-                                                                       
-
+                                                                        <?php echo $row3['account_id'] ?>
+                                                                        
                                                                         <p class="title">
-                                                                           
+                                                                            <?php echo $row3['position'] ?>
                                                                         </p>
                                                                     </div>
 
                                                                     <div class="mail-col mail-col-2">
                                                                         <div class="subject">
-                                                                           
+                                                                            <?php 
+                                                                                echo $row3['last_name'];
+                                                                                echo ", ";
+                                                                                echo $row3['first_name'];
+                                                                                echo " ";
+                                                                                echo $row3['middle_name'];
+                                                                            ?>
                                                                         </div>
-
-                                                                        <div class="date"></div>
+                                                                        
+                                                                        <div class="date"><?php echo $row3['branch_site'] ?></div>
                                                                     </div>
                                                                 </li>
                                                             </a>
-                                                            
+                                                            <?php } ?>
                                                         </ul>
 
-                                                       
+                                                        <?php } 
+                                                            elseif($_GET['sort'] == "inactive") { 
+                                                                $sql4 = mysqli_query($config, "SELECT * FROM employee_info WHERE status = 'Inactive' ORDER BY last_name ASC");
+                                                                while($row4 = mysqli_fetch_array($sql4)) {
+                                                        ?>
+
                                                         <!-- Inactive -->
                                                         <ul class="message-list">
                                                             <a href="finance-payroll-system.php?uid=<?php echo $row4['employee_id'] ?>">
                                                                 <li>
                                                                     <div class="mail-col mail-col-1"><span class="dot"></span>
-                                                                       
-
+                                                                        <?php echo $row4['account_id'] ?>
+                                                                        
                                                                         <p class="title">
-                                                                          
+                                                                            <?php echo $row4['position'] ?>
                                                                         </p>
                                                                     </div>
 
                                                                     <div class="mail-col mail-col-2">
                                                                         <div class="subject">
-                                                                           
+                                                                            <?php 
+                                                                                echo $row4['last_name'];
+                                                                                echo ", ";
+                                                                                echo $row4['first_name'];
+                                                                                echo " ";
+                                                                                echo $row4['middle_name'];
+                                                                            ?>
                                                                         </div>
-
-                                                                        <div class="date"></div>
+                                                                        
+                                                                        <div class="date"><?php echo $row4['branch_site'] ?></div>
                                                                     </div>
                                                                 </li>
                                                             </a>
-                                                            
+                                                            <?php } ?>
                                                         </ul>
 
                                                     </div>
 
-                                                   
+                                                <?php } } ?>
 
                                                 </div>
                                             </div>
 
-                                        </main>
-
-                                    </div> <!-- end col -->
+                                            </main>
+                                    
+                                        </div> <!-- end col -->
                                 </div><!-- end row -->
-                            </div> <!-- container-fluid -->
-                        </div> <!-- content -->
-                    </div>
-                </div>
-                <!-- ============================================================== -->
-                <!-- End Page content -->
-                <!-- ============================================================== -->
-            </div>
+                </div> <!-- container-fluid -->
+            </div> <!-- content -->
         </div>
+        <!-- ============================================================== -->
+        <!-- End Page content -->
         <!-- ============================================================== -->
 
 
@@ -520,10 +324,24 @@
 
     <!-- Dashboar init js-->
     <script src="../dist/assets/js/pages/dashboard.init.js"></script>
+    <!-- Table Editable plugin-->
+    <script src="../dist/assets/libs/jquery-tabledit/jquery.tabledit.min.js"></script>
+
+    <!-- Table editable init-->
+    <script src="../dist/assets/js/pages/tabledit.init.js"></script>
 
     <!-- App js-->
     <script src="../dist/assets/js/app.min.js"></script>
 
+    <!-- Plugins js -->
+    <script src="../dist/assets/libs/dropzone/min/dropzone.min.js"></script>
+    <script src="../dist/assets/libs/dropify/js/dropify.min.js"></script>
+
 </body>
+<script type="text/javascript">
+   $('table tr').click(function() {
+    window.location = 'finance-payroll-system.php';
+});
+</script>
 
 </html>

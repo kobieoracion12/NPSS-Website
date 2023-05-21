@@ -1,3 +1,8 @@
+<?php
+include('../../php/database.php');
+include('../../php/access.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -25,281 +30,14 @@
         <div id="wrapper">
 
         <!-- Topbar Start -->
-        <div class="navbar-custom">
-            <ul class="list-unstyled topnav-menu float-end mb-0">
-
-                <li class="dropdown d-inline-block d-lg-none">
-                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-search noti-icon"></i>
-                    </a>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-bell noti-icon"></i>
-                        <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-
-                        <!-- item-->
-                        <div class="dropdown-item noti-title">
-                            <h5 class="m-0">
-                                <span class="float-end">
-                                    <a href="" class="text-dark">
-                                        <small>Clear All</small>
-                                    </a>
-                                </span>Notification
-                            </h5>
-                        </div>
-
-                        <div class="noti-scroll" data-simplebar>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                <div class="notify-icon">
-                                    <img src="../assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Cristina Pride</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Hi, How are you? What about our next meeting</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-primary">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">1 min ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon">
-                                    <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Karen Robinson</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Wow ! this admin looks good and awesome design</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-warning">
-                                    <i class="mdi mdi-account-plus"></i>
-                                </div>
-                                <p class="notify-details">New user registered.
-                                    <small class="text-muted">5 hours ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-info">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">4 days ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-secondary">
-                                    <i class="mdi mdi-heart"></i>
-                                </div>
-                                <p class="notify-details">Carlos Crouch liked
-                                    <b>Admin</b>
-                                    <small class="text-muted">13 days ago</small>
-                                </p>
-                            </a>
-                        </div>
-
-                        <!-- All-->
-                        <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                            View all
-                            <i class="fe-arrow-right"></i>
-                        </a>
-
-                    </div>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-
-                    <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-
-
-                        <img src="../../assets/default_profile.png" alt="user-image" class="rounded-circle" />
-                        <span class="pro-user-name ms-1">Kobie
-                            <i class="mdi mdi-chevron-down"></i>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome !</h6>
-                        </div>
-
-                        <!-- item-->
-                        <a href="../main/purchase-profile.php" class="dropdown-item notify-item">
-                            <i class="fe-user"></i>
-                            <span>My Account</span>
-                        </a>
-
-                        <div class="dropdown-divider"></div>
-
-                        <!-- item-->
-                        <a href="../../php/auth-logout.php" class="dropdown-item notify-item">
-                            <i class="fe-log-out"></i>
-                            <span>Logout</span>
-                        </a>
-
-                    </div>
-                </li>
-
-            </ul>
-
-            <!-- LOGO -->
-            <div class="logo-box">
-                <a href="../main/nar-dashboard.php" class="logo logo-light text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-light.png" alt="" height="16">
-                    </span>
-                </a>
-                <a href="../main/nar-dashboard.php" class="logo logo-dark text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-dark.png" alt="" height="16">
-                    </span>
-                </a>
-            </div>
-
-            <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-                <li>
-                    <button class="button-menu-mobile disable-btn waves-effect">
-                        <i class="fe-menu"></i>
-                    </button>
-                </li>
-
-            </ul>
-
-            <div class="clearfix"></div>
-
-        </div>
+        <?php include "../design/top-menu.php" ?>
         <!-- end Topbar -->
 
         <!-- Side Bar -->
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="left-side-menu">
-
-            <div class="h-100" data-simplebar>
-
-                <!-- User box -->
-
-                <div class="user-box text-center">
-
-                    <img src="../../assets/default_profile.png" alt="image" class="rounded-circle img-thumbnail avatar-md" />
-
-                    <div class="dropdown">
-                        <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">
-                            Kobie Malibog
-                        </a>
-                        <div class="dropdown-menu user-pro-dropdown">
-
-                            <!-- item-->
-                            <a href="purchase-profile.php" class="dropdown-item notify-item">
-                                <i class="fe-user me-1"></i>
-                                <span>My Account</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-log-out me-1"></i>
-                                <span>Logout</span>
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <p class="text-muted left-user-info">
-                       Purchaser
-                    </p>
-                </div>
-
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-
-                    <ul id="side-menu">
-
-                        <li class="menu-title">Navigation</li>
-
-                        <li>
-                            <a href="purchase-dashboard.php">
-                                <i class="mdi mdi-view-dashboard-outline"></i>
-                                <span> Dashboard </span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Apps</li>
-
-                       
-                        <li>
-                            <a href="purchase-applicants.php">
-                                <i class="mdi mdi-card-account-details-outline"></i>
-                                <span class="badge bg-success rounded-pill float-end">9+</span>
-                                <span> Applicants </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="purchase-clients.php">
-                                <i class="mdi mdi-briefcase-variant-outline"></i>
-                                <span> Clients </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="purchase-documents.php">
-                                <i class="mdi mdi-file-document-outline"></i>
-                                <span> Documents </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="purchase-quotations.php">
-                                <i class="mdi mdi-account-cash-outline"></i>
-                                <span> Quotations </span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Management</li>
-
-                        <li>
-                            <a href="purchase-settings.php">
-                                <i class="mdi mdi-cog-outline"></i>
-                                <span> Settings </span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- End Sidebar -->
-
-                <div class="clearfix"></div>
-
-            </div>
-            <!-- Sidebar -left -->
-
-        </div>
+        <?php include "../design/side-menu.php" ?>
         <!-- Left Sidebar End -->
+
+
             <!-- Start Page Content here -->
             <!-- ============================================================== -->
          
@@ -317,14 +55,12 @@
                                         <div class="col-md-3">
                                             <aside id="sidebar">
                                                 <div class="h-100" data-simplebar>
-                                                    
+
                                                     <menu class="menu-segment">
                                                         <ul class="list-unstyled">
-                                                            <li class="active"><a href="javascript:void(0);">Inbox<span> (43)</span></a>
+                                                            <li class="active"><a href="nar-applicants.php?sort=all">Inbox<span> (43)</span></a>
                                                             </li>
-                                                            <li><a href="javascript:void(0);">Unread</a></li>
-                                                            <li><a href="javascript:void(0);">Pending</a></li>
-                                                            <li><a href="javascript:void(0);">Outgoing</a></li>
+                                                            <li><a href="nar-applicants.php?sort=unread">Unread</a></li>
                                                         </ul>
                                                     </menu>
 
@@ -332,12 +68,11 @@
 
                                                     <div class="menu-segment">
                                                         <ul class="labels list-unstyled">
-                                                            <li class="title">Labels <span class="icon">+</span></li>
-                                                            <li><a href="#">Important <span class="ball green"></span></a>
+                                                            <li class="title">Labels</li>
+                                                            <li><a href="nar-applicants.php?sort=important">Important <span class="ball green"></span></a>
                                                             </li>
-                                                            <li><a href="#">Denied <span
-                                                                    class="ball red"></span></a></li>
-                                                            </li>
+                                                            <li><a href="nar-applicants.php?sort=denied">Denied <span class="ball red"></span></a></li>
+                                                            
                                                         </ul>
                                                     </div>
 
@@ -371,52 +106,213 @@
                                                         </ul>
                                                     </div>
                                                     <div class="search-box float-end">
-                                                        <input placeholder="Search..."><span
-                                                            class="icon fa fa-search"></span>
+                                                        <input placeholder="Search..."><span class="icon fa fa-search"></span>
                                                     </div>
 
                                                     <div class="clearfix"></div>
 
                                                 </header>
+                                                <div id="main-nano-wrapper" class="nano">
+                                                    <div class="nano-content h-100" data-simplebar>
+                                                        <ul class="message-list">
+                                                            <li>
+                                                                <div class="mail-col mail-col-1"><span class="dot"></span>
+                                                                    <b>ID</b>
+                                                                    <p class="title">
+                                                                        <b>Job Interest</b>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="mail-col mail-col-2">
+                                                                    <div class="subject">
+                                                                        <b>Name</b>
+                                                                    </div>
+                                                                    <div class="date">
+                                                                        <b>Site</b>
+                                                                    </div>
+                                                                </div>
+                                                            </li>
+                                                        </ul>
+                                                    <?php if(isset($_GET['sort'])) { ?>
+                                                        <div>
+                                                            <?php
+                                                                if($_GET['sort'] == "unread") {
+                                                                    $sql = mysqli_query($config, "SELECT * FROM application WHERE status = 'unread'");
+                                                                    while($data = mysqli_fetch_array($sql)) {
+                                                            ?>
 
-                                                <div class="table-responsive mx-4 mt-1">
-                                                    <table class="table table-hover table-borderless mb-0">
-                                                        <tbody>
-                                                            <tr class="text-success fw-bold">
-                                                                <th class="p-3" scope="row">1</th>
-                                                                <td class="p-3">Kobie Oracion</td>
-                                                                <td class="p-3">IT Specialist</td>
-                                                                <td class="p-3">Antipolo City</td>
-                                                                <td class="p-3">March 14, 2023</td>
-                                                                <td class="p-3 text-center">Pending</td>
-                                                            </tr>
-                                                            <tr class="fw-bold">
-                                                                <th class="p-3" scope="row">2</th>
-                                                                <td class="p-3">Jireh Geleo Ramos</td>
-                                                                <td class="p-3">IT Specialist</td>
-                                                                <td class="p-3">Antipolo City</td>
-                                                                <td class="p-3">February 23, 2023</td>
-                                                                <td class="p-3 text-center">Pending</td>
-                                                            </tr>
-                                                            <tr class="text-danger">
-                                                                <th class="p-3" scope="row">3</th>
-                                                                <td class="p-3">Richard Ramos</td>
-                                                                <td class="p-3">Macho Dancer</td>
-                                                                <td class="p-3">Antipolo City</td>
-                                                                <td class="p-3">January 1, 2022</td>
-                                                                <td class="p-3 text-center">Denied</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th class="p-3" scope="row">4</th>
-                                                                <td class="p-3">Neil Arthur Pornela</td>
-                                                                <td class="p-3">Sex Worker</td>
-                                                                <td class="p-3">Antipolo City</td>
-                                                                <td class="p-3">April 6, 2019</td>
-                                                                <td class="p-3 text-center">Approved</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
+                                                            <!-- Active -->
+                                                            <ul class="message-list">
+                                                                <a href="" class="setbtn" data-bs-toggle="modal" data-id='<?php echo $data['application_id'] ?>'>
+                                                                    <li>
+                                                                        <div class="mail-col mail-col-1"><span class="dot"></span>
+                                                                            <?php echo $data['application_id'] ?>
+                                                                            <p class="title">
+                                                                                <?php echo $data['job_interest'] ?>
+                                                                            </p>
+                                                                        </div>
+
+                                                                        <div class="mail-col mail-col-2">
+                                                                            
+                                                                            <div class="subject">
+                                                                                <?php 
+                                                                                    echo $data['last_name'];
+                                                                                    echo ", ";
+                                                                                    echo $data['first_name'];
+                                                                                    echo " ";
+                                                                                    echo $data['middle_name'];
+                                                                                ?>
+                                                                            </div>
+                                                                            <div class="date">
+                                                                                <?php echo $data['site'] ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </a>
+                                                            </ul>
+                                                                <?php } ?>
+                                                            <?php }
+                                                            elseif($_GET['sort'] == "all") { 
+                                                                    $sql3 = mysqli_query($config, "SELECT * FROM application");
+                                                                    while($data3 = mysqli_fetch_array($sql3)) {
+                                                            ?>
+
+                                                            <!-- Director -->
+                                                            <ul class="message-list">
+                                                                <a href="" class="setbtn" data-bs-toggle="modal" data-id='<?php echo $data3['application_id'] ?>'>
+                                                                    <li>
+                                                                        <div class="mail-col mail-col-1"><span class="dot"></span>
+                                                                            <?php 
+                                                                            if ($data3['status'] == 'unread') { ?>
+                                                                                <p class="text-bold fw-bold">
+                                                                                <?php echo $data3['application_id'] ?> 
+                                                                                </p>
+                                                                            <?php
+                                                                            }
+                                                                            elseif ($data3['status'] == 'important') { ?>
+                                                                                <p class="text-success fw-bold">
+                                                                                <?php echo $data3['application_id'] ?> 
+                                                                                </p>
+                                                                            <?php
+                                                                            }
+                                                                            elseif ($data3['status'] == 'denied') { ?>
+                                                                                <p class="text-danger fw-bold">
+                                                                                <?php echo $data3['application_id'] ?> 
+                                                                                </p>
+                                                                            <?php
+                                                                            }
+                                                                            elseif ($data3['status'] == 'read') { ?>
+                                                                                <p class="text-secondary fw-bold">
+                                                                                <?php echo $data3['application_id'] ?> 
+                                                                                </p>
+                                                                            <?php
+                                                                            }
+                                                                            ?>
+                                                                            <p class="title">
+                                                                                <?php echo $data3['job_interest'] ?>
+                                                                            </p>
+                                                                        </div>
+
+                                                                        <div class="mail-col mail-col-2">
+                                                                            <div class="subject">
+                                                                                <?php 
+                                                                                    echo $data3['last_name'];
+                                                                                    echo ", ";
+                                                                                    echo $data3['first_name'];
+                                                                                    echo " ";
+                                                                                    echo $data3['middle_name'];
+                                                                                ?>
+                                                                            </div>
+                                                                            
+                                                                            <div class="date">
+                                                                                <?php echo $data3['site'] ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </a>     
+                                                            </ul>
+                                                                <?php } ?>
+                                                            <?php }
+                                                                elseif($_GET['sort'] == "important") { 
+                                                                    $sql3 = mysqli_query($config, "SELECT * FROM application WHERE status = 'important'");
+                                                                    while($data2 = mysqli_fetch_array($sql3)) {
+                                                            ?>
+
+                                                            <!-- Household -->
+                                                            <ul class="message-list">
+                                                                <a href="" class="setbtn" data-bs-toggle="modal" data-id='<?php echo $data2['application_id'] ?>'>
+                                                                    <li>
+                                                                        <div class="mail-col mail-col-1"><span class="dot"></span>
+                                                                            <p class="text-success fw-bold">
+                                                                                <?php echo $data2['application_id'] ?> 
+                                                                                </p>
+                                                                            <p class="title">
+                                                                                <?php echo $data2['job_interest'] ?>
+                                                                            </p>
+                                                                        </div>
+
+                                                                        <div class="mail-col mail-col-2">
+                                                                            <div class="subject">
+                                                                                <?php 
+                                                                                    echo $data2['last_name'];
+                                                                                    echo ", ";
+                                                                                    echo $data2['first_name'];
+                                                                                    echo " ";
+                                                                                    echo $data2['middle_name'];
+                                                                                ?>
+                                                                            </div>
+                                                                            
+                                                                            <div class="date">
+                                                                                <?php echo $data2['site'] ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </a>
+                                                            </ul>
+                                                                <?php } ?>
+                                                            <?php }
+                                                            elseif($_GET['sort'] == "denied") { 
+                                                                    $sql3 = mysqli_query($config, "SELECT * FROM application WHERE status = 'denied'");
+                                                                    while($data2 = mysqli_fetch_array($sql3)) {
+                                                            ?>
+
+                                                            <!-- Household -->
+                                                            <ul class="message-list">
+                                                                <a href="" class="setbtn" data-bs-toggle="modal" data-id='<?php echo $data2['application_id'] ?>'>
+                                                                    <li>
+                                                                        <div class="mail-col mail-col-1"><span class="dot"></span>
+                                                                            <p class="text-danger fw-bold">
+                                                                            <?php echo $data2['application_id'] ?> 
+                                                                            </p>
+                                                                            <p class="title">
+                                                                                <?php echo $data2['job_interest'] ?>
+                                                                            </p>
+                                                                        </div>
+
+                                                                        <div class="mail-col mail-col-2">
+                                                                            <div class="subject">
+                                                                                <?php 
+                                                                                    echo $data2['last_name'];
+                                                                                    echo ", ";
+                                                                                    echo $data2['first_name'];
+                                                                                    echo " ";
+                                                                                    echo $data2['middle_name'];
+                                                                                ?>
+                                                                            </div>
+                                                                            
+                                                                            <div class="date">
+                                                                                <?php echo $data2['site'] ?>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                </a>
+                                                            </ul>
+                                                                <?php } ?>
+                                                            <?php } ?> 
+                                                        </div>
+
+                                                    <?php } ?>
                                                 </div>
+                                            </div>
                                             </main>
                                         </div> <!-- end col -->
                                     </div><!-- end row -->
@@ -427,7 +323,44 @@
                         </div>
                         <!-- End row -->
 
-                </div> <!-- content -->
+
+                        <!--Schedule  Modal -->
+                        <div class="modal fade" id="modal_update">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content rounded-0">
+                                <div class="modal-header bg-light p-1">
+                                    <label class="f4 p-2"><b>Member Info</b></label>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="modssss">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <div class="modal fade" id="set" tabindex="-1">
+                        <div class="modal-dialog modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header border-0">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="setmodal">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div> <!-- content -->
+
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Page content -->
+                <!-- ============================================================== -->
+
 
             </div>
             <!-- ============================================================== -->

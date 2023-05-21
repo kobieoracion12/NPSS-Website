@@ -38,12 +38,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($priv == "Admin") {
                 header("Location: ../admin/main/nar-dashboard.php?loginsuccess");
             }
-            // else if ($priv == "member") {
-            //     header("Location: ../member/dashboard.php?loginsuccess");
-            // }
-            // else if ($priv == "user") {
-            //     header("Location: ../user/newsfeed.php?loginsuccess");
-            // }
+            else if ($priv == "Administration") {
+                header("Location: ../administration/main/admin-dashboard.php?loginsuccess");
+            }
+            else if ($priv == "Finance") {
+                header("Location: ../finance/main/finance-dashboard.php?loginsuccess");
+            }
+            else if ($priv == "Purchasing") {
+                header("Location: ../purchasing/main/purchase-dashboard.php?loginsuccess");
+            }
             else {
                 header("Location: ../index.php?invalid");
             }

@@ -121,6 +121,7 @@
             <?php
             }
             ?> 
+            
             <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
                 <!-- item-->
                 <div class="dropdown-header noti-title">
@@ -128,7 +129,7 @@
                 </div>
 
                 <!-- item-->
-                <a href="../main/nar-profile.php" class="dropdown-item notify-item">
+                <a href="../main/admin-profile.php" class="dropdown-item notify-item">
                     <i class="fe-user"></i>
                     <span>My Account</span>
                 </a>
@@ -148,7 +149,7 @@
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="../main/nar-dashboard.php" class="logo logo-light text-center">
+        <a href="../main/admin-dashboard.php" class="logo logo-light text-center">
             <span class="logo-sm">
                 <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
             </span>
@@ -156,7 +157,7 @@
                 <img src="../dist/assets/images/logo-light.png" alt="" height="16">
             </span>
         </a>
-        <a href="../main/nar-dashboard.php" class="logo logo-dark text-center">
+        <a href="../main/admin-dashboard.php" class="logo logo-dark text-center">
             <span class="logo-sm">
                 <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
             </span>

@@ -1,3 +1,8 @@
+<?php
+include('../../php/database.php');
+include('../../php/access.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +16,6 @@
     <link rel="shortcut icon" href="../../assets/nar-icon.ico">
 
     <!-- App css -->
-
     <link href="../dist/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
     <!-- icons -->
@@ -20,291 +24,23 @@
 </head>
 
 <!-- body start -->
-
-<body class="loading" data-layout-color="light" data-layout-mode="default" data-layout-size="fluid" data-topbar-color="light" data-leftbar-position="fixed" data-leftbar-color="light" data-leftbar-size='default' data-sidebar-user='true'>
+<body class="loading" data-layout-color="light"  data-layout-mode="default" data-layout-size="fluid" data-topbar-color="light" data-leftbar-position="fixed" data-leftbar-color="light" data-leftbar-size='default' data-sidebar-user='true'>
 
     <!-- Begin page -->
     <div id="wrapper">
 
         <!-- Topbar Start -->
-        <div class="navbar-custom">
-            <ul class="list-unstyled topnav-menu float-end mb-0">
-
-                <li class="dropdown d-inline-block d-lg-none">
-                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-search noti-icon"></i>
-                    </a>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-bell noti-icon"></i>
-                        <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-
-                        <!-- item-->
-                        <div class="dropdown-item noti-title">
-                            <h5 class="m-0">
-                                <span class="float-end">
-                                    <a href="" class="text-dark">
-                                        <small>Clear All</small>
-                                    </a>
-                                </span>Notification
-                            </h5>
-                        </div>
-
-                        <div class="noti-scroll" data-simplebar>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                <div class="notify-icon">
-                                    <img src="../assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Cristina Pride</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Hi, How are you? What about our next meeting</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-primary">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">1 min ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon">
-                                    <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Karen Robinson</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Wow ! this admin looks good and awesome design</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-warning">
-                                    <i class="mdi mdi-account-plus"></i>
-                                </div>
-                                <p class="notify-details">New user registered.
-                                    <small class="text-muted">5 hours ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-info">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">4 days ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-secondary">
-                                    <i class="mdi mdi-heart"></i>
-                                </div>
-                                <p class="notify-details">Carlos Crouch liked
-                                    <b>Admin</b>
-                                    <small class="text-muted">13 days ago</small>
-                                </p>
-                            </a>
-                        </div>
-
-                        <!-- All-->
-                        <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                            View all
-                            <i class="fe-arrow-right"></i>
-                        </a>
-
-                    </div>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-
-                    <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-
-
-                        <img src="../../assets/default_profile.png" alt="user-image" class="rounded-circle" />
-                        <span class="pro-user-name ms-1">Kobie
-                            <i class="mdi mdi-chevron-down"></i>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome !</h6>
-                        </div>
-
-                        <!-- item-->
-                        <a href="../main/admin-profile.php" class="dropdown-item notify-item">
-                            <i class="fe-user"></i>
-                            <span>My Account</span>
-                        </a>
-
-                        <div class="dropdown-divider"></div>
-
-                        <!-- item-->
-                        <a href="../../php/auth-logout.php" class="dropdown-item notify-item">
-                            <i class="fe-log-out"></i>
-                            <span>Logout</span>
-                        </a>
-
-                    </div>
-                </li>
-
-            </ul>
-
-            <!-- LOGO -->
-            <div class="logo-box">
-                <a href="../main/admin-dashboard.php" class="logo logo-light text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-light.png" alt="" height="16">
-                    </span>
-                </a>
-                <a href="../main/admin-dashboard.php" class="logo logo-dark text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-dark.png" alt="" height="16">
-                    </span>
-                </a>
-            </div>
-
-            <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-                <li>
-                    <button class="button-menu-mobile disable-btn waves-effect">
-                        <i class="fe-menu"></i>
-                    </button>
-                </li>
-
-            </ul>
-
-            <div class="clearfix"></div>
-
-        </div>
+        <?php include "../design/top-menu.php" ?>
         <!-- end Topbar -->
 
         <!-- Side Bar -->
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="left-side-menu">
-
-            <div class="h-100" data-simplebar>
-
-                <!-- User box -->
-
-                <div class="user-box text-center">
-
-                    <img src="../../assets/default_profile.png" alt="image" class="rounded-circle img-thumbnail avatar-md" />
-
-                    <div class="dropdown">
-                        <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">
-                            Kobie Malibog
-                        </a>
-                        <div class="dropdown-menu user-pro-dropdown">
-
-                            <!-- item-->
-                            <a href="admin-profile.php" class="dropdown-item notify-item">
-                                <i class="fe-user me-1"></i>
-                                <span>My Account</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-log-out me-1"></i>
-                                <span>Logout</span>
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <p class="text-muted left-user-info">
-                        Purchaser
-                    </p>
-                </div>
-
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-
-                    <ul id="side-menu">
-
-                        <li class="menu-title">Navigation</li>
-
-                        <li>
-                            <a href="admin-dashboard.php">
-                                <i class="mdi mdi-view-dashboard-outline"></i>
-                                <span> Dashboard </span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Apps</li>
-
-                        <li>
-                            <a href="admin-accounts.php">
-                                <i class="mdi mdi-account-outline"></i>
-                                <span> Accounts </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="admin-applicants.php">
-                                <i class="mdi mdi-card-account-details-outline"></i>
-                                <span class="badge bg-success rounded-pill float-end">9+</span>
-                                <span> Applicants </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="admin-clients.php">
-                                <i class="mdi mdi-briefcase-variant-outline"></i>
-                                <span> Clients </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="admin-documents.php">
-                                <i class="mdi mdi-file-document-outline"></i>
-                                <span> Documents </span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Management</li>
-
-                        <li>
-                            <a href="admin-settings.php">
-                                <i class="mdi mdi-cog-outline"></i>
-                                <span> Settings </span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- End Sidebar -->
-
-                <div class="clearfix"></div>
-
-            </div>
-            <!-- Sidebar -left -->
-
-        </div>
+        <?php include "../design/side-menu.php" ?>
         <!-- Left Sidebar End -->
 
+        <!-- ============================================================== -->
         <!-- Start Page Content here -->
         <!-- ============================================================== -->
-
+        
         <div class="content-page">
             <div class="content">
 
@@ -331,7 +67,10 @@
 
                                     <div class="widget-chart-1">
                                         <div class="widget-chart-box-1 float-start" dir="ltr">
-                                            <input data-plugin="knob" data-width="70" data-height="70" data-fgColor="#f05050 " data-bgColor="#F9B9B9" value="58" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                                            <input data-plugin="knob" data-width="70" data-height="70" data-fgColor="#f05050 "
+                                                    data-bgColor="#F9B9B9" value="58"
+                                                    data-skin="tron" data-angleOffset="180" data-readOnly=true
+                                                    data-thickness=".15"/>
                                         </div>
 
                                         <div class="widget-detail-1 text-end">
@@ -361,7 +100,10 @@
 
                                     <div class="widget-chart-1">
                                         <div class="widget-chart-box-1 float-start" dir="ltr">
-                                            <input data-plugin="knob" data-width="70" data-height="70" data-fgColor="#ffbd4a " data-bgColor="#FFE6BA" value="58" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                                            <input data-plugin="knob" data-width="70" data-height="70" data-fgColor="#ffbd4a "
+                                                    data-bgColor="#FFE6BA" value="58"
+                                                    data-skin="tron" data-angleOffset="180" data-readOnly=true
+                                                    data-thickness=".15"/>
                                         </div>
 
                                         <div class="widget-detail-1 text-end">
@@ -391,7 +133,10 @@
 
                                     <div class="widget-chart-1">
                                         <div class="widget-chart-box-1 float-start" dir="ltr">
-                                            <input data-plugin="knob" data-width="70" data-height="70" data-fgColor="#ffbd4a" data-bgColor="#FFE6BA" value="80" data-skin="tron" data-angleOffset="180" data-readOnly=true data-thickness=".15" />
+                                            <input data-plugin="knob" data-width="70" data-height="70" data-fgColor="#ffbd4a"
+                                                    data-bgColor="#FFE6BA" value="80"
+                                                    data-skin="tron" data-angleOffset="180" data-readOnly=true
+                                                    data-thickness=".15"/>
                                         </div>
                                         <div class="widget-detail-1 text-end">
                                             <h2 class="fw-normal pt-2 mb-1"> 4569 </h2>
@@ -460,9 +205,9 @@
                                             <small class="text-warning"><b>President</b></small>
                                         </div>
                                     </div>
-                                </div>
+                                </div>   
                             </div>
-
+                            
                         </div><!-- end col -->
 
                         <div class="col-xl-3 col-md-6">
@@ -479,7 +224,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                         </div><!-- end col -->
 
                         <div class="col-xl-3 col-md-6">
@@ -496,7 +241,7 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                         </div><!-- end col -->
 
                         <div class="col-xl-3 col-md-6">
@@ -513,17 +258,19 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                         </div><!-- end col -->
-
+    
                     </div>
                     <!-- end row -->
-
+                    
                 </div> <!-- container-fluid -->
 
             </div> <!-- content -->
 
-
+            <!-- Footer Start -->
+            <?php include "../design/web-footer.php" ?>
+            <!-- end Footer -->
 
         </div>
         <!-- ============================================================== -->
@@ -558,7 +305,7 @@
 
     <!-- App js-->
     <script src="../dist/assets/js/app.min.js"></script>
-
+    
 </body>
 
 </html>

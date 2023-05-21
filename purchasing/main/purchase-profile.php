@@ -1,10 +1,15 @@
+<?php
+include('../../php/database.php');
+include('../../php/access.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
     <meta charset="utf-8" />
-    <title>Clients | NAR Power System Specialists Corp.</title>
+    <title>My Profile | NAR Power System Specialists Corp.</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- App favicon -->
@@ -27,280 +32,11 @@
     <div id="wrapper">
 
         <!-- Topbar Start -->
-        <div class="navbar-custom">
-            <ul class="list-unstyled topnav-menu float-end mb-0">
-
-                <li class="dropdown d-inline-block d-lg-none">
-                    <a class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-search noti-icon"></i>
-                    </a>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-                    <a class="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                        <i class="fe-bell noti-icon"></i>
-                        <span class="badge bg-danger rounded-circle noti-icon-badge">9</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-lg">
-
-                        <!-- item-->
-                        <div class="dropdown-item noti-title">
-                            <h5 class="m-0">
-                                <span class="float-end">
-                                    <a href="" class="text-dark">
-                                        <small>Clear All</small>
-                                    </a>
-                                </span>Notification
-                            </h5>
-                        </div>
-
-                        <div class="noti-scroll" data-simplebar>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item active">
-                                <div class="notify-icon">
-                                    <img src="../assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Cristina Pride</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Hi, How are you? What about our next meeting</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-primary">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">1 min ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon">
-                                    <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
-                                </div>
-                                <p class="notify-details">Karen Robinson</p>
-                                <p class="text-muted mb-0 user-msg">
-                                    <small>Wow ! this admin looks good and awesome design</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-warning">
-                                    <i class="mdi mdi-account-plus"></i>
-                                </div>
-                                <p class="notify-details">New user registered.
-                                    <small class="text-muted">5 hours ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-info">
-                                    <i class="mdi mdi-comment-account-outline"></i>
-                                </div>
-                                <p class="notify-details">Caleb Flakelar commented on Admin
-                                    <small class="text-muted">4 days ago</small>
-                                </p>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <div class="notify-icon bg-secondary">
-                                    <i class="mdi mdi-heart"></i>
-                                </div>
-                                <p class="notify-details">Carlos Crouch liked
-                                    <b>Admin</b>
-                                    <small class="text-muted">13 days ago</small>
-                                </p>
-                            </a>
-                        </div>
-
-                        <!-- All-->
-                        <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                            View all
-                            <i class="fe-arrow-right"></i>
-                        </a>
-
-                    </div>
-                </li>
-
-                <li class="dropdown notification-list topbar-dropdown">
-
-                    <a class="nav-link dropdown-toggle nav-user me-0 waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-
-
-                        <img src="../../assets/default_profile.png" alt="user-image" class="rounded-circle" />
-                        <span class="pro-user-name ms-1">Kobie
-                            <i class="mdi mdi-chevron-down"></i>
-                        </span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end profile-dropdown ">
-                        <!-- item-->
-                        <div class="dropdown-header noti-title">
-                            <h6 class="text-overflow m-0">Welcome !</h6>
-                        </div>
-
-                        <!-- item-->
-                        <a href="../main/purchase-profile.php" class="dropdown-item notify-item">
-                            <i class="fe-user"></i>
-                            <span>My Account</span>
-                        </a>
-
-                        <div class="dropdown-divider"></div>
-
-                        <!-- item-->
-                        <a href="../../php/auth-logout.php" class="dropdown-item notify-item">
-                            <i class="fe-log-out"></i>
-                            <span>Logout</span>
-                        </a>
-
-                    </div>
-                </li>
-
-            </ul>
-
-            <!-- LOGO -->
-            <div class="logo-box">
-                <a href="../main/nar-dashboard.php" class="logo logo-light text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-light.png" alt="" height="16">
-                    </span>
-                </a>
-                <a href="../main/nar-dashboard.php" class="logo logo-dark text-center">
-                    <span class="logo-sm">
-                        <img src="../dist/assets/images/logo-sm.png" alt="" height="22">
-                    </span>
-                    <span class="logo-lg">
-                        <img src="../dist/assets/images/logo-dark.png" alt="" height="16">
-                    </span>
-                </a>
-            </div>
-
-            <ul class="list-unstyled topnav-menu topnav-menu-left mb-0">
-                <li>
-                    <button class="button-menu-mobile disable-btn waves-effect">
-                        <i class="fe-menu"></i>
-                    </button>
-                </li>
-
-            </ul>
-
-            <div class="clearfix"></div>
-
-        </div>
+        <?php include "../design/top-menu.php" ?>
         <!-- end Topbar -->
 
         <!-- Side Bar -->
-        <!-- ========== Left Sidebar Start ========== -->
-        <div class="left-side-menu">
-
-            <div class="h-100" data-simplebar>
-
-                <!-- User box -->
-
-                <div class="user-box text-center">
-
-                    <img src="../../assets/default_profile.png" alt="image" class="rounded-circle img-thumbnail avatar-md" />
-
-                    <div class="dropdown">
-                        <a href="#" class="user-name dropdown-toggle h5 mt-2 mb-1 d-block" data-bs-toggle="dropdown" aria-expanded="false">
-                            Kobie Malibog
-                        </a>
-                        <div class="dropdown-menu user-pro-dropdown">
-
-                            <!-- item-->
-                            <a href="purchase-profile.php" class="dropdown-item notify-item">
-                                <i class="fe-user me-1"></i>
-                                <span>My Account</span>
-                            </a>
-
-                            <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                <i class="fe-log-out me-1"></i>
-                                <span>Logout</span>
-                            </a>
-
-                        </div>
-                    </div>
-
-                    <p class="text-muted left-user-info">
-                        Purchaser
-                    </p>
-                </div>
-
-                <!--- Sidemenu -->
-                <div id="sidebar-menu">
-
-                    <ul id="side-menu">
-
-                        <li class="menu-title">Navigation</li>
-
-                        <li>
-                            <a href="purchase-dashboard.php">
-                                <i class="mdi mdi-view-dashboard-outline"></i>
-                                <span> Dashboard </span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Apps</li>
-
-
-                        <li>
-                            <a href="purchase-applicants.php">
-                                <i class="mdi mdi-card-account-details-outline"></i>
-                                <span class="badge bg-success rounded-pill float-end">9+</span>
-                                <span> Applicants </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="purchase-clients.php">
-                                <i class="mdi mdi-briefcase-variant-outline"></i>
-                                <span> Clients </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="purchase-documents.php">
-                                <i class="mdi mdi-file-document-outline"></i>
-                                <span> Documents </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="purchase-quotations.php">
-                                <i class="mdi mdi-account-cash-outline"></i>
-                                <span> Quotations </span>
-                            </a>
-                        </li>
-
-                        <li class="menu-title mt-2">Management</li>
-
-                        <li>
-                            <a href="purchase-settings.php">
-                                <i class="mdi mdi-cog-outline"></i>
-                                <span> Settings </span>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-                <!-- End Sidebar -->
-
-                <div class="clearfix"></div>
-
-            </div>
-            <!-- Sidebar -left -->
-
-        </div>
+        <?php include "../design/side-menu.php" ?>
         <!-- Left Sidebar End -->
 
         <!-- Start Page Content here -->
@@ -315,25 +51,41 @@
                         <div class="col-lg-8">
                             <div class="card">
                                 <div class="card-body m-2">
-                                    
+                                    <?php
+                                        $emp_id = $_SESSION['employee_id'];
+                                        $record = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
+                                        while ($data = mysqli_fetch_array($record)) { ?>
 
                                     <!-- Profile Introductions -->
                                     <div class="d-flex align-items-center mb-2">
                                         <div class="flex-shrink-0 avatar-lg me-3">
-                                            
-                                                <img src="" alt="user-image" class="img-fluid rounded-circle" />
-                                               
+                                            <?php
+                                                if ($data['profile_pic'] != null) { ?>
+                                                <img src="<?php echo "../../uploads/profile/" . $data['profile_pic']; ?>" alt="user-image" class="img-fluid rounded-circle" />
+                                                <?php
+                                                }
+                                                elseif ($data['profile_pic'] == null) { ?>
                                                     <img src="../../assets/default_profile.png" alt="user-image" class="img-fluid rounded-circle" />
-                                           
-                                           
+                                            <?php
+                                                }
+                                            ?>
                                         </div>
 
                                         <div class="flex-grow-1 overflow-hidden">
                                             
                                             <h4 class="mt-0 mb-0">
-                                                
+                                                <?php
+                                                    $middle_name = $data['middle_name'];
+                                                    if (empty($middle_name)) {
+                                                        echo $data['first_name']. " " .$data['last_name'];
+                                                    }
+                                                    else {
+                                                        $m_name = $middle_name[0];
+                                                        echo $data['first_name']. " " . $m_name . ".  " .$data['last_name'];
+                                                    }
+                                                ?>
                                             </h4>
-                                            <small class="text-muted"><b></b></small>
+                                            <small class="text-muted"><b><?php echo $data['position']; ?></b></small>
                                         </div>
                                     </div>
                                     
@@ -342,33 +94,33 @@
                                         <form class="needs-validation" method="post" action="../../php/edit-profile.php" enctype="multipart/form-data" novalidate>
 
                                             <div class="row mb-3">
-                                                <input type="text" name="employee_id" class="form-control" value="" hidden required>
+                                                <input type="text" name="employee_id" class="form-control" value="<?php echo $data['employee_id'] ?>" hidden required>
 
                                                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group">
                                                         <label class="mb-1">First Name</label>
-                                                        <input type="text" name="first_name" class="form-control" value="" required>
+                                                        <input type="text" name="first_name" class="form-control" value="<?php echo $data['first_name'] ?>" required>
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group ">
                                                         <label class="mb-1">Middle Name</label>
-                                                        <input type="text" name="middle_name" class="form-control" value="">
+                                                        <input type="text" name="middle_name" class="form-control" value="<?php echo $data['middle_name'] ?>">
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group ">
                                                         <label class="mb-1">Last Name</label>
-                                                        <input type="text" name="last_name" class="form-control" value="" required>
+                                                        <input type="text" name="last_name" class="form-control" value="<?php echo $data['last_name'] ?>" required>
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group ">
                                                         <label class="mb-1">Suffix</label>
-                                                        <input type="text" name="given_suffix" class="form-control" value="">
+                                                        <input type="text" name="given_suffix" class="form-control" value="<?php echo $data['given_suffix'] ?>">
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>
                                                 </div>
@@ -378,14 +130,14 @@
                                                 <div class="col-xl-8 col-lg-6 col-md-6 col-sm-6 col-12 mb-3">
                                                     <div class="form-group">
                                                         <label class="mb-1">Address</label>
-                                                        <input type="text" name="given_address" class="form-control" value="" required></input>
+                                                        <input type="text" name="given_address" class="form-control" value="<?php echo $data['given_address'] ?>" required></input>
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group">
                                                         <label class="mb-1">Contact Number</label>
-                                                        <input type="text" name="contact_no" class="form-control" value="">
+                                                        <input type="text" name="contact_no" class="form-control" value="<?php echo $data['contact_no'] ?>">
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>
                                                 </div>
@@ -395,14 +147,14 @@
                                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group mb-2">
                                                         <label class="mb-1">Birth Date</label>
-                                                        <input type="date" name="birth_date" class="form-control" value="" required>
+                                                        <input type="date" name="birth_date" class="form-control" value="<?php echo $data['birth_date'] ?>" required>
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group mb-2">
                                                         <label class="mb-1">Email Address</label>
-                                                        <input type="text" name="email_add" class="form-control" value="" required>
+                                                        <input type="text" name="email_add" class="form-control" value="<?php echo $data['email_add'] ?>" required>
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>    
                                                 </div>                                    
@@ -413,13 +165,16 @@
                                                     <div class="form-group mb-2">
                                                         <label class="mb-1">Position</label>
                                                         <select class="form-select" name="position" aria-label="Default select example" required>
-                                                           
+                                                            <?php
+                                                                $sql = mysqli_query($config, "SELECT position_name FROM position ORDER BY position_name");
+                                                                while($row = mysqli_fetch_array($sql)) {
+                                                            ?>
                                                             
-                                                            <option value="" selected></option>
+                                                            <option value="<?php echo $data['position']?>" selected><?php echo $data['position'] ?></option>
 
-                                                            <option value=""></option>
+                                                            <option value="<?php echo $row[0] ?>"><?php echo $row[0] ?></option>
                                                             
-                                                          
+                                                            <?php } ?>
                                                         </select>
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>      
@@ -429,22 +184,26 @@
                                                     <div class="form-group">
                                                         <label class="mb-1">Status</label>
                                                         <select class="form-select" name="emp_stat" aria-label="Default select example" required>
-                                                           
-                                                            <option value=""></option>
+                                                            <?php
+                                                                $sql = mysqli_query($config, "SELECT emp_stat FROM emp_status");
+                                                                while($row = mysqli_fetch_array($sql)) {
+                                                            ?>
+
+                                                            <option value="<?php echo $data['emp_stat']?>" selected><?php echo $data['emp_stat'] ?></option>
 
                                                             <option value="<?php echo $row[0] ?>"><?php echo $row[0] ?></option>
                                                             
-                                                            
+                                                            <?php } ?>
                                                         </select>
                                                         <div class="invalid-feedback">Please fill in this field</div>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6 col-12">
                                                     <div class="form-group">
-                                                        <label class="mb-1"></label>
+                                                        <label class="mb-1">Branch/Site</label>
                                                         <select class="form-select" name="branch_site" aria-label="Default select example" required>
 
-                                                            <option value="" selected>></option>
+                                                            <option value="<?php echo $data['branch_site']?>" selected><?php echo $data['branch_site'] ?></option>
                                                             <option value="Antipolo" selected>Antipolo</option>
 
                                                         </select>
@@ -456,7 +215,7 @@
                                             <div class="row mb-2">
                                                 <div class="form-group">
                                                     <label class="mb-1">Job Description</label>
-                                                    <textarea type="text" name="description" class="form-control" rows="4" required></textarea>
+                                                    <textarea type="text" name="description" class="form-control" rows="4" required><?php echo $data['job_desc'] ?></textarea>
                                                     <div class="invalid-feedback">Please fill in this field</div>
                                                 </div>
                                             </div>
@@ -485,7 +244,9 @@
                                         </form>
                                     </div>
 
-                                   
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
@@ -496,25 +257,45 @@
                                 <div class="card-body">
                                     <h4 class="mb-4">NAR POWER SYSTEM SPEACIALISTS CORP.</h4>
                                     <div class="ms-2">
-                                        
+                                        <?php 
+                                            $records = mysqli_query($config, "SELECT * FROM employee_info WHERE emp_stat = 'Director'");
+                                            while ($data1 = mysqli_fetch_array($records)) { ?>
 
                                         <div class="d-flex align-items-center mb-2">
                                             <div class="flex-shrink-0 avatar-md me-3">
-                                              
+                                                <?php
+                                                    if ($data1['profile_pic'] != null) { ?>
+                                                    <img src="<?php echo "../../uploads/profile/" . $data1['profile_pic']; ?>" alt="user-image" class="img-fluid rounded-circle" />
+                                                    <?php
+                                                    }
+                                                    elseif ($data1['profile_pic'] == null) { ?>
                                                         <img src="../../assets/default_profile.png" alt="user-image" class="img-fluid rounded-circle" />
-                                                
+                                                <?php
+                                                    }
+                                                ?>
                                             </div>
 
                                             <div class="flex-grow-1 overflow-hidden">
                                                 
                                                 <h5 class="mt-0 mb-0">
-                                                  
+                                                    <?php
+                                                        $middle_name1 = $data1['middle_name'];
+                                                        if (empty($middle_name1)) {
+                                                            echo $data1['first_name']. " " .$data1['last_name'];
+                                                        }
+                                                        else {
+                                                            $m_name1 = $middle_name1[0];
+                                                            echo $data1['first_name']. " " . $m_name1 . ".  " .$data1['last_name'];
+                                                        }
+                                                    ?>
                                                 </h5>
-                                                <small class="text-muted"><b>jhkh</b></small>
+                                                <small class="text-muted"><b><?php echo $data1['position']; ?></b></small>
                                             </div>
                                         </div>
 
-                                        
+                                        <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -522,9 +303,12 @@
                     </div>
                 </div> <!-- container-fluid -->
             </div> <!-- content -->
-            <!-- ============================================================== -->
-            <!-- End Page content -->
-       
+
+            <!-- Footer Start -->
+            <?php include "../design/web-footer.php" ?>
+            <!-- end Footer -->
+
+        </div>
 
     </div>
     <!-- END wrapper -->
