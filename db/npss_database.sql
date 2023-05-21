@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 10, 2023 at 09:46 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.0.19
+-- Generation Time: May 21, 2023 at 06:34 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,9 +32,9 @@ CREATE TABLE `account_info` (
   `employee_id` bigint(16) NOT NULL,
   `reg_email` varchar(59) NOT NULL,
   `reg_password` varchar(59) NOT NULL,
-  `acc_priv` enum('Super Admin','Admin','Administration','Finance','Purchasing') NOT NULL,
+  `acc_priv` enum('Super Admin','Admin','Administration','Finance','Purchasing','Staff') NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `account_info`
@@ -43,29 +43,28 @@ CREATE TABLE `account_info` (
 INSERT INTO `account_info` (`account_no`, `employee_id`, `reg_email`, `reg_password`, `acc_priv`, `date_registered`) VALUES
 (1, 2023198600, 'sikobieaypros@gmail.com', '1234', 'Admin', '2023-04-13 02:09:39'),
 (2, 2023198601, 'sijirehmaybuko@gmail.com', '6467', 'Admin', '2023-03-21 01:42:50'),
-(4, 2023198602, 'sineilaypogs@gmail.com', '3006', '', '2023-03-21 02:26:00'),
-(5, 2023198603, 'sirichardaynapakabait@gmail.com', '5992', '', '2023-03-21 02:30:06'),
-(7, 2023198605, 'nessbrondilla@gmail.com', '1708', '', '2023-03-22 05:02:13'),
-(8, 2023198606, 'samplemail@sample.com', '9501', '', '2023-03-22 05:20:35'),
-(9, 2023198607, 'nadeldeleon@gmail.com', '3614', '', '2023-03-22 05:23:30'),
-(10, 2023198608, 'miguelyndon@nar.ph', '7806', '', '2023-03-22 05:25:12'),
-(11, 2023198609, 'gregmark@nar.ph', '9939', '', '2023-03-22 05:29:27'),
-(12, 2023198610, 'susanarondilla@nar.ph', '8086', '', '2023-03-22 05:30:39'),
-(13, 2023198611, 'jaysontalavera@nar.ph', '6671', '', '2023-03-22 05:33:29'),
-(14, 2023198612, 'jessiesquivel@nar.ph', '9803', '', '2023-03-22 05:34:58'),
-(15, 2023198613, 'bernardoesquivel@nar.ph', '8616', '', '2023-03-22 05:35:59'),
-(16, 2023198614, 'raymondniro@nar.ph', '4774', '', '2023-03-22 05:37:17'),
-(17, 2023198615, 'ramongatbunton@nar.ph', '6301', '', '2023-03-22 05:38:13'),
-(18, 2023198616, 'aeronmatthew@nar.ph', '1715', '', '2023-03-22 05:39:32'),
-(19, 2023198617, 'reubenpenilla@nar.ph', '6130', '', '2023-03-22 05:40:40'),
-(20, 2023198618, 'lazaroperez@nar.ph', '3039', '', '2023-03-22 05:42:01'),
-(21, 2023198619, 'ruelniro@nar.ph', '4197', '', '2023-03-22 05:43:02'),
-(22, 2023198620, 'christiananselmo@nar.ph', '7186', '', '2023-03-22 05:44:22'),
-(23, 2023198621, 'jaymarbanta@nar.ph', '7495', '', '2023-03-22 05:46:14'),
-(24, 2023198622, 'nathaliecastro@nar.ph', '8251', '', '2023-03-22 05:47:22'),
-(25, 2023198623, 'janetdelacruz@nar.ph', '8660', '', '2023-03-22 05:49:28'),
-(26, 2023198624, 'kathescuadra@nar.ph', '3063', '', '2023-03-22 05:51:14'),
-(27, 2023198625, 'petergaylan@nar.ph', '7109', '', '2023-03-22 05:53:34'),
+(4, 2023198602, 'sineilaypogs@gmail.com', '3006', 'Admin', '2023-05-21 00:38:42'),
+(5, 2023198603, 'sirichardaynapakabait@gmail.com', '5992', 'Admin', '2023-05-21 00:38:44'),
+(7, 2023198605, 'nessbrondilla@gmail.com', '1708', 'Administration', '2023-05-21 00:31:28'),
+(9, 2023198607, 'nadeldeleon@gmail.com', '3614', 'Administration', '2023-05-21 00:39:21'),
+(10, 2023198608, 'miguelyndon@nar.ph', '7806', 'Administration', '2023-05-21 00:39:26'),
+(11, 2023198609, 'gregmark@nar.ph', '9939', 'Purchasing', '2023-05-21 00:39:30'),
+(12, 2023198610, 'susanarondilla@nar.ph', '8086', 'Administration', '2023-05-21 00:39:33'),
+(13, 2023198611, 'jaysontalavera@nar.ph', '6671', 'Staff', '2023-05-21 00:39:50'),
+(14, 2023198612, 'jessiesquivel@nar.ph', '9803', 'Staff', '2023-05-21 00:40:01'),
+(15, 2023198613, 'bernardoesquivel@nar.ph', '8616', 'Staff', '2023-05-21 00:40:15'),
+(16, 2023198614, 'raymondniro@nar.ph', '4774', 'Staff', '2023-05-21 00:40:24'),
+(17, 2023198615, 'ramongatbunton@nar.ph', '6301', 'Staff', '2023-05-21 00:40:34'),
+(18, 2023198616, 'aeronmatthew@nar.ph', '1715', 'Staff', '2023-05-21 00:40:46'),
+(19, 2023198617, 'reubenpenilla@nar.ph', '6130', 'Staff', '2023-05-21 00:40:49'),
+(20, 2023198618, 'lazaroperez@nar.ph', '3039', 'Staff', '2023-05-21 00:40:52'),
+(21, 2023198619, 'ruelniro@nar.ph', '4197', 'Staff', '2023-05-21 00:40:55'),
+(22, 2023198620, 'christiananselmo@nar.ph', '7186', 'Staff', '2023-05-21 00:41:08'),
+(23, 2023198621, 'jaymarbanta@nar.ph', '7495', 'Staff', '2023-05-21 00:41:11'),
+(24, 2023198622, 'nathaliecastro@nar.ph', '8251', 'Finance', '2023-05-21 00:41:21'),
+(25, 2023198623, 'janetdelacruz@nar.ph', '8660', 'Administration', '2023-05-21 00:41:26'),
+(26, 2023198624, 'kathescuadra@nar.ph', '3063', 'Finance', '2023-05-21 00:41:38'),
+(27, 2023198625, 'petergaylan@nar.ph', '7109', 'Staff', '2023-05-21 00:41:48'),
 (28, 2023198626, 'jeffersonmaranan@nar.ph', '7259', '', '2023-03-22 05:54:54'),
 (29, 2023198627, 'ernestopalma@nar.ph', '5460', '', '2023-03-22 05:55:43'),
 (30, 2023198628, 'ramelramirez@nar.ph', '4518', '', '2023-03-22 05:56:39'),
@@ -95,7 +94,7 @@ CREATE TABLE `application` (
   `resume_cv` varchar(255) NOT NULL,
   `status` enum('unread','important','denied','read') NOT NULL,
   `date_submitted` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `application`
@@ -121,7 +120,7 @@ CREATE TABLE `company_profile` (
   `contact_no` varchar(59) NOT NULL,
   `company_logo` varchar(249) NOT NULL,
   `date_registered` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `company_profile`
@@ -147,7 +146,7 @@ CREATE TABLE `docu_archive` (
   `display_type` varchar(249) NOT NULL,
   `company_no` char(59) DEFAULT NULL,
   `date_uploaded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `docu_archive`
@@ -183,7 +182,7 @@ CREATE TABLE `employee_info` (
   `profile_pic` varchar(255) DEFAULT NULL,
   `uploaded_cv` varchar(255) DEFAULT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `employee_info`
@@ -230,7 +229,7 @@ INSERT INTO `employee_info` (`account_id`, `employee_id`, `first_name`, `middle_
 CREATE TABLE `emp_status` (
   `stat_no` int(59) NOT NULL,
   `emp_stat` varchar(59) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `emp_status`
@@ -257,7 +256,7 @@ CREATE TABLE `file_access` (
   `docu_no` bigint(16) DEFAULT NULL,
   `folder_docu_no` bigint(59) DEFAULT NULL,
   `position_no` bigint(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `file_access`
@@ -303,7 +302,7 @@ CREATE TABLE `folder_docu_archive` (
   `display_icon` varchar(255) NOT NULL,
   `display_type` varchar(255) NOT NULL,
   `date_uploaded` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `folder_docu_archive`
@@ -352,7 +351,7 @@ CREATE TABLE `payroll` (
   `payroll_period` date NOT NULL,
   `payroll_date` date NOT NULL,
   `date_encoded` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `payroll`
@@ -372,7 +371,7 @@ CREATE TABLE `position` (
   `position_no` bigint(16) NOT NULL,
   `position_name` varchar(249) NOT NULL,
   `job_desc` varchar(249) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `position`
@@ -419,7 +418,7 @@ CREATE TABLE `quotation` (
   `display_name` varchar(255) NOT NULL,
   `quotation_file` varchar(255) NOT NULL,
   `date_added` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `quotation`
@@ -441,7 +440,7 @@ CREATE TABLE `quotation_comment` (
   `employee_id` bigint(16) NOT NULL,
   `comment` text NOT NULL,
   `date_commented` datetime DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `quotation_comment`
@@ -479,7 +478,7 @@ CREATE TABLE `schedule` (
   `time_sched` time NOT NULL,
   `message` text DEFAULT NULL,
   `date_scheduled` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `schedule`
