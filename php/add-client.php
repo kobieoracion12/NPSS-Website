@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once "database.php";
 
 if($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -17,11 +17,22 @@ if($_SERVER['REQUEST_METHOD'] == "POST") {
     $insert = mysqli_query($config, "INSERT INTO company_profile (company_name, company_desc, branch_site, contact_person, contact_no, company_logo) VALUES ('$name', '$desc', '$branch', '$person', '$number', '$logo')");
 
     if($insert) {
-        move_uploaded_file($_FILES['company_logo']['tmp_name'], "$folder");
-        header("Location: ../admin/main/nar-clients.php?success");
+        if ($_SESSION['acc_priv'] == 'Admin') {
+            move_uploaded_file($_FILES['company_logo']['tmp_name'], "$folder");
+            header("Location: ../admin/main/nar-clients.php?success");
+        }
+        elseif ($_SESSION['acc_priv'] == 'Purchasing') {
+           move_uploaded_file($_FILES['company_logo']['tmp_name'], "$folder");
+            header("Location: ../purchasing/main/purchase-clients.php?success");
+        }
     }
     else {
-        header("Location: ../admin/main/nar-clients.php?failed");
+        if ($_SESSION['acc_priv'] == 'Admin') {
+            header("Location: ../admin/main/nar-clients.php?failed");
+        }
+        elseif ($_SESSION['acc_priv'] == 'Purchasing') {
+           header("Location: ../purchasing/main/purchase-clients.php?failed");
+        }
     }
 }
 

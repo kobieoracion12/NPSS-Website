@@ -1,5 +1,6 @@
 <?php
 include_once "database.php";
+session_start();
 require("../PHPMailer-master/src/Exception.php");
 require("../PHPMailer-master/src/PHPMailer.php");
 require("../PHPMailer-master/src/SMTP.php");
@@ -87,19 +88,36 @@ if(isset($_POST['set'])) {
         } 
         else {
             if ($update) {
-                header("Location: ../admin/main/nar-applicants.php?sort=all&success");
+                if ($_SESSION['acc_priv'] == 'Admin') {
+                    header("Location: ../admin/main/nar-applicants.php?sort=all&success");
+                }
+                elseif ($_SESSION['acc_priv'] == 'Purchasing') {
+                    header("Location: ../purchasing/main/purchase-applicants.php?sort=all&success");
+                }
+                
             }
         }
     }
     else {
-        header("Location: ../admin/main/nar-applicants.php?sort=all&failed");
+        if ($_SESSION['acc_priv'] == 'Admin') {
+            header("Location: ../admin/main/nar-applicants.php?sort=all&failed");
+        }
+        elseif ($_SESSION['acc_priv'] == 'Purchasing') {
+            header("Location: ../purchasing/main/purchase-applicants.php?sort=all&failed");
+        }
+        
     }
 }
 elseif (isset($_POST['decline'])) {
     $application_id = $_POST['application_id'];
     $update = mysqli_query($config, "UPDATE application SET status = 'denied' WHERE application_id = '$application_id'");
     if ($update) {
-        header("Location: ../admin/main/nar-applicants.php?sort=all&success");
+        if ($_SESSION['acc_priv'] == 'Admin') {
+            header("Location: ../admin/main/nar-applicants.php?sort=all&success");
+        }
+        elseif ($_SESSION['acc_priv'] == 'Purchasing') {
+            header("Location: ../purchasing/main/purchase-applicants.php?sort=all&success");
+        }
     }
 }
 

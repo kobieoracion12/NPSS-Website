@@ -70,17 +70,6 @@
                                                     <input type="text" name="search" class="form-control" placeholder="Search..." value="<?php echo isset($_POST['search']) ? $_POST['search'] : '' ?>" autocomplete="off">
                                                 </form>
                                             </div>
-
-                                            <div class="col-3">
-                                                <select class="form-select" id="example-select">
-                                                    <option selected>Default</option>
-                                                    <option>Brand</option>
-                                                    <option>Position</option>
-                                                    <option>Name</option>
-                                                    <option>Time Added (Last)</option>
-                                                </select>
-                                            </div>
-
                                         </div>
 
                                     </div>

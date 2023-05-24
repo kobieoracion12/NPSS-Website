@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include_once "database.php";
 
 if(isset($_POST['edit-client'])) {
@@ -19,22 +19,42 @@ if(isset($_POST['edit-client'])) {
         $update = mysqli_query($config, "UPDATE company_profile SET company_name = '$name', company_desc = '$desc', branch_site = '$branch', contact_person = '$person', contact_no = '$number' WHERE company_no = '$id'");
 
         if($update) {
-            move_uploaded_file($_FILES['company_logo']['tmp_name'], "$folder");
-            header("Location: ../admin/main/nar-clients.php?edit-success");
+            if ($_SESSION['acc_priv'] == 'Admin') {
+                header("Location: ../admin/main/nar-clients.php?edit-success");
+            }
+            elseif ($_SESSION['acc_priv'] == 'Purchasing') {
+                header("Location: ../purchasing/main/purchase-clients.php?edit-success");
+            }
         }
         else {
-            header("Location: ../admin/main/nar-clients.php?edit-failed");
+            if ($_SESSION['acc_priv'] == 'Admin') {
+                header("Location: ../admin/main/nar-clients.php?edit-failed");
+            }
+            elseif ($_SESSION['acc_priv'] == 'Purchasing') {
+                header("Location: ../purchasing/main/purchase-clients.php?edit-failed");
+            }
         }
     }
     else {
         $update = mysqli_query($config, "UPDATE company_profile SET company_name = '$name', company_desc = '$desc', branch_site = '$branch', contact_person = '$person', contact_no = '$number', company_logo = '$logo' WHERE company_no = '$id'");
 
         if($update) {
-            move_uploaded_file($_FILES['company_logo']['tmp_name'], "$folder");
-            header("Location: ../admin/main/nar-clients.php?edit-success");
+            if ($_SESSION['acc_priv'] == 'Admin') {
+                move_uploaded_file($_FILES['company_logo']['tmp_name'], "$folder");
+                header("Location: ../admin/main/nar-clients.php?edit-success");
+            }
+            elseif ($_SESSION['acc_priv'] == 'Purchasing') {
+                move_uploaded_file($_FILES['company_logo']['tmp_name'], "$folder");
+                header("Location: ../purchasing/main/purchase-clients.php?edit-success");
+            }
         }
         else {
-            header("Location: ../admin/main/nar-clients.php?edit-failed");
+            if ($_SESSION['acc_priv'] == 'Admin') {
+                header("Location: ../admin/main/nar-clients.php?edit-failed");
+            }
+            elseif ($_SESSION['acc_priv'] == 'Purchasing') {
+                header("Location: ../purchasing/main/purchase-clients.php?edit-failed");
+            }
         }
     }
 }

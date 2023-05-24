@@ -183,7 +183,7 @@
 
                                                                             <form class="needs-validation" method="post" action="../../php/edit-docu.php" enctype="multipart/form-data" novalidate>
 
-                                                                                <input class="form-control" name="docu_no" type="text" value="<?php echo $row['docu_no'] ?>" hidden>
+                                                                                <input class="form-control" name="docu_no" type="text" value="<?php echo $row['docu_no'] ?>" hidden />
                                                                                 <?php
                                                                                     if (!empty($row['file_name'])) { ?>
                                                                                     <div class="row">
@@ -302,7 +302,7 @@
 
                                             <div class="row mt-4">
                                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                    <button type="submit" name="upload-client-docu" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Upload File</button>
+                                                    <button type="submit" name="upload-docu" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Upload File</button>
                                                 </div>
                                             </div>
 

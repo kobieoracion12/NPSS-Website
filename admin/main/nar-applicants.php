@@ -108,7 +108,9 @@ include('../../php/access.php');
                                                     </ul>
                                                 </div>
                                                 <div class="search-box float-end">
-                                                    <input placeholder="Search..."><span class="icon fa fa-search"></span>
+                                                    <form action="" method="POST">
+                                                        <input type="text" name="search" class="form-control" placeholder="Search..." value="<?php echo isset($_POST['search']) ? $_POST['search'] : '' ?>" autocomplete="off"><span class="icon fa fa-search"></span>
+                                                    </form>
                                                 </div>
 
                                                 <div class="clearfix"></div>
@@ -134,187 +136,9 @@ include('../../php/access.php');
                                                             </div>
                                                         </li>
                                                     </ul>
-                                                <?php if(isset($_GET['sort'])) { ?>
-                                                    <div>
-                                                        <?php
-                                                            if($_GET['sort'] == "unread") {
-                                                                $sql = mysqli_query($config, "SELECT * FROM application WHERE status = 'unread'");
-                                                                while($data = mysqli_fetch_array($sql)) {
-                                                        ?>
-
-                                                        <!-- Active -->
-                                                        <ul class="message-list">
-                                                            <a href="" class="setbtn" data-bs-toggle="modal" data-id='<?php echo $data['application_id'] ?>'>
-                                                                <li>
-                                                                    <div class="mail-col mail-col-1"><span class="dot"></span>
-                                                                        <?php echo $data['application_id'] ?>
-                                                                        <p class="title">
-                                                                            <?php echo $data['job_interest'] ?>
-                                                                        </p>
-                                                                    </div>
-
-                                                                    <div class="mail-col mail-col-2">
-                                                                        
-                                                                        <div class="subject">
-                                                                            <?php 
-                                                                                echo $data['last_name'];
-                                                                                echo ", ";
-                                                                                echo $data['first_name'];
-                                                                                echo " ";
-                                                                                echo $data['middle_name'];
-                                                                            ?>
-                                                                        </div>
-                                                                        <div class="date">
-                                                                            <?php echo $data['site'] ?>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </a>
-                                                        </ul>
-                                                            <?php } ?>
-                                                        <?php }
-                                                         elseif($_GET['sort'] == "all") { 
-                                                                $sql3 = mysqli_query($config, "SELECT * FROM application");
-                                                                while($data3 = mysqli_fetch_array($sql3)) {
-                                                        ?>
-
-                                                        <!-- Director -->
-                                                        <ul class="message-list">
-                                                            <a href="" class="setbtn" data-bs-toggle="modal" data-id='<?php echo $data3['application_id'] ?>'>
-                                                                <li>
-                                                                    <div class="mail-col mail-col-1"><span class="dot"></span>
-                                                                        <?php 
-                                                                        if ($data3['status'] == 'unread') { ?>
-                                                                            <p class="text-bold fw-bold">
-                                                                               <?php echo $data3['application_id'] ?> 
-                                                                            </p>
-                                                                        <?php
-                                                                        }
-                                                                        elseif ($data3['status'] == 'important') { ?>
-                                                                            <p class="text-success fw-bold">
-                                                                               <?php echo $data3['application_id'] ?> 
-                                                                            </p>
-                                                                        <?php
-                                                                        }
-                                                                        elseif ($data3['status'] == 'denied') { ?>
-                                                                            <p class="text-danger fw-bold">
-                                                                               <?php echo $data3['application_id'] ?> 
-                                                                            </p>
-                                                                        <?php
-                                                                        }
-                                                                        elseif ($data3['status'] == 'read') { ?>
-                                                                            <p class="text-secondary fw-bold">
-                                                                               <?php echo $data3['application_id'] ?> 
-                                                                            </p>
-                                                                        <?php
-                                                                        }
-                                                                        ?>
-                                                                        <p class="title">
-                                                                            <?php echo $data3['job_interest'] ?>
-                                                                        </p>
-                                                                    </div>
-
-                                                                    <div class="mail-col mail-col-2">
-                                                                        <div class="subject">
-                                                                            <?php 
-                                                                                echo $data3['last_name'];
-                                                                                echo ", ";
-                                                                                echo $data3['first_name'];
-                                                                                echo " ";
-                                                                                echo $data3['middle_name'];
-                                                                            ?>
-                                                                        </div>
-                                                                        
-                                                                        <div class="date">
-                                                                            <?php echo $data3['site'] ?>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </a>     
-                                                        </ul>
-                                                            <?php } ?>
-                                                        <?php }
-                                                            elseif($_GET['sort'] == "important") { 
-                                                                $sql3 = mysqli_query($config, "SELECT * FROM application WHERE status = 'important'");
-                                                                while($data2 = mysqli_fetch_array($sql3)) {
-                                                        ?>
-
-                                                        <!-- Household -->
-                                                        <ul class="message-list">
-                                                            <a href="" class="setbtn" data-bs-toggle="modal" data-id='<?php echo $data2['application_id'] ?>'>
-                                                                <li>
-                                                                    <div class="mail-col mail-col-1"><span class="dot"></span>
-                                                                        <p class="text-success fw-bold">
-                                                                               <?php echo $data2['application_id'] ?> 
-                                                                            </p>
-                                                                        <p class="title">
-                                                                            <?php echo $data2['job_interest'] ?>
-                                                                        </p>
-                                                                    </div>
-
-                                                                    <div class="mail-col mail-col-2">
-                                                                        <div class="subject">
-                                                                            <?php 
-                                                                                echo $data2['last_name'];
-                                                                                echo ", ";
-                                                                                echo $data2['first_name'];
-                                                                                echo " ";
-                                                                                echo $data2['middle_name'];
-                                                                            ?>
-                                                                        </div>
-                                                                        
-                                                                        <div class="date">
-                                                                            <?php echo $data2['site'] ?>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </a>
-                                                        </ul>
-                                                            <?php } ?>
-                                                        <?php }
-                                                        elseif($_GET['sort'] == "denied") { 
-                                                                $sql3 = mysqli_query($config, "SELECT * FROM application WHERE status = 'denied'");
-                                                                while($data2 = mysqli_fetch_array($sql3)) {
-                                                        ?>
-
-                                                        <!-- Household -->
-                                                        <ul class="message-list">
-                                                            <a href="" class="setbtn" data-bs-toggle="modal" data-id='<?php echo $data2['application_id'] ?>'>
-                                                                <li>
-                                                                    <div class="mail-col mail-col-1"><span class="dot"></span>
-                                                                        <p class="text-danger fw-bold">
-                                                                           <?php echo $data2['application_id'] ?> 
-                                                                        </p>
-                                                                        <p class="title">
-                                                                            <?php echo $data2['job_interest'] ?>
-                                                                        </p>
-                                                                    </div>
-
-                                                                    <div class="mail-col mail-col-2">
-                                                                        <div class="subject">
-                                                                            <?php 
-                                                                                echo $data2['last_name'];
-                                                                                echo ", ";
-                                                                                echo $data2['first_name'];
-                                                                                echo " ";
-                                                                                echo $data2['middle_name'];
-                                                                            ?>
-                                                                        </div>
-                                                                        
-                                                                        <div class="date">
-                                                                            <?php echo $data2['site'] ?>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            </a>
-                                                        </ul>
-                                                            <?php } ?>
-                                                        <?php } ?> 
-                                                    </div>
-
-                                                <?php } ?>
+                                                    <?php include('../modal/applicants-search.php'); ?>
+                                                </div>
                                             </div>
-                                        </div>
                                         </main>
                                     </div> <!-- end col -->
                                 </div><!-- end row -->
@@ -327,20 +151,6 @@ include('../../php/access.php');
 
 
                     <!--Schedule  Modal -->
-                    <div class="modal fade" id="modal_update">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content rounded-0">
-                            <div class="modal-header bg-light p-1">
-                                <label class="f4 p-2"><b>Member Info</b></label>
-                            </div>
-                            <div class="modal-body">
-                                <div class="modssss">
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="modal fade" id="set" tabindex="-1">
                     <div class="modal-dialog modal-xl">
                         <div class="modal-content">

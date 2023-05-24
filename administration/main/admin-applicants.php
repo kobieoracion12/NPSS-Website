@@ -60,9 +60,9 @@ include('../../php/access.php');
 
                                                 <menu class="menu-segment">
                                                     <ul class="list-unstyled">
-                                                        <li class="active"><a href="nar-applicants.php?sort=all">Inbox<span> (43)</span></a>
+                                                        <li class="active"><a href="admin-applicants.php?sort=all">Inbox<span> (43)</span></a>
                                                         </li>
-                                                        <li><a href="nar-applicants.php?sort=unread">Unread</a></li>
+                                                        <li><a href="admin-applicants.php?sort=unread">Unread</a></li>
                                                     </ul>
                                                 </menu>
 
@@ -71,9 +71,9 @@ include('../../php/access.php');
                                                 <div class="menu-segment">
                                                     <ul class="labels list-unstyled">
                                                         <li class="title">Labels</li>
-                                                        <li><a href="nar-applicants.php?sort=important">Important <span class="ball green"></span></a>
+                                                        <li><a href="admin-applicants.php?sort=important">Important <span class="ball green"></span></a>
                                                         </li>
-                                                        <li><a href="nar-applicants.php?sort=denied">Denied <span class="ball red"></span></a></li>
+                                                        <li><a href="admin-applicants.php?sort=denied">Denied <span class="ball red"></span></a></li>
                                                         
                                                     </ul>
                                                 </div>

@@ -2,26 +2,26 @@
 include('../../php/database.php');
 include('../../php/access.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
 
-        <meta charset="utf-8" />
-        <title>Applicants | NAR Power System Specialists Corp.</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <!-- App favicon -->
-        <link rel="shortcut icon" href="../../assets/nar-icon.ico">
+<head>
 
-        <!-- App css -->
+    <meta charset="utf-8" />
+    <title>Applicants | NAR Power System Specialists Corp.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../../assets/nar-icon.ico">
 
-        <link href="../dist/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
+    <!-- App css -->
 
-        <!-- icons -->
-        <link href="../dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../dist/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app-style" />
 
-    </head>
+    <!-- icons -->
+    <link href="../dist/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+</head>
 
     <!-- body start -->
     <body class="loading" data-layout-color="light"  data-layout-mode="default" data-layout-size="fluid" data-topbar-color="light" data-leftbar-position="fixed" data-leftbar-color="light" data-leftbar-size='default' data-sidebar-user='true'>
@@ -58,9 +58,9 @@ include('../../php/access.php');
 
                                                     <menu class="menu-segment">
                                                         <ul class="list-unstyled">
-                                                            <li class="active"><a href="nar-applicants.php?sort=all">Inbox<span> (43)</span></a>
+                                                            <li class="active"><a href="purchase-applicants.php?sort=all">Inbox<span> (43)</span></a>
                                                             </li>
-                                                            <li><a href="nar-applicants.php?sort=unread">Unread</a></li>
+                                                            <li><a href="purchase-applicants.php?sort=unread">Unread</a></li>
                                                         </ul>
                                                     </menu>
 
@@ -69,9 +69,9 @@ include('../../php/access.php');
                                                     <div class="menu-segment">
                                                         <ul class="labels list-unstyled">
                                                             <li class="title">Labels</li>
-                                                            <li><a href="nar-applicants.php?sort=important">Important <span class="ball green"></span></a>
+                                                            <li><a href="purchase-applicants.php?sort=important">Important <span class="ball green"></span></a>
                                                             </li>
-                                                            <li><a href="nar-applicants.php?sort=denied">Denied <span class="ball red"></span></a></li>
+                                                            <li><a href="purchase-applicants.php?sort=denied">Denied <span class="ball red"></span></a></li>
                                                             
                                                         </ul>
                                                     </div>
@@ -325,19 +325,7 @@ include('../../php/access.php');
 
 
                         <!--Schedule  Modal -->
-                        <div class="modal fade" id="modal_update">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content rounded-0">
-                                <div class="modal-header bg-light p-1">
-                                    <label class="f4 p-2"><b>Member Info</b></label>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="modssss">
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                     <div class="modal fade" id="set" tabindex="-1">
                         <div class="modal-dialog modal-xl">
@@ -389,12 +377,31 @@ include('../../php/access.php');
         <!--Morris Chart-->
         <script src="../dist/assets/libs/morris.js06/morris.min.js"></script>
         <script src="../dist/assets/libs/raphael/raphael.min.js"></script>
-  
+
         <!-- Dashboar init js-->
         <script src="../dist/assets/js/pages/dashboard.init.js"></script>
 
         <!-- App js-->
         <script src="../dist/assets/js/app.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.setbtn').click(function() {
+                    var applicationid = $(this).data('id');
+
+                    $.ajax({
+                        url: '../modal/set-schedule.php',
+                        type: 'post',
+                        data: {
+                            applicationid: applicationid
+                        },
+                        success: function(response) {
+                            $('.setmodal').html(response);
+                            $('#set').modal('show');
+                        }
+                    });
+                });
+            });
+        </script>
         
 
     </body>

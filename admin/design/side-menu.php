@@ -74,7 +74,17 @@
                 <li>
                     <a href="nar-applicants.php?sort=all">
                         <i class="mdi mdi-card-account-details-outline"></i>
-                        <span class="badge bg-success rounded-pill float-end">9+</span>
+                        <span class="badge bg-success rounded-pill float-end">
+                            <?php
+                            $sql = "SELECT * FROM application WHERE status = 'unread'";
+
+                            $mysqliStatus = $config->query($sql);
+
+                            $rows_count_value = mysqli_num_rows($mysqliStatus);
+
+                            ?>
+                            <?php echo $rows_count_value; ?>
+                        </span>
                         <span> Applicants </span>
                     </a>
                 </li>
