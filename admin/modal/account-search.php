@@ -10,7 +10,7 @@ if (isset($_POST['search'])) {
         while($row = mysqli_fetch_array($sql)) {
     ?>
     <div class="card-group col-xl-4 col-md-6 mt-2 ">
-        <div class="card" >
+        <div class="card">
             <div class="card-body text-center">
                 <div class="col-md-4 mx-auto d-block">
                     <?php
@@ -19,7 +19,7 @@ if (isset($_POST['search'])) {
                     <?php
                     }
                     elseif ($row['profile_pic'] == null) { ?>
-                        <img src="../../assets/default_profile.png" alt="image" class="rounded-circle avatar-xl" />
+                    <img src="../../assets/default_profile.png" alt="image" class="rounded-circle avatar-xl" />
                     <?php
                     }
                     ?>
@@ -31,13 +31,13 @@ if (isset($_POST['search'])) {
                 <p class="mb-0"><?php echo $row['contact_no'] ?></p>
                 <p class="mb-0"><?php echo $row['email_add'] ?></p>
                 <p class="mb-0"><?php echo $row['branch_site'] ?></p>
-                
+
                 <div class="row g-2">
                     <div class="col-xl-6 col-md-12">
-                        <button class="w-100 btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['employee_id'] ?>">Edit Profile</button>    
+                        <button class="w-100 btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['employee_id'] ?>">Edit Profile</button>
                     </div>
                     <div class="col-xl-6 col-md-12">
-                        <button class="w-100 btn btn-danger text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['employee_id'] ?>">Delete</button>    
+                        <button class="w-100 btn btn-danger text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['employee_id'] ?>">Delete</button>
                     </div>
                 </div>
 
@@ -122,7 +122,7 @@ if (isset($_POST['search'])) {
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group mb-2">
                                     <label class="mb-1">Email Address</label>
-                                    <input type="text" name="email_add" class="form-control" value="<?php echo $row['email_add'] ?>"  required>
+                                    <input type="text" name="email_add" class="form-control" value="<?php echo $row['email_add'] ?>" required>
                                     <div class="invalid-feedback">Please fill in this field</div>
                                 </div>
                                 <div class="form-group">
@@ -147,13 +147,13 @@ if (isset($_POST['search'])) {
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="mb-1 text-center">Profile Picture</label>
-                                    <input name="profile_pic" id="profile_pic" class="form-control" type="file" /> 
+                                    <input name="profile_pic" id="profile_pic" class="form-control" type="file" />
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="mb-1 text-center">Upload Resume</label>
-                                    <input name="uploaded_cv" id="uploaded_cv" class="form-control" type="file" /> 
+                                    <input name="uploaded_cv" id="uploaded_cv" class="form-control" type="file" />
                                 </div>
                             </div>
                         </div>
@@ -166,7 +166,7 @@ if (isset($_POST['search'])) {
                         </div>
                     </form>
                 </div>
-                
+
             </div> <!-- end modal-content-->
         </div> <!-- end modal dialog-->
     </div>
@@ -175,22 +175,23 @@ if (isset($_POST['search'])) {
     <div class="modal fade" id="delete<?php echo $row['employee_id'] ?>" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
-                <div class="modal-header px-4 border-bottom-0 d-block">
+                <div class="modal-header  flex-column border-bottom-0">
                     <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <h4 class="modal-title" id="modal-title">Delete Client</h4>
+                    <div class="icon-box mt-2">
+                        <i class="fas fa-trash-alt text-center text-danger fa-3x"></i>
+                    </div>
                 </div>
 
                 <div class="modal-body mx-4">
+                    <h3 class="text-center mb-1">Are you sure?</h3>
+                    <p class="text-muted h4 text-center">Do you really want to delete these account? This process cannot be undone.</p>
                     <form class="needs-validation" method="post" action="../../php/delete-account.php" enctype="multipart/form-data" novalidate>
-                        
-                        <input type="hidden" name="employee_id" value="<?php echo $row['employee_id'] ?>">
-                        <div>
-                            <h5>Do you want to delete this client?</h5>
-                        </div>
 
+                        <input type="hidden" name="employee_id" value="<?php echo $row['employee_id'] ?>">
                         <div class="row mt-4">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                <button type="submit" class="btn btn-danger px-5 rounded-pill" id="delete-account">Delete</button>
+                                <button name="del_one" type="submit" class="btn btn-danger rounded-pill px-4 py-1" id="btn-save-event" style="">Delete</button>
+                                <button type="button" class="btn btn-white rounded-pill fw-bold px-4 py-1" data-bs-dismiss="modal">Cancel</button>
                             </div>
                         </div>
 
@@ -205,7 +206,7 @@ if (isset($_POST['search'])) {
 </div>
 <?php }
 else { ?>
-    <div class="row">
+<div class="row">
     <?php
         $emp_id = $_SESSION['employee_id'];
         $sql = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id != '$emp_id' ORDER BY account_id DESC");
@@ -213,7 +214,7 @@ else { ?>
     ?>
 
     <div class="card-group col-xl-4 col-md-6 mt-2 ">
-        <div class="card" >
+        <div class="card">
             <div class="card-body text-center">
                 <div class="col-md-4 mx-auto d-block">
                     <?php
@@ -222,7 +223,7 @@ else { ?>
                     <?php
                     }
                     elseif ($row['profile_pic'] == null) { ?>
-                        <img src="../../assets/default_profile.png" alt="image" class="rounded-circle avatar-xl" />
+                    <img src="../../assets/default_profile.png" alt="image" class="rounded-circle avatar-xl" />
                     <?php
                     }
                     ?>
@@ -234,13 +235,13 @@ else { ?>
                 <p class="mb-0"><?php echo $row['contact_no'] ?></p>
                 <p class="mb-0"><?php echo $row['email_add'] ?></p>
                 <p class="mb-0"><?php echo $row['branch_site'] ?></p>
-                
+
                 <div class="row g-2">
                     <div class="col-xl-6 col-md-12">
-                        <button class="w-100 btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['employee_id'] ?>">Edit Profile</button>    
+                        <button class="w-100 btn btn-warning text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#edit<?php echo $row['employee_id'] ?>">Edit Profile</button>
                     </div>
                     <div class="col-xl-6 col-md-12">
-                        <button class="w-100 btn btn-danger text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['employee_id'] ?>">Delete</button>    
+                        <button class="w-100 btn btn-danger text-white rounded-pill mt-3 mb-2" data-bs-toggle="modal" data-bs-target="#delete<?php echo $row['employee_id'] ?>">Delete</button>
                     </div>
                 </div>
 
@@ -325,7 +326,7 @@ else { ?>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group mb-2">
                                     <label class="mb-1">Email Address</label>
-                                    <input type="text" name="email_add" class="form-control" value="<?php echo $row['email_add'] ?>"  required>
+                                    <input type="text" name="email_add" class="form-control" value="<?php echo $row['email_add'] ?>" required>
                                     <div class="invalid-feedback">Please fill in this field</div>
                                 </div>
                                 <div class="form-group">
@@ -350,13 +351,13 @@ else { ?>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="mb-1 text-center">Profile Picture</label>
-                                    <input name="profile_pic" id="profile_pic" class="form-control" type="file" /> 
+                                    <input name="profile_pic" id="profile_pic" class="form-control" type="file" />
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label class="mb-1 text-center">Upload Resume</label>
-                                    <input name="uploaded_cv" id="uploaded_cv" class="form-control" type="file" /> 
+                                    <input name="uploaded_cv" id="uploaded_cv" class="form-control" type="file" />
                                 </div>
                             </div>
                         </div>
@@ -369,7 +370,7 @@ else { ?>
                         </div>
                     </form>
                 </div>
-                
+
             </div> <!-- end modal-content-->
         </div> <!-- end modal dialog-->
     </div>
@@ -378,22 +379,23 @@ else { ?>
     <div class="modal fade" id="delete<?php echo $row['employee_id'] ?>" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-md">
             <div class="modal-content">
-                <div class="modal-header px-4 border-bottom-0 d-block">
+                <div class="modal-header  flex-column border-bottom-0">
                     <button type="button" class="btn-close float-end" data-bs-dismiss="modal" aria-label="Close"></button>
-                    <h4 class="modal-title" id="modal-title">Delete Client</h4>
+                    <div class="icon-box mt-2">
+                        <i class="fas fa-trash-alt text-center text-danger fa-3x"></i>
+                    </div>
                 </div>
-
                 <div class="modal-body mx-4">
+                    <h3 class="text-center mb-1">Are you sure?</h3>
+                    <p class="text-muted h4 text-center">Do you really want to delete these account? This process cannot be undone.</p>
                     <form class="needs-validation" method="post" action="../../php/delete-account.php" enctype="multipart/form-data" novalidate>
-                        
+
                         <input type="hidden" name="employee_id" value="<?php echo $row['employee_id'] ?>">
-                        <div>
-                            <h5>Do you want to delete this client?</h5>
-                        </div>
 
                         <div class="row mt-4">
                             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-                                <button type="submit" class="btn btn-danger px-5 rounded-pill" id="delete-account">Delete</button>
+                                <button name="del_one" type="submit" class="btn btn-danger rounded-pill px-4 py-1" id="btn-save-event" style="">Delete</button>
+                                <button type="button" class="btn btn-white rounded-pill fw-bold px-4 py-1" data-bs-dismiss="modal">Cancel</button>
                             </div>
                         </div>
 

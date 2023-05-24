@@ -236,7 +236,7 @@
                         <div style="overflow:auto;" id="nextprevious" class="d-flex justify-content-end">
                             <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="btn btn-secondary  btn-md py-2 px-4 text-white fw-bold rounded me-3">Back</button>
                             <button type="button" id="nextBtn" onclick="nextPrev(1)" class="btn btn-md py-2 px-4 text-white fw-bold rounded" style="background-color:#146dac;">Next</button>
-                            <button type="submit" id="submit" class="btn btn-md py-2 px-4 text-white fw-bold rounded" style="background-color:#146dac;">Submits</button>
+                            <button type="submit" id="submit" class="btn btn-md py-2 px-4 text-white fw-bold rounded" style="background-color:#146dac;">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -311,6 +311,7 @@
             document.getElementById("submit").style.display = "block";
         } else {
             document.getElementById("nextBtn").innerHTML = "Next";
+            document.getElementById("nextBtn").style.display = "block";
         }
         fixStepIndicator(n)
     }

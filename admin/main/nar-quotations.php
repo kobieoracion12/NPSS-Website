@@ -93,10 +93,10 @@
                                 <div class="modal-body mx-4">
                                     <form class="needs-validation" method="post" action="../../php/add-quotation.php" enctype="multipart/form-data" novalidate>
                                         
-                                        <div class="">
+                                    
                                             <label class="form-label">Company Name</label>
                                             
-                                            <select name="company_no" class="form-select">
+                                            <select name="company_no" class="form-select mb-2">
                                                 <?php 
                                                     $logo = mysqli_query($config, "SELECT * FROM company_profile");
                                                     while($data = mysqli_fetch_array($logo)) { 
@@ -105,8 +105,8 @@
                                                 <?php } ?>
                                             </select>
 
-                                        </div>
-                                        <div class="row mt-4 border-top border-1 pt-3">
+                                        
+                                        <div class="row mb-2">
                                             <div>
                                                 <label class="form-label">Display Name</label>
                                                 <input class="form-control" name="display_name" type="text" required />

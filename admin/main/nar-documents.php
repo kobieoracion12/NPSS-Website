@@ -125,9 +125,10 @@ include('../../php/access.php');
                                                 
                                             </div>
 
-                                            <div class="row mt-4">
+                                            <div class="row mt-4 mb-2">
                                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                                    <button type="submit" name="upload-docu" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Upload File</button>
+                                                    <button type="submit" name="upload-docu" class="btn btn-primary px-4 rounded rounded-3" id="btn-save-event">Upload File</button>
+                                                    <button type="button" class="btn btn-white rounded  rounded-3 fw-bold px-4 py-1" data-bs-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
 
@@ -176,9 +177,10 @@ include('../../php/access.php');
                                                 
                                             </div>
 
-                                            <div class="row mt-3">
-                                                <div class="d-grid gap-2 w-100">
-                                                    <button type="submit" name="add-folder" class="btn btn-primary px-5 rounded rounded-3" id="btn-save-event">Add Folder</button>
+                                            <div class="row mt-4  mb-2">
+                                               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                                                    <button type="submit" name="add-folder" class="btn btn-primary px-4 rounded rounded-3" id="btn-save-event">Add Folder</button>
+                                                     <button type="button" class="btn btn-white rounded  rounded-3 fw-bold px-4 py-1" data-bs-dismiss="modal">Cancel</button>
                                                 </div>
                                             </div>
 

@@ -54,14 +54,19 @@
                 <!-- Start Content-->
                 <div class="container-fluid">
                     <!-- Client Card -->
-                    <div class="row">
-                        <div id="comment_wrapper">
-                                        
+
+                    <div class="card col-xl-11 mx-auto mt-2">
+                        <div class="card-body overflow-auto" style="height: 25rem;">
+                            <div id="comment_wrapper">
+
+                            </div>
                         </div>
                     </div>
-                    <div class="border-1 border">
+
+
+                    <div class="border-1 border col-xl-11 mx-auto bg-white">
                         <form id="comment-form">
-                            <div class="d-flex flex-start mx-4 my-4">
+                            <div class="d-flex flex-start mx-4 my-3">
                                 <input type="hidden" name="emp_id" id="empId" value="<?php echo $_SESSION['employee_id']; ?>">
                                 <?php
                                 $id = $_GET['id'];
@@ -71,18 +76,18 @@
                                 $emp_id = $_SESSION['employee_id'];
                                 $records = mysqli_query($config, "SELECT * FROM employee_info WHERE employee_id = '$emp_id'");
                                 while ($data = mysqli_fetch_array($records)) { ?>
-                                
+
                                 <img class="rounded-circle avatar-md ms-2 me-3" src="../../uploads/profile/<?php echo $data['profile_pic'] ?>" alt="avatar" />
                                 <div class="w-100">
                                     <div class="d-flex justify-content-between align-items-center mb-2">
-                                        <h6 class="text-primary fw-bold mb-0 ps-1">
-                                            <?php echo $data['first_name'] ?> 
-                                        </h6>
+                                        <h5 class="text-primary fw-bold mb-0 ps-1">
+                                            <?php echo $data['first_name'] ?>
+                                        </h5>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <textarea class="form-control bg-light" placeholder="Write a comment" rows="2" id="contentComment" name="content_comment"></textarea>
+                                        <input class="form-control bg-light" placeholder="Write a comment" rows="2" id="contentComment" name="content_comment"></input>
                                         <button id="FormSubmit" class="btn btn-warning text-white fw-bold ms-3">Send</button>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <?php
                                 }
@@ -134,29 +139,28 @@
     <script src="../dist/assets/js/app.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-        //##### Add record when Add Record Button is click #########
-        $("#comment-form").submit(function (e) {
+            //##### Add record when Add Record Button is click #########
+            $("#comment-form").submit(function(e) {
                 e.preventDefault();
                 var myData = $("#empId").val();
                 var myData2 = $("#quotNo").val();
                 var myData3 = $("#contentComment").val();
                 //build a post data structure
                 jQuery.ajax({
-                type: "POST", // Post / Get method
-                url: "../../php/add-comment.php", //Where form data is sent on submission
-                dataType:"text", // Data type, HTML, json etc.
-                data: 'emp_id=' + myData + '&quot_no=' + myData2 + '&content_comment=' + myData3, //Form variables
-                success:function(response){
-                    $('#contentComment').val("");
-                },
-                error:function (xhr, ajaxOptions, thrownError){
-                    alert(thrownError);
-                }
+                    type: "POST", // Post / Get method
+                    url: "../../php/add-comment.php", //Where form data is sent on submission
+                    dataType: "text", // Data type, HTML, json etc.
+                    data: 'emp_id=' + myData + '&quot_no=' + myData2 + '&content_comment=' + myData3, //Form variables
+                    success: function(response) {
+                        $('#contentComment').val("");
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                        alert(thrownError);
+                    }
                 });
             });
         });
 
-        
     </script>
 </body>
 
@@ -165,22 +169,24 @@
     <?php
         $id = $_GET['id'];
     ?>
+
     function loadcomments() {
-      var xhttp = new XMLHttpRequest();
-      var params = "id=<?php echo $id ?>";
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          document.getElementById("comment_wrapper").innerHTML =
-          this.responseText;
-        }
-      };
-      xhttp.open("GET", "../modal/comment_wrapper.php?" + params, true);
-      xhttp.send();
+        var xhttp = new XMLHttpRequest();
+        var params = "id=<?php echo $id ?>";
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("comment_wrapper").innerHTML =
+                    this.responseText;
+            }
+        };
+        xhttp.open("GET", "../modal/comment_wrapper.php?" + params, true);
+        xhttp.send();
     }
-    setInterval(function(){
+    setInterval(function() {
         loadcomments();
         // 1sec
-    },1000);
+    }, 1000);
 
     window.onload = loadcomments;
+
 </script>
